@@ -1,6 +1,6 @@
-# Pr·ctica TecnologÌas Web
+# Pr√°ctica Tecnolog√≠as Web
 
-Proyecto para la asignatura de TecnologÌas Web de la UNED de 2019.
+Proyecto para la asignatura de Tecnolog√≠as Web de la UNED de 2019.
 
 ## Para empezar
 
@@ -12,7 +12,7 @@ Este proyecto se ha creado usando la herramienta Spring Initializr. Las dependen
 
 ### Base de Datos H2
 
-Se ha habilitado el acceso a la consola de H2 a travÈs del archivo "application.properties". Acceso:
+Se ha habilitado el acceso a la consola de H2 a trav√©s del archivo "application.properties". Acceso:
 
 ```
 http://localhost:8080/h2-console
