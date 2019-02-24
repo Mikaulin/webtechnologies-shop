@@ -11,14 +11,26 @@ Este proyecto se ha creado usando la herramienta Spring Initializr. Las dependen
 * JPA Dependency
 
 ### Base de Datos H2
-
-Se ha habilitado el acceso a la consola de H2 a través del archivo "application.properties". Acceso:
-
-```
-http://localhost:8080/h2-console
-```
+   
+   Se ha habilitado el acceso a la consola de H2 a través del archivo "application.properties". Acceso:
+   
+   ```
+   http://localhost:8080/h2-console
+   ```
 
 En JDBC URL indicamos: "jdbc:h2:mem:testdb".
+
+### Habilitando JSP en Spring Boot
+
+Tenemos que añadir la siguiente dependencia para habilitar el soporte para JSP en Spring Boot: 
+
+```
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+```
 
 ### Prerequisites
 
