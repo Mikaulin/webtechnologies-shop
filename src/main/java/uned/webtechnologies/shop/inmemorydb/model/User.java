@@ -22,7 +22,21 @@ public class User {
         this.age = age;
     }
 
-    //standard setters and getters
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getAge() {
+        return age;
+    }
 
     @Override
     public String toString() {
