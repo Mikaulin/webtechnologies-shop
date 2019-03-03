@@ -7,7 +7,9 @@
     <div class="col-md-8 order-md-1">
 
         <h4 class="mb-3">Crear Cuenta</h4>
-        <form class="needs-validation" novalidate>
+
+    <mvc:form modelAttribute="product" action="create">
+        <%--<form class="needs-validation" novalidate>--%>
 
 
             <div class="row">
@@ -111,8 +113,9 @@
             <p></p>
 
             <button class="btn btn-primary btn-lg " type="submit">Crear Cuenta</button>
+    </mvc:form>
 
-    </form>
+    <%--</form>--%>
 
   </div>
 

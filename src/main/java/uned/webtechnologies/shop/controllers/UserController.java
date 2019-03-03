@@ -8,19 +8,22 @@ import uned.webtechnologies.shop.services.UserService;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserController {
 
     private UserService userService;
 
     @Autowired
     public UserController (UserService userService) {
+
         this.userService = userService;
     }
 
     @GetMapping("/list")
     public String userList(Model model) {
         model.addAttribute("userList", this.userService.getUsers());
-        return "user/list";
+        return "list";
     }
+
+
 }
