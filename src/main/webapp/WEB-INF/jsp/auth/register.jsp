@@ -4,10 +4,10 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Create an account</title>
+    <title>Crea una cuenta</title>
 
 
 </head>
@@ -17,10 +17,10 @@
 <div class="container">
 
     <form:form method="POST" modelAttribute="userForm" class="form-signin">
-        <h2 class="form-signin-heading">Create your account</h2>
+        <h2 class="form-signin-heading">Crea una cuenta</h2>
         <spring:bind path="username">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="username" class="form-control" placeholder="Username"
+                <form:input type="text" path="username" class="form-control" placeholder="Usuario"
                             autofocus="true"></form:input>
                 <form:errors path="username"></form:errors>
             </div>
@@ -41,7 +41,7 @@
             </div>
         </spring:bind>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
     </form:form>
 
 </div>
