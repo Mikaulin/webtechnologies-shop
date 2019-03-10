@@ -1,15 +1,13 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String username;
@@ -27,8 +25,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String password, int age) {
-        this.id = id;
+    public User(String username, String password, int age) {
         this.username = username;
         this.password = password;
         this.age = age;
