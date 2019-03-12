@@ -9,6 +9,7 @@ public class FixturesLoader {
     private UserLoader userLoader;
     private ProductLoader productLoader;
 
+
     @Autowired
     public FixturesLoader(UserLoader userLoader, ProductLoader productLoader) {
 

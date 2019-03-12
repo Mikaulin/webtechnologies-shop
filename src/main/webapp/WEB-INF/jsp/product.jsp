@@ -15,7 +15,7 @@
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <% out.println("<h1 class='page-header'>"+ products.get(idProduct).getDescripcion()+" </h1>");%>
+        <% out.println("<h1 class='page-header'>"+ products.get(idProduct).getName()+" </h1>");%>
         <hr>
     </div>
 </div>
@@ -28,7 +28,7 @@
         <!-- There's only One image -->
         <div class="">
             <div class="main-product-image">
-                <% out.println("<img src='../"+ products.get(idProduct).getFoto()+ "' alt='' class='img-fluid'>");%>
+                <% out.println("<img src='../"+ products.get(idProduct).getPhoto()+ "' alt='' class='img-fluid'>");%>
             </div>
         </div>
 
@@ -42,14 +42,14 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Marca:</label>
                         <div class="col-sm-9 col-md-9">
-                            <% out.println("<p>"+ products.get(idProduct).getMarca() +"</p>");%>
+                            <% out.println("<p>"+ products.get(idProduct).getBrand().getName() +"</p>");%>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Descripción:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <% out.println("<p>"+ products.get(idProduct).getDescripcion() +"</p>");%>
+                            <% out.println("<p>"+ products.get(idProduct).getName() +"</p>");%>
                         </div>
                     </div>
 
@@ -57,14 +57,14 @@
                         <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio:</label>
                         <div class="col-sm-8 col-md-9">
                             <span class="product-form-price" id="product-form-price">
-                                    <% out.println("<h4><b>"+ products.get(idProduct).getPriceRbj() + " &euro;</b><small class='text-muted'> <strike>" + products.get(idProduct).getPriceOrg() + "</strike></small></h4> ");%></span>
+                                    <% out.println("<h4><b>"+ products.get(idProduct).getPriceDesc() + " &euro;</b><small class='text-muted'> <strike>" + products.get(idProduct).getPrice() + "</strike></small></h4> ");%></span>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Ahorras:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <% out.println("<p style='color:red'>"+ products.get(idProduct).getAhorro() +" &euro;</p>");%>
+                            <% out.println("<p style='color:red'>"+ products.get(idProduct).getDif() +" &euro;</p>");%>
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@
 
                     <!-- Out of Stock -->
                     <%
-                    if (products.get(idProduct).getUnidades() < 1) {
+                    if (products.get(idProduct).getCount() < 1) {
                     out.println("<div class='form-group product-stock product-out-stock row hidden' >");
                     out.println("<label class='col-sm-3 col-md-3 form-control-label' > Disponibilidad:</label >");
                     out.println("<div class='col-sm-8 col-md-9' >");

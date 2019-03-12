@@ -18,10 +18,7 @@ public class ProductService{
     }
 
 
-    public void productDelete(Long id) {
 
-        this.productRepository.delete(id);
-    }
 
 
     public void productAdd(Product product) {

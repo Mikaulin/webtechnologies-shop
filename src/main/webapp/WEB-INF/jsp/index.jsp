@@ -25,35 +25,29 @@
     <div class="row">
 
 
-          <%
+        <%
             if (request.getAttribute("productList") != null) {
-
                 List<Product> products = (List) request.getAttribute("productList");
-
-                    for (Product product : products) {
-
-                        if (product.getId()<5) {
-
-                            out.println("<div class='col-md-3'>");
-                            out.println("<div class='card mb-3 box-shadow'>");
-                            out.println("<img class='card-img-top' src='../" + product.getFoto() + "' alt='" + product.getDescripcion() + "'>");
-                            out.println("<div class='card-body'>");
-                            out.println("<p class='card-text'>" + product.getMarca() + "</p>");
-                            out.println("<p class='card-text'>" + product.getDescripcion() + "</p>");
-                            out.println("<h4 class='card-title pricing-card-title'>" + product.getPriceRbj() + " &euro; <small class='text-muted'> <strike>" + product.getPriceOrg() + "</strike></small></h4>");
-                            out.println("<ul class='list-unstyled mt-3 mb-4'>");
-                            out.println("<li style='color:#FF0000'>Ahorras " + product.getAhorro() + " &euro;</li>");
-                            out.println("</ul>");
-                            out.println("<a href='product?id="+ product.getId() +"' class='btn btn-outline-danger btn-lg btn-block' role='button' aria-pressed='true'>Ver detalles</a>");
-                            out.println("</div>");
-                            out.println("</div>");
-                            out.println("</div>");
-
-                        }
+                for (Product product : products) {
+                    if (product.getId()<5) {
+                        out.println("<div class='col-md-3'>");
+                        out.println("<div class='card mb-3 box-shadow'>");
+                        out.println("<img class='card-img-top' src='../" + product.getPhoto() + "' alt='" + product.getName() + "'>");
+                        out.println("<div class='card-body'>");
+                        out.println("<p class='card-text'>" + product.getBrand().getName() + "</p>");
+                        out.println("<p class='card-text'>" + product.getName() + "</p>");
+                        out.println("<h4 class='card-title pricing-card-title'>" + product.getPriceDesc() + " &euro; <small class='text-muted'> <strike>" + product.getPrice() + "</strike></small></h4>");
+                        out.println("<ul class='list-unstyled mt-3 mb-4'>");
+                        out.println("<li style='color:#FF0000'>Ahorras " + product.getDif() + " &euro;</li>");
+                        out.println("</ul>");
+                        out.println("<a href='product?id="+ product.getId() +"' class='btn btn-outline-danger btn-lg btn-block' role='button' aria-pressed='true'>Ver detalles</a>");
+                        out.println("</div>");
+                        out.println("</div>");
+                        out.println("</div>");
+                    }
                 }
             }
-
-            %>
+        %>
 
     </div>
 
@@ -92,44 +86,6 @@
 
     <p></p>
 
-    <div class="row">
-
-
-        <%
-            if (request.getAttribute("productList") != null) {
-
-                List<Product> products = (List) request.getAttribute("productList");
-
-                for (Product product : products) {
-
-                    if (product.getId()>4) {
-
-                        out.println("<div class='col-md-3'>");
-                        out.println("<div class='card mb-3 box-shadow'>");
-                        out.println("<img class='card-img-top' src='../" + product.getFoto() + "' alt='" + product.getDescripcion() + "'>");
-                        out.println("<div class='card-body'>");
-                        out.println("<p class='card-text'>" + product.getMarca() + "</p>");
-                        out.println("<p class='card-text'>" + product.getDescripcion() + "</p>");
-                        out.println("<h4 class='card-title pricing-card-title'>" + product.getPriceRbj() + " &euro; <small class='text-muted'> <strike>" + product.getPriceOrg() + "</strike></small></h4>");
-                        out.println("<ul class='list-unstyled mt-3 mb-4'>");
-                        out.println("<li style='color:#FF0000'>Ahorras " + product.getAhorro() + " &euro;</li>");
-                        out.println("</ul>");
-                        out.println("<a href='product?id="+ product.getId() +"' class='btn btn-outline-danger btn-lg btn-block' role='button' aria-pressed='true'>Ver detalles</a>");
-                        out.println("</div>");
-                        out.println("</div>");
-                        out.println("</div>");
-
-                    }
-                }
-            }
-
-        %>
-
-    </div>
-
-
-
-    <p>&nbsp;</p><p>&nbsp;</p>
 
 
 </div>

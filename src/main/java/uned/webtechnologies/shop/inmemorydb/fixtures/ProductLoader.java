@@ -4,64 +4,86 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uned.webtechnologies.shop.inmemorydb.model.Brand;
+import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.ProductDetails;
+import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
+import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
-import java.util.List;
+
 
 @Service
-public class ProductLoader implements IProductLoader {
+
+public class ProductLoader implements ILoader {
 
     private Logger log2 = LoggerFactory.getLogger("Application");
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    private final BrandRepository brandRepository;
+
 
     @Autowired
-    public ProductLoader(ProductRepository productRepository) {
+    public ProductLoader(ProductRepository productRepository, CategoryRepository categoryRepository, BrandRepository brandRepository) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+        this.brandRepository = brandRepository;
+
     }
 
     @Override
     public void load() {
-        Product product1 = new Product(1L, "/electro/002_big.jpg", "LG", "Frigor&iacute;fico Combi GBB60SWGFS", 799.99, 599.99, 200.00, 33);
-        Product product2 = new Product(2L, "/electro/003_big.jpg", "TEKA", "Placa vitrocer&aacute;mica TB 6315 (El&eacute;ctrica - 60 cm - Negro)", 219.99, 181.82, 38.17, 33);
-        Product product3 = new Product(3L, "/electro/004_big.jpg", "SAMSUNG", "Frigor&iacute;fico combi RB37K6033SS/EF", 849.99, 699.99, 150.00, 33);
-        Product product4 = new Product(4L, "/electro/001_big.jpg", "LG", "Lavadora F4J6JY0W (10 kg - 1400 rpm - Blanco)", 629.99, 520.69, 109.30, 33);
+        Category raiz = new Category("raiz", null);
+        categoryRepository.save(raiz);
+        Category ge = new Category("Grandes electrodomesticos", raiz);
+        categoryRepository.save(ge);
+        Category fri = new Category("frigorificos", ge);
+        categoryRepository.save(fri);
+        Category vitro = new Category("vitroceramicas", raiz);
+        categoryRepository.save(vitro);
 
-        Product product5 = new Product(5L, "/electro/005.jpg", "AEG", "Horno SurroundCook BPS331120M (71 L - 59.5 cm - Pirol&iacute;tico - Inox)", 199.99, 179.99, 20.00, 33);
-        Product product6 = new Product(6L, "/electro/006.jpg", "BOSCH", "Lavasecadora WVH28 1EP (4/7 kg - 1400 rpm - Blanco)", 999.99, 749.99, 250.00, 33);
-        Product product7 = new Product(7L, "/electro/007.jpg", "BALAY", "Lavavajillas 3VS502BP (12 cubiertos - 60 cm - Blanco)", 349.99, 299.99, 50.00, 33);
-        Product product8 = new Product(8L, "/electro/008.jpg", "INDISET", "Frigor&iacute;fico combi LI8 FF2I WH", 469.99, 399.99, 70.00, 33);
+
+        Brand balay = new Brand("BALAY");
+        Brand lg = new Brand("LG");
+        Brand teka = new Brand("TEKA");
+        Brand samsung = new Brand("SAMSUNG");
+        Brand aeg = new Brand("AEG");
+        Brand bosch = new Brand("BOSCH");
+        Brand indesit = new Brand("INDESIT");
+        brandRepository.save(balay);
+        brandRepository.save(lg);
+        brandRepository.save(teka);
+        brandRepository.save(samsung);
+        brandRepository.save(aeg);
+        brandRepository.save(bosch);
+        brandRepository.save(indesit);
+
+        Product product1 = new Product("Frigorifico comby siemens", "/electro/004_big.jpg", 100, balay, fri, new ProductDetails(2000, 900, 600),30,900);
+        Product product2 = new Product("Placa vitrocer&aacute;mica TB 6315 (El&eacute;ctrica - 60 cm - Negro)", "/electro/003_big.jpg", 100, teka, vitro, new ProductDetails(5, 600, 500),20,450);
+        Product product3 = new Product("Frigor&iacute;fico combi RB37K6033SS/EF", "/electro/004_big.jpg", 50, samsung, ge, new ProductDetails(2000, 600, 500),30,875);
+        Product product4 = new Product("Lavadora F4J6JY0W (10 kg - 1400 rpm - Blanco)", "/electro/001_big.jpg", 50, lg, ge, new ProductDetails(700, 570, 480),15,625);
+        Product product5 = new Product("Horno SurroundCook BPS331120M (71 L - 59.5 cm - Pirol&iacute;tico - Inox)", "/electro/005_big.jpg", 50, aeg, raiz, new ProductDetails(680, 570, 480),10,1000);
+        Product product6 = new Product("Lavasecadora WVH28 1EP (4/7 kg - 1400 rpm - Blanco)", "/electro/006_big.jpg", 50, bosch, ge, new ProductDetails(680, 570, 480),15,700);
+        Product product7 = new Product("Lavavajillas 3VS502BP (12 cubiertos - 60 cm - Blanco)", "/electro/007_big.jpg", 50, balay, ge, new ProductDetails(700, 570, 480),35,450);
+        Product product8 = new Product("Frigor&iacute;fico combi LI8 FF2I WH", "/electro/008_big.jpg", 50, indesit, fri, new ProductDetails(1900, 570, 480),40,900);
+
+
+        brandRepository.save(balay);
+
 
         productRepository.save(product1);
         productRepository.save(product2);
         productRepository.save(product3);
         productRepository.save(product4);
-
         productRepository.save(product5);
         productRepository.save(product6);
         productRepository.save(product7);
         productRepository.save(product8);
 
+
         log2.info("Productos cargados en DataBase: " + productRepository.count());
 
     }
 
-    @Override
-    public List<Product> productList() {
-        return null;
-    }
 
-    @Override
-    public void productDelete(Long id) {
-
-    }
-
-    @Override
-    public void productAdd(Product product) {
-
-    }
-
-    @Override
-    public Long productCount() {
-        return null;
-    }
 }
