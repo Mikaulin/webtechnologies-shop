@@ -1,9 +1,8 @@
-
 <%@ page import="java.util.List" %>
 <%@ page import="uned.webtechnologies.shop.inmemorydb.model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@ include file = "_header.jsp"%>
+<%@ include file="_header.jsp" %>
 
 <div class="container">
 
@@ -29,21 +28,39 @@
             if (request.getAttribute("productList") != null) {
                 List<Product> products = (List) request.getAttribute("productList");
                 for (Product product : products) {
-                    if (product.getId()<5) {
-                        out.println("<div class='col-md-3'>");
-                        out.println("<div class='card mb-3 box-shadow'>");
-                        out.println("<img class='card-img-top' src='../" + product.getPhoto() + "' alt='" + product.getName() + "'>");
-                        out.println("<div class='card-body'>");
-                        out.println("<p class='card-text'>" + product.getBrand().getName() + "</p>");
-                        out.println("<p class='card-text'>" + product.getName() + "</p>");
-                        out.println("<h4 class='card-title pricing-card-title'>" + product.getPriceDesc() + " &euro; <small class='text-muted'> <strike>" + product.getPrice() + "</strike></small></h4>");
-                        out.println("<ul class='list-unstyled mt-3 mb-4'>");
-                        out.println("<li style='color:#FF0000'>Ahorras " + product.getDif() + " &euro;</li>");
-                        out.println("</ul>");
-                        out.println("<a href='product?id="+ product.getId() +"' class='btn btn-outline-danger btn-lg btn-block' role='button' aria-pressed='true'>Ver detalles</a>");
-                        out.println("</div>");
-                        out.println("</div>");
-                        out.println("</div>");
+                    if (product.getId() < 5) {%>
+
+
+        <div class='col-md-3'>
+            <div class='card mb-3 box-shadow'>
+                <img class='card-img-top' src='../<%=product.getPhoto() %> ' alt='<%=product.getName()%> '>
+                <div class='card-body'>
+                    <p class='card-text'>
+                        <%=product.getBrand().getName()%>
+                    </p>
+                    <p class='card-text'>
+                        <%=product.getName() %>
+                    </p>
+                    <h4 class='card-title pricing-card-title'>
+                        <%=product.getPriceDesc()%> &euro;
+                        <small class='text-muted'><strike>
+                            <%=product.getPrice()%>
+                        </strike></small>
+                    </h4>
+                    <ul class='list-unstyled mt-3 mb-4'>
+                        <li style='color:#FF0000'>
+                            Ahorras <%=product.getDif() %> &euro;
+                        </li>
+                    </ul>
+                    <a href='product?id=<%=product.getId()%>' class='btn btn-outline-danger btn-lg btn-block'
+                       role='button' aria-pressed='true'>
+                        Ver detalles
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <%
                     }
                 }
             }
@@ -59,13 +76,16 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <strong class="d-inline-block mb-2 text-primary">Promoci&oacute;n del mes</strong>
                     <h3 class="mb-0">
-                        <span class="text-dark" >SIN IVA</span>
+                        <span class="text-dark">SIN IVA</span>
                     </h3>
-                    <div class="mb-1 text-muted">en TEKA</div><p></p>
-                    <p class="card-text mb-auto">V&aacute;lido desde el 28 de febrero al 6 de marzo en todos los electrodom&eacute;sticos TEKA. Te descontamos el importe equivalente al IVA.</p>
+                    <div class="mb-1 text-muted">en TEKA</div>
+                    <p></p>
+                    <p class="card-text mb-auto">V&aacute;lido desde el 28 de febrero al 6 de marzo en todos los
+                        electrodom&eacute;sticos TEKA. Te descontamos el importe equivalente al IVA.</p>
                     <a href="${pageContext.request.contextPath}/servicios">Continuar leyendo</a>
                 </div>
-                <img class="card-img-right flex-auto d-none d-md-block" src="${pageContext.request.contextPath}/img/servicios01.jpg" alt="Card image cap">
+                <img class="card-img-right flex-auto d-none d-md-block"
+                     src="${pageContext.request.contextPath}/img/servicios01.jpg" alt="Card image cap">
             </div>
         </div>
         <div class="col-md-6">
@@ -73,13 +93,16 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <strong class="d-inline-block mb-2 text-primary">Servicios ElectroHOME</strong>
                     <h3 class="mb-0">
-                        <span class="text-dark" >SOLUCIONES</span>
+                        <span class="text-dark">SOLUCIONES</span>
                     </h3>
-                    <div class="mb-1 text-muted">Postventa</div><p></p>
-                    <p class="card-text mb-auto">Servicio de Entregas a Domicilio. Disponible para todos aquellos productos que no disfrutan de entrega a domicilio gratuita.</p>
+                    <div class="mb-1 text-muted">Postventa</div>
+                    <p></p>
+                    <p class="card-text mb-auto">Servicio de Entregas a Domicilio. Disponible para todos aquellos
+                        productos que no disfrutan de entrega a domicilio gratuita.</p>
                     <a href="${pageContext.request.contextPath}/servicios">Continuar leyendo</a>
                 </div>
-                <img class="card-img-right flex-auto d-none d-md-block" src="${pageContext.request.contextPath}/img/servicios02.jpg" alt="Card image cap">
+                <img class="card-img-right flex-auto d-none d-md-block"
+                     src="${pageContext.request.contextPath}/img/servicios02.jpg" alt="Card image cap">
             </div>
         </div>
     </div>
@@ -87,8 +110,7 @@
     <p></p>
 
 
-
 </div>
 
-<%@ include file = "_js.jsp"%>
-<%@ include file = "_footer.jsp"%>
+<%@ include file="_js.jsp" %>
+<%@ include file="_footer.jsp" %>
