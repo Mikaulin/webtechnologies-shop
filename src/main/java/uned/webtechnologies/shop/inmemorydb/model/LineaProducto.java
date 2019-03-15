@@ -62,6 +62,9 @@ public class LineaProducto {
 
 
     }
+    public double getPrecioCompra(){
+        return this.cant*product.getPriceDesc();
+    }
 
 
     @Override
