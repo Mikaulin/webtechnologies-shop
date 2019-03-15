@@ -2,6 +2,7 @@ package uned.webtechnologies.shop.services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import java.util.List;
@@ -21,6 +22,8 @@ public class ProductService{
 
 
 
+
+
     public void productAdd(Product product) {
 
         this.productRepository.save(product);
@@ -31,5 +34,10 @@ public class ProductService{
 
         return this.productRepository.count();
     }
+
+
+
+
+
 }
 

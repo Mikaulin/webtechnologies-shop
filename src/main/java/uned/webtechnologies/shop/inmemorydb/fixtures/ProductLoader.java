@@ -68,8 +68,6 @@ public class ProductLoader implements ILoader {
         Product product8 = new Product("Frigor&iacute;fico combi LI8 FF2I WH", "/electro/008_big.jpg", 50, indesit, fri, new ProductDetails(1900, 570, 480),40,900);
 
 
-        brandRepository.save(balay);
-
 
         productRepository.save(product1);
         productRepository.save(product2);

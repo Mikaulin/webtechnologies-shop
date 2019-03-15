@@ -19,6 +19,8 @@ public class User {
     private String username;
     private String password;
 
+
+
     public User() {
     }
 
@@ -34,6 +36,7 @@ public class User {
         this.cp = cp;
         this.username = username;
         this.password = password;
+
     }
 
     public Long getId() {
