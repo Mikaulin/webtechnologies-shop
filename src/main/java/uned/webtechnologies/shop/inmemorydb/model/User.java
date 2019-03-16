@@ -1,87 +1,179 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
-    private Long id;
-    private String nombre;
-    private String apellidos;
-    private String direccion;
-    private String provincia;
-    private String pais;
+    @GeneratedValue
+    private int id;
+    private String name;
+    private String lastname1;
+    private String lastname2;
+    private String direction;
+    private String city;
+    private String province;
+    private String country;
     private String email;
     private String tlf;
-    private int cp;
-    private String username;
+    private int pc;
     private String password;
+    private String username;
+    private boolean subscribed;
+    @OneToMany (mappedBy = "user")
+    private Set<Cart> carts;
+    @OneToMany (mappedBy = "user")
+    private Set<PurchaseLine> purchaseLines;
+
+
+
 
 
 
     public User() {
     }
 
-    public User(Long id, String nombre, String apellidos, String direccion, String provincia, String pais, String email, String tlf, int cp, String username, String password) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.direccion = direccion;
-        this.provincia = provincia;
-        this.pais = pais;
+
+    public User(String name, String lastname1, String direction, String city, String country, String email, String tlf,int pc, String username, String password) {
+        this.name = name;
+        this.lastname1 = lastname1;
+        this.direction = direction;
+        this.city = city;
+        this.country = country;
         this.email = email;
         this.tlf = tlf;
-        this.cp = cp;
-        this.username = username;
         this.password = password;
-
+        this.username = username;
+        this.pc=pc;
+        subscribed=true;
     }
 
-    public Long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public String getUserNombre() {
-        return nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUserApellidos() {
-        return apellidos;
+    public String getCity() {
+        return city;
     }
 
-    public String getUserDireccion() {
-        return direccion;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getUserProvincia() {
-        return provincia;
+    public String getLastname1() {
+        return lastname1;
     }
 
-    public String getUserPais() {
-        return pais;
+    public void setLastname1(String lastname1) {
+        this.lastname1 = lastname1;
     }
 
-    public String getUserEmail() {
+    public String getLastname2() {
+        return lastname2;
+    }
+
+    public void setLastname2(String lastname2) {
+        this.lastname2 = lastname2;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public String getUserTlf() {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTlf() {
         return tlf;
     }
 
-    public int getUserCp() {
-        return cp;
+    public void setTlf(String tlf) {
+        this.tlf = tlf;
     }
 
-    public String getUserName() {
+    public int getPc() {
+        return pc;
+    }
+
+    public void setPc(int pc) {
+        this.pc = pc;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsername() {
         return username;
     }
 
-    public String getUserPwd() {
-        return password;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    public boolean isSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(boolean subscribed) {
+        this.subscribed = subscribed;
+    }
+
+    public Set<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
+    }
+
+    public Set<PurchaseLine> getPurchaseLines() {
+        return purchaseLines;
+    }
+
+    public void setPurchaseLines(Set<PurchaseLine> purchaseLines) {
+        this.purchaseLines = purchaseLines;
+    }
+
+
 
 
 
@@ -89,16 +181,22 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", provincia='" + provincia + '\'' +
-                ", pais='" + pais + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname1='" + lastname1 + '\'' +
+                ", lastname2='" + lastname2 + '\'' +
+                ", direction='" + direction + '\'' +
+                ", city='" + city + '\'' +
+                ", province='" + province + '\'' +
+                ", country='" + country + '\'' +
                 ", email='" + email + '\'' +
                 ", tlf='" + tlf + '\'' +
-                ", cp=" + cp + '\'' +
+                ", pc=" + pc +
+                ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password +
+                ", subscribed=" + subscribed +
+                ", carts=" + carts +
+                ", purchaseLines=" + purchaseLines +
+
                 '}';
     }
 }

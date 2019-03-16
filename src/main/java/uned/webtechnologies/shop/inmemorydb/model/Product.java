@@ -1,17 +1,27 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
+/**
+ *
+ */
 @Entity
 public class Product {
     @Id
     @GeneratedValue
     private int id;
-    private String name;
-    private String photo;
     private int count;
+    private String name;
+    private String description;
+    private String photo;
     private double price;
+    private double discount;
+    private double height;
+    private double width;
+    private double depth;
+    private boolean deleted;
     @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_BRAND")
     private Brand brand;
@@ -19,62 +29,70 @@ public class Product {
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
 
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "ID_DETAILS")
-    private ProductDetails details;
-    private double desc;
 
 
     public Product() {
+
     }
 
-
-
-    public Product(String name, String photo, int count, Brand brand, Category category, ProductDetails details, double desc, double price) {
-
-        this.name = name;
-        this.photo = photo;
+    /**
+     * @param count Numero de unidades disponibles
+     * @param name
+     * @param description
+     * @param photo
+     * @param price
+     * @param discount
+     * @param height
+     * @param width
+     * @param depth
+     * @param deleted
+     * @param brand
+     * @param category
+     */
+    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, boolean deleted, Brand brand, Category category) {
         this.count = count;
+        this.name = name;
+        this.description = description;
+        this.photo = photo;
+        this.price = price;
+        this.discount = discount;
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
+        this.deleted = deleted;
         this.brand = brand;
         this.category = category;
-        this.details = details;
-        this.desc = desc;
+
+    }
+
+    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, Brand brand, Category category) {
+        this.count = count;
+        this.name = name;
+        this.description = description;
+        this.photo = photo;
         this.price = price;
-
-    }
-
-
-    public void setDetails(ProductDetails details) {
-        this.details = details;
-    }
-
-    public ProductDetails getDetails() {
-        return details;
-    }
-
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setBrand(Brand brand) {
+        this.discount = discount;
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
         this.brand = brand;
+        this.category = category;
+        this.deleted=false;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @return
+     */
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public String getName() {
@@ -85,6 +103,14 @@ public class Product {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getPhoto() {
         return photo;
     }
@@ -93,48 +119,96 @@ public class Product {
         this.photo = photo;
     }
 
-
-    public int getCount() {
-        return count;
+    public double getPrice() {
+        return price;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public double getDesc() {
-        return desc;
+    public double getDiscount() {
+        return discount;
     }
 
-    public void setDesc(double desc) {
-        this.desc = desc;
+    public void setDiscount(double descount) {
+        this.discount = descount;
     }
 
-    public double getPriceDesc() {
-        return price + price * (desc / 100);
+    public double getHeight() {
+        return height;
     }
 
-    public int getId() {
-        return id;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public double getDif() {
-        return price*(desc/100);
+    public double getWidth() {
+        return width;
     }
 
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getDepth() {
+        return depth;
+    }
+
+    public void setDepth(double depth) {
+        this.depth = depth;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+    public double getDif(){
+        return getPrice()-getFinalPrice();
+    }
+
+
+
+    public double getFinalPrice(){
+        return price-price*(discount/100);
+    }
 
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", photo='" + photo + '\'' +
                 ", count=" + count +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", photo='" + photo + '\'' +
                 ", price=" + price +
+                ", discount=" + discount +
+                ", height=" + height +
+                ", width=" + width +
+                ", depth=" + depth +
+                ", deleted=" + deleted +
                 ", brand=" + brand +
                 ", category=" + category +
-                ", details=" + details +
-                ", desc=" + desc +
+
                 '}';
     }
 }

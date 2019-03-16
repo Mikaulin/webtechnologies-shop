@@ -57,7 +57,7 @@
                         <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio:</label>
                         <div class="col-sm-8 col-md-9">
                             <span class="product-form-price" id="product-form-price">
-                                    <% out.println("<h4><b>"+ products.get(idProduct).getPriceDesc() + " &euro;</b><small class='text-muted'> <strike>" + products.get(idProduct).getPrice() + "</strike></small></h4> ");%></span>
+                                    <% out.println("<h4><b>"+ products.get(idProduct).getFinalPrice() + " &euro;</b><small class='text-muted'> <strike>" + products.get(idProduct).getPrice() + "</strike></small></h4> ");%></span>
                         </div>
                     </div>
 

@@ -42,7 +42,7 @@
                         <%=product.getName() %>
                     </p>
                     <h4 class='card-title pricing-card-title'>
-                        <%=product.getPriceDesc()%> &euro;
+                        <%=product.getFinalPrice()%> &euro;
                         <small class='text-muted'><strike>
                             <%=product.getPrice()%>
                         </strike></small>

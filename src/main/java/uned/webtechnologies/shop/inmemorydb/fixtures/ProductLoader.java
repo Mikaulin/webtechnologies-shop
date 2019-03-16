@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
-import uned.webtechnologies.shop.inmemorydb.model.ProductDetails;
+
 import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
@@ -33,13 +33,13 @@ public class ProductLoader implements ILoader {
 
     @Override
     public void load() {
-        Category raiz = new Category("raiz", null);
+        Category raiz = new Category("raiz");
         categoryRepository.save(raiz);
-        Category ge = new Category("Grandes electrodomesticos", raiz);
+        Category ge = new Category("Grandes electrodomesticos");
         categoryRepository.save(ge);
-        Category fri = new Category("frigorificos", ge);
+        Category fri = new Category("frigorificos");
         categoryRepository.save(fri);
-        Category vitro = new Category("vitroceramicas", raiz);
+        Category vitro = new Category("vitroceramicas");
         categoryRepository.save(vitro);
 
 
@@ -58,14 +58,14 @@ public class ProductLoader implements ILoader {
         brandRepository.save(bosch);
         brandRepository.save(indesit);
 
-        Product product1 = new Product("Frigorifico comby siemens", "/electro/004_big.jpg", 100, balay, fri, new ProductDetails(2000, 900, 600),30,900);
-        Product product2 = new Product("Placa vitrocer&aacute;mica TB 6315 (El&eacute;ctrica - 60 cm - Negro)", "/electro/003_big.jpg", 100, teka, vitro, new ProductDetails(5, 600, 500),20,450);
-        Product product3 = new Product("Frigor&iacute;fico combi RB37K6033SS/EF", "/electro/004_big.jpg", 50, samsung, ge, new ProductDetails(2000, 600, 500),30,875);
-        Product product4 = new Product("Lavadora F4J6JY0W (10 kg - 1400 rpm - Blanco)", "/electro/001_big.jpg", 50, lg, ge, new ProductDetails(700, 570, 480),15,625);
-        Product product5 = new Product("Horno SurroundCook BPS331120M (71 L - 59.5 cm - Pirol&iacute;tico - Inox)", "/electro/005_big.jpg", 50, aeg, raiz, new ProductDetails(680, 570, 480),10,1000);
-        Product product6 = new Product("Lavasecadora WVH28 1EP (4/7 kg - 1400 rpm - Blanco)", "/electro/006_big.jpg", 50, bosch, ge, new ProductDetails(680, 570, 480),15,700);
-        Product product7 = new Product("Lavavajillas 3VS502BP (12 cubiertos - 60 cm - Blanco)", "/electro/007_big.jpg", 50, balay, ge, new ProductDetails(700, 570, 480),35,450);
-        Product product8 = new Product("Frigor&iacute;fico combi LI8 FF2I WH", "/electro/008_big.jpg", 50, indesit, fri, new ProductDetails(1900, 570, 480),40,900);
+        Product product1 = new Product(20,"Frigorifico comby siemens","Frigorifico combi No frost. Acabado en acero inoxidable ", "/electro/004_big.jpg",1500,30,2000,700,550,balay,fri);
+        Product product2 = new Product(30,"Placa vitroceramica TB 6315 (Electrica - 60 cm - Negro)","Tres focos de calor. Marco de acero inoxidable", "/electro/003_big.jpg", 423,15,10,500,500, teka, vitro);
+        Product product3 = new Product(15,"Frigorifico combi RB37K6033SS/EF","Frigorifico combi con sistema No Frost","/electro/004_big.jpg",900,17,1900,550,550, samsung, ge);
+        Product product4 = new Product(17,"Lavadora F4J6JY0W (10 kg - 1400 rpm - Blanco)","5 programas de lavado","/electro/001_big.jpg",370,15,780,575,550, lg, ge);
+        Product product5 = new Product(42,"Horno SurroundCook BPS331120M (71 L - 59.5 cm - Pirolitico - Inox)","Facil limpieza, cristal extraible. Motor giratorio para asados","/electro/005_big.jpg",450, 12,500,530,540,aeg, raiz);
+        Product product6 = new Product(23,"Lavasecadora WVH28 1EP (4/7 kg - 1400 rpm - Blanco)","7 programas de lavado. 5 programas de secado. Bomba de calor","/electro/006_big.jpg",375,10, 700,540,530,bosch, ge);
+        Product product7 = new Product(55,"Lavavajillas 3VS502BP (12 cubiertos - 60 cm - Blanco)","7 programas de lavado. Encendido programable,Integrable","/electro/007_big.jpg",420,10,700,550,530, balay, ge);
+        Product product8 = new Product(60,"Frigorífico combi LI8 FF2I WH","Disponible en blanco y acero inoxidable","/electro/008_big.jpg", 50,0,1900,570,580,indesit, fri);
 
 
 
