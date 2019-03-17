@@ -33,8 +33,7 @@ public class ProductLoader implements ILoader {
 
     @Override
     public void load() {
-        Category raiz = new Category("raiz");
-        categoryRepository.save(raiz);
+
         Category ge = new Category("Grandes electrodomesticos");
         categoryRepository.save(ge);
         Category fri = new Category("frigorificos");
@@ -62,7 +61,7 @@ public class ProductLoader implements ILoader {
         Product product2 = new Product(30,"Placa vitroceramica TB 6315 (Electrica - 60 cm - Negro)","Tres focos de calor. Marco de acero inoxidable", "/electro/003_big.jpg", 423,15,10,500,500, teka, vitro);
         Product product3 = new Product(15,"Frigorifico combi RB37K6033SS/EF","Frigorifico combi con sistema No Frost","/electro/004_big.jpg",900,17,1900,550,550, samsung, ge);
         Product product4 = new Product(17,"Lavadora F4J6JY0W (10 kg - 1400 rpm - Blanco)","5 programas de lavado","/electro/001_big.jpg",370,15,780,575,550, lg, ge);
-        Product product5 = new Product(42,"Horno SurroundCook BPS331120M (71 L - 59.5 cm - Pirolitico - Inox)","Facil limpieza, cristal extraible. Motor giratorio para asados","/electro/005_big.jpg",450, 12,500,530,540,aeg, raiz);
+        Product product5 = new Product(42,"Horno SurroundCook BPS331120M (71 L - 59.5 cm - Pirolitico - Inox)","Facil limpieza, cristal extraible. Motor giratorio para asados","/electro/005_big.jpg",450, 12,500,530,540,aeg,ge);
         Product product6 = new Product(23,"Lavasecadora WVH28 1EP (4/7 kg - 1400 rpm - Blanco)","7 programas de lavado. 5 programas de secado. Bomba de calor","/electro/006_big.jpg",375,10, 700,540,530,bosch, ge);
         Product product7 = new Product(55,"Lavavajillas 3VS502BP (12 cubiertos - 60 cm - Blanco)","7 programas de lavado. Encendido programable,Integrable","/electro/007_big.jpg",420,10,700,550,530, balay, ge);
         Product product8 = new Product(60,"Frigorífico combi LI8 FF2I WH","Disponible en blanco y acero inoxidable","/electro/008_big.jpg", 50,0,1900,570,580,indesit, fri);

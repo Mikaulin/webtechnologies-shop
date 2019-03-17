@@ -1,12 +1,9 @@
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMethod;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.services.ProductService;
 
@@ -22,11 +19,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/product")
-    public String productList(Model model) {
-        model.addAttribute("productList", this.productService.getProducts());
-        return "product";
+
+
+    @GetMapping("/producto")
+    public String producto(@RequestParam("id")int id,Model model){
+        model.addAttribute("producto",this.productService.getProduct(id));
+        return "producto";
     }
+
 
 
 
