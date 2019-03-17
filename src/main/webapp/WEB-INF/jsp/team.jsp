@@ -1,11 +1,13 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello ${name}!</title>
+    <title>Hola ${name}.</title>
 </head>
 <body>
-<h2 class="hello-title">Hello ${name} from the team!</h2>
+<h2 class="hello-title">Hola ${name} de parte del equipo.</h2>
 <ul>
     <li>Kike</li>
     <li>Pablo</li>
