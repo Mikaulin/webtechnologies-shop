@@ -31,13 +31,13 @@ public class ProductService{
 
 
 
-    public void productAdd(Product product) {
+    public void Add(Product product) {
 
         this.productRepository.save(product);
     }
 
 
-    public Long productCount() {
+    public Long Count() {
 
         return this.productRepository.count();
     }
