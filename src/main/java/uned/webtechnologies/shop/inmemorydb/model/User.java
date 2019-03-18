@@ -1,23 +1,40 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
-    private String username;
-
+    private String name;
+    private String lastname1;
+    private String lastname2;
+    private String direction;
+    private String city;
+    private String province;
+    private String country;
+    private String email;
+    private String tlf;
+    private int pc;
     private String password;
 
     @Transient
     private String passwordConfirm;
 
-    private int age;
+    private String username;
+    private boolean subscribed;
+    @OneToMany (mappedBy = "user")
+    private Set<Cart> carts;
+    @OneToMany (mappedBy = "user")
+    private Set<PurchaseLine> purchaseLines;
+
+
+
+
 
     @ManyToMany
     private Set<Role> roles;
