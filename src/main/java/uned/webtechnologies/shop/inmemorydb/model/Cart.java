@@ -7,7 +7,7 @@ public class Cart {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private int count;
     private double purchasePrice;
     @ManyToOne
@@ -24,6 +24,10 @@ public class Cart {
         this.product = product;
         this.purchasePrice=calculatePurchasePrice();
         this.user=user;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public User getUser() {

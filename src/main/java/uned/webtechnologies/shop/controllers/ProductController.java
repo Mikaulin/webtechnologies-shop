@@ -8,7 +8,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.services.ProductService;
 
 @Controller
-@RequestMapping("/")
+
 public class ProductController {
 
     private ProductService productService;

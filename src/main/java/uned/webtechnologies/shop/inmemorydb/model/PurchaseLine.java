@@ -9,7 +9,7 @@ public class PurchaseLine {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private Date date;
     private double unitPrice;
     private double purchasePrice;
@@ -29,6 +29,14 @@ public class PurchaseLine {
         this.purchasePrice = cart.getPurchasePrice();
         this.count = cart.getCount();
         this.product=cart.getProduct();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public Date getDate() {

@@ -10,7 +10,7 @@ public class Category {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String name;
     @OneToMany (mappedBy = "category")
     private Set<Product> products=new HashSet<>();
@@ -22,7 +22,7 @@ public class Category {
 
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

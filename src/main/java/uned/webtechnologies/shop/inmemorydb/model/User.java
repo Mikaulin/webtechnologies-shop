@@ -10,7 +10,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     private String name;
     private String lastname1;
@@ -52,7 +52,7 @@ public class User {
     }
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import uned.webtechnologies.shop.services.ProductService;
 
 @Controller
+
 public class HomeController {
 
     private ProductService productService;

@@ -9,7 +9,7 @@ public class Brand {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String name;
     @OneToMany(mappedBy = "brand")
 
@@ -38,13 +38,11 @@ public class Brand {
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     @Override
     public String toString() {

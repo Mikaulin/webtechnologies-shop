@@ -12,13 +12,17 @@ public class Promotion {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private Date startDate;
     private Date endDate;
     private String description;
 
 
-    public Promotion(){};
+    public Promotion(){}
+
+    public long getId() {
+        return id;
+    }
 
     public Date getStartDate() {
         return startDate;

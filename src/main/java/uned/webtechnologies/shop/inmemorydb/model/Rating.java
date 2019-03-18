@@ -1,13 +1,12 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 
 public class Rating {
     @Id
+    @GeneratedValue
+    private long id;
     @ManyToOne
     @JoinColumn(name="ID_USER")
     private User user;
@@ -23,6 +22,10 @@ public class Rating {
         this.user = user;
         this.product = product;
         this.value = value;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public User getUser() {

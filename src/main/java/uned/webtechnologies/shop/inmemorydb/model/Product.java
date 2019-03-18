@@ -11,7 +11,7 @@ import java.util.Set;
 public class Product {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private int count;
     private String name;
     private String description;
@@ -80,7 +80,7 @@ public class Product {
         this.deleted=false;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
