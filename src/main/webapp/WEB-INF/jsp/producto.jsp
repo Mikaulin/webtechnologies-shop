@@ -30,7 +30,7 @@
         <!-- There's only One image -->
         <div class="">
             <div class="main-product-image">
-                <% out.println("<img src='../"+ producto.getPhoto()+ "' alt='' class='img-fluid'>");%>
+                <% out.println("<img src='"+producto.getPhoto()+" ' alt='' class='img-fluid'>");%>
             </div>
         </div>
 

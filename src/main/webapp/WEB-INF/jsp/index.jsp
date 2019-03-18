@@ -33,7 +33,7 @@
 
         <div class='col-md-3'>
             <div class='card mb-3 box-shadow'>
-                <img class='card-img-top' src='../<%=product.getPhoto() %> ' alt='<%=product.getName()%> '>
+                <img class='card-img-top' src='<%=product.getPhoto() %> ' alt='<%=product.getName()%> '>
                 <div class='card-body'>
                     <p class='card-text'>
                         <%=product.getBrand().getName()%>
