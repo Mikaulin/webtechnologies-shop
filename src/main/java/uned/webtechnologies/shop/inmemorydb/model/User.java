@@ -1,7 +1,9 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Transient;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -27,7 +29,7 @@ public class User {
 
     private String username;
     private boolean subscribed;
-    @OneToMany (mappedBy = "user")
+    @OneToMany(mappedBy = "user")
     private Set<Cart> carts;
     @OneToMany (mappedBy = "user")
     private Set<PurchaseLine> purchaseLines;
@@ -42,13 +44,15 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, int age) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.age = age;
+        this.passwordConfirm=password;
+
     }
 
-    public Long getId() {
+
+    public int getId() {
         return id;
     }
 
@@ -64,15 +68,13 @@ public class User {
         return passwordConfirm;
     }
 
-    public int getAge() {
-        return age;
-    }
+
 
     public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -88,9 +90,7 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
@@ -102,7 +102,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", age=" + age +
+                ", age=" +
                 '}';
     }
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class ProductService{
     @Autowired
     private ProductRepository productRepository;
 
+
     public List<Product> getProducts() {
 
         return this.productRepository.findAll();
@@ -21,7 +23,9 @@ public class ProductService{
         return this.productRepository.getOne(id);
     }
 
-
+    public List<Product> getProductsByCategory(Category category){
+        return this.productRepository.getProductByCategory(category);
+    }
 
 
 

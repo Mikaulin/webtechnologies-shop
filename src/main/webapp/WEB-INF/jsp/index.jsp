@@ -52,7 +52,7 @@
                             Ahorras <%=product.getDif() %> &euro;
                         </li>
                     </ul>
-                    <a href='product?id=<%=product.getId()%>' class='btn btn-outline-danger btn-lg btn-block'
+                    <a href='producto?id=<%=product.getId()%>' class='btn btn-outline-danger btn-lg btn-block'
                        role='button' aria-pressed='true'>
                         Ver detalles
                     </a>
