@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/user/registration").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
-                //Hasta que no decidamos las URLs "privadas", dejamos acceso a todo.
+                //TODO Hasta que no decidamos las URLs "privadas", dejamos acceso a cualquier url.
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
