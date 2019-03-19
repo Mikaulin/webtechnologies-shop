@@ -3,37 +3,42 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Conéctate con tu cuenta</title>
-
-
-</head>
-
-<body>
+<%@ include file = "../shared/_header.jsp"%>
 
 <div class="container">
-    <form method="POST" action="${contextPath}/login" class="form-signin">
-        <h2 class="form-heading">Conéctate</h2>
 
-        <div class="form-group ${error != null ? 'has-error' : ''}">
-            <span>${message}</span>
-            <input name="username" type="text" class="form-control" placeholder="Usuario"
-                   autofocus="true"/>
-            <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
-            <span>${error}</span>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <div class="col-md-8 order-md-1">
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Conéctate</button>
-            <h4 class="text-center"><a href="${contextPath}/registration">Crea una cuenta</a></h4>
-        </div>
-    </form>
+        <h4 class="mb-3">Inicia Sesión</h4>
+
+        <form method="POST" action="${contextPath}/user/login" class="form-signin">
+
+            <div class="row">
+                <div class="form-group ${error != null ? 'has-error' : ''}">
+                    <span>${message}</span>
+                    <input name="username" type="text" class="form-control" placeholder="Usuario"
+                           autofocus="true"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group ${error != null ? 'has-error' : ''}">
+                    <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
+                    <span>${error}</span>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg" type="submit">Conéctate</button>
+                </div>
+            </div>
+                <h4 class="text-center"><a href="${contextPath}/user/registration">Crea una cuenta</a></h4>
+
+        </form>
+    </div>
 </div>
 
-</body>
-</html>
+<%@ include file = "../shared/_js.jsp"%>
+<%@ include file = "../shared/_footer.jsp"%>

@@ -7,12 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.SecurityService;
 import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.validator.UserValidator;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -48,15 +50,15 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Tus datos son incorrectos.");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("message", "Te has conectado correctamente..");
 
         return "auth/login";
     }
 
-    @GetMapping({"/", "/welcome"})
+    @GetMapping({ "/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
