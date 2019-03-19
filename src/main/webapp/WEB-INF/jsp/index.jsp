@@ -1,6 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="uned.webtechnologies.shop.inmemorydb.model.Product" %>
-
 <%@ include file="shared/_header.jsp" %>
 
 <div class="container">
@@ -21,51 +18,37 @@
     <p><br></p>
 
     <div class="row">
-
-
-        <%
-            if (request.getAttribute("productList") != null) {
-                List<Product> products = (List) request.getAttribute("productList");
-                for (Product product : products) {
-                    if (product.getId() < 5) {%>
-
-
-        <div class='col-md-3'>
-            <div class='card mb-3 box-shadow'>
-                <img class='card-img-top' src='<%=product.getPhoto() %> ' alt='<%=product.getName()%> '>
-                <div class='card-body'>
-                    <p class='card-text'>
-                        <%=product.getBrand().getName()%>
-                    </p>
-                    <p class='card-text'>
-                        <%=product.getName() %>
-                    </p>
-                    <h4 class='card-title pricing-card-title'>
-                        <%=product.getFinalPrice()%> &euro;
-                        <small class='text-muted'><strike>
-                            <%=product.getPrice()%>
-                        </strike></small>
-                    </h4>
-                    <ul class='list-unstyled mt-3 mb-4'>
-                        <li style='color:#FF0000'>
-                            Ahorras <%=product.getDif() %> &euro;
-                        </li>
-                    </ul>
-                    <a href='${pageContext.request.contextPath}/product/detail/<%=product.getId()%>'
-                       class='btn btn-outline-danger btn-lg btn-block'
-                       role='button' aria-pressed='true'>
-                        Ver detalles
-                    </a>
+        <c:forEach items="${featuredProducts}" var="product">
+            <div class='col-md-3'>
+                <div class='card mb-3 box-shadow'>
+                    <img class='card-img-top' src='${product.photo}' alt='${product.name} '>
+                    <div class='card-body'>
+                        <p class='card-text'>
+                            ${product.brand.name}
+                        </p>
+                        <p class='card-text'>
+                            ${product.name}
+                        </p>
+                        <h4 class='card-title pricing-card-title'>
+                            ${product.finalPrice} &euro;
+                            <small class='text-muted'>
+                                ${product.price}
+                            </small>
+                        </h4>
+                        <ul class='list-unstyled mt-3 mb-4'>
+                            <li style='color:#FF0000'>
+                                Ahorras ${product.dif} &euro;
+                            </li>
+                        </ul>
+                        <a href='${pageContext.request.contextPath}/product/detail/${product.name}'
+                           class='btn btn-outline-danger btn-lg btn-block'
+                           role='button' aria-pressed='true'>
+                            Ver detalles
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <%
-                    }
-                }
-            }
-        %>
-
+        </c:forEach>
     </div>
 
     <p></p>

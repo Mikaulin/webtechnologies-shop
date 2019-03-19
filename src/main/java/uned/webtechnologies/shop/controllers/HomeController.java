@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.ProductService;
 
 @Controller
@@ -21,9 +22,10 @@ public class HomeController {
         this.productService = productService;
     }
     @GetMapping("/")
-    public String index(Model model) {
-       model.addAttribute("productList", this.productService.getFeaturedProducts());
-        return "index";
+    public ModelAndView index() {
+        ModelAndView result = new ModelAndView("index");
+        result.addObject("featuredProducts", this.productService.getFeaturedProducts());
+        return result;
     }
 
     @GetMapping("/ofertas")
