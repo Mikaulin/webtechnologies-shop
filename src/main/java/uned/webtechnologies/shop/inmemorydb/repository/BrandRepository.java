@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.Brand;
 
 @Repository
-public interface BrandRepository extends JpaRepository<Brand, Integer> {
+public interface BrandRepository extends JpaRepository<Brand, Long> {
 
 }

@@ -22,7 +22,7 @@ public class ProductController {
 
 
     @GetMapping("/producto")
-    public String producto(@RequestParam("id")int id,Model model){
+    public String producto(@RequestParam("id")long id ,Model model){
         model.addAttribute("producto",this.productService.getProduct(id));
         return "producto";
     }

@@ -6,6 +6,6 @@ import uned.webtechnologies.shop.inmemorydb.model.Category;
 
 @Repository
 
-public interface CategoryRepository extends JpaRepository<Category,Integer> {
+public interface CategoryRepository extends JpaRepository<Category,Long> {
 
 }
