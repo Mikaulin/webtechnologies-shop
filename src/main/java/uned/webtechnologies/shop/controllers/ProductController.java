@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.services.ProductService;
 
@@ -19,9 +20,10 @@ public class ProductController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detail(@PathVariable("id")long id ,Model model){
-        model.addAttribute("product",this.productService.getProduct(id));
-        return "product/detail";
+    public ModelAndView detail(@PathVariable("id")long id){
+        ModelAndView result = new ModelAndView("product/detail");
+        result.addObject("product", this.productService.getProduct(id));
+        return result;
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
