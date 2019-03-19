@@ -5,11 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import uned.webtechnologies.shop.services.ProductService;
 
 @Controller
-
+@RequestMapping
 public class HomeController {
 
     private ProductService productService;
@@ -19,9 +20,8 @@ public class HomeController {
 
         this.productService = productService;
     }
-
-   @GetMapping("/")
-   public String productList(Model model) {
+    @GetMapping("/")
+    public String index(Model model) {
        model.addAttribute("productList", this.productService.getProducts());
         return "index";
     }
@@ -35,16 +35,4 @@ public class HomeController {
     @GetMapping("/servicios")
     public String servicios() {return "servicios";
     }
-
-    @GetMapping("/sesion")
-    public String sesion() {
-        return "sesion";
-    }
-
-
-    @GetMapping("/cuenta")
-    public String cuenta() {
-        return "cuenta";
-    }
-
 }

@@ -5,16 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Crea una cuenta</title>
-
-
-</head>
-
-<body>
+<%@ include file = "../_header.jsp"%>
 
 <div class="container">
 
@@ -48,5 +39,5 @@
 
 </div>
 
-</body>
-</html>
+<%@ include file = "../_js.jsp"%>
+<%@ include file = "../_footer.jsp"%>

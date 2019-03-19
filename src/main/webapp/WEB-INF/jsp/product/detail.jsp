@@ -1,13 +1,11 @@
-
-<%@ page import="java.util.List" %>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 <%@ page import="uned.webtechnologies.shop.inmemorydb.model.Product" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@ include file = "_header.jsp"%>
+<%@ include file = "../_header.jsp"%>
 
 <%
 
-    Product producto=(Product) request.getAttribute("producto");
+    Product product=(Product) request.getAttribute("product");
    /* int idProduct = Integer.parseInt(request.getParameter("id"))-1;
     List<Product> products = (List) request.getAttribute("productList");*/
 %>
@@ -17,7 +15,7 @@
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
-        <% out.println("<h1 class='page-header'>"+ producto.getName()+" </h1>");%>
+        <% out.println("<h1 class='page-header'>"+ product.getName()+" </h1>");%>
         <hr>
     </div>
 </div>
@@ -30,7 +28,7 @@
         <!-- There's only One image -->
         <div class="">
             <div class="main-product-image">
-                <% out.println("<img src='"+producto.getPhoto()+" ' alt='' class='img-fluid'>");%>
+                <% out.println("<img src='"+product.getPhoto()+" ' alt='' class='img-fluid'>");%>
             </div>
         </div>
 
@@ -44,14 +42,14 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Marca:</label>
                         <div class="col-sm-9 col-md-9">
-                            <% out.println("<p>"+ producto.getBrand().getName() +"</p>");%>
+                            <% out.println("<p>"+ product.getBrand().getName() +"</p>");%>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Descripción:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <% out.println("<p>"+ producto.getName() +"</p>");%>
+                            <% out.println("<p>"+ product.getName() +"</p>");%>
                         </div>
                     </div>
 
@@ -59,20 +57,20 @@
                         <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio:</label>
                         <div class="col-sm-8 col-md-9">
                             <span class="product-form-price" id="product-form-price">
-                                    <% out.println("<h4><b>"+ producto.getFinalPrice() + " &euro;</b><small class='text-muted'> <strike>" + producto.getPrice() + "</strike></small></h4> ");%></span>
+                                    <% out.println("<h4><b>"+ product.getFinalPrice() + " &euro;</b><small class='text-muted'> <strike>" + product.getPrice() + "</strike></small></h4> ");%></span>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-3 col-md-3 form-control-label">Ahorras:</label>
                         <div class="col-sm-8 col-md-9 description">
-                            <% out.println("<p style='color:red'>"+ producto.getDif() +" &euro;</p>");%>
+                            <% out.println("<p style='color:red'>"+ product.getDif() +" &euro;</p>");%>
                         </div>
                     </div>
 
 
                     <div class="form-group row">
-                        <label for="Quantity" class="col-sm-3 col-md-3 form-control-label">Cantidad:</label>
+                        <label for="input-qty" class="col-sm-3 col-md-3 form-control-label">Cantidad:</label>
                         <div class="col-sm-8 col-md-9">
 
                             <input type="number" class="qty form-control" id="input-qty" name="qty" maxlength="5" value="1"   >
@@ -81,7 +79,7 @@
 
                     <!-- Out of Stock -->
                     <%
-                    if (producto.getCount() < 1) {
+                    if (product.getCount() < 1) {
                     out.println("<div class='form-group product-stock product-out-stock row hidden' >");
                     out.println("<label class='col-sm-3 col-md-3 form-control-label' > Disponibilidad:</label >");
                     out.println("<div class='col-sm-8 col-md-9' >");
@@ -105,20 +103,11 @@
                 </div>
             </form>
         </div>
-
-
-        <script type="text/javascript">
-            $('#product-sharing a').click(function(){
-                return !window.open(this.href, 'Share', 'width=640,height=300');
-            });
-        </script>
-
-
     </div>
 </div>
 
 </div>
 
 
-<%@ include file = "_js.jsp"%>
-<%@ include file = "_footer.jsp"%>
+<%@ include file = "../_js.jsp"%>
+<%@ include file = "../_footer.jsp"%>

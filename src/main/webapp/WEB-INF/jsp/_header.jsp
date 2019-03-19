@@ -1,15 +1,17 @@
-
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/" var="indexUrl" />
-
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>ElectroHOME | Tienda de electrodom&eacute;sticos online </title>
+    <title>ElectroHOME | Tienda de electrodomésticos online </title>
     <link href="${pageContext.request.contextPath}/css/sticky-footer.css" rel="stylesheet">
-    <link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -25,7 +27,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="${indexUrl}/"><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo ElectroHOME"></a>
+        <a class="navbar-brand" href="/"><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo ElectroHOME"></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,12 +42,24 @@
                         </a>
                     </li>
 
-                    <li >
-                        <a href="${pageContext.request.contextPath}/sesion" id="login-link" class="trsn nav-link" title="Iniciar sesi&oacute;">
-                            <i class="fa fa-user fa-fw"></i>
-                            <span class="customer-name">Login </span>
-                        </a>
-                    </li>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/cuenta" id="account-link" class="trsn nav-link" title="Mi cuenta">
+                                <i class="fa fa-user fa-fw"></i>
+                                <span class="customer-name">Hola, ${pageContext.request.userPrincipal.name}</span>
+                            </a>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${pageContext.request.userPrincipal.name == null}">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/user/login" id="login-link" class="trsn nav-link" title="Iniciar sesión">
+                                <i class="fa fa-user fa-fw"></i>
+                                <span class="customer-name">Login </span>
+                            </a>
+                        </li>
+                    </c:if>
+
                 </ul>
             </div>
         </div>

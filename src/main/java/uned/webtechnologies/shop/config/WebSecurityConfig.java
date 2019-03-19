@@ -26,12 +26,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/registration").permitAll()
+                .antMatchers("/resources/**", "/user/registration").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
+                //Hasta que no decidamos las URLs "privadas", dejamos acceso a todo.
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/user/login")
                 .permitAll()
                 .and()
                 .logout()

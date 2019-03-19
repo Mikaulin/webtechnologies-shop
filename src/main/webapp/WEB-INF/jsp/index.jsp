@@ -1,6 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="uned.webtechnologies.shop.inmemorydb.model.Product" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ include file="_header.jsp" %>
 
@@ -52,7 +51,7 @@
                             Ahorras <%=product.getDif() %> &euro;
                         </li>
                     </ul>
-                    <a href='producto?id=<%=product.getId()%>' class='btn btn-outline-danger btn-lg btn-block'
+                    <a href='${pageContext.request.contextPath}/product/detail/<%=product.getId()%>' class='btn btn-outline-danger btn-lg btn-block'
                        role='button' aria-pressed='true'>
                         Ver detalles
                     </a>
