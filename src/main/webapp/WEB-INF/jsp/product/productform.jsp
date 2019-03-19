@@ -2,7 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 
 <%@ include file = "../shared/_header.jsp"%>
-
+<%--TODO Esto de momento no se usa, terminar o eliminar--%>
 
 <h1>Agregar nuevo producto:</h1>
 

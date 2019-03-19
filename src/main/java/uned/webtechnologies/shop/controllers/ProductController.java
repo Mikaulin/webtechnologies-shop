@@ -9,7 +9,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.services.ProductService;
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/producto")
 public class ProductController {
 
     private ProductService productService;
@@ -19,14 +19,15 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/detail/{id}")
+    @GetMapping("/detalle/{id}")
     public ModelAndView detail(@PathVariable("id")long id){
         ModelAndView result = new ModelAndView("product/detail");
         result.addObject("product", this.productService.getProduct(id));
         return result;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    //TODO Esto de momento no se usa, terminar o eliminar
+    @RequestMapping(value = "/crear", method = RequestMethod.POST)
     public String create(@ModelAttribute("product") Product product) {
         productService.add(product);
         return "redirect:/detail";
