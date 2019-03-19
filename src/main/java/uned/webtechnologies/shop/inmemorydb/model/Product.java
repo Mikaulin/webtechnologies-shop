@@ -21,6 +21,7 @@ public class Product {
     private double height;
     private double width;
     private double depth;
+    private boolean featured;
     private boolean deleted;
     @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_BRAND")
@@ -49,7 +50,7 @@ public class Product {
      * @param brand
      * @param category
      */
-    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, boolean deleted, Brand brand, Category category) {
+    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, boolean deleted, boolean featured, Brand brand, Category category) {
         this.count = count;
         this.name = name;
         this.description = description;
@@ -62,10 +63,10 @@ public class Product {
         this.deleted = deleted;
         this.brand = brand;
         this.category = category;
-
+        this.featured = featured;
     }
 
-    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, Brand brand, Category category) {
+    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, boolean featured, Brand brand, Category category) {
         this.count = count;
         this.name = name;
         this.description = description;
@@ -77,7 +78,8 @@ public class Product {
         this.depth = depth;
         this.brand = brand;
         this.category = category;
-        this.deleted=false;
+        this.featured = featured;
+        this.deleted = false;
     }
 
     public long getId() {
@@ -182,14 +184,21 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
     public double getDif(){
         return getPrice()-getFinalPrice();
     }
 
-
-
     public double getFinalPrice(){
         return price-price*(discount/100);
+    }
+
+    public boolean isFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
     }
 
     @Override

@@ -14,18 +14,25 @@
         <h4 class="mb-3">Inicia Sesión</h4>
 
         <form method="POST" action="${contextPath}/user/login" class="form-signin">
-            <div class="form-group ${error != null ? 'has-error' : ''}">
-                <span>${message}</span>
-                <input name="username" type="text" class="form-control" placeholder="Usuario"
-                       autofocus="true"/>
+
+            <div class="row">
+                <div class="form-group ${error != null ? 'has-error' : ''}">
+                    <span>${message}</span>
+                    <input name="username" type="text" class="form-control" placeholder="Usuario"
+                           autofocus="true"/>
+                </div>
             </div>
-            <div class="form-group ${error != null ? 'has-error' : ''}">
-                <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
-                <span>${error}</span>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <div class="row">
+                <div class="form-group ${error != null ? 'has-error' : ''}">
+                    <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
+                    <span>${error}</span>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </div>
             </div>
-            <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Conéctate</button>
+            <div class="row">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg" type="submit">Conéctate</button>
+                </div>
             </div>
                 <h4 class="text-center"><a href="${contextPath}/user/registration">Crea una cuenta</a></h4>
 

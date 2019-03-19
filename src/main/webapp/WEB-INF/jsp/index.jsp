@@ -51,7 +51,8 @@
                             Ahorras <%=product.getDif() %> &euro;
                         </li>
                     </ul>
-                    <a href='${pageContext.request.contextPath}/product/detail/<%=product.getId()%>' class='btn btn-outline-danger btn-lg btn-block'
+                    <a href='${pageContext.request.contextPath}/product/detail/<%=product.getId()%>'
+                       class='btn btn-outline-danger btn-lg btn-block'
                        role='button' aria-pressed='true'>
                         Ver detalles
                     </a>

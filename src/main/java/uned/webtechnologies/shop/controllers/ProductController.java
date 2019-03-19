@@ -28,7 +28,7 @@ public class ProductController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@ModelAttribute("product") Product product) {
-        productService.Add(product);
+        productService.add(product);
         return "redirect:/detail";
     }
 }

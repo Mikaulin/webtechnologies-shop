@@ -16,9 +16,9 @@ public class ProductService{
 
 
     public List<Product> getProducts() {
-
         return this.productRepository.findAll();
     }
+
     public Product getProduct(long id){
         return this.productRepository.getOne(id);
     }
@@ -27,24 +27,16 @@ public class ProductService{
         return this.productRepository.getProductByCategory(category);
     }
 
+    public List<Product> getFeaturedProducts(){
+        return this.productRepository.getProductByFeaturedTrue();
+    }
 
-
-
-
-    public void Add(Product product) {
-
+    public void add(Product product) {
         this.productRepository.save(product);
     }
 
-
-    public Long Count() {
-
+    public Long count() {
         return this.productRepository.count();
     }
-
-
-
-
-
 }
 
