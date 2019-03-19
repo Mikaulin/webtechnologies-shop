@@ -5,13 +5,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<%@ include file = "../_header.jsp"%>
+<%@ include file = "../shared/_header.jsp"%>
 
 <div class="container">
 
     <div class="col-md-8 order-md-1">
 
-        <h4 class="mb-3">Inicia Sesi&oacute;n</h4>
+        <h4 class="mb-3">Inicia Sesión</h4>
 
         <form method="POST" action="${contextPath}/user/login" class="form-signin">
             <div class="form-group ${error != null ? 'has-error' : ''}">
@@ -33,5 +33,5 @@
     </div>
 </div>
 
-<%@ include file = "../_js.jsp"%>
-<%@ include file = "../_footer.jsp"%>
+<%@ include file = "../shared/_js.jsp"%>
+<%@ include file = "../shared/_footer.jsp"%>

@@ -1,6 +1,6 @@
 
 
-<%@ include file = "_header.jsp"%>
+<%@ include file = "shared/_header.jsp"%>
 
 <div class="container">
 
@@ -123,5 +123,5 @@
 
 
 
-<%@ include file = "_js.jsp"%>
-<%@ include file = "_footer.jsp"%>
+<%@ include file = "shared/_js.jsp"%>
+<%@ include file = "shared/_footer.jsp"%>

@@ -1,6 +1,6 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-<%@ include file = "../_header.jsp"%>
+<%@ include file = "../shared/_header.jsp"%>
 
 <div class="container">
     <div class="row">
@@ -102,5 +102,5 @@
 </div>
 
 
-<%@ include file = "../_js.jsp"%>
-<%@ include file = "../_footer.jsp"%>
+<%@ include file = "../shared/_js.jsp"%>
+<%@ include file = "../shared/_footer.jsp"%>

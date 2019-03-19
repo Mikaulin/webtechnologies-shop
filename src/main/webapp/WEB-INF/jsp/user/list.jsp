@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="uned.webtechnologies.shop.inmemorydb.model.User" %>
 
-<%@ include file = "../_header.jsp"%>
+<%@ include file = "../shared/_header.jsp"%>
 
 <div class="container">
 
@@ -57,5 +57,5 @@
 
 </div>
 
-<%@ include file = "../_js.jsp"%>
-<%@ include file = "../_footer.jsp"%>
+<%@ include file = "../shared/_js.jsp"%>
+<%@ include file = "../shared/_footer.jsp"%>

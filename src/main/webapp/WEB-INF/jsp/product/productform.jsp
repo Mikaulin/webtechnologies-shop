@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc" %>
 
-<%@ include file = "../_header.jsp"%>
+<%@ include file = "../shared/_header.jsp"%>
 
 
 <h1>Agregar nuevo producto:</h1>
@@ -29,5 +29,5 @@
 </mvc:form>
 
 
-<%@ include file = "../_js.jsp"%>
-<%@ include file = "../_footer.jsp"%>
+<%@ include file = "../shared/_js.jsp"%>
+<%@ include file = "../shared/_footer.jsp"%>

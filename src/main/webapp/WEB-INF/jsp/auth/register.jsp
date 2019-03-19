@@ -5,7 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<%@ include file = "../_header.jsp"%>
+<%@ include file = "../shared/_header.jsp"%>
 
 <div class="container">
 
@@ -39,5 +39,5 @@
 
 </div>
 
-<%@ include file = "../_js.jsp"%>
-<%@ include file = "../_footer.jsp"%>
+<%@ include file = "../shared/_js.jsp"%>
+<%@ include file = "../shared/_footer.jsp"%>
