@@ -24,20 +24,20 @@
                     <img class='card-img-top' src='${product.photo}' alt='${product.name} '>
                     <div class='card-body'>
                         <p class='card-text'>
-                            ${product.brand.name}
+                                ${product.brand.name}
                         </p>
                         <p class='card-text'>
-                            ${product.name}
+                                ${product.name}
                         </p>
                         <h4 class='card-title pricing-card-title'>
-                            ${product.finalPrice} &euro;
+                            <fmt:formatNumber currencySymbol="&euro;" value="${product.finalPrice}" type="currency"/>
                             <small class='text-muted'>
-                                ${product.price}
+                                <fmt:formatNumber currencySymbol="&euro;" value="${product.price}" type="currency"/>
                             </small>
                         </h4>
                         <ul class='list-unstyled mt-3 mb-4'>
                             <li style='color:#FF0000'>
-                                Ahorras ${product.dif} &euro;
+                                <fmt:formatNumber currencySymbol="&euro;" value="${product.dif}" type="currency"/>
                             </li>
                         </ul>
                         <a href='${pageContext.request.contextPath}/product/detail/${product.name}'
