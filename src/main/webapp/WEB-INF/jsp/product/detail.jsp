@@ -63,27 +63,34 @@
                         <div class="form-group row">
                             <label for="input-qty" class="col-sm-3 col-md-3 form-control-label">Cantidad:</label>
                             <div class="col-sm-8 col-md-9">
-                                <input type="number" class="qty form-control" id="input-qty" name="qty" maxlength="5" value="1"   >
+                                <input type="number" class="qty form-control" id="input-qty" name="qty" maxlength="5" value="1"  >
                             </div>
                         </div>
 
-                        <c:if test="${product != null}">
-                            <div class='form-group product-stock product-out-stock row hidden' >
-                                <label class='col-sm-3 col-md-3 form-control-label' > Disponibilidad:</label >
-                                <div class='col-sm-8 col-md-9' >
-                                    <span class='product-form-price' > Agotado </span >
-                                    <p > Este producto se ha quedado sin stock.Puedes preguntarnos por el.</p >
-                                    <a href = '/es/contact' class='btn btn-secondary btn-sm' title = 'Contáctanos' > Contáctanos </a >
-                                    <a href = 'https://bootstrap.jumpseller.com' class='btn btn-link btn-sm' title = '&larr; Continue Comprando' > & larr; Continua Comprando</a >
-                                </div >
-                            </div >
-                        </c:if>
+
+                        <div class='form-group product-stock product-out-stock row hidden'>
+                            <label class='col-sm-3 col-md-3 form-control-label'> Disponibilidad:</label>
+                            <div class='col-sm-8 col-md-9'>
+
+                                <c:choose>
+                                    <c:when test = "${product.count <= 0}">
+                                        <span class='product-form-price'> Agotado </span>
+                                        <p> Este producto se ha quedado sin stock. Puedes preguntarnos por el.</p>ç
+                                        <a href = '/' class='btn btn-secondary btn-sm' title = 'Contáctanos'> Contáctanos </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class='product-form-price'> Disponible </span>
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </div>
+                        </div>
 
                         <div class="form-group product-stock product-available row visible">
                             <label class="col-sm-3 col-md-3 form-control-label"></label>
                             <div class="col-sm-8 col-sm-offset-3 col-md-9 col-md-offset-3">
                                 <input type="submit" class="adc btn btn-danger" value="A&ntilde;adir a la cesta" /><p><br></p>
-                                <a href="/" class="btn btn-link btn-sm" title="Continúa Comprando">&larr; Contin&uacute;a Comprando</a>
+                                <a href="/" class="btn btn-link btn-sm" title="Continúa Comprando">Continuar comprando</a>
                             </div>
                         </div>
                     </div>
