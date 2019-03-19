@@ -11,46 +11,32 @@ import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 @Service
+public class CategoryLoader implements ILoader {
 
-public class CategorytLoader implements ILoader {
-
-    private Logger log2 = LoggerFactory.getLogger("Application");
-
+    private Logger log = LoggerFactory.getLogger("Application");
     private final CategoryRepository categoryRepository;
 
-
-
     @Autowired
-    public CategorytLoader( CategoryRepository categoryRepository) {
-
+    public CategoryLoader(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
-
-
     }
 
     @Override
     public void load() {
-
-        Category ge = new Category("Grandes electrodomesticos");
-        categoryRepository.save(ge);
-        Category fri = new Category("frigorificos");
-        categoryRepository.save(fri);
-        Category vitro = new Category("vitroceramicas");
-        categoryRepository.save(vitro);
-
-
-
-
-
-
-
-
-
-        log2.info("Categorias cargadas en DataBase: " + categoryRepository.count());
-
+        ArrayList<Category> categories = new ArrayList<>(
+                Arrays.asList(
+                        new Category("Grandes electrodomésticos"),
+                        new Category("Frigoríficos"),
+                        new Category("Vitrocerámicas")
+                )
+        );
+        categoryRepository.save(categories);
+        log.info("Categorias cargadas en DataBase: " + categories.size());
     }
-
-
 }
