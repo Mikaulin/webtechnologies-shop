@@ -25,19 +25,24 @@ public class ProductService{
     }
 
     public List<Product> getProductsByCategory(Category category){
-        return this.productRepository.getProductByCategory(category);
+        return this.productRepository.getProductsByCategory(category);
     }
     public List<Product> getProductsByBrand(Brand brand){
-        return this.productRepository.getProductByBrand(brand);
+        return this.productRepository.getProductsByBrand(brand);
+    }
+    public List<Product> getProductsByBrandId(long id){
+        return this.productRepository.getProductByBrandId(id);
     }
 
     public List<Product> getFeaturedProducts(){
-        return this.productRepository.getProductByFeaturedTrue();
+        return this.productRepository.getProductsByFeaturedTrue();
     }
+
 
     public void add(Product product) {
         this.productRepository.save(product);
     }
+
 
     public Long count() {
         return this.productRepository.count();

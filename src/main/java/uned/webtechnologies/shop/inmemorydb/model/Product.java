@@ -1,14 +1,14 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 
-/**
- *
- */
+
 @Entity
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue
     private long id;
@@ -29,6 +29,7 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
+
 
 
 
@@ -81,6 +82,8 @@ public class Product {
         this.featured = featured;
         this.deleted = false;
     }
+
+
 
     public long getId() {
         return id;
@@ -214,10 +217,11 @@ public class Product {
                 ", height=" + height +
                 ", width=" + width +
                 ", depth=" + depth +
+                ", featured=" + featured +
                 ", deleted=" + deleted +
                 ", brand=" + brand +
                 ", category=" + category +
-
+                ", rating=" +
                 '}';
     }
 }

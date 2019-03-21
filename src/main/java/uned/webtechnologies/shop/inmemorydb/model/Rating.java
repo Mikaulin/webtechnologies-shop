@@ -1,63 +1,76 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import javax.persistence.*;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
+import java.util.Objects;
+
+@Entity
+ public class Rating {
+    @EmbeddedId
+    private ProductUserRating productUserRating;
+    @OneToOne
+    private RatingValue ratingValue;
 
 
-public class Rating {
-    @Id
-    @GeneratedValue
-    private long id;
-    @ManyToOne
-    @JoinColumn(name="ID_USER")
-    private User user;
-    @Id
-    @ManyToOne
-    @JoinColumn(name="ID_PRODUCT")
-    private Product product;
-    private int value;
+    public Rating (){
+        this.productUserRating=new ProductUserRating();
 
-    public Rating(){}
-
-    public Rating(User user, Product product, int value) {
-        this.user = user;
-        this.product = product;
-        this.value = value;
+    }
+    public Rating (ProductUserRating productUserRating){
+        this.productUserRating=productUserRating;
     }
 
-    public long getId() {
-        return id;
+    public ProductUserRating getProductUserRating() {
+        return productUserRating;
     }
 
-    public User getUser() {
-        return user;
+    public void setProductUserRating(ProductUserRating productUserRating) {
+        this.productUserRating = productUserRating;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public long getProductId(){
+        return productUserRating.getProductId();
+    }
+    public void setProductId(long productId){
+        productUserRating.setProductId(productId);
+    }
+    public long getUserId(){
+        return productUserRating.getUserId();
+    }
+    public void setUserId(long user){
+        productUserRating.setUserId(user);
+    }
+    public RatingValue getRatingValue(){
+        return ratingValue;
+    }
+    public void setRatingValue(RatingValue ratingValue){
+       this.ratingValue=ratingValue;
     }
 
-    public Product getProduct() {
-        return product;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rating)) return false;
+        Rating rating = (Rating) o;
+        return getProductUserRating().equals(rating.getProductUserRating());
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProductUserRating());
     }
 
     @Override
     public String toString() {
         return "Rating{" +
-                "user=" + user +
-                ", product=" + product +
-                ", value=" + value +
+                "productUserRating=" + productUserRating +
+                ", value=" +
                 '}';
     }
 }
+
+
+

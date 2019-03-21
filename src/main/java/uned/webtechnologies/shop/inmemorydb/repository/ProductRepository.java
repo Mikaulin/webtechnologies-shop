@@ -10,8 +10,10 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-     List<Product> getProductByCategory(Category category);
-     List<Product> getProductByBrand(Brand brand);
-     List<Product> getProductByFeaturedTrue();
+     List<Product> getProductsByCategory(Category category);
+     List<Product> getProductsByBrand(Brand brand);
+     List<Product> getProductsByFeaturedTrue();
+     List<Product> getProductByBrandId(long id);
+
 
 }
