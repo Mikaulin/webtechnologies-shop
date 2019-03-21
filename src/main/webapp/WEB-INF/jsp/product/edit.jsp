@@ -47,7 +47,7 @@
                                 <mvc:input path="height" class="form-control" value="${product.height}" />
                             </div>
                         </div>
-                        <div class="row">
+                       <%-- <div class="row">
                             <div class="col-md-8 mb-3">
                                 <div class="form-group">
                                     <mvc:label path="category">Categor&iacute;a</mvc:label>
@@ -72,7 +72,7 @@
                                     </mvc:select>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
 
                         <div class="mb-3">
