@@ -40,7 +40,7 @@
                                 <fmt:formatNumber currencySymbol="&euro;" value="${product.dif}" type="currency"/>
                             </li>
                         </ul>
-                        <a href='${pageContext.request.contextPath}/producto/detalle/${product.name}'
+                        <a href='${pageContext.request.contextPath}/producto/detalle/${product.id}'
                            class='btn btn-outline-danger btn-lg btn-block'
                            role='button' aria-pressed='true'>
                             Ver detalles
