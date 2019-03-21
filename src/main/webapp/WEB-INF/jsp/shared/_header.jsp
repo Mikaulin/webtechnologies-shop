@@ -81,10 +81,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">B&uacute;squeda</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Categor&iacute;a</a>
-                        <a class="dropdown-item" href="#">Marcas</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/categorias">Categor&iacute;a</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/marcas">Marcas</a>
                         <a class="dropdown-item" href="#">Valoraci&oacute;n</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/list">Clientes</a>
                     </div>
                 </li>
 
@@ -102,7 +101,20 @@
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/alta">Alta Producto</a>
                         <a class="dropdown-item" href="#">Alta Categor&iacute;a</a>
                         <a class="dropdown-item" href="#">Alta Marca</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/listado">Listar Productos</a>
+                        <a class="dropdown-item" href="#">Devoluciones</a>
+                        <a class="dropdown-item" href="#">Promociones</a>
+                        <a class="dropdown-item" href="#">Informes</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/listado">Listados</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cliente</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown03">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/alta">Alta Usuario</a>
+                        <a class="dropdown-item" href="#">Baja Usuario</a>
+                        <a class="dropdown-item" href="#">Hist&oacute;rico Ventas</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/listado">Listados</a>
                     </div>
                 </li>
 

@@ -61,5 +61,19 @@ public class ProductController {
         result.addObject("product", this.productService.getProduct(id));
         return result;
     }
+    @GetMapping("/marcas")
+    public ModelAndView brand() {
+        ModelAndView result = new ModelAndView("search/brand");
+        result.addObject("marca", this.brandService.getBrands());
+        return result;
+    }
+
+    @GetMapping("/categorias")
+    public ModelAndView category() {
+        ModelAndView result = new ModelAndView("search/category");
+        result.addObject("categoria", this.categoryService.getCategories());
+        return result;
+    }
+
 
 }

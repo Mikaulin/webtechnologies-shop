@@ -8,7 +8,7 @@
 
     <div class="col-12">
        <div class="row">
-        <table class="table" width="100%">
+        <table class="table">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -30,7 +30,7 @@
         <tbody>
             <c:forEach items="${products}" var="product">
                  <tr>
-                    <td>${product.id}</td>
+                    <td scope="row">${product.id}</td>
                     <td>${product.name}</td>
                     <td>${product.description}</td>
                     <td>${product.photo}</td>
