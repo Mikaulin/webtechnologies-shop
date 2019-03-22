@@ -8,7 +8,8 @@
 
     <div class="col-12">
        <div class="row">
-        <table class="table">
+
+               <table id="example" class="table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -29,6 +30,7 @@
         </thead>
         <tbody>
             <c:forEach items="${products}" var="product">
+
                  <tr>
                     <td scope="row">${product.id}</td>
                     <td>${product.name}</td>
