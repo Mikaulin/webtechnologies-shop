@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Long> {
 
-     int countRatingsByProductIdAndRatingValue_Value(int id,int value);
+
 
 
 
