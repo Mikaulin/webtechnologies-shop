@@ -3,9 +3,7 @@ package uned.webtechnologies.shop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
-import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
-import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 
 import java.util.List;
 

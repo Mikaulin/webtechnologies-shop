@@ -3,7 +3,6 @@ package uned.webtechnologies.shop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.services.BrandService;
@@ -17,6 +16,8 @@ public class ProductController {
     private ProductService productService;
     private CategoryService categoryService;
     private BrandService brandService;
+
+
 
     @Autowired
     public ProductController (ProductService productService,CategoryService categoryService,BrandService brandService) {
@@ -72,6 +73,22 @@ public class ProductController {
     public ModelAndView category() {
         ModelAndView result = new ModelAndView("search/category");
         result.addObject("categoria", this.categoryService.getCategories());
+        return result;
+    }
+
+    @GetMapping("/marcas/{id}")
+    public ModelAndView brandlist(@PathVariable("id")long id){
+        ModelAndView result = new ModelAndView("search/listbrand");
+        result.addObject("products", this.productService.getProductsByBrandId(id));
+        result.addObject("brand", this.brandService.getBrands());
+        return result;
+    }
+
+    @GetMapping("/categorias/{id}")
+    public ModelAndView categorylist(@PathVariable("id")long id){
+        ModelAndView result = new ModelAndView("search/listcategory");
+        result.addObject("products", this.productService.getProductsByCategoryId(id));
+        result.addObject("category", this.categoryService.getCategories());
         return result;
     }
 

@@ -13,33 +13,28 @@
                 <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                     <span>MARCAS</span>
                 </h5>
-
-             <%-- <c:forEach items="${products}" var="product">
-                    <ul class="nav flex-column mb-2">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/producto/detalle/${product.brand.id}">
-                                <span data-feather="file-text"></span>${product.brand.name}
-                            </a>
-                        </li>
-                    </ul>
-
-                </c:forEach>--%>
+                    <c:forEach items="${brand}" var="b" >
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/producto/marcas/${b.id}">
+                                    <span data-feather="file-text"></span>${b.name}
+                                </a>
+                            </li>
+                        </ul>
+                    </c:forEach>
             </div>
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">
 
-                <%--<h1 class="h2">${products.brand.name}</h1>--%>
-
                 <div class="btn-toolbar mb-2 mb-md-0">
 
+                    <div class="row">
+                   <c:forEach items="${products}" var="product">
 
-                   <%-- <c:forEach items="${featuredProducts}" var="product">
-                        <c:if test="${product.id < 5 and product.count > 0}" >
-                            <div class='col-md-3'>
-                                <div class='card mb-3 box-shadow'>
+                            <div class='col-md-4'>
+                                <div class='card mb-4 box-shadow'>
                                     <img class='card-img-top' src='${product.photo}' alt='${product.name} '>
                                     <div class='card-body'>
                                         <p class='card-text'>
@@ -65,8 +60,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </c:if>
-                    </c:forEach>--%>
+
+                    </c:forEach>
+                    </div>
                 </div>
             </div>
         </main>
