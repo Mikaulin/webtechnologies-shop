@@ -42,7 +42,6 @@ public class ProductController {
         return result;
     }
 
-    //TODO Esto de momento no se usa, terminar o eliminar
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@ModelAttribute("product") Product product) {
         productService.add(product);

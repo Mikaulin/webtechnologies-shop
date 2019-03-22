@@ -39,7 +39,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-md-3 form-control-label">Descripción:</label>
                             <div class="col-sm-8 col-md-9 description">
-                                <p>${product.name}</p>
+                                <p>${product.description}</p>
                             </div>
                         </div>
 
