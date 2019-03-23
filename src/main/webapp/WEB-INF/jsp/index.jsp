@@ -39,6 +39,9 @@
                             <li style='color:#FF0000'>
                                 <fmt:formatNumber currencySymbol="&euro;" value="${product.dif}" type="currency"/>
                             </li>
+                            <li style='color:#FF0000'>
+                                <p>Rating del producto =${rating.getProductRating(product.id)}</p>
+                            </li>
                         </ul>
                         <a href='${pageContext.request.contextPath}/producto/detalle/${product.id}'
                            class='btn btn-outline-danger btn-lg btn-block'

@@ -51,11 +51,18 @@ public class RatingLoader implements ILoader {
         r1.setUserId(userList.get(1).getId());
         r1.setRatingValue(valuesList.get(2));
         r2.setProductId(productList.get(1).getId());
-        r2.setUserId(userList.get(1).getId());
+        r2.setUserId(userList.get(0).getId());
         r2.setRatingValue(valuesList.get(1));
-        r3.setProductId(productList.get(2).getId());
-        r3.setUserId(userList.get(1).getId());
-        r3.setRatingValue(valuesList.get(1));
+        r3.setProductId(productList.get(1).getId());
+        r3.setUserId(userList.get(2).getId());
+        r3.setRatingValue(valuesList.get(0));
+        r4.setProductId(productList.get(0).getId());
+        r4.setUserId(userList.get(0).getId());
+        r4.setRatingValue(valuesList.get(1));
+        r5.setProductId(productList.get(2).getId());
+        r5.setUserId(userList.get(1).getId());
+        r5.setRatingValue(valuesList.get(0));
+
 
 
 
@@ -67,6 +74,8 @@ public class RatingLoader implements ILoader {
         ratingRepository.save(r2);
         ratingRepository.save(r1);
         ratingRepository.save(r3);
+        ratingRepository.save(r4);
+        ratingRepository.save(r5);
 
 
         log.info("Ratings cargados en DataBase: " +ratingRepository.count());

@@ -1,5 +1,7 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import org.hibernate.jpa.internal.EntityManagerImpl;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -202,6 +204,9 @@ public class Product implements Serializable {
 
     public void setFeatured(boolean featured) {
         this.featured = featured;
+    }
+    public void getRating(){
+
     }
 
     @Override
