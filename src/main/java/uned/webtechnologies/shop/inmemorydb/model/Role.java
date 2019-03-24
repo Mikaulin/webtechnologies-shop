@@ -3,6 +3,7 @@ package uned.webtechnologies.shop.inmemorydb.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,7 +14,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private Set<User> users=new HashSet<>();
 
     public Long getId() {
         return id;
@@ -30,6 +31,10 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
+    public void setUser(User user){
+        this.users.add(user);
+    }
+
 
     public Set<User> getUsers() {
         return users;

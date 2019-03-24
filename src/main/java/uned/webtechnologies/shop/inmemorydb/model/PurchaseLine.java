@@ -25,8 +25,6 @@ public class PurchaseLine {
 
     public PurchaseLine(Cart cart) {
         date=new Date();
-        this.unitPrice = cart.getProduct().getFinalPrice();
-        this.purchasePrice = cart.getPurchasePrice();
         this.count = cart.getCount();
         this.product=cart.getProduct();
     }

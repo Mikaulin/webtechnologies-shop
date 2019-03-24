@@ -12,16 +12,23 @@ public class FixturesLoader {
     private ProductLoader productLoader;
     private RatingLoader ratingLoader;
     private RatingValueLoader ratingValueLoader;
+    private PromotionLoader promotionLoader;
 
     @Autowired
-    public FixturesLoader(UserLoader userLoader, BrandLoader brandLoader, CategoryLoader categoryLoader,
-                          ProductLoader productLoader,RatingValueLoader ratingValueLoader,RatingLoader ratingLoader) {
+    public FixturesLoader(UserLoader userLoader,
+                          BrandLoader brandLoader,
+                          CategoryLoader categoryLoader,
+                          ProductLoader productLoader,
+                          RatingValueLoader ratingValueLoader,
+                          RatingLoader ratingLoader,
+                          PromotionLoader promotionLoader) {
         this.userLoader = userLoader;
         this.brandLoader = brandLoader;
         this.categoryLoader = categoryLoader;
         this.productLoader = productLoader;
         this.ratingValueLoader=ratingValueLoader;
         this.ratingLoader=ratingLoader;
+        this.promotionLoader=promotionLoader;
     }
 
     public void execute() {
@@ -31,5 +38,6 @@ public class FixturesLoader {
         productLoader.load();
         ratingValueLoader.load();;
         ratingLoader.load();
+        promotionLoader.load();
     }
 }

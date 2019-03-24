@@ -19,7 +19,6 @@ public class Product implements Serializable {
     private String description;
     private String photo;
     private double price;
-    private double discount;
     private double height;
     private double width;
     private double depth;
@@ -31,6 +30,8 @@ public class Product implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
+    @ManyToMany
+    private Set<Promotion> promotions=new HashSet<>();
 
 
 
@@ -39,13 +40,20 @@ public class Product implements Serializable {
 
     }
 
+    public Set<Promotion> getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(Set<Promotion> promotions) {
+        this.promotions = promotions;
+    }
+
     /**
      * @param count Numero de unidades disponibles
      * @param name
      * @param description
      * @param photo
      * @param price
-     * @param discount
      * @param height
      * @param width
      * @param depth
@@ -53,13 +61,13 @@ public class Product implements Serializable {
      * @param brand
      * @param category
      */
-    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, boolean deleted, boolean featured, Brand brand, Category category) {
+    public Product(int count, String name, String description, String photo, double price, double height, double width, double depth, boolean deleted, boolean featured, Brand brand, Category category) {
         this.count = count;
         this.name = name;
         this.description = description;
         this.photo = photo;
         this.price = price;
-        this.discount = discount;
+
         this.height = height;
         this.width = width;
         this.depth = depth;
@@ -69,13 +77,12 @@ public class Product implements Serializable {
         this.featured = featured;
     }
 
-    public Product(int count, String name, String description, String photo, double price, double discount, double height, double width, double depth, boolean featured, Brand brand, Category category) {
+    public Product(int count, String name, String description, String photo, double price,double height, double width, double depth, boolean featured, Brand brand, Category category) {
         this.count = count;
         this.name = name;
         this.description = description;
         this.photo = photo;
         this.price = price;
-        this.discount = discount;
         this.height = height;
         this.width = width;
         this.depth = depth;
@@ -134,13 +141,6 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public double getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(double descount) {
-        this.discount = descount;
-    }
 
     public double getHeight() {
         return height;
@@ -190,13 +190,9 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public double getDif(){
-        return getPrice()-getFinalPrice();
-    }
 
-    public double getFinalPrice(){
-        return price-price*(discount/100);
-    }
+
+
 
     public boolean isFeatured() {
         return featured;
@@ -216,7 +212,6 @@ public class Product implements Serializable {
                 ", description='" + description + '\'' +
                 ", photo='" + photo + '\'' +
                 ", price=" + price +
-                ", discount=" + discount +
                 ", height=" + height +
                 ", width=" + width +
                 ", depth=" + depth +

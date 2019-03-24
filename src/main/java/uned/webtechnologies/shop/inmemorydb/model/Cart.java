@@ -9,8 +9,6 @@ public class Cart {
     @GeneratedValue
     private long id;
     private int count;
-    @Transient
-    private double purchasePrice;
     @ManyToOne
     @JoinColumn(name="ID_PRODUCT")
     private Product product;
@@ -54,9 +52,7 @@ public class Cart {
         this.product = product;
     }
 
-    public double getPurchasePrice() {
-        return count * product.getFinalPrice();
-    }
+
 
     @Override
     public String toString() {
