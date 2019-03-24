@@ -19,6 +19,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
+            <%--TODO en lugar de limitar los productos a mostrar aqui deberia hacerse mediante el boolean FEATURED de cada producto --%>
         <c:if test="${product.id < 5 and product.count > 0}">
         <div class='col-md-3'>
             <div class='card mb-3 box-shadow'>

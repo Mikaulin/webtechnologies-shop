@@ -29,7 +29,7 @@ public class HomeController {
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
-        result.addObject("featuredProducts", this.productService.getFeaturedProducts());
+        result.addObject("featuredProducts", this.productService.getProducts());
         result.addObject("rating", this.ratingService);
 
         return result;
