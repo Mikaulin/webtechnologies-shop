@@ -21,4 +21,5 @@ List<Rating> getRatingsByProductUserRating_ProductId(long id);
 
 
 
+
 }
