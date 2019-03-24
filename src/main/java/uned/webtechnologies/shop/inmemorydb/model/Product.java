@@ -205,9 +205,7 @@ public class Product implements Serializable {
     public void setFeatured(boolean featured) {
         this.featured = featured;
     }
-    public void getRating(){
 
-    }
 
     @Override
     public String toString() {

@@ -21,25 +21,31 @@ public class HomeController {
     @Autowired
     public HomeController(ProductService productService,RatingService ratingService) {
 
+
         this.productService = productService;
         this.ratingService=ratingService;
     }
+
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
         result.addObject("featuredProducts", this.productService.getFeaturedProducts());
-        result.addObject("rating",this.ratingService);
+        result.addObject("rating", this.ratingService);
+
         return result;
     }
 
     @GetMapping("/ofertas")
-    public String offers(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+    public String offers(Model model, @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
         model.addAttribute("name", name);
         return "home/offers";
     }
 
     @GetMapping("/servicios")
-    public String services() {
+    public String services(Model model) {
         return "home/services";
     }
+
+
+
 }

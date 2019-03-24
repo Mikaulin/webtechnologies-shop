@@ -40,42 +40,28 @@ public class RatingLoader implements ILoader {
         List<User> userList = this.userRepository.findAll();
         List<Product> productList = this.productRepository.findAll();
         List<RatingValue> valuesList = this.ratingValueRepository.findAll();
+        Rating r=new Rating();
+        long id ;
+
+        for (User user:userList) {
+            r.setUserId(user.getId());
+            for (Product product:productList) {
 
 
-        Rating r1=new Rating();
-        Rating r2=new Rating();
-        Rating r3=new Rating();
-        Rating r4=new Rating();
-        Rating r5=new Rating();
-        r1.setProductId(productList.get(1).getId());
-        r1.setUserId(userList.get(1).getId());
-        r1.setRatingValue(valuesList.get(2));
-        r2.setProductId(productList.get(1).getId());
-        r2.setUserId(userList.get(0).getId());
-        r2.setRatingValue(valuesList.get(1));
-        r3.setProductId(productList.get(1).getId());
-        r3.setUserId(userList.get(2).getId());
-        r3.setRatingValue(valuesList.get(0));
-        r4.setProductId(productList.get(0).getId());
-        r4.setUserId(userList.get(0).getId());
-        r4.setRatingValue(valuesList.get(1));
-        r5.setProductId(productList.get(2).getId());
-        r5.setUserId(userList.get(1).getId());
-        r5.setRatingValue(valuesList.get(0));
+                  r.setProductId(product.getId());
+                  id=(long)Math.floor(Math.random()*5+1);
+                  r.setRatingValue(this.ratingValueRepository.getOne(id));
+                this.ratingRepository.save(r);
+
+
+            }
+
+
+        }
 
 
 
 
-
-
-
-
-
-        ratingRepository.save(r2);
-        ratingRepository.save(r1);
-        ratingRepository.save(r3);
-        ratingRepository.save(r4);
-        ratingRepository.save(r5);
 
 
         log.info("Ratings cargados en DataBase: " +ratingRepository.count());

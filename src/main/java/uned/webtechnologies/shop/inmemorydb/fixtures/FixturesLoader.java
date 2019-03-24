@@ -10,16 +10,12 @@ public class FixturesLoader {
     private BrandLoader brandLoader;
     private CategoryLoader categoryLoader;
     private ProductLoader productLoader;
-    private RatingValueLoader ratingValueLoader;
     private RatingLoader ratingLoader;
+    private RatingValueLoader ratingValueLoader;
 
     @Autowired
-    public FixturesLoader(UserLoader userLoader,
-                          BrandLoader brandLoader,
-                          CategoryLoader categoryLoader,
-                          ProductLoader productLoader,
-                          RatingValueLoader ratingValueLoader,
-                          RatingLoader ratingLoader) {
+    public FixturesLoader(UserLoader userLoader, BrandLoader brandLoader, CategoryLoader categoryLoader,
+                          ProductLoader productLoader,RatingValueLoader ratingValueLoader,RatingLoader ratingLoader) {
         this.userLoader = userLoader;
         this.brandLoader = brandLoader;
         this.categoryLoader = categoryLoader;
@@ -33,7 +29,7 @@ public class FixturesLoader {
         brandLoader.load();
         categoryLoader.load();
         productLoader.load();
-        ratingValueLoader.load();
+        ratingValueLoader.load();;
         ratingLoader.load();
     }
 }

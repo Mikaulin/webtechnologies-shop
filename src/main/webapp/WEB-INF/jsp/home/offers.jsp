@@ -1,10 +1,12 @@
-
-
 <%@ include file = "../shared/_header.jsp"%>
 
 <div class="container">
 
-    <h4>&Uacute;ltimas ofertas en ElectroHOME</h4>
+    <div class="col-12">
+        <h4>&Uacute;ltimas ofertas en ElectroHOME</h4>
+        <hr>
+    </div>
+
 
 
 
