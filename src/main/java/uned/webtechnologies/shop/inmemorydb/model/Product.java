@@ -4,9 +4,7 @@ import org.hibernate.jpa.internal.EntityManagerImpl;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.*;
 
 
 @Entity
@@ -30,13 +28,15 @@ public class Product implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
-    @ManyToMany
-    private Set<Promotion> promotions=new HashSet<>();
+    @ManyToMany (fetch = FetchType.EAGER)
+    private Set<Promotion> promotions;
 
 
 
 
     public Product() {
+        promotions=new HashSet<>();
+
 
     }
 
@@ -62,6 +62,7 @@ public class Product implements Serializable {
      * @param category
      */
     public Product(int count, String name, String description, String photo, double price, double height, double width, double depth, boolean deleted, boolean featured, Brand brand, Category category) {
+        promotions=new HashSet<>();
         this.count = count;
         this.name = name;
         this.description = description;
@@ -78,6 +79,7 @@ public class Product implements Serializable {
     }
 
     public Product(int count, String name, String description, String photo, double price,double height, double width, double depth, boolean featured, Brand brand, Category category) {
+       promotions=new HashSet<>();
         this.count = count;
         this.name = name;
         this.description = description;
@@ -98,9 +100,20 @@ public class Product implements Serializable {
         return id;
     }
 
-    /**
-     * @return
-     */
+
+    public void setPromotion(Promotion promo){
+        if (promotions==null){
+            Set<Promotion> promos=new HashSet<Promotion>();
+            promos.add(promo);
+
+            setPromotions(promos);
+        }else{
+            this.promotions.add(promo);
+        }
+
+
+
+    }
     public int getCount() {
         return count;
     }
@@ -119,6 +132,33 @@ public class Product implements Serializable {
 
     public String getDescription() {
         return description;
+    }
+    public double getDiscount(){
+        double discount=0;
+
+        if (promotions!=null){
+            Calendar today=new GregorianCalendar();
+            today.setTime(new Date());
+
+
+        for (Promotion promo:this.promotions)
+              {if ((today.after(promo.getStartDate()))&&(today.before(promo.getEndDate()))){
+                  if(promo.getDiscount()>discount){
+                      discount=promo.getDiscount();
+                  }
+              }
+
+              }
+
+
+        }
+        return discount;
+    }
+    public double getFinalPrice(){
+        return this.price-(price*(getDiscount()/100));
+    }
+    public double getDif(){
+        return this.price-getFinalPrice();
     }
 
     public void setDescription(String description) {

@@ -8,9 +8,11 @@ import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 
+import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
+import uned.webtechnologies.shop.inmemorydb.repository.PromotionRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,12 +27,18 @@ public class ProductLoader implements ILoader {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final BrandRepository brandRepository;
+    private final PromotionRepository promotionRepository;
 
     @Autowired
-    public ProductLoader(ProductRepository productRepository, CategoryRepository categoryRepository, BrandRepository brandRepository) {
+    public ProductLoader(ProductRepository productRepository,
+                         CategoryRepository categoryRepository,
+                         BrandRepository brandRepository,
+                         PromotionRepository promotionRepository
+    ) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.brandRepository = brandRepository;
+        this.promotionRepository=promotionRepository;
     }
 
     @Override
@@ -99,7 +107,16 @@ public class ProductLoader implements ILoader {
 
 
                 )
+
         );
+
+        long count=this.promotionRepository.count();
+        for (Product p:products
+             ) {
+            p.setPromotion(this.promotionRepository.findOne((long)Math.floor(Math.random()*count+1)));
+
+        }
+
         productRepository.save(products);
         log.info("Productos cargados en DataBase: " + products.size());
     }

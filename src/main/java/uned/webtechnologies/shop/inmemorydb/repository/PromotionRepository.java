@@ -6,6 +6,6 @@ import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 
 @Repository
-public interface PromotionRepository extends JpaRepository<Promotion, Long> {
+public interface PromotionRepository extends JpaRepository<Promotion, Long> {}
 
-}
+

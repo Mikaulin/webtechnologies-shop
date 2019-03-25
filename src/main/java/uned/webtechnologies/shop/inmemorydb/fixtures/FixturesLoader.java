@@ -9,10 +9,12 @@ public class FixturesLoader {
     private UserLoader userLoader;
     private BrandLoader brandLoader;
     private CategoryLoader categoryLoader;
+    private PromotionLoader promotionLoader;
     private ProductLoader productLoader;
     private RatingLoader ratingLoader;
     private RatingValueLoader ratingValueLoader;
-    private PromotionLoader promotionLoader;
+
+
 
     @Autowired
     public FixturesLoader(UserLoader userLoader,
@@ -35,6 +37,7 @@ public class FixturesLoader {
         userLoader.load();
         brandLoader.load();
         categoryLoader.load();
+        promotionLoader.load();
         productLoader.load();
         ratingValueLoader.load();;
         ratingLoader.load();

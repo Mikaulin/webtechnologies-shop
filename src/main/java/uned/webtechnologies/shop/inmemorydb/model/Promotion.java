@@ -2,10 +2,7 @@ package uned.webtechnologies.shop.inmemorydb.model;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity
@@ -19,7 +16,7 @@ public class Promotion {
     private String name;
     private String description;
     private int discount;
-    @ManyToMany (mappedBy = "promotions")
+    @ManyToMany (mappedBy = "promotions",fetch = FetchType.EAGER)
     private Set<Product> products=new HashSet<>();
 
 
