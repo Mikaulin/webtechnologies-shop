@@ -16,6 +16,7 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private String photo;
+    private int productDiscount;
     private double price;
     private double height;
     private double width;
@@ -28,14 +29,12 @@ public class Product implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
-    @ManyToMany (fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<Promotion> promotions;
 
 
-
-
     public Product() {
-        promotions=new HashSet<>();
+        promotions = new HashSet<>();
 
 
     }
@@ -47,13 +46,12 @@ public class Product implements Serializable {
     }
 
 
-
     public void setPromotions(Set<Promotion> promotions) {
         this.promotions = promotions;
     }
 
     /**
-     * @param count Numero de unidades disponibles
+     * @param count       Numero de unidades disponibles
      * @param name
      * @param description
      * @param photo
@@ -66,7 +64,7 @@ public class Product implements Serializable {
      * @param category
      */
     public Product(int count, String name, String description, String photo, double price, double height, double width, double depth, boolean deleted, boolean featured, Brand brand, Category category) {
-        promotions=new HashSet<>();
+        promotions = new HashSet<>();
         this.count = count;
         this.name = name;
         this.description = description;
@@ -82,8 +80,8 @@ public class Product implements Serializable {
         this.featured = featured;
     }
 
-    public Product(int count, String name, String description, String photo, double price,double height, double width, double depth, boolean featured, Brand brand, Category category) {
-       promotions=new HashSet<>();
+    public Product(int count, String name, String description, String photo, double price, double height, double width, double depth, boolean featured, Brand brand, Category category) {
+        promotions = new HashSet<>();
         this.count = count;
         this.name = name;
         this.description = description;
@@ -98,26 +96,32 @@ public class Product implements Serializable {
         this.deleted = false;
     }
 
+    public void setProductDiscount(int discount) {
+        this.productDiscount = discount;
+    }
 
+    public int getProductDiscount() {
+        return productDiscount;
+    }
 
     public long getId() {
         return id;
     }
 
 
-    public void setPromotion(Promotion promo){
-        if (promotions==null){
-            Set<Promotion> promos=new HashSet<Promotion>();
+    public void setPromotion(Promotion promo) {
+        if (promotions == null) {
+            Set<Promotion> promos = new HashSet<Promotion>();
             promos.add(promo);
 
             setPromotions(promos);
-        }else{
+        } else {
             this.promotions.add(promo);
         }
 
 
-
     }
+
     public int getCount() {
         return count;
     }
@@ -137,32 +141,35 @@ public class Product implements Serializable {
     public String getDescription() {
         return description;
     }
-    public double getDiscount(){
-        double discount=0;
 
-        if (promotions!=null){
-            Calendar today=new GregorianCalendar();
+    public double getDiscount() {
+        double discount = this.productDiscount;
+
+        if (promotions != null) {
+            Calendar today = new GregorianCalendar();
             today.setTime(new Date());
 
 
-        for (Promotion promo:this.promotions)
-              {if ((today.after(promo.getStartDate()))&&(today.before(promo.getEndDate()))){
-                  if(promo.getDiscount()>discount){
-                      discount=promo.getDiscount();
-                  }
-              }
+            for (Promotion promo : this.promotions) {
+                if ((today.after(promo.getStartDate())) && (today.before(promo.getEndDate()))) {
+                    if (promo.getDiscount() > discount) {
+                        discount = promo.getDiscount();
+                    }
+                }
 
-              }
+            }
 
 
         }
         return discount;
     }
-    public double getFinalPrice(){
-        return this.price-(price*(getDiscount()/100));
+
+    public double getFinalPrice() {
+        return this.price - (price * (getDiscount() / 100));
     }
-    public double getDif(){
-        return this.price-getFinalPrice();
+
+    public double getDif() {
+        return this.price - getFinalPrice();
     }
 
     public void setDescription(String description) {
@@ -233,9 +240,6 @@ public class Product implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-
-
 
 
     public boolean isFeatured() {
