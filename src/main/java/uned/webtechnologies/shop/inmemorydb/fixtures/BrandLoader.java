@@ -30,7 +30,9 @@ public class BrandLoader implements ILoader {
                         new Brand("SAMSUNG"),
                         new Brand("AEG"),
                         new Brand("BOSCH"),
-                        new Brand("INDESIT")
+                        new Brand("SIEMENS"),
+                        new Brand("INDESIT"),
+                        new Brand("ZANUSSI")
                 )
         );
         brandRepository.save(brands);

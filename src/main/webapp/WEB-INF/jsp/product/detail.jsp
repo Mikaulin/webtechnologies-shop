@@ -9,13 +9,13 @@
             <hr>
         </div>
     </div>
-    <!-- /.row -->
+
 
     <div class="row">
 
         <div class="col-sm-12 col-md-12 col-lg-6 mb-4">
 
-            <!-- There's only One image -->
+
             <div class="">
                 <div class="main-product-image">
                     <img src='${product.photo}' alt='' class='img-fluid'>
@@ -39,7 +39,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-md-3 form-control-label">Descripción:</label>
                             <div class="col-sm-8 col-md-9 description">
-                                <p>${product.name}</p>
+                                <p>${product.description}</p>
                             </div>
                         </div>
 
@@ -47,15 +47,26 @@
                             <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Precio:</label>
                             <div class="col-sm-8 col-md-9">
                                 <span class="product-form-price" id="product-form-price">
-                                    <h4><b> ${product.finalPrice} &euro;</b><small class='text-muted'> ${product.price}</small></h4>
+                                    <h4><b> ${product.finalPrice} &euro;</b>
+                                        <c:if test="${product.finalPrice != product.price}" >
+                                            <small class='text-muted'> <strike>${product.price} &euro;</strike></small></h4>
+                                        </c:if>
                                 </span>
                             </div>
                         </div>
-
+                        <c:if test="${product.dif != 0}" >
                         <div class="form-group row">
                             <label class="col-sm-3 col-md-3 form-control-label">Ahorras:</label>
                             <div class="col-sm-8 col-md-9 description">
-                                <p style='color:red'>${product.dif} &euro;</p>
+                                <p class="text-danger"><fmt:formatNumber currencySymbol="&euro;" value="${product.dif}" type="currency" /></p>
+                            </div>
+                        </div>
+                        </c:if>
+                        <div class="form-group dimension_elem row">
+                            <label class="col-sm-3 col-md-3 form-control-label nopaddingtop">Dimensiones:</label>
+                            <div class="col-sm-8 col-md-9 description">
+                                <p> ${product.width} <small>mm.</small> x ${product.depth} <small>mm.</small> x ${product.height} <small>mm.</small> <br>
+                                    <small>(ancho x profundidad x alto)</small></p>
                             </div>
                         </div>
 

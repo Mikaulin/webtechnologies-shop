@@ -31,7 +31,12 @@ public class CategoryLoader implements ILoader {
     public void load() {
         ArrayList<Category> categories = new ArrayList<>(
                 Arrays.asList(
-                        new Category("Grandes electrodomésticos"),
+                        new Category("Lavadoras"),
+                        new Category("Lavavajillas"),
+                        new Category("Congeladores"),
+                        new Category("Hornos"),
+                        new Category("Secadoras"),
+                        new Category("Campanas"),
                         new Category("Frigoríficos"),
                         new Category("Vitrocerámicas")
                 )

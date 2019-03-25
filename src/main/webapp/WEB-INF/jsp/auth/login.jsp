@@ -9,35 +9,47 @@
 
 <div class="container">
 
-    <div class="col-md-8 order-md-1">
+    <div class="col-12">
+        <h4 class="mb-3">Iniciar sesi&oacute;n en ElectroHOME</h4>
+        <hr>
+    </div>
 
-        <h4 class="mb-3">Inicia Sesión</h4>
+     <form method="POST" action="${contextPath}/user/login" class="form-signin">
 
-        <form method="POST" action="${contextPath}/user/login" class="form-signin">
+          <div class="col-md-8 order-md-1">
 
             <div class="row">
-                <div class="form-group ${error != null ? 'has-error' : ''}">
-                    <span>${message}</span>
-                    <input name="username" type="text" class="form-control" placeholder="Usuario"
+                <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
+                        <span>${message}</span>
+                        <input name="username" type="text" class="form-control" placeholder="Usuario"
                            autofocus="true"/>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group ${error != null ? 'has-error' : ''}">
-                    <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
-                    <span>${error}</span>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
+                        <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
+                        <span>${error}</span>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group">
-                    <button class="btn btn-primary btn-lg" type="submit">Conéctate</button>
-                </div>
-            </div>
-                <h4 class="text-center"><a href="${contextPath}/user/registration">Crea una cuenta</a></h4>
 
-        </form>
+            <div class="checkbox mb-3">
+                <label>
+                    <a href="#"  class="text-danger">Has olvidado tu contrase&ntilde;a ?</a>
+                </label>
+            </div>
+
+                    <button type="submit" class="btn btn-danger btn-lg">Iniciar Sesi&oacute;n</button>
+          </div>
+     </form>
+
+    <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+
+    <div class="jumbotron mt-3">
+        <h4>Si no tienes una cuenta puedes crearla ahora</h4>
+        <p class="lead">Y empezar&aacute;s a disfrutar de todas las ventajas que te ofrece ElectroHOME</p>
+        <a class="btn btn-outline-danger" href="${contextPath}/user/registration" role="button">Crear Cuenta</a>
     </div>
+
 </div>
 
 <%@ include file = "../shared/_js.jsp"%>

@@ -3,10 +3,11 @@ package uned.webtechnologies.shop.inmemorydb.model;
 import org.springframework.data.annotation.Transient;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
@@ -33,11 +34,6 @@ public class User {
     private Set<Cart> carts;
     @OneToMany (mappedBy = "user")
     private Set<PurchaseLine> purchaseLines;
-
-
-
-
-
     @ManyToMany
     private Set<Role> roles;
 
