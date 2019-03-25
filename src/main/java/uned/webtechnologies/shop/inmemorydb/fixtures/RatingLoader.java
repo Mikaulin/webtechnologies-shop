@@ -8,6 +8,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Rating;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.model.User;
+import uned.webtechnologies.shop.inmemorydb.model.persistense.ProductUserRating;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
@@ -28,42 +29,31 @@ public class RatingLoader implements ILoader {
 
 
     @Autowired
-    public RatingLoader(RatingRepository ratingRepository,UserRepository userRepository,ProductRepository productRepository,RatingValueRepository ratingValueRepository){
-        this.ratingRepository=ratingRepository;
-        this.userRepository=userRepository;
-        this.productRepository=productRepository;
-        this.ratingValueRepository=ratingValueRepository;
+    public RatingLoader(RatingRepository ratingRepository, UserRepository userRepository, ProductRepository productRepository, RatingValueRepository ratingValueRepository) {
+        this.ratingRepository = ratingRepository;
+        this.userRepository = userRepository;
+        this.productRepository = productRepository;
+        this.ratingValueRepository = ratingValueRepository;
     }
 
     @Override
     public void load() {
         List<User> userList = this.userRepository.findAll();
         List<Product> productList = this.productRepository.findAll();
-        List<RatingValue> valuesList = this.ratingValueRepository.findAll();
-        Rating r=new Rating();
-        long id ;
+        Rating r = new Rating();
+        ProductUserRating productUserRating = new ProductUserRating();
+        long id;
 
-        for (User user:userList) {
-            r.setUserId(user.getId());
-            for (Product product:productList) {
-
-
-                  r.setProductId(product.getId());
-                  id=(long)Math.floor(Math.random()*5+1);
-                  r.setRatingValue(this.ratingValueRepository.getOne(id));
+        for (User user : userList) {
+            productUserRating.setUserId(user.getId());
+            for (Product product : productList) {
+                productUserRating.setProductId(product.getId());
+                r.setProductUserRating(productUserRating);
+                id = (long) Math.floor(Math.random() * 5 + 1);
+                r.setRatingValue(this.ratingValueRepository.getOne(id));
                 this.ratingRepository.save(r);
-
-
             }
-
-
         }
-
-
-
-
-
-
-        log.info("Ratings cargados en DataBase: " +ratingRepository.count());
+        log.info("Ratings cargados en DataBase: " + ratingRepository.count());
     }
 }

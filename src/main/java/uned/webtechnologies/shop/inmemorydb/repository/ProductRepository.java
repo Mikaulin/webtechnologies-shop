@@ -12,7 +12,7 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
      List<Product> getProductByCategory(Category category);
      List<Product> getProductByBrand(Brand brand);
-     List<Product> getProductByFeaturedTrue();
+     List<Product> getTop8ProductByFeaturedTrue();
      List<Product> getProductByBrandId(long id);
      List<Product> getProductByCategoryId(long id);
 }

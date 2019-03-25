@@ -16,22 +16,16 @@ import uned.webtechnologies.shop.services.RatingService;
 public class HomeController {
 
     private ProductService productService;
-    private RatingService ratingService;
 
     @Autowired
-    public HomeController(ProductService productService,RatingService ratingService) {
-
-
+    public HomeController(ProductService productService) {
         this.productService = productService;
-        this.ratingService=ratingService;
     }
 
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
-        result.addObject("featuredProducts", this.productService.getProducts());
-        result.addObject("rating", this.ratingService);
-
+        result.addObject("featuredProducts", this.productService.getFeaturedProducts());
         return result;
     }
 
@@ -45,7 +39,4 @@ public class HomeController {
     public String services(Model model) {
         return "home/services";
     }
-
-
-
 }

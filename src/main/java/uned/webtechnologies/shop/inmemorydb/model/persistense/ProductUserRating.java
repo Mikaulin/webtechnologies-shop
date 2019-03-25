@@ -1,10 +1,8 @@
-package uned.webtechnologies.shop.inmemorydb.model;
+package uned.webtechnologies.shop.inmemorydb.model.persistense;
 
 import javax.persistence.Embeddable;
 
 import java.io.Serializable;
-
-
 
 @Embeddable
 public class ProductUserRating implements Serializable {
@@ -16,7 +14,6 @@ public class ProductUserRating implements Serializable {
     public ProductUserRating() {
     }
 
-
     public long getUserId() {
         return userId;
     }
@@ -24,7 +21,6 @@ public class ProductUserRating implements Serializable {
     public void setUserId(long userId) {
         this.userId = userId;
     }
-
 
     public long getProductId() {
         return productId;

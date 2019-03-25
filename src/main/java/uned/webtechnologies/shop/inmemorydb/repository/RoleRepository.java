@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
+    Role findByName(String name);
 }

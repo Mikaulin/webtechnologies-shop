@@ -12,18 +12,19 @@ public class Cart {
     @Transient
     private double purchasePrice;
     @ManyToOne
-    @JoinColumn(name="ID_PRODUCT")
+    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
     @ManyToOne
-    @JoinColumn(name="ID_USER")
+    @JoinColumn(name = "ID_USER")
     private User user;
 
-    public Cart(){}
+    public Cart() {
+    }
 
-    public Cart(int count, Product product,User user) {
+    public Cart(int count, Product product, User user) {
         this.count = count;
         this.product = product;
-        this.user=user;
+        this.user = user;
     }
 
     public long getId() {

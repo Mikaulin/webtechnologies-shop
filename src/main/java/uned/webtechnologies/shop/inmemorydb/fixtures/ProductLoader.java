@@ -16,18 +16,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 @Service
-
 public class ProductLoader implements ILoader {
-
     private Logger log = LoggerFactory.getLogger(ProductLoader.class);
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final BrandRepository brandRepository;
 
     @Autowired
-    public ProductLoader(ProductRepository productRepository, CategoryRepository categoryRepository, BrandRepository brandRepository) {
+    public ProductLoader(
+            ProductRepository productRepository,
+            CategoryRepository categoryRepository,
+            BrandRepository brandRepository
+    ) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.brandRepository = brandRepository;
@@ -90,12 +91,6 @@ public class ProductLoader implements ILoader {
                         new Product(60, "Campana integrable GFG-2", "180 W, 3 niv. potencia, ruido 58 DB, ilumin. LED, 1 filtro antigrasa", "/electro/CP003.jpg", 129.99, 0, 175, 550, 310, true, brandList.get(2), categoryList.get(5)),
                         new Product(60, "Campana Pared DBB5660HM 60 cm", "265 W, A, 3 niv. potencia, ruido 36 DB, ilum. LED, camp. pared", "/electro/CP004.jpg", 399.99, 20, 900, 598, 500, true, brandList.get(4), categoryList.get(5)),
                         new Product(60, "Campana Decoración BALAY 3BC694MX 90 cm", "100 W, C, 3 niv. potencia, ruido 65 DB, ilum. LED", "/electro/CP005.jpg", 219.99, 0, 900, 900, 500, true, brandList.get(0), categoryList.get(5))
-
-
-
-
-
-
 
 
                 )

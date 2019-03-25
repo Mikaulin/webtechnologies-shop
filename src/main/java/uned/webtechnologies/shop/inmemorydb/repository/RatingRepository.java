@@ -11,15 +11,5 @@ import java.util.List;
 
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Long> {
-
-
-
-
-List<Rating> getRatingsByProductUserRating_ProductId(long id);
-
-
-
-
-
-
+    List<Rating> getRatingsByProductUserRating_ProductId(long id);
 }

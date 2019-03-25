@@ -1,7 +1,6 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,7 +17,8 @@ public class Promotion {
     private String description;
 
 
-    public Promotion(){}
+    public Promotion() {
+    }
 
     public long getId() {
         return id;

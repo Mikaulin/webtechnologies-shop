@@ -1,13 +1,8 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import org.hibernate.jpa.internal.EntityManagerImpl;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
-
+import java.util.List;
 
 @Entity
 public class Product implements Serializable {
@@ -32,15 +27,37 @@ public class Product implements Serializable {
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
 
+    @OneToMany()
+    @JoinColumn(name="productId")
+    private List<Rating> ratingList;
 
+    @Transient
+    private double averageRating;
 
+    @Transient
+    private double ratingPercent;
+
+    @PostLoad
+    private void postLoad() {
+        Integer sum = 0;
+        if(!ratingList.isEmpty()) {
+            for (Rating rating : ratingList) {
+                sum += rating.getRatingValue().getValue();
+            }
+            this.averageRating = sum.doubleValue() / ratingList.size();
+        } else {
+            this.averageRating = 0;
+        }
+        //TODO Las constantes se deberían sacar a algún archivo de constanets
+        this.ratingPercent = this.averageRating / 5 * 100;
+    }
 
     public Product() {
 
     }
 
     /**
-     * @param count Numero de unidades disponibles
+     * @param count       Numero de unidades disponibles
      * @param name
      * @param description
      * @param photo
@@ -84,7 +101,6 @@ public class Product implements Serializable {
         this.featured = featured;
         this.deleted = false;
     }
-
 
 
     public long getId() {
@@ -190,12 +206,12 @@ public class Product implements Serializable {
         this.category = category;
     }
 
-    public double getDif(){
-        return getPrice()-getFinalPrice();
+    public double getDif() {
+        return getPrice() - getFinalPrice();
     }
 
-    public double getFinalPrice(){
-        return price-price*(discount/100);
+    public double getFinalPrice() {
+        return price - price * (discount / 100);
     }
 
     public boolean isFeatured() {
@@ -206,6 +222,23 @@ public class Product implements Serializable {
         this.featured = featured;
     }
 
+    public List<Rating> getRatingList() {
+        return ratingList;
+    }
+
+    public void setRatingList(List<Rating> ratingList) {
+        this.ratingList = ratingList;
+    }
+
+    @Transient
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    @Transient
+    public double getRatingPercent() {
+        return ratingPercent;
+    }
 
     @Override
     public String toString() {

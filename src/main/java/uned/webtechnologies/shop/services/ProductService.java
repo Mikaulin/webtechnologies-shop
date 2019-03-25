@@ -32,7 +32,7 @@ public class ProductService{
     }
 
     public List<Product> getFeaturedProducts(){
-        return this.productRepository.getProductByFeaturedTrue();
+        return this.productRepository.getTop8ProductByFeaturedTrue();
     }
 
     public void add(Product product) {

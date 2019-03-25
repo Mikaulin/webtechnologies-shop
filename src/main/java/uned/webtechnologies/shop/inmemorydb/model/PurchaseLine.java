@@ -15,20 +15,21 @@ public class PurchaseLine {
     private double purchasePrice;
     private int count;
     @ManyToOne
-    @JoinColumn(name="ID_PRODUCT")
+    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
     @ManyToOne
-    @JoinColumn(name="ID_USER")
+    @JoinColumn(name = "ID_USER")
     private User user;
 
-    public PurchaseLine(){}
+    public PurchaseLine() {
+    }
 
     public PurchaseLine(Cart cart) {
-        date=new Date();
+        date = new Date();
         this.unitPrice = cart.getProduct().getFinalPrice();
         this.purchasePrice = cart.getPurchasePrice();
         this.count = cart.getCount();
-        this.product=cart.getProduct();
+        this.product = cart.getProduct();
     }
 
     public long getId() {

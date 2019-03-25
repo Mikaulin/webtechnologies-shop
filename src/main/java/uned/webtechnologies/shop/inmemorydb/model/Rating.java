@@ -1,6 +1,8 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 
+import uned.webtechnologies.shop.inmemorydb.model.persistense.ProductUserRating;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -8,19 +10,19 @@ import javax.persistence.OneToOne;
 import java.util.Objects;
 
 @Entity
- public class Rating {
+public class Rating {
     @EmbeddedId
     private ProductUserRating productUserRating;
     @OneToOne
     private RatingValue ratingValue;
 
-
-    public Rating (){
-        this.productUserRating=new ProductUserRating();
+    public Rating() {
+        this.productUserRating = new ProductUserRating();
 
     }
-    public Rating (ProductUserRating productUserRating){
-        this.productUserRating=productUserRating;
+
+    public Rating(ProductUserRating productUserRating) {
+        this.productUserRating = productUserRating;
     }
 
     public ProductUserRating getProductUserRating() {
@@ -31,23 +33,12 @@ import java.util.Objects;
         this.productUserRating = productUserRating;
     }
 
-    public long getProductId(){
-        return productUserRating.getProductId();
-    }
-    public void setProductId(long productId){
-        productUserRating.setProductId(productId);
-    }
-    public long getUserId(){
-        return productUserRating.getUserId();
-    }
-    public void setUserId(long user){
-        productUserRating.setUserId(user);
-    }
-    public RatingValue getRatingValue(){
+    public RatingValue getRatingValue() {
         return ratingValue;
     }
-    public void setRatingValue(RatingValue ratingValue){
-       this.ratingValue=ratingValue;
+
+    public void setRatingValue(RatingValue ratingValue) {
+        this.ratingValue = ratingValue;
     }
 
     @Override

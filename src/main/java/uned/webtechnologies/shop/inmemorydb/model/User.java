@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Transient;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -32,7 +33,7 @@ public class User implements Serializable {
     private boolean subscribed;
     @OneToMany(mappedBy = "user")
     private Set<Cart> carts;
-    @OneToMany (mappedBy = "user")
+    @OneToMany(mappedBy = "user")
     private Set<PurchaseLine> purchaseLines;
     @ManyToMany
     private Set<Role> roles;
@@ -43,8 +44,12 @@ public class User implements Serializable {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.passwordConfirm=password;
+    }
 
+    public User(String username, String password, Role role) {
+        this.username = username;
+        this.password = password;
+        addRole(role);
     }
 
     public String getName() {
@@ -168,7 +173,6 @@ public class User implements Serializable {
     }
 
 
-
     public Set<Role> getRoles() {
         return roles;
     }
@@ -189,10 +193,15 @@ public class User implements Serializable {
         this.passwordConfirm = passwordConfirm;
     }
 
-
-
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public void addRole(Role role) {
+        if (roles == null) {
+            this.roles = new HashSet<>();
+        }
+        this.roles.add(role);
     }
 
     @Override

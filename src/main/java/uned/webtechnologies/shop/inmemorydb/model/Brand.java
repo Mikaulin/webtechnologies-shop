@@ -13,10 +13,11 @@ public class Brand {
     private String name;
     @OneToMany(mappedBy = "brand")
 
-    private Set<Product> products=new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 
 
-    public Brand (){}
+    public Brand() {
+    }
 
     public Brand(String name) {
         this.name = name;
@@ -41,7 +42,6 @@ public class Brand {
     public long getId() {
         return id;
     }
-
 
 
     @Override
