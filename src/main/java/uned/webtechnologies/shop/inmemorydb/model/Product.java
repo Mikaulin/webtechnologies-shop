@@ -41,8 +41,12 @@ public class Product implements Serializable {
     }
 
     public Set<Promotion> getPromotions() {
+
+
         return promotions;
     }
+
+
 
     public void setPromotions(Set<Promotion> promotions) {
         this.promotions = promotions;

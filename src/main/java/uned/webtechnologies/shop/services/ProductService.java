@@ -46,6 +46,7 @@ public class ProductService{
         return this.productRepository.getProductByBrandId(id);
     }
 
+
     public List<Product> getProductsByCategoryId(long id){
         return this.productRepository.getProductByCategoryId(id);
     }

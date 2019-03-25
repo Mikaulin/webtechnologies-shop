@@ -1,5 +1,6 @@
 package uned.webtechnologies.shop.inmemorydb.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
@@ -16,5 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
      List<Product> getProductByFeaturedTrue();
      List<Product> getProductByBrandId(long id);
      List<Product> getProductByCategoryId(long id);
+
+
 
 }

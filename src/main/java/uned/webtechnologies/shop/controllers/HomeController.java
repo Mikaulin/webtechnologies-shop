@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import uned.webtechnologies.shop.inmemorydb.model.Promotion;
+import uned.webtechnologies.shop.inmemorydb.repository.PromotionRepository;
 import uned.webtechnologies.shop.services.ProductService;
+import uned.webtechnologies.shop.services.PromotionService;
 import uned.webtechnologies.shop.services.RatingService;
 
 @Controller
@@ -18,12 +21,14 @@ public class HomeController {
     private ProductService productService;
     private RatingService ratingService;
 
+
     @Autowired
-    public HomeController(ProductService productService,RatingService ratingService) {
+    public HomeController(ProductService productService,RatingService ratingService,PromotionService promotionService) {
 
 
         this.productService = productService;
         this.ratingService=ratingService;
+
     }
 
     @GetMapping("/")
@@ -31,6 +36,7 @@ public class HomeController {
         ModelAndView result = new ModelAndView("index");
         result.addObject("featuredProducts", this.productService.getProducts());
         result.addObject("rating", this.ratingService);
+
 
         return result;
     }
