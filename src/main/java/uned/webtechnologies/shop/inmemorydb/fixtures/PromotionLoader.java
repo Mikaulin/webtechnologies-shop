@@ -49,6 +49,6 @@ public class PromotionLoader implements ILoader {
 
 
 
-        log.info("Promociones cargadas en DataBase: " + promotionRepository.count());
+        log.info("Promociones cargadas en  DataBase: " + promotionRepository.count());
     }
 }
