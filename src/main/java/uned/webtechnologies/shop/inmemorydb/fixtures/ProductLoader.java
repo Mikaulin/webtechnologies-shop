@@ -116,6 +116,9 @@ public class ProductLoader implements ILoader {
             p.setPromotion(this.promotionRepository.findOne((long)Math.floor(Math.random()*count+1)));
 
         }
+        products.get(0).setPromotion(promotionRepository.findOne((long)1));
+        products.get(0).setPromotion(promotionRepository.findOne((long)2));
+        products.get(0).setPromotion(promotionRepository.findOne((long)3));
 
         productRepository.save(products);
         log.info("Productos cargados en DataBase: " + products.size());

@@ -41,6 +41,5 @@ public class FixturesLoader {
         productLoader.load();
         ratingValueLoader.load();;
         ratingLoader.load();
-        promotionLoader.load();
     }
 }

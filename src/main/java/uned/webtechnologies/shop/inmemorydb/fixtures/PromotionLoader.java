@@ -39,6 +39,13 @@ public class PromotionLoader implements ILoader {
         diaDelPadre.setEndDate(new GregorianCalendar(2019,2,21));
         diaDelPadre.setDiscount(25);
         promotionRepository.save(diaDelPadre);
+        Promotion d30=new Promotion();
+        d30.setDescription("Descuento del 30 para siempre");
+        d30.setName("Superdescuento del 30%");
+        d30.setStartDate(new GregorianCalendar(2019,2,15));
+        d30.setEndDate(new GregorianCalendar(10000,2,21));
+        d30.setDiscount(30);
+        promotionRepository.save(d30);
 
 
 
