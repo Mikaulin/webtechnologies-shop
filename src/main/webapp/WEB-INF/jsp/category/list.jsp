@@ -1,6 +1,6 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
-<%@ include file = "../shared/_header.jsp"%>
+<%@page contentType="text/html" %>
+<%@page pageEncoding="UTF-8" %>
+<%@ include file="../shared/_header.jsp" %>
 
 
 <div class="container">
@@ -15,11 +15,12 @@
                     <span>CATEGOR&Iacute;AS</span>
                 </h5>
 
-                <c:forEach items="${categoria}" var="category">
+                <c:forEach items="${categories}" var="category">
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/producto/categorias/${category.id}">
-                                <span data-feather="file-text"></span>${category.name}
+                            <a class="nav-link"
+                               href="${pageContext.request.contextPath}/categorias/${category.id}">
+                                <span data-feather="file-text">${category.name}</span>
                             </a>
                         </li>
                     </ul>
@@ -31,14 +32,9 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">
 
-                <h1 class="h2">${product.category.name}</h1>
-
                 <div class="btn-toolbar mb-2 mb-md-0">
-
-
                     <img class="card-img-right flex-auto d-none d-md-block"
                          src="${pageContext.request.contextPath}/img/promoMarcas.jpg" alt="">
-
                 </div>
             </div>
         </main>
@@ -48,5 +44,5 @@
 </div>
 
 
-<%@ include file = "../shared/_js.jsp"%>
-<%@ include file = "../shared/_footer.jsp"%>
+<%@ include file="../shared/_js.jsp" %>
+<%@ include file="../shared/_footer.jsp" %>

@@ -11,12 +11,11 @@ public class RatingValue implements Serializable {
     @GeneratedValue
     private long id;
     private int value;
+    public RatingValue(){}
 
-    public RatingValue() {
-    }
 
-    public RatingValue(int value) {
-        this.value = value;
+    public RatingValue(int value){
+        this.value=value;
     }
 
     public int getValue() {

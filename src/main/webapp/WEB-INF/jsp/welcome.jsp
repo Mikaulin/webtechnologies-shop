@@ -1,5 +1,5 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<%@page contentType="text/html" %>
+<%@page pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -12,15 +12,16 @@
 
 </head>
 <body>
-    <div class="container">
-        <c:if test="${pageContext.request.userPrincipal.name != null}">
-            <form id="logoutForm" method="POST" action="${contextPath}/logout">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            </form>
+<div class="container">
+    <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
 
-            <h2>Bienvenido, ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
-        </c:if>
-    </div>
+        <h2>Bienvenido, ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
+        </h2>
+    </c:if>
+</div>
 
 </body>
 </html>

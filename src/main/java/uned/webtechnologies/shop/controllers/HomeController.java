@@ -6,10 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.ProductService;
-import uned.webtechnologies.shop.services.RatingService;
 
 @Controller
 @RequestMapping
@@ -29,14 +27,21 @@ public class HomeController {
         return result;
     }
 
-    @GetMapping("/ofertas")
-    public String offers(Model model, @RequestParam(value = "name", required = false, defaultValue = "World") String name) {
-        model.addAttribute("name", name);
-        return "home/offers";
-    }
-
     @GetMapping("/servicios")
     public String services(Model model) {
         return "home/services";
     }
+
+
+    @GetMapping("/memoria")
+    public String memory(Model model) {
+        return "home/memoria";
+    }
+
+
+    @GetMapping("/manual")
+    public String manual(Model model) {
+        return "home/manual";
+    }
+
 }

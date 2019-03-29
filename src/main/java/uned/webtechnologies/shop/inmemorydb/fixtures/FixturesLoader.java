@@ -9,26 +9,33 @@ public class FixturesLoader {
     private UserLoader userLoader;
     private BrandLoader brandLoader;
     private CategoryLoader categoryLoader;
+    private PromotionLoader promotionLoader;
     private ProductLoader productLoader;
     private RatingLoader ratingLoader;
     private RatingValueLoader ratingValueLoader;
 
+
+
     @Autowired
-    public FixturesLoader(RoleLoader roleLoader,
+    public FixturesLoader(
+                          RoleLoader roleLoader,
                           UserLoader userLoader,
                           BrandLoader brandLoader,
                           CategoryLoader categoryLoader,
                           ProductLoader productLoader,
                           RatingValueLoader ratingValueLoader,
-                          RatingLoader ratingLoader
-    ) {
+                          RatingLoader ratingLoader,
+                          PromotionLoader promotionLoader
+
+    ){
         this.roleLoader = roleLoader;
         this.userLoader = userLoader;
         this.brandLoader = brandLoader;
         this.categoryLoader = categoryLoader;
         this.productLoader = productLoader;
-        this.ratingValueLoader = ratingValueLoader;
-        this.ratingLoader = ratingLoader;
+        this.ratingValueLoader=ratingValueLoader;
+        this.ratingLoader=ratingLoader;
+        this.promotionLoader=promotionLoader;
     }
 
     public void execute() {
@@ -36,8 +43,9 @@ public class FixturesLoader {
         userLoader.load();
         brandLoader.load();
         categoryLoader.load();
+        promotionLoader.load();
         productLoader.load();
-        ratingValueLoader.load();
+        ratingValueLoader.load();;
         ratingLoader.load();
     }
 }

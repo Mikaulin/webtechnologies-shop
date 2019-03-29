@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Rating;
-import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.model.persistense.ProductUserRating;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
@@ -14,8 +13,6 @@ import uned.webtechnologies.shop.inmemorydb.repository.RatingRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -29,11 +26,11 @@ public class RatingLoader implements ILoader {
 
 
     @Autowired
-    public RatingLoader(RatingRepository ratingRepository, UserRepository userRepository, ProductRepository productRepository, RatingValueRepository ratingValueRepository) {
-        this.ratingRepository = ratingRepository;
-        this.userRepository = userRepository;
-        this.productRepository = productRepository;
-        this.ratingValueRepository = ratingValueRepository;
+    public RatingLoader(RatingRepository ratingRepository, UserRepository userRepository, ProductRepository productRepository, RatingValueRepository ratingValueRepository){
+        this.ratingRepository=ratingRepository;
+        this.userRepository=userRepository;
+        this.productRepository=productRepository;
+        this.ratingValueRepository=ratingValueRepository;
     }
 
     @Override

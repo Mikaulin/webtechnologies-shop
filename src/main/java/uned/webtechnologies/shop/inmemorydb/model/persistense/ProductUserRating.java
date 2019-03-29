@@ -1,7 +1,6 @@
 package uned.webtechnologies.shop.inmemorydb.model.persistense;
 
 import javax.persistence.Embeddable;
-
 import java.io.Serializable;
 
 @Embeddable

@@ -1,13 +1,11 @@
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
-import uned.webtechnologies.shop.services.BrandService;
-import uned.webtechnologies.shop.services.CategoryService;
-import uned.webtechnologies.shop.services.ProductService;
+import uned.webtechnologies.shop.services.*;
 
 @Controller
 @RequestMapping("/producto")
@@ -16,28 +14,31 @@ public class ProductController {
     private ProductService productService;
     private CategoryService categoryService;
     private BrandService brandService;
-
-
+    private PromotionService promotionService;
+    private RatingService ratingService;
 
     @Autowired
-    public ProductController (ProductService productService,CategoryService categoryService,BrandService brandService) {
+    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService) {
         this.productService = productService;
-        this.categoryService=categoryService;
-        this.brandService=brandService;
+        this.categoryService = categoryService;
+        this.brandService = brandService;
+        this.promotionService = promotionService;
+        this.ratingService = ratingService;
     }
 
     @GetMapping("/detalle/{id}")
-    public ModelAndView detail(@PathVariable("id")long id){
+    public ModelAndView detail(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/detail");
         result.addObject("product", this.productService.getProduct(id));
         return result;
     }
 
-    @GetMapping ("/alta")
-    public ModelAndView showForm(){
-        ModelAndView result=new ModelAndView("product/productform");
+    @GetMapping("/alta")
+    public ModelAndView create() {
+        ModelAndView result = new ModelAndView("product/productform");
         result.addObject("brands", this.brandService.getBrands());
         result.addObject("categories", this.categoryService.getCategories());
+        result.addObject("promotion", this.promotionService.getActivePromotions());
         result.addObject("product", new Product());
         return result;
     }
@@ -56,40 +57,25 @@ public class ProductController {
     }
 
     @GetMapping("/editar/{id}")
-    public ModelAndView edit(@PathVariable("id")long id){
+    public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/edit");
+        result.addObject("categories", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
         return result;
     }
-    @GetMapping("/marcas")
-    public ModelAndView brand() {
-        ModelAndView result = new ModelAndView("search/brand");
-        result.addObject("marca", this.brandService.getBrands());
+
+    @GetMapping("/valoraciones")
+    public ModelAndView rating() {
+        ModelAndView result = new ModelAndView("search/rating");
         return result;
     }
 
-    @GetMapping("/categorias")
-    public ModelAndView category() {
-        ModelAndView result = new ModelAndView("search/category");
-        result.addObject("categoria", this.categoryService.getCategories());
+    @GetMapping("/valoraciones/{id}")
+    public ModelAndView ratinglist(@PathVariable("id") int id) {
+        ModelAndView result = new ModelAndView("search/listrating");
+        result.addObject("products", this.ratingService.getProductsByRating(id));
+        result.addObject("rating", this.ratingService);
         return result;
     }
-
-    @GetMapping("/marcas/{id}")
-    public ModelAndView brandlist(@PathVariable("id")long id){
-        ModelAndView result = new ModelAndView("search/listbrand");
-        result.addObject("products", this.productService.getProductsByBrandId(id));
-        result.addObject("brand", this.brandService.getBrands());
-        return result;
-    }
-
-    @GetMapping("/categorias/{id}")
-    public ModelAndView categorylist(@PathVariable("id")long id){
-        ModelAndView result = new ModelAndView("search/listcategory");
-        result.addObject("products", this.productService.getProductsByCategoryId(id));
-        result.addObject("category", this.categoryService.getCategories());
-        return result;
-    }
-
 
 }

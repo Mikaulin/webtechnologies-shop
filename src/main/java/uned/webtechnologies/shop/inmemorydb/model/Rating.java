@@ -6,7 +6,6 @@ import uned.webtechnologies.shop.inmemorydb.model.persistense.ProductUserRating;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-
 import java.util.Objects;
 
 @Entity
@@ -62,6 +61,4 @@ public class Rating {
                 '}';
     }
 }
-
-
 

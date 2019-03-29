@@ -4,9 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
-import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
 
 import java.util.ArrayList;
