@@ -1,6 +1,9 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,11 +16,12 @@ public class Brand {
     private String name;
     @OneToMany(mappedBy = "brand")
 
-    private Set<Product> products = new HashSet<>();
+    private Set<Product> products=new HashSet<>();
 
-
-    public Brand() {
+    public void setId(long id) {
+        this.id = id;
     }
+    public Brand (){}
 
     public Brand(String name) {
         this.name = name;
@@ -42,6 +46,7 @@ public class Brand {
     public long getId() {
         return id;
     }
+
 
 
     @Override

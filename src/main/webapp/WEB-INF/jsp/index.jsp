@@ -1,3 +1,9 @@
+<%@page contentType="text/html" %>
+<%@page pageEncoding="UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <%@ include file="shared/_header.jsp" %>
 
 <div class="container">
@@ -19,56 +25,42 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
+            <c:if test="${product.id > 0 and product.id < 5 and product.count > 0}">
+                <div class='col-md-3'>
+                    <div class='card mb-3 box-shadow'>
+                        <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'
+                             alt='${product.name} '>
+                        <div class='card-body'>
+                            <p class='card-text'>${product.brand.name}</p>
 
-            <div class='col-md-3'>
-                <div class='card mb-3 box-shadow'>
-                    <img class='card-img-top' src='${product.photo}' alt='${product.name} '>
-                    <div class='card-body'>
-                        <p class='card-text'>
-                                ${product.brand.name}
-                        </p>
-                        <p class='card-text'>
-                                ${product.name}
-                        </p>
-                        <h4 class='card-title pricing-card-title'>
-                            <fmt:formatNumber currencySymbol="&euro;" value="${product.finalPrice}" type="currency"/>
-                            <c:if test="${product.finalPrice != product.price}">
-                                <small class='text-muted'>
-                                    <fmt:formatNumber currencySymbol="&euro;" value="${product.price}"
-                                                      type="currency"/>
-                                </small>
-                            </c:if>
-                        </h4>
+                            <p class='card-text'>${product.name}</p>
+
+                            <h4 class='card-title pricing-card-title'>
+
+                                <fmt:formatNumber currencySymbol="&euro;" value="${product.finalPrice}"
+                                                  type="currency"/>
+
+                                <c:if test="${product.finalPrice != product.price}">
+                                    <small class='text-muted'>
+                                        <del><fmt:formatNumber currencySymbol="&euro;" value="${product.price}"
+                                                               type="currency"/></del>
+                                    </small>
+                                </c:if>
+
+                            </h4>
+
+                            <%@ include file="shared/_rating.jsp" %>
 
 
-                        <span class="score">
-                            <div class="score-wrap">
-                                <span class="stars-active" style="width:${product.ratingPercent}%">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </span>
-                                <span class="stars-inactive">
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </span>
-
-                        <a href='${pageContext.request.contextPath}/producto/detalle/${product.id}'
-                           class='btn btn-outline-danger btn-lg btn-block'
-                           role='button' aria-pressed='true'>
-                            Ver detalles
-                        </a>
+                            <a href='${pageContext.request.contextPath}/producto/detalle/${product.id}'
+                               class='btn btn-outline-danger btn-lg btn-block'
+                               role='button' aria-pressed='true'>
+                                Ver detalles
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            </c:if>
         </c:forEach>
     </div>
 
@@ -85,9 +77,8 @@
                     <div class="mb-1 text-muted">en TEKA</div>
                     <p></p>
                     <p class="card-text mb-auto">V&aacute;lido desde el 28 de febrero al 6 de marzo en todos
-                        los
-                        electrodom&eacute;sticos TEKA. Te descontamos el importe equivalente al IVA.</p>
-                    <a href="${pageContext.request.contextPath}/ofertas">Continuar leyendo</a>
+                        los electrodom&eacute;sticos TEKA. Te descontamos el importe equivalente al IVA.</p>
+                    <a href="${pageContext.request.contextPath}/promociones">Continuar leyendo</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block"
                      src="${pageContext.request.contextPath}/img/servicios01.jpg" alt="Card image cap">
@@ -103,8 +94,7 @@
                     <div class="mb-1 text-muted">Postventa</div>
                     <p></p>
                     <p class="card-text mb-auto">Servicio de Entregas a Domicilio. Disponible para todos
-                        aquellos
-                        productos que no disfrutan de entrega a domicilio gratuita.</p>
+                        aquellos productos que no disfrutan de entrega a domicilio gratuita.</p>
                     <a href="${pageContext.request.contextPath}/servicios">Continuar leyendo</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block"
@@ -121,26 +111,29 @@
             <c:if test="${product.id > 4 and product.id < 9 and product.count > 0}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
-                        <img class='card-img-top' src='${product.photo}' alt='${product.name} '>
+                        <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'
+                             alt='${product.name} '>
                         <div class='card-body'>
-                            <p class='card-text'>
-                                    ${product.brand.name}
-                            </p>
-                            <p class='card-text'>
-                                    ${product.name}
-                            </p>
+
+                            <p class='card-text'>${product.brand.name}</p>
+
+                            <p class='card-text'>${product.name}</p>
+
                             <h4 class='card-title pricing-card-title'>
+
                                 <fmt:formatNumber currencySymbol="&euro;" value="${product.finalPrice}"
                                                   type="currency"/>
+
                                 <c:if test="${product.finalPrice != product.price}">
                                     <small class='text-muted'>
-                                        <strike> <fmt:formatNumber currencySymbol="&euro;"
-                                                                   value="${product.price}"
-                                                                   type="currency"/></strike>
+                                        <del><fmt:formatNumber currencySymbol="&euro;" value="${product.price}"
+                                                               type="currency"/></del>
                                     </small>
                                 </c:if>
+
                             </h4>
 
+                            <%@ include file="shared/_rating.jsp" %>
 
                             <a href='${pageContext.request.contextPath}/producto/detalle/${product.id}'
                                class='btn btn-outline-danger btn-lg btn-block'

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

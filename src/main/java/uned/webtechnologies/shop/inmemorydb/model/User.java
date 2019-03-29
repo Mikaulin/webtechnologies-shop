@@ -52,6 +52,28 @@ public class User implements Serializable {
         addRole(role);
     }
 
+    public User(String name, String lastname1, String direction, String  city, int postalCode, String  province, String country, String email, String phone, String username, String password) {
+        this.name = name;
+        this.lastname1 = lastname1;
+        this.direction = direction;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.province = province;
+        this.country = country;
+        this.email = email;
+        this.phone = phone;
+        this.username = username;
+        this.password = password;
+        this.passwordConfirm=password;
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id){ this.id = id;}
+
     public String getName() {
         return name;
     }
@@ -120,7 +142,7 @@ public class User implements Serializable {
         return phone;
     }
 
-    public void setTlf(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -156,9 +178,6 @@ public class User implements Serializable {
         this.purchaseLines = purchaseLines;
     }
 
-    public long getId() {
-        return id;
-    }
 
     public String getUsername() {
         return username;
@@ -171,6 +190,7 @@ public class User implements Serializable {
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
+
 
 
     public Set<Role> getRoles() {
@@ -203,7 +223,6 @@ public class User implements Serializable {
         }
         this.roles.add(role);
     }
-
     @Override
     public String toString() {
         return "User{" +

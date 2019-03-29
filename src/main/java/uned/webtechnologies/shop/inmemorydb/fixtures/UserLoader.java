@@ -5,14 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import uned.webtechnologies.shop.inmemorydb.model.Role;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @Service
 public class UserLoader implements ILoader {
@@ -32,15 +30,12 @@ public class UserLoader implements ILoader {
 
     @Override
     public void load() {
-        Role roleAdmin = roleRepository.findByName("ROLE_ADMIN");
-
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         ArrayList<User> users = new ArrayList<>(
                 Arrays.asList(
-                        new User("Admin", bCryptPasswordEncoder.encode("admin"), roleAdmin),
-                        new User("KikePerez", bCryptPasswordEncoder.encode("123456789")),
-                        new User("PabloUzquiano", bCryptPasswordEncoder.encode("123456789")),
-                        new User("Mikaulin", bCryptPasswordEncoder.encode("123456789"))
+                        new User("Enrique", "Pérez", "Paseo Morlans 4","Donostia", 20009,"Gipuzkoa","España", "kike@hotmail.com","688243155", "KikePerez", bCryptPasswordEncoder.encode("123456789")),
+                        new User("Pablo", "Uzquiano", "Calle Mayor 5","Renteria", 20010,"Gipuzkoa","España", "pablo@hotmail.com","6872455901", "PabloUzquiano", bCryptPasswordEncoder.encode("123456789")),
+                        new User("Mikel", "Mikaulin", "Calle Altuna 6","Renteria", 20010,"Gipuzkoa","España", "mikel@hotmail.com","677224391", "Mikaulin", bCryptPasswordEncoder.encode("123456789"))
                 )
         );
         userRepository.save(users);
