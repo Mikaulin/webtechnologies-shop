@@ -55,6 +55,16 @@
                             <span class="customer-name">Hola, ${pageContext.request.userPrincipal.name}</span>
                         </a>
                     </li>
+                    <li>
+                        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </form>
+                        <a onclick="document.forms['logoutForm'].submit()" class="trsn nav-link"
+                           style="cursor: pointer;">
+                            <i class="fa fa-sign-out fa-fw"></i>
+                            <span>Salir</span>
+                        </a>
+                    </li>
                 </c:if>
 
                 <c:if test="${pageContext.request.userPrincipal.name == null}">

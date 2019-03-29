@@ -24,7 +24,7 @@
 
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="col-sm-12">
-                <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" name="buy">
+                <form id="buy-form" class="form-horizontal" action="" method="post" enctype="multipart/form-data" name="buy">
                     <div>
 
                         <div class="form-group row">
@@ -109,7 +109,7 @@
                         <div class="form-group product-stock product-available row visible">
                             <label class="col-sm-3 col-md-3 form-control-label"></label>
                             <div class="col-sm-8 col-sm-offset-3 col-md-9 col-md-offset-3">
-                                <input type="submit" class="adc btn btn-danger" value="A&ntilde;adir a la cesta"/>
+                                <input type="submit" id="add-to-cart" class="adc btn btn-danger" value="A&ntilde;adir a la cesta"/>
                                 <p><br></p>
                                 <a href="/" class="btn btn-link btn-sm" title="Continúa Comprando">Continuar
                                     comprando</a>
