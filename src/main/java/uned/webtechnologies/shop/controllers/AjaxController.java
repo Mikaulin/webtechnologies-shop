@@ -51,10 +51,8 @@ public class AjaxController {
         Product product = this.productService.getProduct(input.getProductId());
         Cart cart = new Cart(input.getCount(), product, user);
         cartService.add(cart);
-
+        output.setTotalProducts((int) cartService.totalProducts(user));
         output.setMessage("Se ha añadido correctamente al carrito.");
-        //TODO Obtener el total del servicio accediendo a los datos del carrito
-        output.setTotalProducts(10);
         return ResponseEntity.ok(output);
 
     }

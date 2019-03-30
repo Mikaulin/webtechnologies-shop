@@ -43,7 +43,7 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/carrito" class="trsn nav-link" title="Comprobar compras">
                         <i class="fa fa-shopping-cart"></i>
-                        <span id="nav-bar-cart"> 0 Producto(s) | 0 &euro;</span>
+                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s) | 0 &euro;</span>
                     </a>
                 </li>
 
