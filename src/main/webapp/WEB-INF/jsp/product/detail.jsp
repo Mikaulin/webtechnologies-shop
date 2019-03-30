@@ -85,6 +85,7 @@
                             <div class="col-sm-8 col-md-9">
                                 <input type="number" class="qty form-control" id="input-qty" name="qty" maxlength="5"
                                        value="1">
+                                <input type="hidden" id="productId" name="productId" value="${product.id}">
                             </div>
                         </div>
 

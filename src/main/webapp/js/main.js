@@ -6,12 +6,10 @@ $(document).ready(function () {
     });
 
     function addToCart() {
-        var input = {}
-        //input["count"] = $("#input-qty").val();
-        //TODO Obtener del input de cantidad
-        input["count"] = 1;
+        var input = {};
+        input["count"] = parseInt($("#input-qty").val());
         //TODO Obtener de un input hidden
-        input["productId"] = 1;
+        input["productId"] = parseInt($("#productId").val());;
         $("#add-to-cart").prop("disabled", true);
         $.ajax({
             type: "POST",
@@ -22,19 +20,17 @@ $(document).ready(function () {
             cache: false,
             timeout: 600000,
             success: function (data) {
-                //$('#feedback').html(json);
-                //TODO mostrar el mensaje en algo similar a toaster
-                alert(data["message"]);
-                console.log(data);
+                $.alert(data["message"], {
+                    type: 'success',
+                });
+                $("#total-products").text(data["totalProducts"]);
                 $("#add-to-cart").prop("disabled", false);
             },
             error: function (e) {
-                var json = "<h4>Ajax Response</h4><pre>"
-                    + e.responseText + "</pre>";
-                //$('#feedback').html(json);
-                alert(e.responseText);
-                console.log(json);
-                console.log("ERROR : ", e);
+                var json = JSON.parse(e.responseText);
+                $.alert(json["message"], {
+                    type: 'danger',
+                });
                 $("#add-to-cart").prop("disabled", false);
             }
         });

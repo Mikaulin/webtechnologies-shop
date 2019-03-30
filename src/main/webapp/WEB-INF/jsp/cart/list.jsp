@@ -29,26 +29,26 @@
                         <th></th>
                     </tr>
                     </thead>
+                    <c:forEach items="${carts}" var="cart">
+                        <tr>
 
-                    <tr>
-                        <c:forEach items="${product}" var="product">
 
                             <td width="100" class="text-center hidden-xs-down">
 
                             </td>
 
                             <td width="200">
-                                <h6><b>${product.description}</b></h6>
+                                <h6><b>${cart.product.description}</b></h6>
                             </td>
 
                             <td class="hidden-xs-down">
-                                <span class="order-product-price"> ${product.price} &euro;</span>
+                                <span class="order-product-price"> ${cart.product.price} &euro;</span>
                             </td>
                             <td width="50">
                                 <select class="select select-qty form-control" name="" title="Qty">
 
 
-                                    <option value=${product.count} selected="selected">${product.count}</option>
+                                    <option value=${cart.count} selected="selected">${cart.count}</option>
 
                                     <option value="1">1</option>
 
@@ -73,7 +73,7 @@
                                 </select>
                             </td>
                             <td>
-                                <span class="order-product-subtotal">${product.price} &euro;</span>
+                                <span class="order-product-subtotal">${cart.product.price} &euro;</span>
                             </td>
 
                             <td>
@@ -81,8 +81,9 @@
                                     <i class="fa fa-times-circle-o fa-fw"></i>
                                 </a>
                             </td>
-                        </c:forEach>
-                    </tr>
+
+                        </tr>
+                    </c:forEach>
                 </table>
 
                 <hr class="my-3">
