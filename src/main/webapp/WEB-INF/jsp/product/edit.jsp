@@ -2,13 +2,12 @@
 <%@taglib prefix="mvc" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="../shared/_header.jsp" %>
 
-
 <div class="container">
 
     <h4 class="mb-3">Editar un producto</h4>
     <hr>
 
-    <mvc:form method="post" modelAttribute="product" action="../create">
+    <mvc:form method="post" modelAttribute="product">
 
         <div class="row">
 
@@ -37,30 +36,14 @@
                     </div>
                 </div>
 
-                    <%-- <div class="row">
-                             <div class="col-md-8 mb-3">
-                                 <div class="form-group">
-                                     <mvc:label path="category">Categor&iacute;a</mvc:label>
-                                     <mvc:select class="form-control" path="category">
-                                         <mvc:option value="NONE" label="Elige ..." />
-                                         <c:forEach items="${categories}" var="category">
-                                             <mvc:option value="${categories.id}" label="${product.category.name}" />
-                                         </c:forEach>
-                                     </mvc:select>
-                                 </div>
-                             </div>
-                             <div class="col-md-4 mb-3">
-                                 <div class="form-group">
-                                     <mvc:label path="brand">Marca</mvc:label>
-                                     <mvc:select class="form-control" path="brand">
-                                         <mvc:option value="NONE" label="Elige ..." />
-                                         <c:forEach items="${brands}" var="brand">
-                                             <mvc:option value="${brand.id}" label="${product.brand.name}" />
-                                         </c:forEach>
-                                     </mvc:select>
-                                 </div>
-                             </div>
-                         </div>--%>
+
+                <mvc:select path="category">
+                    <mvc:options items="${categoryList}" itemValue="id" itemLabel="name"/>
+                </mvc:select>
+
+                <mvc:select path="brand">
+                    <mvc:options items="${brandList}" itemValue="id" itemLabel="name"/>
+                </mvc:select>
 
                 <div class="mb-3">
                     <div class="form-group">
@@ -86,11 +69,12 @@
                 </div>
                 <div class="mb-3">
                     <div class="form-group">
+                        <mvc:label path="featured">Destacado</mvc:label>
+                        <mvc:checkbox path="featured" />
+                    </div>
+                    <div class="form-group">
                         <mvc:label path="deleted">Descatalogado</mvc:label>
-                        <mvc:select class="form-control" path="deleted">
-                            <option selected>FALSE</option>
-                            <option>TRUE</option>
-                        </mvc:select>
+                        <mvc:checkbox path="deleted" />
                     </div>
                 </div>
             </div>

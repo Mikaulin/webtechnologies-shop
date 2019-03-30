@@ -34,7 +34,7 @@ public class ProductService{
         return this.productRepository.getProductByFeaturedTrue();
     }
 
-    public void add(Product product) {
+    public void save(Product product) {
         this.productRepository.save(product);
     }
 
@@ -50,6 +50,23 @@ public class ProductService{
         return this.productRepository.getProductByCategoryId(id);
     }
 
-//    public List<Product> getProductsByPromotionId(long id){ return this.productRepository.getProductByPromotionId(id); }
+    public void update(long id, Product product) {
+        Product updatedProduct = getProduct(id);
+        updatedProduct.setName(product.getName());
+        updatedProduct.setDescription(product.getDescription());
+        updatedProduct.setWidth(product.getWidth());
+        updatedProduct.setHeight(product.getHeight());
+        updatedProduct.setDepth(product.getDepth());
+        updatedProduct.setCategory(product.getCategory());
+        updatedProduct.setBrand(product.getBrand());
+        updatedProduct.setCount(product.getCount());
+        updatedProduct.setPrice(product.getPrice());
+        updatedProduct.setFeatured(product.isFeatured());
+        updatedProduct.setDeleted(product.isDeleted());
+        if(!product.getPhoto().isEmpty()) {
+            updatedProduct.setPhoto(product.getPhoto());
+        }
+        save(updatedProduct);
+    }
 
 }
