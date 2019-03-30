@@ -28,11 +28,11 @@ public class Product implements Serializable {
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
 
-    @ManyToMany (fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<Promotion> promotions;
 
-    @OneToMany()
-    @JoinColumn(name="productId")
+    @OneToMany(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "productId")
     private List<Rating> ratingList;
 
     @Transient
@@ -44,7 +44,7 @@ public class Product implements Serializable {
     @PostLoad
     private void postLoad() {
         Integer sum = 0;
-        if(!ratingList.isEmpty()) {
+        if (!ratingList.isEmpty()) {
             for (Rating rating : ratingList) {
                 sum += rating.getRatingValue().getValue();
             }
@@ -57,7 +57,7 @@ public class Product implements Serializable {
     }
 
     public Product() {
-        promotions=new HashSet<>();
+        promotions = new HashSet<>();
     }
 
     public void setId(long id) {
@@ -74,7 +74,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * @param count Numero de unidades disponibles
+     * @param count       Numero de unidades disponibles
      * @param name
      * @param description
      * @param photo
@@ -87,7 +87,7 @@ public class Product implements Serializable {
      * @param category
      */
     public Product(int count, String name, String description, String photo, double price, double height, double width, double depth, boolean deleted, boolean featured, Brand brand, Category category) {
-        promotions=new HashSet<>();
+        promotions = new HashSet<>();
         this.count = count;
         this.name = name;
         this.description = description;
@@ -104,7 +104,7 @@ public class Product implements Serializable {
     }
 
     public Product(int count, String name, String description, String photo, double price, double height, double width, double depth, boolean featured, Brand brand, Category category) {
-       promotions=new HashSet<>();
+        promotions = new HashSet<>();
         this.count = count;
         this.name = name;
         this.description = description;
@@ -125,16 +125,17 @@ public class Product implements Serializable {
     }
 
 
-    public void setPromotion(Promotion promo){
-        if (promotions==null){
-            Set<Promotion> promos=new HashSet<Promotion>();
+    public void setPromotion(Promotion promo) {
+        if (promotions == null) {
+            Set<Promotion> promos = new HashSet<Promotion>();
             promos.add(promo);
 
             setPromotions(promos);
-        }else{
+        } else {
             this.promotions.add(promo);
         }
     }
+
     public int getCount() {
         return count;
     }
@@ -155,33 +156,29 @@ public class Product implements Serializable {
         return description;
     }
 
-    public double getDiscount(){
-        double discount=0;
+    public double getDiscount() {
+        double discount = 0;
 
-        if (promotions!=null){
-            Calendar today=new GregorianCalendar();
+        if (promotions != null) {
+            Calendar today = new GregorianCalendar();
             today.setTime(new Date());
-
-
-        for (Promotion promo:this.promotions)
-              {if ((today.after(promo.getStartDate()))&&(today.before(promo.getEndDate()))){
-                  if(promo.getDiscount()>discount){
-                      discount=promo.getDiscount();
-                  }
-              }
-
-              }
-
-
+            for (Promotion promo : this.promotions) {
+                if ((today.after(promo.getStartDate())) && (today.before(promo.getEndDate()))) {
+                    if (promo.getDiscount() > discount) {
+                        discount = promo.getDiscount();
+                    }
+                }
+            }
         }
         return discount;
     }
-    public double getFinalPrice(){
-        return this.price-(price*(getDiscount()/100));
+
+    public double getFinalPrice() {
+        return this.price - (price * (getDiscount() / 100));
     }
 
-    public double getDif(){
-        return this.price-getFinalPrice();
+    public double getDif() {
+        return this.price - getFinalPrice();
     }
 
     public void setDescription(String description) {
@@ -292,8 +289,8 @@ public class Product implements Serializable {
                 ", depth=" + depth +
                 ", featured=" + featured +
                 ", deleted=" + deleted +
-                ", brand=" + brand +
-                ", category=" + category +
+                ", brand=" + brand.getName() +
+                ", category=" + category.getName() +
                 ", rating=" +
                 '}';
     }

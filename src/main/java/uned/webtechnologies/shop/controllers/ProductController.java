@@ -45,7 +45,7 @@ public class ProductController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@ModelAttribute("product") Product product) {
-        productService.add(product);
+        productService.save(product);
         return "redirect:listado";
     }
 
@@ -59,9 +59,16 @@ public class ProductController {
     @GetMapping("/editar/{id}")
     public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/edit");
-        result.addObject("categories", this.categoryService.getCategories());
+        result.addObject("brandList", this.brandService.getBrands());
+        result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
         return result;
+    }
+
+    @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
+    public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
+        productService.update(id, product);
+        return "redirect:/producto/listado";
     }
 
     @GetMapping("/valoraciones")
