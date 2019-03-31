@@ -100,7 +100,6 @@
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/categorias">Categor&iacute;a</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/marcas">Marcas</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/valoraciones">Valoraci&oacute;n</a>
-                        <a class="dropdown-item" href="#">Descuentos</a>
                     </div>
                 </li>
 
@@ -116,15 +115,9 @@
                     </div>
                 </li>
 
-                <%-- <li class="nav-item">
-                     <a class="nav-link" href="${pageContext.request.contextPath}/promociones">Promociones</a>
-                 </li>--%>
-
-
                 <li class="nav-item">
                     <a class="nav-link " href="${pageContext.request.contextPath}/servicios">Servicios</a>
                 </li>
-
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
@@ -164,6 +157,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/memoria">Memoria</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/manual">Manual</a>
+                        <a class="dropdown-item" href="#">Javadoc</a>
                     </div>
                 </li>
             </ul>

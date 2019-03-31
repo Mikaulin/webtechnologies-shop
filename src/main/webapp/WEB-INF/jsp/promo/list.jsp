@@ -28,8 +28,8 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">T&iacute;tulo</th>
-            <th scope="col">Descripci&oacute;n</th>
-            <th scope="col">Dto.</th>
+            <%--<th scope="col">Descripci&oacute;n</th>--%>
+            <th scope="col">Dto. (%)</th>
             <th scope="col">Fecha Inicio</th>
             <th scope="col">Fecha Fin</th>
             <th scope="col">Activa</th>
@@ -39,13 +39,13 @@
         <tbody>
         <c:forEach items="${promotion}" var="promo">
             <tr>
-                <td scope="row">${promo.id}</td>
-                <td>${promo.name}</td>
-                <td>${promo.description}</td>
-                <td>${promo.discount}</td>
-                <td>${promo.startDate.time.toLocaleString().substring(0,11)}</td>
-                <td>${promo.endDate.time.toLocaleString().substring(0,11)}</td>
-                <td>${promo.active}</td>
+                <td scope="row"> ${promo.id}</td>
+                <td> ${promo.name}</td>
+                <%--<td>${promo.description}</td>--%>
+                <td> ${promo.discount}</td>
+                <td> ${promo.startDate.time.toLocaleString().substring(0,11)}</td>
+                <td> ${promo.endDate.time.toLocaleString().substring(0,11)}</td>
+                <td> ${promo.active}</td>
                 <td>
                     <div class="btn-group">
 

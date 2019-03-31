@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
 
-            <form:form method="POST" modelAttribute="promotionForm" class="form-signin">
+            <form:form method="POST" modelAttribute="promotionForm" class="form-signin" action="create">
 
                 <h4 class="mb-3">Dar de alta una promoci&oacute;n</h4>
                 <hr>
