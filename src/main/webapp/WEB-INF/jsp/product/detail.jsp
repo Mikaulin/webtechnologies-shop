@@ -126,10 +126,8 @@
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-secondary btn-sm">Votar</button>
+                                    <button type="button" class="btn btn-secondary ">Votar</button>
                                 </div>
-
-
 
                             </div>
                         </div>
@@ -181,29 +179,27 @@
 
                                     </c:when>
                                     <c:otherwise>
-                                        <input type="submit" id="add-to-cart" class="adc btn btn-danger"
-                                               value="A&ntilde;adir a la cesta"/>
-                                    </c:otherwise>
-                                </c:choose>
+                                        <br>
+                                           <input type="submit" id="add-to-cart" class="adc btn btn-danger"
+                                                  value="A&ntilde;adir a la cesta"/>
+                                       </c:otherwise>
+                                   </c:choose>
 
-                                <%-- <p>&nbsp;</p>
+                                   <%-- <p>&nbsp;</p> --%>
 
-                                 <a href="${pageContext.request.contextPath}/"  title="Continúa Comprando">
-                                 <button type="button" class="btn btn-success btn-sm">Continuar comprando</button>
-                                 </a>--%>
-                            </div>
-                        </div>
+                               </div>
+                           </div>
 
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
 
-</div>
+   </div>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+   <p>&nbsp;</p>
+   <p>&nbsp;</p>
 
-<%@ include file="../shared/_js.jsp" %>
-<%@ include file="../shared/_footer.jsp" %>
+   <%@ include file="../shared/_js.jsp" %>
+   <%@ include file="../shared/_footer.jsp" %>
