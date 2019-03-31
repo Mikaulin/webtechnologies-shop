@@ -10,14 +10,13 @@
 
 <div class="container">
 
-    <div class="col-12">
         <h4 class="mb-3">Editar un cliente</h4>
         <hr>
-    </div>
+
 
     <form:form method="POST" modelAttribute="editUser" class="form-signin">
 
-        <div class="col-12">
+
             <div class="row">
 
                 <div class="col-md-8 order-md-1">
@@ -73,6 +72,10 @@
                         </div>
                     </div>
 
+                    <br>
+
+                    <button class="btn btn-lg btn-danger" type="submit">Actualizar</button>
+
                 </div>
 
                 <div class="col-md-4 order-md-2 mb-4">
@@ -81,43 +84,17 @@
                         <form:label path="username">Usuario:</form:label>
                         <form:input path="username" class="form-control" value="${editUser.username}"/>
                     </div>
-
-                   <%-- <div class="mb-3">
-                        <label for="password">Contrase&ntilde;a</label>
-                        <spring:bind path="password">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="password" path="password" class="form-control"
-                                            placeholder=""></form:input>
-                                <form:errors path="password"></form:errors>
-                            </div>
-                        </spring:bind>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="passwordConfirm">Repetir contrase&ntilde;a</label>
-                        <spring:bind path="passwordConfirm">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="password" path="passwordConfirm" class="form-control"
-                                            placeholder=""></form:input>
-                                <form:errors path="passwordConfirm"></form:errors>
-                            </div>
-                        </spring:bind>
-                    </div>--%>
                 </div>
-
             </div>
 
-            <p></p>
-
-
-            <button class="btn btn-lg btn-danger" type="submit">Actualizar</button>
-
-        </div>
 
     </form:form>
 
 
 </div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 
 <%@ include file="../shared/_js.jsp" %>

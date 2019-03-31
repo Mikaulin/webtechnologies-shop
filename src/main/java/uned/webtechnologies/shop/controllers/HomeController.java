@@ -32,12 +32,10 @@ public class HomeController {
         return "home/services";
     }
 
-
     @GetMapping("/memoria")
     public String memory(Model model) {
         return "home/memoria";
     }
-
 
     @GetMapping("/manual")
     public String manual(Model model) {

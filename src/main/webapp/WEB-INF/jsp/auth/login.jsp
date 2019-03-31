@@ -9,8 +9,21 @@
 
 <div class="container">
 
-    <h4>Iniciar sesi&oacute;n en ElectroHOME</h4>
-    <hr>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+            <div class="input-group-prepend">
+                <h4 class="mb-3">Iniciar sesión en ElectroHOME</h4>
+            </div>
+        </div>
+
+        <div class="input-group">
+           <h4><span class="badge badge-warning">${message}</span></h4>
+        </div>
+    </div>
+
+    <div class="border-top my-3"></div>
+
+    <br>
 
     <div class="row">
         <div class="col-md-8 order-md-1">
@@ -19,7 +32,7 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
-                        <span>${message}</span>
+                        <%--<span>${message}</span>--%>
                         <input name="username" type="text" class="form-control" placeholder="Usuario"
                                autofocus="true"/>
                     </div>

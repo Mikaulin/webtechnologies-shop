@@ -47,7 +47,7 @@ public class UserController {
             model.addAttribute("error", "Tus datos son incorrectos.");
 
         if (logout != null)
-            model.addAttribute("message", "Te has conectado correctamente..");
+            model.addAttribute("message", "Te has desconectado correctamente.");
 
         return "auth/login";
     }
@@ -56,13 +56,6 @@ public class UserController {
     public ModelAndView listUser() {
         ModelAndView result = new ModelAndView("user/list");
         result.addObject("users", this.userService.getUser());
-        return result;
-    }
-
-    @GetMapping("/baja")
-    public ModelAndView deleteUser() {
-        ModelAndView result = new ModelAndView("user/baja");
-        result.addObject("user", this.userService.getUser());
         return result;
     }
 
@@ -79,9 +72,23 @@ public class UserController {
         return "redirect:/user/usuarios";
     }
 
+    @GetMapping("/detail/{username}")
+    public ModelAndView detailUser(@PathVariable("username")String username){
+        ModelAndView result = new ModelAndView("user/detail");
+        result.addObject("detailUser", this.userService.findByUsername(username));
+        return result;
+    }
+
+    @GetMapping("/baja/{username}")
+    public ModelAndView bajaUser(@PathVariable("username")String username){
+        ModelAndView result = new ModelAndView("user/baja");
+        result.addObject("bajaUser", this.userService.findByUsername(username));
+        return result;
+    }
 
     @GetMapping({ "/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
+
 }

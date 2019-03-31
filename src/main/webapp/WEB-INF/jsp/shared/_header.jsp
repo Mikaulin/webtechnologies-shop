@@ -49,7 +49,7 @@
 
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li>
-                        <a href="${pageContext.request.contextPath}/cuenta" id="account-link" class="trsn nav-link"
+                        <a href="${pageContext.request.contextPath}/user/detail/${pageContext.request.userPrincipal.name}" id="account-link" class="trsn nav-link"
                            title="Mi cuenta">
                             <i class="fa fa-user fa-fw"></i>
                             <span class="customer-name">Hola, ${pageContext.request.userPrincipal.name}</span>
@@ -121,10 +121,11 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Compras</a>
+                       aria-haspopup="true" aria-expanded="false">Ventas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown06">
                         <a class="dropdown-item" href="#">Devoluciones</a>
-                        <a class="dropdown-item" href="#">Histórico</a>
+                        <a class="dropdown-item" href="#">Informes</a>
+
                     </div>
                 </li>
 
@@ -144,9 +145,8 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/user/registration">Alta
                             Usuario</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/user/baja">Baja Usuario</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/user/usuarios">Listado</a>
-                        <a class="dropdown-item" href="#">Informes</a>
+                        <a class="dropdown-item" href="#">Histórico</a>
                     </div>
                 </li>
 
