@@ -44,17 +44,17 @@ public class ProductLoader implements ILoader {
 
         ArrayList<Product> products = new ArrayList<>(
                 Arrays.asList(
-                        new Product(20, "Lavadora L6FBI824U (8 kg - 1200 rpm - Blanco)", "Cuba Acero Inox., A+++, 52 L, 10 programas lavado", "L001.jpg", 419.99, 850, 600, 575, true, brandList.get(4), categoryList.get(0)),
-                        new Product(30, "Lavadora L6FBG144 (10 kg - 1400 rpm - Blanco)", "2200 W, A+++, 57 L, Programa rápido", "L002.jpg", 599.99,850, 600, 630, true, brandList.get(4), categoryList.get(0)),
-                        new Product(15, "Lavadora F4J6VY2W (9 kg - 1400 rpm - Blanco)", "Motor Inverter, Opción media carga, 14 programas lavado", "L003.jpg", 599.99, 850, 600, 560, true, brandList.get(1), categoryList.get(0)),
-                        new Product(17, "Lavadora 3TS775BE (7 kg - 1200 rpm - Blanco)", "Garantía 2 años, Eficiencia energética A+++", "L004.jpg", 399.99,  848, 598, 550, true, brandList.get(0), categoryList.get(0)),
-                        new Product(42, "Lavasecadora Innex XWDE 140 X (6/8 kg - 1400 rpm - Blanco)", "1850 W, A, 60 L, Tecn. Innex, Cuba Poliplex, Pantalla LED", "L005.jpg", 499.99, 850, 595, 540, true, brandList.get(7), categoryList.get(0)),
-                        new Product(23, "Lavadora WM14U940EU (10 kg - 1400 rpm - Blanco)", "Cuba Acero Inox., A+++, 16 programas lavado, Wifi, 2050 W.", "L006.jpg", 1438, 848, 598, 622, true, brandList.get(6), categoryList.get(0)),
-                        new Product(55, "Lavadora WW80J5555FX/EC (8 kg - 1400 rpm - Negro)", "Pantalla LED, A+++, 14 programas lavado, Fuzzy Control", "L007.jpg", 499.99, 850, 600, 550, true, brandList.get(3), categoryList.get(0)),
+                        new Product(60, "Lavadora L6FBI824U (8 kg - 1200 rpm - Blanco)", "Cuba Acero Inox., A+++, 52 L, 10 programas lavado", "L001.jpg", 419.99, 850, 600, 575, true, brandList.get(4), categoryList.get(0)),
+                        new Product(60, "Lavadora L6FBG144 (10 kg - 1400 rpm - Blanco)", "2200 W, A+++, 57 L, Programa rápido", "L002.jpg", 599.99,850, 600, 630, true, brandList.get(4), categoryList.get(0)),
+                        new Product(60, "Lavadora F4J6VY2W (9 kg - 1400 rpm - Blanco)", "Motor Inverter, Opción media carga, 14 programas lavado", "L003.jpg", 599.99, 850, 600, 560, true, brandList.get(1), categoryList.get(0)),
+                        new Product(60, "Lavadora 3TS775BE (7 kg - 1200 rpm - Blanco)", "Garantía 2 años, Eficiencia energética A+++", "L004.jpg", 399.99,  848, 598, 550, true, brandList.get(0), categoryList.get(0)),
+                        new Product(60, "Lavasecadora Innex XWDE 140 X (6/8 kg - 1400 rpm - Blanco)", "1850 W, A, 60 L, Tecn. Innex, Cuba Poliplex, Pantalla LED", "L005.jpg", 499.99, 850, 595, 540, true, brandList.get(7), categoryList.get(0)),
+                        new Product(60, "Lavadora WM14U940EU (10 kg - 1400 rpm - Blanco)", "Cuba Acero Inox., A+++, 16 programas lavado, Wifi, 2050 W.", "L006.jpg", 1438, 848, 598, 622, true, brandList.get(6), categoryList.get(0)),
+                        new Product(60, "Lavadora WW80J5555FX/EC (8 kg - 1400 rpm - Negro)", "Pantalla LED, A+++, 14 programas lavado, Fuzzy Control", "L007.jpg", 499.99, 850, 600, 550, true, brandList.get(3), categoryList.get(0)),
 
                         new Product(60, "Frigorífico combi RCB63426TX Plata", "A++ , No Frost , Refr. 220 L, Cong. 91 L", "F001.jpg", 899.99, 1840, 595, 647, true, brandList.get(4), categoryList.get(6)),
                         new Product(60, "Frigorífico americano GMJ936NSHV", "A+ , No Frost , Refr. 371 L, Cong. 200 L", "F002.jpg", 2530, 1790, 912, 758, true, brandList.get(1), categoryList.get(6)),
-                        new Product(60, "Frigorífico 2 puertas 3FF3450MI", "A+ , No Frost , Refr. 214 L, Cong. 64 L", "F003.jpg", 770.99,1710, 600, 600, true, brandList.get(0), categoryList.get(6)),
+                        new Product(0, "Frigorífico 2 puertas 3FF3450MI", "A+ , No Frost , Refr. 214 L, Cong. 64 L", "F003.jpg", 770.99,1710, 600, 600, true, brandList.get(0), categoryList.get(6)),
                         new Product(60, "Frigorífico combi KGN36NW3B blanco", "A++ , No Frost , Refr. 215 L, Cong. 87 L", "F004.jpg", 599.99,1860, 600, 620, true, brandList.get(5), categoryList.get(6)),
                         new Product(60, "Frigorífico combi NFL 435", "A++ , No Frost , Refr. 215 L, Cong. 73 L", "F005.jpg", 570.99, 1900, 2010, 635, true, brandList.get(2), categoryList.get(6)),
 

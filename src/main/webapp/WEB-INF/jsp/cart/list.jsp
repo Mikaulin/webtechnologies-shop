@@ -7,11 +7,22 @@
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <h1 class="page-header">Lista de Compras</h1>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+            <div class="input-group-prepend">
+                <h4 class="mb-3">Lista de compras</h4>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <a href="javascript:history.back()" title="Continúa Comprando">
+                <button type="button" class="btn btn-success btn-sm">Continuar comprando</button>
+            </a>
         </div>
     </div>
+
+    <div class="border-top my-3"></div>
+
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8 mb-4">
@@ -34,7 +45,9 @@
 
 
                             <td width="100" class="text-center hidden-xs-down">
-                                <a href="${pageContext.request.contextPath}/producto/detalle/${cart.product.id}"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${cart.product.photo}" ></a>
+                                <a href="${pageContext.request.contextPath}/producto/detalle/${cart.product.id}"><img
+                                        class="card-img-top"
+                                        src="${pageContext.request.contextPath}/electro/${cart.product.photo}"></a>
 
                             </td>
 
@@ -145,14 +158,10 @@
                         </strong>
                         </td>
                     </tr>
-
                 </table>
 
                 <div class="text-center cart-actions">
                     <a href="" class="btn btn-danger btn-block" title="Tramitar pedido">Tramitar pedido</a>
-
-                    <a href="https://bootstrap.jumpseller.com" class="btn btn-link btn-block"
-                       title="&larr; Continúa Comprando">&larr; Continúa Comprando</a>
                 </div>
             </div>
 
