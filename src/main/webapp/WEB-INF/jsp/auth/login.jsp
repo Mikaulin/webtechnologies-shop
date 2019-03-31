@@ -32,7 +32,6 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
-                        <%--<span>${message}</span>--%>
                         <input name="username" type="text" class="form-control" placeholder="Usuario"
                                autofocus="true"/>
                     </div>
