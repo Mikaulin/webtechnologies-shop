@@ -76,13 +76,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-8 mb-3">
                         <div class="form-group">
                             <mvc:label path="photo">Elige una foto del producto</mvc:label>
                             <mvc:input type="file" path="photo" class="form-control" value="/electro/"/>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <mvc:label path="discount">Descuento (%)</mvc:label>
                         <mvc:input path="discount" class="form-control" value=""/>
                     </div>

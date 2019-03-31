@@ -36,11 +36,8 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "auth/register";
         }
-
         userService.save(userForm);
-
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-
         return "redirect:/";
     }
 
@@ -75,6 +72,13 @@ public class UserController {
         result.addObject("editUser", this.userService.findByUsername(username));
         return result;
     }
+
+    @RequestMapping(value = "/editar/{username}", method = RequestMethod.POST)
+    public String edit(@PathVariable("username") String username, @ModelAttribute("user") User user) {
+        userService.update(username, user);
+        return "redirect:/user/usuarios";
+    }
+
 
     @GetMapping({ "/welcome"})
     public String welcome(Model model) {

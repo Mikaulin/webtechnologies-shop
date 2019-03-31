@@ -34,11 +34,12 @@
 
 
                             <td width="100" class="text-center hidden-xs-down">
+                                <a href="${pageContext.request.contextPath}/producto/detalle/${cart.product.id}"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${cart.product.photo}" ></a>
 
                             </td>
 
                             <td width="200">
-                                <h6><b>${cart.product.description}</b></h6>
+                                <h6><b>${cart.product.name}</b></h6>
                             </td>
 
                             <td class="hidden-xs-down">
@@ -73,7 +74,7 @@
                                 </select>
                             </td>
                             <td>
-                                <span class="order-product-subtotal">${cart.product.price} &euro;</span>
+                                <span class="order-product-subtotal">${cart.product.price * cart.count} &euro;</span>
                             </td>
 
                             <td>

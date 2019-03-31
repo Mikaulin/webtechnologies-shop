@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 import uned.webtechnologies.shop.services.PromotionService;
 import uned.webtechnologies.shop.services.RatingService;
@@ -66,8 +67,14 @@ public class PromoController {
     public ModelAndView editpromo(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("promo/edit");
         result.addObject("promotion", this.promotionService.getPromotions());
-        result.addObject("promoId", this.promotionService.getPromotion(id));
+        result.addObject("editPromo", this.promotionService.getPromotion(id));
         return result;
+    }
+
+    @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
+    public String edit(@PathVariable("id") long id, @ModelAttribute("promotion") Promotion promotion) {
+        promotionService.update(id, promotion);
+        return "redirect:/promociones/listado";
     }
 
 

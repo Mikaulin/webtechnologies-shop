@@ -12,68 +12,37 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
 
-            <form:form method="POST" modelAttribute="promoId" class="form-signin" action="../create">
+            <form:form method="POST" modelAttribute="editPromo" class="form-signin">
 
                 <h4 class="mb-3">Editar una promoci&oacute;n</h4>
                 <hr>
 
                 <div class="mb-3">
-                    <label for="name">Nombre</label>
-                    <spring:bind path="name">
-                        <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="name" class="form-control" placeholder=""
-                                        value=""></form:input>
-                            <form:errors path="name"></form:errors>
-                        </div>
-                    </spring:bind>
+                    <form:label path="name">Nombre</form:label>
+                    <form:input path="name" class="form-control" value="${editPromo.name}"/>
                 </div>
 
                 <div class="mb-3">
-                    <label for="description">Descripci&oacute;n</label>
-                    <spring:bind path="description">
-                        <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="description" class="form-control" placeholder=""
-                                        value=""></form:input>
-                            <form:errors path="description"></form:errors>
-                        </div>
-                    </spring:bind>
+                    <form:label path="description">Descripci&oacute;n</form:label>
+                    <form:input path="description" class="form-control" value="${editPromo.description}"/>
                 </div>
 
                 <div class="row">
+
                     <div class="col-md-4 mb-3">
-                        <label for="startDate">Fecha Inicio</label>
-                        <spring:bind path="startDate">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="startDate" class="form-control" placeholder=""
-                                            value=""></form:input>
-                                <form:errors path="startDate"></form:errors>
-                            </div>
-                        </spring:bind>
+                        <form:label path="startDate">Fecha Inicio</form:label>
+                        <form:input type="date" path="startDate" class="form-control" value=""/>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <label for="endDate">Fecha Fin</label>
-                        <spring:bind path="endDate">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="endDate" class="form-control" placeholder=""
-                                            value=""></form:input>
-                                <form:errors path="endDate"></form:errors>
-                            </div>
-                        </spring:bind>
+                        <form:label path="endDate">Fecha Fin</form:label>
+                        <form:input type="date" path="endDate" class="form-control" value=""/>
+
                     </div>
 
                     <div class="col-md-4 mb-3">
-
-                        <label for="discount">Descuento</label>
-                        <spring:bind path="discount">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="text" path="discount" class="form-control"
-                                            placeholder="" value=""></form:input>
-                                <form:errors path="discount"></form:errors>
-                            </div>
-                        </spring:bind>
-                            <%-- <mvc:label path="discount">Descuento</mvc:label>
-                             <mvc:input path="discount" class="form-control" value="" />--%>
+                        <form:label path="discount">Descuento</form:label>
+                        <form:input path="discount" class="form-control" value="${editPromo.discount}"/>
                     </div>
                 </div>
 
@@ -83,7 +52,6 @@
         </div>
 
         <div class="col-md-4 order-md-2 mb-4">
-
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Lista Promociones</h4>

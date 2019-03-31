@@ -24,107 +24,52 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="name">Nombre</label>
-                            <spring:bind path="name">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="name" class="form-control" placeholder=""
-                                                value="${editUser.name}"></form:input>
-                                    <form:errors path="name"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="name">Nombre</form:label>
+                            <form:input path="name" class="form-control" value="${editUser.name}"/>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="lastname1">Apellido</label>
-                            <spring:bind path="lastname1">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="lastname1" class="form-control" placeholder=""
-                                                value="${editUser.lastname1}"></form:input>
-                                    <form:errors path="lastname1"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="lastname1">Apellido</form:label>
+                            <form:input path="lastname1" class="form-control" value="${editUser.lastname1}"/>
                         </div>
                     </div>
 
-
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="email">Email</label>
-                            <spring:bind path="email">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="email" class="form-control" placeholder=""
-                                                value="${editUser.email}"></form:input>
-                                    <form:errors path="email"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="email">Email</form:label>
+                            <form:input path="email" class="form-control" value="${editUser.email}"/>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="phone">Tel&eacute;fono</label>
-                            <spring:bind path="phone">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="phone" class="form-control" placeholder=""
-                                                value="${editUser.phone}"></form:input>
-                                    <form:errors path="phone"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="phone">Tel&eacute;fono</form:label>
+                            <form:input path="phone" class="form-control" value="${editUser.phone}"/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-9 mb-3">
-                            <label for="direction">Direcci&oacute;n</label>
-                            <spring:bind path="direction">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="direction" class="form-control" placeholder=""
-                                                value="${editUser.direction}"></form:input>
-                                    <form:errors path="direction"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="direction">Direcci&oacute;n</form:label>
+                            <form:input path="direction" class="form-control" value="${editUser.direction}"/>
                         </div>
 
                         <div class="col-md-3 mb-3">
-                            <label for="postalCode">C.P.</label>
-                            <spring:bind path="postalCode">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="postalCode" class="form-control" placeholder=""
-                                                value="${editUser.postalCode}"></form:input>
-                                    <form:errors path="postalCode"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="postalCode">C.P.</form:label>
+                            <form:input path="postalCode" class="form-control" value="${editUser.postalCode}"/>
                         </div>
                     </div>
 
 
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="city">Ciudad</label>
-                            <spring:bind path="city">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="city" class="form-control" placeholder=""
-                                                value="${editUser.city}"></form:input>
-                                    <form:errors path="city"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="city">Ciudad</form:label>
+                            <form:input path="city" class="form-control" value="${editUser.city}"/>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="province">Provincia</label>
-                            <spring:bind path="province">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="province" class="form-control" placeholder=""
-                                                value="${editUser.province}"></form:input>
-                                    <form:errors path="province"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="province">Provincia</form:label>
+                            <form:input path="province" class="form-control" value="${editUser.province}"/>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="country">Pa&iacute;s</label>
-                            <spring:bind path="country">
-                                <div class="form-group ${status.error ? 'has-error' : ''}">
-                                    <form:input type="text" path="country" class="form-control" placeholder=""
-                                                value="${editUser.country}"></form:input>
-                                    <form:errors path="country"></form:errors>
-                                </div>
-                            </spring:bind>
+                            <form:label path="country">Pa&iacute;s</form:label>
+                            <form:input path="country" class="form-control" value="${editUser.country}"/>
                         </div>
                     </div>
 
@@ -133,18 +78,11 @@
                 <div class="col-md-4 order-md-2 mb-4">
 
                     <div class="mb-3">
-                        <label for="username">Usuario</label>
-                        <spring:bind path="username">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="text" path="username" class="form-control" placeholder=""
-                                            value="${editUser.username}"></form:input>
-                                <form:errors path="username"></form:errors>
-                            </div>
-                        </spring:bind>
-
+                        <form:label path="username">Usuario:</form:label>
+                        <form:input path="username" class="form-control" value="${editUser.username}"/>
                     </div>
 
-                    <div class="mb-3">
+                   <%-- <div class="mb-3">
                         <label for="password">Contrase&ntilde;a</label>
                         <spring:bind path="password">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -164,7 +102,7 @@
                                 <form:errors path="passwordConfirm"></form:errors>
                             </div>
                         </spring:bind>
-                    </div>
+                    </div>--%>
                 </div>
 
             </div>

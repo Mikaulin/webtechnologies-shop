@@ -35,20 +35,36 @@
                         <mvc:input path="height" class="form-control" value="${product.height}"/>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                        <mvc:select class="form-control" path="category">
+                            <mvc:options items="${categoryList}" itemValue="id" itemLabel="name"/>
+                        </mvc:select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="form-group">
+                        <mvc:select class="form-control" path="brand">
+                            <mvc:options items="${brandList}" itemValue="id" itemLabel="name"/>
+                        </mvc:select>
+                        </div>
+                    </div>
 
+                    <div class="col-md-4 mb-3">
+                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                            <mvc:checkbox class="custom-control-input" id="customControlInline" path="deleted" value="${product.deleted}" />
+                            <mvc:label class="custom-control-label" path="deleted" for="customControlInline">Descatalogado</mvc:label>
+                        </div>
 
-                <mvc:select path="category">
-                    <mvc:options items="${categoryList}" itemValue="id" itemLabel="name"/>
-                </mvc:select>
-
-                <mvc:select path="brand">
-                    <mvc:options items="${brandList}" itemValue="id" itemLabel="name"/>
-                </mvc:select>
+                    </div>
+                </div>
 
                 <div class="mb-3">
                     <div class="form-group">
                         <mvc:label path="photo">Elige una foto del producto</mvc:label>
-                        <mvc:input type="file" path="photo" class="form-control" value="'/electro/'+${product.photo}"/>
+                        <mvc:input type="file" path="photo" class="form-control"
+                                   value="'/electro/'+${product.photo}"/>
                     </div>
                 </div>
             </div>
@@ -68,13 +84,9 @@
                     <mvc:input path="discount" class="form-control" value="${product.discount}"/>
                 </div>
                 <div class="mb-3">
-                    <div class="form-group">
-                        <mvc:label path="featured">Destacado</mvc:label>
-                        <mvc:checkbox path="featured" />
-                    </div>
-                    <div class="form-group">
-                        <mvc:label path="deleted">Descatalogado</mvc:label>
-                        <mvc:checkbox path="deleted" />
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                        <mvc:checkbox class="custom-control-input" id="customControlInline2" path="featured" value="${product.featured}" />
+                        <mvc:label class="custom-control-label" path="featured" for="customControlInline2">Destacado</mvc:label>
                     </div>
                 </div>
             </div>
