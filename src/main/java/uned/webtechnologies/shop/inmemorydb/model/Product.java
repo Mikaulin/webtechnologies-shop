@@ -176,7 +176,7 @@ public class Product implements Serializable {
     }
 
     public double getFinalPrice() {
-        return  NumberUtils.roundDecimals(this.price - (price * (getDiscount() / 100)),2);
+        return  NumberUtils.roundDecimals(this.price - (price * (getDiscount() / 100)));
     }
 
     public double getDif() {

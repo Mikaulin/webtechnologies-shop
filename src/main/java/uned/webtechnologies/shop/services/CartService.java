@@ -34,7 +34,7 @@ public class CartService {
         List<Cart> carts=this.cartRepository.findByUser(user);
         double total=0;
         for (Cart cart:carts
-             ) {total= NumberUtils.roundDecimals(total+cart.getCount()*cart.getProduct().getFinalPrice(),2);
+             ) {total= NumberUtils.roundDecimals(total+cart.getCount()*cart.getProduct().getFinalPrice());
 
 
         }

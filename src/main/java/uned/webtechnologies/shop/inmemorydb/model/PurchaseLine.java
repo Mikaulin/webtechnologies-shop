@@ -1,5 +1,7 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import uned.webtechnologies.shop.utils.NumberUtils;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -49,7 +51,7 @@ public class PurchaseLine {
     }
 
     public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
+        this.unitPrice = NumberUtils.roundDecimals(unitPrice);
     }
 
     public double getPurchasePrice() {
@@ -57,7 +59,7 @@ public class PurchaseLine {
     }
 
     public void setPurchasePrice(double purchasePrice) {
-        this.purchasePrice = purchasePrice;
+        this.purchasePrice = NumberUtils.roundDecimals(purchasePrice);
     }
 
     public int getCount() {
