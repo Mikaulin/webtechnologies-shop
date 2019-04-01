@@ -17,7 +17,7 @@
         </div>
 
         <div class="input-group">
-           <h4><span class="badge badge-warning">${message}</span></h4>
+            <h4><span class="badge badge-warning">${message}</span></h4>
             <h4><span class="badge badge-warning">${error}</span></h4>
         </div>
     </div>
@@ -33,8 +33,7 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
-                        <input name="username" type="text" class="form-control" placeholder="Usuario"
-                               autofocus="true"/>
+                        <input name="username" type="text" class="form-control" placeholder="Usuario" />
                     </div>
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
                         <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
