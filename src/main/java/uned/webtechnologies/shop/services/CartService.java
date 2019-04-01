@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.CartRepository;
+import uned.webtechnologies.shop.utils.NumberUtils;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class CartService {
         List<Cart> carts=this.cartRepository.findByUser(user);
         double total=0;
         for (Cart cart:carts
-             ) {total=Math.scalb(total+cart.getCount()*cart.getProduct().getFinalPrice(),2);
+             ) {total= NumberUtils.roundDecimals(total+cart.getCount()*cart.getProduct().getFinalPrice(),2);
 
 
         }
