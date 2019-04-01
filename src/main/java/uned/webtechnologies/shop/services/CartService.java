@@ -33,7 +33,7 @@ public class CartService {
         List<Cart> carts=this.cartRepository.findByUser(user);
         double total=0;
         for (Cart cart:carts
-             ) {total=total+cart.getCount()*cart.getProduct().getFinalPrice();
+             ) {total=Math.scalb(total+cart.getCount()*cart.getProduct().getFinalPrice(),2);
 
 
         }

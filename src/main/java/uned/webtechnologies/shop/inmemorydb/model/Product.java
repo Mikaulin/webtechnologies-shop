@@ -1,5 +1,7 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import uned.webtechnologies.shop.utils.NumberUtils;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -174,7 +176,7 @@ public class Product implements Serializable {
     }
 
     public double getFinalPrice() {
-        return this.price - (price * (getDiscount() / 100));
+        return  NumberUtils.roundDecimals(this.price - (price * (getDiscount() / 100)),2);
     }
 
     public double getDif() {
