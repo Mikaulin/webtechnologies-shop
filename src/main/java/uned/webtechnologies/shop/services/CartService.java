@@ -29,6 +29,17 @@ public class CartService {
     public long totalProducts(User user) {
         return this.cartRepository.sumUserCartUnits(user.getId());
     }
+    public double userTotal(User user){
+        List<Cart> carts=this.cartRepository.findByUser(user);
+        double total=0;
+        for (Cart cart:carts
+             ) {total=total+cart.getCount()*cart.getProduct().getFinalPrice();
+
+
+        }
+        return total;
+    }
+
 
     public List<Cart> findByUser(User user) {
         return this.cartRepository.findByUser(user);

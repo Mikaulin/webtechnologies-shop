@@ -56,7 +56,7 @@
                             </td>
 
                             <td class="hidden-xs-down">
-                                <span class="order-product-price"> ${cart.product.price} &euro;</span>
+                                <span class="order-product-price"> ${cart.product.finalPrice} &euro;</span>
                             </td>
                             <td width="50">
                                 <select class="select select-qty form-control" name="" title="Qty">
@@ -87,7 +87,7 @@
                                 </select>
                             </td>
                             <td>
-                                <span class="order-product-subtotal">${cart.product.price * cart.count} &euro;</span>
+                                <span class="order-product-subtotal">${cart.product.finalPrice * cart.count} &euro;</span>
                             </td>
 
                             <td>
@@ -122,7 +122,7 @@
 
                                         <tr>
                                             <td colspan="1" class="text-left"><strong>Subtotal</strong></td>
-                                            <td colspan="1" class="text-right"><strong>
+                                            <td colspan="1" class="text-right">${total}<strong>
                                                 <%--<%out.println(totalReb);%>--%>
                                                 &euro;</strong></td>
                                         </tr>

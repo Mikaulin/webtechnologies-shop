@@ -14,3 +14,4 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
     @Query(value="SELECT sum(c.COUNT) FROM CART c WHERE c.ID_USER=:userId", nativeQuery = true)
     Integer sumUserCartUnits(@Param("userId") Long userId);
 }
+
