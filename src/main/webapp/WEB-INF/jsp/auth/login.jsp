@@ -18,6 +18,7 @@
 
         <div class="input-group">
            <h4><span class="badge badge-warning">${message}</span></h4>
+            <h4><span class="badge badge-warning">${error}</span></h4>
         </div>
     </div>
 
@@ -37,7 +38,7 @@
                     </div>
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
                         <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
-                        <span>${error}</span>
+
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </div>
                 </div>
