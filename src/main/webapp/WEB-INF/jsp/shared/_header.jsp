@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>ElectroHOME | Tienda de electrodomésticos online </title>
+    <title>ElectroHOME | Tienda de electrodomésticos online</title>
 
     <%--DataTABLE--%>
     <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
@@ -43,7 +43,7 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/carrito" class="trsn nav-link" title="Comprobar compras">
                         <i class="fa fa-shopping-cart"></i>
-                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s) | <span id="total-price">0</span> &euro;</span>
+                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s)
                     </a>
                 </li>
 

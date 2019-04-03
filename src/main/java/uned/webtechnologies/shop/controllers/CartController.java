@@ -36,4 +36,24 @@ public class CartController {
         }
         return result;
     }
+
+    @GetMapping("/orden")
+    public ModelAndView orden(@AuthenticationPrincipal UserDetails activeUser) {
+        ModelAndView result = new ModelAndView("cart/order");
+        if(activeUser != null) {
+            User user = userService.findByUsername(activeUser.getUsername());
+            result.addObject("carts", this.cartService.findByUser(user));
+            result.addObject("total",this.cartService.userTotal(user)) ;
+            result.addObject("subtotal",this.cartService.userSubtotal(user)) ;
+            result.addObject("iva",this.cartService.userIVA(user)) ;
+            result.addObject("user", this.userService.getUser(user.getId()));
+        }
+        return result;
+    }
+    @GetMapping("/confirmacion")
+    public ModelAndView ok() {
+        ModelAndView result = new ModelAndView("cart/ok");
+        return result;
+    }
+
 }

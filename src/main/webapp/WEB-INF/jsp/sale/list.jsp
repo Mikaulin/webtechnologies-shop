@@ -32,7 +32,7 @@
             <th scope="col">Ud.</th>
             <th scope="col">Importe</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Pago</th>
+            <th scope="col">Abonado</th>
             <th scope="col">Usuario</th>
             <th scope="col">Acciones</th>
 

@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-
 <%@taglib prefix="mvc" uri="http://www.springframework.org/tags/form" %>
-
 <%@ include file="../shared/_header.jsp" %>
 
 
@@ -36,9 +34,11 @@
 
     <div class="jumbotron mt-3">
         <h4>Le recordamos que ...</h4>
-        <p class="lead">Una vez dado de baja, le recordamos que ya no podrá acceder a todos los servicios que tenía con ElectroHOME.
-            Así mismo sus datos serán eliminados de nuestros ficheros. Agradecemos la confianza depositada en ElectroHOME.<br><br>
-        Reciba un cordial saludo de todo el equipo de ElectroHOME.</p>
+        <p class="lead">Una vez dado de baja, le recordamos que ya no podrá acceder a todos los servicios que tenía con
+            ElectroHOME.
+            Así mismo sus datos serán eliminados de nuestros ficheros. Agradecemos la confianza depositada en
+            ElectroHOME.<br><br>
+            Reciba un cordial saludo de todo el equipo de ElectroHOME.</p>
     </div>
 
 

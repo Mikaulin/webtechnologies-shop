@@ -78,7 +78,8 @@
                     <p></p>
                     <p class="card-text mb-auto">V&aacute;lido desde el 28 de febrero al 6 de marzo en todos
                         los electrodom&eacute;sticos TEKA. Te descontamos el importe equivalente al IVA.</p>
-                    <a href="${pageContext.request.contextPath}/promociones">Continuar leyendo</a>
+                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/promociones">Continua leyendo
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block"
                      src="${pageContext.request.contextPath}/img/servicios01.jpg" alt="Card image cap">
@@ -95,7 +96,11 @@
                     <p></p>
                     <p class="card-text mb-auto">Servicio de Entregas a Domicilio. Disponible para todos
                         aquellos productos que no disfrutan de entrega a domicilio gratuita.</p>
-                    <a href="${pageContext.request.contextPath}/servicios">Continuar leyendo</a>
+
+                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/servicios">Continua leyendo
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+
+
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block"
                      src="${pageContext.request.contextPath}/img/servicios02.jpg" alt="">

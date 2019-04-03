@@ -51,17 +51,17 @@
                                 <a href="${pageContext.request.contextPath}/producto/detalle/${cart.product.id}"><img
                                         class="card-img-top"
                                         src="${pageContext.request.contextPath}/electro/${cart.product.photo}"></a>
-
                             </td>
 
-                            <td width="200">
-                                <h6><b>${cart.product.name}</b></h6>
+                            <td width="280">
+                                <span>${cart.product.name}</span>
                             </td>
 
-                            <td class="hidden-xs-down">
+                            <td>
                                 <span class="order-product-price"> ${cart.product.finalPrice} &euro;</span>
                             </td>
-                            <td width="50">
+
+                            <td>
                                 <select class="select select-qty form-control" name="" title="Qty">
 
 
@@ -89,6 +89,7 @@
 
                                 </select>
                             </td>
+
                             <td>
                                 <span class="order-product-subtotal">${cart.product.finalPrice * cart.count} &euro;</span>
                             </td>
@@ -104,12 +105,81 @@
                 </table>
 
                 <hr class="my-3">
+
+                <p>&nbsp;</p>
+
             </div>
+
+            <div class="row">
+
+                <div class="col-md-6 order-md-1">
+
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Forma de pago</h4>
+                        </div>
+
+                        <div class="card-body">
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="forma_pago" value="1"
+                                           id="pago1" class="radiobox" checked="checked"/>
+                                    <span>Tarjeta crédito/débito</span>
+                                </div><br>
+                                <div class="form-check">
+                                    <input type="radio" name="forma_pago" value="2"
+                                           id="pago2" class="radiobox"/>
+                                        <span>Servicio PayPal</span>
+                                </div><br>
+                                <div class="form-check">
+                                    <input type="radio" name="forma_pago" value="3"
+                                           id="pago3" class="radiobox"/>
+                                            <span>Transferencia bancaria</span>
+                                </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 order-md-1">
+
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Forma de envío</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="form-check">
+                                <input type="radio" name="forma_envio" value="1"
+                                       id="envio1" class="radiobox" />
+                                <span>Envío normal <i>- 0 &euro; <br><small>(5 o 6 días laborables)</small></i></span>
+                            </div><br>
+                            <div class="form-check">
+                                <input type="radio" name="forma_envio" value="2"
+                                       id="envio2" class="radiobox" checked="checked" />
+                                <span>Envío Express <i>- 20 &euro; <br><small>(2 o 3 días laborables)</small></i></span>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
+
 
         <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
 
-            <div class="col-sm-12 col-md-12 cart-estimate">
+
                 <div class="card mb-3">
                     <div class="card-header">
                         <h4 class="card-title">Resumen del pedido</h4>
@@ -117,63 +187,41 @@
                     <div class="card-block">
                         <div class="card-text">
                             <div id="estimate_shipping">
-
-
-                                    <table class="table ">
-
-                                        <tr>
-                                            <td colspan="1" class="text-left">Subtotal</td>
-                                            <td colspan="1" class="text-right">${subtotal} &euro;</td>
-                                        </tr>
-
-
-                                        <tr>
-                                            <td colspan="1" class="text-left">I.V.A.</td>
-                                            <td colspan="1" class="text-right">${iva} &euro;</td>
-                                        </tr>
-                                    </table>
-
-
-                                    <div class="estimate_shipping_buttons">
-
-                                    </div>
+                                <table class="table ">
+                                    <tr>
+                                        <td colspan="1" class="text-left">Subtotal</td>
+                                        <td colspan="1" class="text-right">${subtotal} &euro;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1" class="text-left">I.V.A.</td>
+                                        <td colspan="1" class="text-right">${iva} &euro;</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="col-sm-12 cart-totals">
-                <table class="table table-striped">
+                    <table class="table table-striped">
 
-                    <tr class="totals key">
-                        <td colspan="1" class="text-left"><strong>Total</strong></td>
-                        <td colspan="1" class="text-right"><strong>${total} &euro;</strong>
-                        </td>
-                    </tr>
-                </table>
+                        <tr class="totals key">
+                            <td colspan="1" class="text-left"><strong>Total</strong></td>
+                            <td colspan="1" class="text-right"><strong>${total} &euro;</strong>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p>&nbsp;</p>
+
+                    <div class="text-center cart-actions">
+                        <a href="${pageContext.request.contextPath}/carrito/orden" class="btn btn-danger btn-block" title="Tramitar pedido">Tramitar pedido</a>
+                    </div>
 
 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Tipo de Pago</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option selected> Tarjeta</option>
-                        <option>Reembolso</option>
-                        <option>Crédito</option>
-                    </select>
-                </div>
-
-                <p>&nbsp;</p>
-
-                <div class="text-center cart-actions">
-                    <a href="" class="btn btn-danger btn-block" title="Tramitar pedido">Tramitar pedido</a>
-                </div>
-            </div>
+            <%--</mvc:form>--%>
 
         </div>
-
-        <%--</mvc:form>--%>
 
     </div>
 
