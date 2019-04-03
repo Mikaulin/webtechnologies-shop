@@ -25,9 +25,9 @@ public class PurchaseLine {
     public PurchaseLine(){}
 
     public PurchaseLine(Cart cart) {
-        date=new Date();
+        date = new Date();
         this.count = cart.getCount();
-        this.product=cart.getProduct();
+        this.product = cart.getProduct();
     }
 
     public long getId() {

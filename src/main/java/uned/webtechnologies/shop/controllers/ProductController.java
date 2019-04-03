@@ -16,14 +16,16 @@ public class ProductController {
     private BrandService brandService;
     private PromotionService promotionService;
     private RatingService ratingService;
+    private UserService userService;
 
     @Autowired
-    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService) {
+    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService, UserService userService) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.brandService = brandService;
         this.promotionService = promotionService;
         this.ratingService = ratingService;
+        this.userService = userService;
     }
 
     @GetMapping("/detalle/{id}")
@@ -56,6 +58,7 @@ public class ProductController {
         return result;
     }
 
+
     @GetMapping("/editar/{id}")
     public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/edit");
@@ -79,10 +82,21 @@ public class ProductController {
 
     @GetMapping("/valoraciones/{id}")
     public ModelAndView ratinglist(@PathVariable("id") int id) {
-        ModelAndView result = new ModelAndView("search/listrating");
+        ModelAndView result = new ModelAndView("search/list");
         result.addObject("products", this.ratingService.getProductsByRating(id));
         result.addObject("rating", this.ratingService);
         return result;
     }
+
+
+
+    @GetMapping("/ventas/listado")
+    public ModelAndView listVentas() {
+        ModelAndView result = new ModelAndView("sale/list");
+        result.addObject("products", this.productService.getProducts());
+        result.addObject("users", this.userService.getUser());
+        return result;
+    }
+
 
 }

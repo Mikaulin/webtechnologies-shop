@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-
+<%@taglib prefix="mvc" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="../shared/_header.jsp" %>
 
 
@@ -25,6 +25,9 @@
 
 
     <div class="row">
+
+        <%--<mvc:form method="post" modelAttribute="sales" action="create">--%>
+
         <div class="col-sm-12 col-md-12 col-lg-8 mb-4">
 
             <div class="table-responsive">
@@ -115,22 +118,18 @@
                         <div class="card-text">
                             <div id="estimate_shipping">
 
-                                <form action="" accept-charset="UTF-8" id="estimate_shipping_form" autocomplete="off"
-                                      method="post">
 
                                     <table class="table ">
 
                                         <tr>
-                                            <td colspan="1" class="text-left"><strong>Subtotal</strong></td>
-                                            <td colspan="1" class="text-right">${total}<strong>
-                                                <%--<%out.println(totalReb);%>--%>
-                                                &euro;</strong></td>
+                                            <td colspan="1" class="text-left">Subtotal</td>
+                                            <td colspan="1" class="text-right">${subtotal} &euro;</td>
                                         </tr>
 
 
                                         <tr>
-                                            <td colspan="1" class="text-left"><strong>I.V.A.</strong></td>
-                                            <td colspan="1" class="text-right"><strong>120.00 &euro;</strong></td>
+                                            <td colspan="1" class="text-left">I.V.A.</td>
+                                            <td colspan="1" class="text-right">${iva} &euro;</td>
                                         </tr>
                                     </table>
 
@@ -138,9 +137,6 @@
                                     <div class="estimate_shipping_buttons">
 
                                     </div>
-                                </form>
-
-
                             </div>
                         </div>
                     </div>
@@ -153,12 +149,22 @@
 
                     <tr class="totals key">
                         <td colspan="1" class="text-left"><strong>Total</strong></td>
-                        <td colspan="1" class="text-right"><strong>
-                            <%--<%out.println(totalReb + 120.00);%> &euro;--%>
-                        </strong>
+                        <td colspan="1" class="text-right"><strong>${total} &euro;</strong>
                         </td>
                     </tr>
                 </table>
+
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Tipo de Pago</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option selected> Tarjeta</option>
+                        <option>Reembolso</option>
+                        <option>Crédito</option>
+                    </select>
+                </div>
+
+                <p>&nbsp;</p>
 
                 <div class="text-center cart-actions">
                     <a href="" class="btn btn-danger btn-block" title="Tramitar pedido">Tramitar pedido</a>
@@ -167,6 +173,7 @@
 
         </div>
 
+        <%--</mvc:form>--%>
 
     </div>
 

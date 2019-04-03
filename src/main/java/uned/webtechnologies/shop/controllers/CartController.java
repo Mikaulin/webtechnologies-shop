@@ -30,7 +30,10 @@ public class CartController {
         if(activeUser != null) {
             User user = userService.findByUsername(activeUser.getUsername());
             result.addObject("carts", this.cartService.findByUser(user));
-            result.addObject("total",this.cartService.userTotal(user)) ;      }
+            result.addObject("total",this.cartService.userTotal(user)) ;
+            result.addObject("subtotal",this.cartService.userSubtotal(user)) ;
+            result.addObject("iva",this.cartService.userIVA(user)) ;
+        }
         return result;
     }
 }

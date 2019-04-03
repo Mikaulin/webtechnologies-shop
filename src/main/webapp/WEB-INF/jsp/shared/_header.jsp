@@ -43,7 +43,7 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/carrito" class="trsn nav-link" title="Comprobar compras">
                         <i class="fa fa-shopping-cart"></i>
-                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s) | 0 &euro;</span>
+                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s) | <span id="total-price">0</span> &euro;</span>
                     </a>
                 </li>
 
@@ -125,6 +125,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown06">
                         <a class="dropdown-item" href="#">Devoluciones</a>
                         <a class="dropdown-item" href="#">Informes</a>
+                        <a class="dropdown-item" href="#">Listado</a>
 
                     </div>
                 </li>

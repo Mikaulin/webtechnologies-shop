@@ -30,13 +30,30 @@ public class CartService {
     public long totalProducts(User user) {
         return this.cartRepository.sumUserCartUnits(user.getId());
     }
+
+    public double userSubtotal (User user){
+
+        double subTotal = NumberUtils.roundDecimals(userTotal (user) - (userTotal (user)* 0.21));
+
+        return subTotal;
+    }
+
+    public double userIVA (User user){
+
+        double iva = NumberUtils.roundDecimals(userTotal (user)* 0.21);
+
+        return iva;
+    }
+
+    public double usertotalPrice(User user) {
+        return this.userTotal(user);
+    }
+
     public double userTotal(User user){
         List<Cart> carts=this.cartRepository.findByUser(user);
-        double total=0;
-        for (Cart cart:carts
-             ) {total= NumberUtils.roundDecimals(total+cart.getCount()*cart.getProduct().getFinalPrice());
-
-
+        double total = 0;
+        for (Cart cart:carts) {
+            total= NumberUtils.roundDecimals(total+cart.getCount()*cart.getProduct().getFinalPrice());
         }
         return total;
     }
