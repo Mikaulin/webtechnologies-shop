@@ -125,7 +125,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown06">
                         <a class="dropdown-item" href="#">Devoluciones</a>
                         <a class="dropdown-item" href="#">Informes</a>
-                        <a class="dropdown-item" href="#">Listado</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/ventas/listado">Listado</a>
 
                     </div>
                 </li>

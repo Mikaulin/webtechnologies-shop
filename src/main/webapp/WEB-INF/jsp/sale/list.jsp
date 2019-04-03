@@ -10,13 +10,13 @@
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group" aria-label="First group">
             <div class="input-group-prepend">
-                <h4 class="mb-3">Listado de clientes</h4>
+                <h4 class="mb-3">Listado de ventas</h4>
             </div>
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/user/registration">
-                <button type="button" class="btn btn-success btn-sm">Añadir Cliente</button>
+            <a href="#">
+                <button type="button" class="btn btn-success btn-sm">Informes</button>
             </a>
         </div>
     </div>
@@ -39,10 +39,10 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${users}" var="user">
+       <%-- <c:forEach items="${users}" var="user">
 
             <tr>
-               <%-- <td scope="row">${user.id}</td>
+                <td scope="row">${user.id}</td>
                 <td>${user.name}</td>
                 <td>${user.lastname1}</td>
                 <td>${user.direction}</td>
@@ -60,10 +60,11 @@
                         <a class="btn btn-sm btn-outline-danger" role="button"
                            href="${pageContext.request.contextPath}/user/delete/${user.username}">DEL</a>
                     </div>
-                </td>--%>
+                </td>
             </tr>
 
-        </c:forEach>
+        </c:forEach>--%>
+
         </tbody>
     </table>
 
