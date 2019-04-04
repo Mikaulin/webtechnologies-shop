@@ -47,7 +47,6 @@ public class PurchaseLineController {
         ModelAndView result = new ModelAndView("purchase/list");
         if (activeUser != null) {
             User user = userService.findByUsername(activeUser.getUsername());
-
             result.addObject("purchaseLines", this.purchaseLineService.getPurhcaseLines(user));
         }
         return result;

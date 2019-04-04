@@ -23,7 +23,7 @@
 
     <div class="border-top my-3"></div>
 
-    <table id="example" class="table table-striped">
+    <table id="example" class="table">
         <thead>
         <tr>
             <th scope="col">Id</th>
@@ -39,31 +39,22 @@
         </tr>
         </thead>
         <tbody>
-       <%-- <c:forEach items="${users}" var="user">
 
+        <c:forEach items="${purchaseLines}" var="purchaseLine">
             <tr>
-                <td scope="row">${user.id}</td>
-                <td>${user.name}</td>
-                <td>${user.lastname1}</td>
-                <td>${user.direction}</td>
-                <td>${user.city}</td>
-                <td>${user.postalCode}</td>
-                    &lt;%&ndash;<td>${user.province}</td>&ndash;%&gt;
-                    &lt;%&ndash;<td>${user.country}</td>&ndash;%&gt;
-                <td>${user.email}</td>
-                    &lt;%&ndash;<td>${user.phone}</td>&ndash;%&gt;
-                <td>${user.username}</td>
-                <td>
-                    <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-info" role="button"
-                           href="${pageContext.request.contextPath}/user/editar/${user.username}">Edit</a>
-                        <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/user/delete/${user.username}">DEL</a>
-                    </div>
-                </td>
+                <td> ${purchaseLine.id}</td>
+                <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" ></td>
+                <td width="280"> ${purchaseLine.product.description}</td>
+                <td> ${purchaseLine.unitPrice}</td>
+                <td> ${purchaseLine.count}</td>
+                <td> ${purchaseLine.purchasePrice}</td>
+                <td> ${purchaseLine.date.toLocaleString().substring(0,11)}</td>
+                <td> Tarjeta</td>
+                <td> ${purchaseLine.user.username}</td>
+
             </tr>
 
-        </c:forEach>--%>
+        </c:forEach>
 
         </tbody>
     </table>
