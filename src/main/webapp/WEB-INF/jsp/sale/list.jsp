@@ -28,13 +28,14 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Producto</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Ud.</th>
-            <th scope="col">Importe</th>
+            <th scope="col">Descripci&oacute;n</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">importe</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Abonado</th>
+            <th scope="col">F. Pago</th>
             <th scope="col">Usuario</th>
-            <th scope="col">Acciones</th>
+
 
         </tr>
         </thead>
