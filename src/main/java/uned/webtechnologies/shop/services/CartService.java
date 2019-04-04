@@ -58,6 +58,18 @@ public class CartService {
         return total;
     }
 
+    public void removeCart(Cart cart){
+        this.cartRepository.delete(cart.getId());}
+
+    public void removeAllOfUser(User user){
+        List<Cart> carts=this.cartRepository.findByUser(user);
+        for (Cart cart:carts
+        ) {this.cartRepository.delete(cart);
+
+        }
+
+    }
+
 
     public List<Cart> findByUser(User user) {
         return this.cartRepository.findByUser(user);

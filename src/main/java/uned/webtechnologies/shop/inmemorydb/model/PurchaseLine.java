@@ -29,6 +29,13 @@ public class PurchaseLine {
         this.count = cart.getCount();
         this.product = cart.getProduct();
     }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public long getId() {
         return id;

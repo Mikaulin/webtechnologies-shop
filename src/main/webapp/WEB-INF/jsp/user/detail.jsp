@@ -99,7 +99,7 @@
             <div class="jumbotron mt-3">
                 <h4>Necesita consultar su compras ?</h4>
                 <p class="lead">Desde aquí podrá consultar de forma cómoda el histórico de sus compras.</p>
-                <a class="btn btn-outline-danger" href="${contextPath}/#" role="button">Consultar compras</a>
+                <a class="btn btn-outline-danger" href="${contextPath}/compra/listado" role="button">Consultar compras</a>
             </div>
         </div>
         <div class="col-md-6 order-md-1">

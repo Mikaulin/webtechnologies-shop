@@ -26,8 +26,6 @@
 
     <div class="row">
 
-        <%--<mvc:form method="post" modelAttribute="sales" action="create">--%>
-
         <div class="col-sm-12 col-md-12 col-lg-8 mb-4">
 
             <div class="table-responsive">
@@ -95,8 +93,8 @@
                             </td>
 
                             <td>
-                                <a href="" class="cart-product-remove" title="Quitar Producto">
-                                    <i class="fa fa-times-circle-o fa-fw"></i>
+                                <a class="btn btn-danger btn-sm" href="" class="cart-product-remove" title="Quitar Producto">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             </td>
 
@@ -140,7 +138,6 @@
 
 
                         </div>
-
                     </div>
 
                 </div>
@@ -155,12 +152,12 @@
 
                             <div class="form-check">
                                 <input type="radio" name="forma_envio" value="1"
-                                       id="envio1" class="radiobox" />
+                                       id="envio1" class="radiobox" checked="checked" />
                                 <span>Envío normal <i>- 0 &euro; <br><small>(5 o 6 días laborables)</small></i></span>
                             </div><br>
                             <div class="form-check">
                                 <input type="radio" name="forma_envio" value="2"
-                                       id="envio2" class="radiobox" checked="checked" />
+                                       id="envio2" class="radiobox" />
                                 <span>Envío Express <i>- 20 &euro; <br><small>(2 o 3 días laborables)</small></i></span>
                             </div>
 
