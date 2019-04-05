@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-group">
-            <a href="#">
+            <a href="${pageContext.request.contextPath}/ventas/informe">
                 <button type="button" class="btn btn-success btn-sm">Informes</button>
             </a>
         </div>
@@ -35,26 +35,22 @@
             <th scope="col">Fecha</th>
             <th scope="col">F. Pago</th>
             <th scope="col">Usuario</th>
-
-
         </tr>
         </thead>
         <tbody>
 
-        <c:forEach items="${purchaseLines}" var="purchaseLine">
+   <c:forEach items="${lines}" var="purchaseLine" >
             <tr>
-                <td> ${purchaseLine.id}</td>
+                <td scope="row">${purchaseLine.id}</td>
                 <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" ></td>
                 <td width="280"> ${purchaseLine.product.description}</td>
                 <td> ${purchaseLine.unitPrice}</td>
                 <td> ${purchaseLine.count}</td>
                 <td> ${purchaseLine.purchasePrice}</td>
-                <td> ${purchaseLine.date.toLocaleString().substring(0,11)}</td>
+                <td> ${purchaseLine.date.toLocaleString().substring(1,11)}</td>
                 <td> Tarjeta</td>
                 <td> ${purchaseLine.user.username}</td>
-
             </tr>
-
         </c:forEach>
 
         </tbody>

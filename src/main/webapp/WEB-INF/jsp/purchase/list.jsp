@@ -31,7 +31,7 @@
             <th scope="col">importe</th>
             <th scope="col">Fecha</th>
             <th scope="col">F. Pago</th>
-            <th scope="col">Usuario</th>
+
         </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@
                 <td> ${purchaseLine.purchasePrice}</td>
                 <td> ${purchaseLine.date.toLocaleString().substring(0,11)}</td>
                 <td> Tarjeta</td>
-                <td> ${purchaseLine.user.username}</td>
+
 
             </tr>
 

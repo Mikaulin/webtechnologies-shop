@@ -26,7 +26,21 @@
 
     <div class="row">
 
+
+
         <div class="col-sm-12 col-md-12 col-lg-8 mb-4">
+
+            <c:if test="${total == 0.0}">
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <h4> EL CARRO DE LA COMPRA ESTÁ VACÍO</h4>
+                        <br><br>
+                        <h5> No tiene productos en el carro de la compra.</h5>
+                    </div>
+                </div>
+            </c:if>
+
+            <c:if test="${total > 0.0}">
 
             <div class="table-responsive">
                 <table class="table">
@@ -93,7 +107,7 @@
                             </td>
 
                             <td>
-                                <a class="btn btn-danger btn-sm" href="" class="cart-product-remove" title="Quitar Producto">
+                                <a class="btn btn-danger btn-sm cart-product-remove" href="" title="Quitar Producto">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             </td>
@@ -108,17 +122,39 @@
 
             </div>
 
+            </c:if>
+
+            <c:if test="${total == null}">
+
+            <div class="row">
+                <div class="col-md-8 order-md-1">
+                    <h4> EL CARRO DE LA COMPRA ESTÁ VACÍO</h4>
+
+                    <br><br>
+
+                    <h5> No tiene productos en el carro de la compra. Por favor, para comprar algún producto, debe antes iniciar sesión en el área de cliente.</h5>
+
+                    <br>
+
+                    <a class="btn btn-outline-success" href="${pageContext.request.contextPath}/user/login">Área de cliente
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+
+        </c:if>
+
+        <c:if test="${total > 0.0}">
+
             <div class="row">
 
                 <div class="col-md-6 order-md-1">
-
                     <div class="card mb-4 shadow-sm">
                         <div class="card-header">
                             <h4 class="my-0 font-weight-normal">Forma de pago</h4>
                         </div>
 
                         <div class="card-body">
-
 
                                 <div class="form-check">
                                     <input type="radio" name="forma_pago" value="1"
@@ -135,11 +171,8 @@
                                            id="pago3" class="radiobox"/>
                                             <span>Transferencia bancaria</span>
                                 </div>
-
-
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-md-6 order-md-1">
@@ -160,22 +193,20 @@
                                        id="envio2" class="radiobox" />
                                 <span>Envío Express <i>- 20 &euro; <br><small>(2 o 3 días laborables)</small></i></span>
                             </div>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
             </div>
-
+        </c:if>
 
         </div>
 
 
+
         <div class="col-sm-12 col-md-12 col-lg-4 mb-4">
 
+            <c:if test="${total > 0.0}">
 
                 <div class="card mb-3">
                     <div class="card-header">
@@ -209,14 +240,16 @@
                         </tr>
                     </table>
 
+
+
                     <p>&nbsp;</p>
 
                     <div class="text-center cart-actions">
                         <a href="${pageContext.request.contextPath}/carrito/orden" class="btn btn-danger btn-block" title="Tramitar pedido">Tramitar pedido</a>
                     </div>
+            </c:if>
 
 
-            <%--</mvc:form>--%>
 
         </div>
 

@@ -13,6 +13,7 @@ public class FixturesLoader {
     private ProductLoader productLoader;
     private RatingLoader ratingLoader;
     private RatingValueLoader ratingValueLoader;
+    private PurchaseLinesLoader purchaseLinesLoader;
 
 
 
@@ -25,7 +26,8 @@ public class FixturesLoader {
                           ProductLoader productLoader,
                           RatingValueLoader ratingValueLoader,
                           RatingLoader ratingLoader,
-                          PromotionLoader promotionLoader
+                          PromotionLoader promotionLoader,
+                          PurchaseLinesLoader purchaseLinesLoader
 
     ){
         this.roleLoader = roleLoader;
@@ -36,6 +38,7 @@ public class FixturesLoader {
         this.ratingValueLoader=ratingValueLoader;
         this.ratingLoader=ratingLoader;
         this.promotionLoader=promotionLoader;
+        this.purchaseLinesLoader=purchaseLinesLoader;
     }
 
     public void execute() {
@@ -45,7 +48,8 @@ public class FixturesLoader {
         categoryLoader.load();
         promotionLoader.load();
         productLoader.load();
-        ratingValueLoader.load();;
+        ratingValueLoader.load();
         ratingLoader.load();
+        purchaseLinesLoader.load();
     }
 }

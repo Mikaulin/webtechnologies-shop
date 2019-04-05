@@ -50,10 +50,5 @@ public class CartController {
         }
         return result;
     }
-    @GetMapping("/confirmacion")
-    public ModelAndView ok() {
-        ModelAndView result = new ModelAndView("cart/ok");
-        return result;
-    }
 
 }

@@ -15,6 +15,10 @@ public class PurchaseLineService {
     @Autowired
     private PurchaseLineRepository purchaseLineRepository;
 
+    public List<PurchaseLine> getAllPurchases(){
+        return this.purchaseLineRepository.findAll();
+    }
+
     public void save(PurchaseLine purchaseLine) {
 
         Date today = new Date();
@@ -38,6 +42,10 @@ public class PurchaseLineService {
 
         }
     }
+    public long count(){
+        return this.purchaseLineRepository.count();
+    }
+
     public List<PurchaseLine> getPurhcaseLines(User user){
         return this.purchaseLineRepository.findByUser(user);
     }

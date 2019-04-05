@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.*;
 
@@ -20,17 +21,16 @@ public class ProductController {
     private PromotionService promotionService;
     private RatingService ratingService;
     private UserService userService;
-    private PurchaseLineService purchaseLineService;
+
 
     @Autowired
-    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService, UserService userService, PurchaseLineService purchaseLineService) {
+    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService, UserService userService) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.brandService = brandService;
         this.promotionService = promotionService;
         this.ratingService = ratingService;
         this.userService = userService;
-        this.purchaseLineService = purchaseLineService;
     }
 
     @GetMapping("/detalle/{id}")
@@ -90,18 +90,6 @@ public class ProductController {
         ModelAndView result = new ModelAndView("search/list");
         result.addObject("products", this.ratingService.getProductsByRating(id));
         result.addObject("rating", this.ratingService);
-        return result;
-    }
-
-
-
-    @GetMapping("/ventas/listado")
-    public ModelAndView listVentas(@AuthenticationPrincipal UserDetails activeUser) {
-        ModelAndView result = new ModelAndView("sale/list");
-        if (activeUser != null) {
-            User user = userService.findByUsername(activeUser.getUsername());
-            result.addObject("purchaseLines", this.purchaseLineService.getPurhcaseLines(user));
-        }
         return result;
     }
 

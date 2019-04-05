@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.ProductService;
+import uned.webtechnologies.shop.services.PurchaseLineService;
 
 @Controller
 @RequestMapping
@@ -16,10 +17,10 @@ public class HomeController {
     private ProductService productService;
 
     @Autowired
-    public HomeController(ProductService productService) {
+    public HomeController(ProductService productService, PurchaseLineService purchaseLineService) {
         this.productService = productService;
-    }
 
+    }
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
