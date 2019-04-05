@@ -147,7 +147,6 @@
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/user/registration">Alta
                             Usuario</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/user/usuarios">Listado</a>
-                        <a class="dropdown-item" href="#">Histórico</a>
                     </div>
                 </li>
 

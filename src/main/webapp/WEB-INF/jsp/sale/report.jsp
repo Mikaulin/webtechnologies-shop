@@ -17,16 +17,12 @@
         <div class="input-group">
 
             <%--Para cambiar la fecha del informe, cambiar el java date--%>
-
             <c:set var="now" value="<%= new java.util.Date() %>"/>
             <fmt:formatDate type="date" value="${now}"/>
-
         </div>
-
     </div>
 
     <div class="border-top my-3"></div>
-
 
     <c:forEach items="${detailUser}" var="user">
 
@@ -70,22 +66,19 @@
                         </td>
 
                         <td width="100" class="text-center hidden-xs-down">
-                            <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}"><img
-                                    class="card-img-top"
-                                    src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
+                            <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
+                                <img class="card-img-top" alt="${sale.product.name}"
+                                     src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
                         </td>
                         <td width="280">
                             <span>${sale.product.name}</span>
                         </td>
-
                         <td>
                             <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
                         </td>
-
                         <td>
                             <span class="order-product-price"> ${sale.count}</span>
                         </td>
-
                         <td>
                             <span class="order-product-subtotal">${sale.product.finalPrice * sale.count} &euro;</span>
                         </td>
@@ -93,7 +86,6 @@
                             <span>Tarjeta</span>
                         </td>
                     </tr>
-
 
                 </c:if>
 

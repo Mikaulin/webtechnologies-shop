@@ -59,9 +59,11 @@
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-info" role="button"
-                           href="${pageContext.request.contextPath}/user/editar/${user.username}">Edit</a>
+                           href="${pageContext.request.contextPath}/user/editar/${user.username}">Editar</a>
+                        <a class="btn btn-sm btn-outline-secondary" role="button"
+                           href="${pageContext.request.contextPath}/ventas/historial/${user.username}">H. Ventas</a>
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/user/delete/${user.username}">DEL</a>
+                           href="${pageContext.request.contextPath}/user/delete/${user.username}">Baja</a>
                     </div>
                 </td>
             </tr>
