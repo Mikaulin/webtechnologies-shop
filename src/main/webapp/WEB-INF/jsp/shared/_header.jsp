@@ -149,23 +149,21 @@
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/user/usuarios">Listado</a>
                     </div>
                 </li>
+            </ul>
 
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown"
+           <div class=" my-2 my-md-0">
+                 <ul class="navbar-nav mr-auto"> <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Documentación</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown05">
+                    <div class="dropdown-menu" aria-labelledby="dropdown08">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/memoria">Memoria</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/manual">Manual</a>
                         <a class="dropdown-item" href="#">Javadoc</a>
                     </div>
-                </li>
-            </ul>
+                </li></ul>
+            </div>
 
-            <form class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" placeholder=" Qu&eacute; est&aacute;s buscando ?"
-                       aria-label="Search">
-            </form>
+
         </div>
     </div>
 </nav>
