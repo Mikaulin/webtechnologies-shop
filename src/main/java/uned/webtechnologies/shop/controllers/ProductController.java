@@ -68,6 +68,7 @@ public class ProductController {
     public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/edit");
         result.addObject("brandList", this.brandService.getBrands());
+        result.addObject("promotion", this.promotionService.getActivePromotions());
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
         return result;
