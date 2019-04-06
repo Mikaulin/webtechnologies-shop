@@ -4,11 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 import uned.webtechnologies.shop.services.UserService;
 
@@ -28,20 +25,20 @@ public class SaleController {
     @GetMapping("/listado")
     public ModelAndView listPurchaseLines() {
         ModelAndView result = new ModelAndView("sale/list");
-            result.addObject("lines", this.purchaseLineService.getAllPurchases());
+        result.addObject("lines", this.purchaseLineService.getAllPurchases());
         return result;
     }
 
     @GetMapping("/informe")
-    public ModelAndView report(@AuthenticationPrincipal UserDetails activeUser) {
+    public ModelAndView report() {
         ModelAndView result = new ModelAndView("sale/report");
-            result.addObject("detailUser", this.userService.getUser());
-            result.addObject("lines", this.purchaseLineService.getAllPurchases());
+        result.addObject("detailUser", this.userService.getUser());
+        result.addObject("lines", this.purchaseLineService.getAllPurchases());
         return result;
     }
 
     @GetMapping("/historial/{username}")
-    public ModelAndView listHistory(@PathVariable("username")String username) {
+    public ModelAndView listHistory(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("sale/history");
         result.addObject("user", this.userService.findByUsername(username));
         result.addObject("lines", this.purchaseLineService.getAllPurchases());

@@ -15,97 +15,146 @@
         </div>
 
         <div class="input-group">
-
             <%--Para cambiar la fecha del informe, cambiar el java date--%>
-            <c:set var="now" value="<%= new java.util.Date() %>"/>
-            <fmt:formatDate type="date" value="${now}"/>
+                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                <c:set var="now" value="<%= new java.util.Date() %>"/>
+                    <fmt:formatDate type="date" value="${now}"/></button>
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Informe de ventas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <p>
+                          <label for="date">Elige un fecha: </label>
+                          <input type="date" id="date" />
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-secondary">Enviar fecha</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="border-top my-3"></div>
 
     <c:forEach items="${detailUser}" var="user">
 
-
         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group" role="group" aria-label="First group">
-                <h5 class="mb-3"><i class="fa fa-user fa-fw"></i><span
-                        class="customer-name">${user.name} ${user.lastname1}</span>
-                </h5>
+              <h5 class="mb-3">
+                 <a class="btn btn-success btn-sm" href="#${user.username}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="${user.username}">
+                 <i class="fa fa-bars" aria-hidden="true"></i></a>
+                  <span class="customer-name">&nbsp;&nbsp;${user.name} ${user.lastname1}
+                    <small>[&nbsp;
+                        <c:forEach items="${lines}" var="count">
+                          <c:if test="${user.username eq count.user.username and count.date.day eq now.day and count.date.month eq now.month }" >
+                            <i class="fa fa-shopping-cart"></i>
+                          </c:if>
+                    </c:forEach>&nbsp;]
+                    </small>
+                   </span>
+              </h5>
             </div>
 
             <div class="input-group">
                 <a href="${pageContext.request.contextPath}/user/editar/${user.username}">
-                    <button type="button" class="btn btn-outline-secondary btn-sm">${user.username} <i
+                    <button type="button" class="btn btn-outline-success btn-sm">${user.username} <i
                             class="fa fa-chevron-right" aria-hidden="true"></i></button>
                 </a>
             </div>
         </div>
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th class="hidden-xs-down">Producto</th>
-                <th>Descripci&oacute;n</th>
-                <th class="hidden-xs-down">Precio</th>
-                <th>Cantidad</th>
-                <th>Importe</th>
-                <th>F. pago</th>
-            </tr>
-            </thead>
-            <tbody>
+        <div class="collapse multi-collapse" id="${user.username}">
 
-            <c:forEach items="${lines}" var="sale">
+            <table id="example" class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Descripci&oacute;n</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Importe</th>
+                    <th scope="col">F. pago</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
 
-                <c:if test="${sale.user.username eq user.username}">
+                <c:forEach items="${lines}" var="sale">
 
-                    <tr>
-                        <td>
-                            <span>${sale.id}</span>
-                        </td>
+                    <c:if test="${sale.user.username eq user.username and sale.date.day eq now.day and sale.date.month eq now.month and sale.date.year eq now.year}">
+                        <tr>
+                            <td>
+                                <span>${sale.id}</span>
+                            </td>
 
-                        <td width="100" class="text-center hidden-xs-down">
-                            <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
-                                <img class="card-img-top" alt="${sale.product.name}"
-                                     src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
-                        </td>
-                        <td width="280">
-                            <span>${sale.product.name}</span>
-                        </td>
-                        <td>
-                            <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
-                        </td>
-                        <td>
-                            <span class="order-product-price"> ${sale.count}</span>
-                        </td>
-                        <td>
-                            <span class="order-product-subtotal">${sale.product.finalPrice * sale.count} &euro;</span>
-                        </td>
-                        <td>
-                            <span>Tarjeta</span>
-                        </td>
-                    </tr>
+                            <td width="100" class="text-center hidden-xs-down">
+                                <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
+                                    <img class="card-img-top" alt="${sale.product.name}"
+                                         src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
+                            </td>
+                            <td width="280">
+                                <span>${sale.product.name}</span>
+                            </td>
+                            <td>
+                                <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
+                            </td>
+                            <td>
+                                <span class="order-product-price"> ${sale.count}</span>
+                            </td>
+                            <td>
+                                <span class="order-product-subtotal">${sale.product.finalPrice * sale.count} &euro;</span>
+                            </td>
+                            <td>
+                                <span>Tarjeta</span>
+                            </td>
+                            <td>
+                                <div class="btn-group">
 
-                </c:if>
+                                    <a class="btn btn-sm btn-outline-danger" role="button"
+                                       href="${pageContext.request.contextPath}/ventas/devoluciones/${user.username}">Devolver</a>
 
-            </c:forEach>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </c:if>
+
+                </c:forEach>
 
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
 
-        <p>&nbsp;</p>
-
-        <p>&nbsp;</p>
+        <div class="border-top my-3"></div>
 
     </c:forEach>
-    <hr class="my-3">
+
 
     <p>&nbsp;</p>
 
 
 </div>
+
+<p>&nbsp;</p>
 
 
 <%@ include file="../shared/_js.jsp" %>

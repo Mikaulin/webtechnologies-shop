@@ -100,15 +100,12 @@ public class ProductLoader implements ILoader {
 
 
 
-
-
                 )
 
         );
 
         long count=this.promotionRepository.count();
-        for (Product p:products
-             ) {
+        for (Product p:products) {
             p.setPromotion(this.promotionRepository.findOne((long)Math.floor(Math.random()*count+1)));
 
         }
