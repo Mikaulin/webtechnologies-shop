@@ -27,19 +27,17 @@ public class CartController {
     @GetMapping()
     public ModelAndView list(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("cart/list");
-        if(activeUser != null) {
-            User user = userService.findByUsername(activeUser.getUsername());
-            result.addObject("carts", this.cartService.findByUser(user));
-            result.addObject("total",this.cartService.userTotal(user)) ;
-            result.addObject("subtotal",this.cartService.userSubtotal(user)) ;
-            result.addObject("iva",this.cartService.userIVA(user)) ;
-        }
-        return result;
+
+        return listCart(result,activeUser);
     }
 
     @GetMapping("/orden")
     public ModelAndView orden(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("cart/order");
+
+        return listCart(result,activeUser);
+    }
+    private ModelAndView listCart(ModelAndView result,UserDetails activeUser){
         if(activeUser != null) {
             User user = userService.findByUsername(activeUser.getUsername());
             result.addObject("carts", this.cartService.findByUser(user));
@@ -47,8 +45,9 @@ public class CartController {
             result.addObject("subtotal",this.cartService.userSubtotal(user)) ;
             result.addObject("iva",this.cartService.userIVA(user)) ;
             result.addObject("user", this.userService.getUser(user.getId()));
-        }
-        return result;
+
+        }return result;
+
     }
 
 }
