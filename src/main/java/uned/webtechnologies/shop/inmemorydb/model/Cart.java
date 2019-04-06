@@ -15,13 +15,46 @@ public class Cart {
     @ManyToOne
     @JoinColumn(name="ID_USER")
     private User user;
+    private double unitPrice;
+    private double cartPrice;
+
+    @PrePersist
+    private void calculatePrices(){
+
+
+        setUnitPrice(getProduct().getFinalPrice());
+        setCartPrice(getUnitPrice()*getCount());
+
+    }
 
     public Cart(){}
+
+
 
     public Cart(int count, Product product, User user) {
         this.count = count;
         this.product = product;
         this.user=user;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public double getCartPrice() {
+        return cartPrice;
+    }
+
+    public void setCartPrice(double cartPrice) {
+        this.cartPrice = cartPrice;
     }
 
     public long getId() {
