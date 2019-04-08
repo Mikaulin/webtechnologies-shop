@@ -45,7 +45,7 @@ public class ProductController {
         ModelAndView result = new ModelAndView("product/productform");
         result.addObject("brands", this.brandService.getBrands());
         result.addObject("categories", this.categoryService.getCategories());
-        result.addObject("promotion", this.promotionService.getActivePromotions());
+        result.addObject("promotion", this.promotionService.getPromotions());
         result.addObject("product", new Product());
         return result;
     }
@@ -68,13 +68,16 @@ public class ProductController {
     public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/edit");
         result.addObject("brandList", this.brandService.getBrands());
+        result.addObject("promotion", this.promotionService.getPromotions());
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
+        result.addObject("promotionActive",new boolean[this.promotionService.getPromotions().size()]);
         return result;
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
     public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
+
         productService.update(id, product);
         return "redirect:/producto/listado";
     }

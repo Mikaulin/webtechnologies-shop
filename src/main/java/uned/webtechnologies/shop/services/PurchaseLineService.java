@@ -7,7 +7,7 @@ import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.PurchaseLineRepository;
 
-import java.util.Date;
+import java.util.*;
 import java.util.List;
 
 @Service
@@ -15,17 +15,23 @@ public class PurchaseLineService {
     @Autowired
     private PurchaseLineRepository purchaseLineRepository;
 
+    public PurchaseLineService() {
+    }
+
     public List<PurchaseLine> getAllPurchases(){
         return this.purchaseLineRepository.findAll();
     }
 
-    public void save(PurchaseLine purchaseLine) {
 
+    public void saveRandom(PurchaseLine purchaseLine) {purchaseLineRepository.save(purchaseLine);}
+
+    public void save(PurchaseLine purchaseLine) {
         Date today = new Date();
         today.getTime();
         purchaseLine.setDate(today);
         purchaseLineRepository.save(purchaseLine);
     }
+
 
     public void saveCarts(List<Cart> carts) {
         PurchaseLine purchase;

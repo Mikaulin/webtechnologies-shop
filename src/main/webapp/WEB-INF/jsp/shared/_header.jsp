@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sticky-footer.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
+
 </head>
+
 
 <body>
 
@@ -43,7 +45,7 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/carrito" class="trsn nav-link" title="Comprobar compras">
                         <i class="fa fa-shopping-cart"></i>
-                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s)
+                        <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s)</span>
                     </a>
                 </li>
 

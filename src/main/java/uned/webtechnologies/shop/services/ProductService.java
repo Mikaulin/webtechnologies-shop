@@ -63,6 +63,8 @@ public class ProductService{
         updatedProduct.setPrice(product.getPrice());
         updatedProduct.setFeatured(product.isFeatured());
         updatedProduct.setDeleted(product.isDeleted());
+        updatedProduct.setPromotions(product.getPromotions());
+
         if(!product.getPhoto().isEmpty()) {
             updatedProduct.setPhoto(product.getPhoto());
         }
