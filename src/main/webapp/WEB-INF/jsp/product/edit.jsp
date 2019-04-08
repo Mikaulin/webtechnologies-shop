@@ -112,7 +112,8 @@
 
                 <div class="card mb-4 shadow-sm">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Promociones activas</h4>
+                        <%--TODO si no se selecciona ninguna se borraran las promociones del producto--%>
+                    <h4 class="my-0 font-weight-normal">Promociones disponibles</h4>
                 </div>
 
                 <div class="card-body">
@@ -121,13 +122,32 @@
                         <c:forEach items="${promotion}" var="promo">
                             <li>
                                 <div class="form-group form-check">
-                                    <mvc:checkbox path="promotions" value="${promo.id}"/> ${promo.name}
+                                    <mvc:checkbox path="promotions" id="customControl${promo.id}" value="${promo.id}"/>
+                                    <mvc:label  path="promotions" for="customControl${promo.id}" >${promo.name}</mvc:label>
                                 </div>
                             </li>
                         </c:forEach>
 
                     </ul>
                 </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Promociones Activas del producto</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+
+                                <c:forEach items="${product.promotions}" var="promoProducto">
+                                    <li>
+                                        <div class="form-group form-check" >
+                                            ${promoProducto.name}
+                                        </div>
+                                    </li>
+                                </c:forEach>
+
+                            </ul>
+                        </div>
             </div>
 
 
