@@ -9,8 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CartRepository extends JpaRepository<Cart, Long> {
-    List<Cart> findByUserAndProduct(User user, Product product);
+    List <Cart> findByUserAndProduct(User user, Product product);
+
     List<Cart> findByUser(User user);
+
 
     @Query(value="SELECT sum(c.COUNT) FROM CART c WHERE c.ID_USER=:userId", nativeQuery = true)
     Integer sumUserCartUnits(@Param("userId") Long userId);

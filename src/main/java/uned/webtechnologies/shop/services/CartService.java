@@ -3,6 +3,7 @@ package uned.webtechnologies.shop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
+import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.CartRepository;
 import uned.webtechnologies.shop.utils.NumberUtils;
@@ -27,6 +28,12 @@ public class CartService {
         this.cartRepository.save(cart);
     }
 
+    public void save(Cart cart){
+        this.cartRepository.save(cart);
+    }
+     public List<Cart> get(User user,Product product){
+        return this.cartRepository.findByUserAndProduct(user,product);
+     }
     public long totalProducts(User user) {
         return this.cartRepository.sumUserCartUnits(user.getId());
     }
@@ -37,7 +44,7 @@ public class CartService {
 
         return subTotal;
     }
-
+    //TODO el IVA es un concepto que no se ha hablado. No debería calcularse aquí
     public double userIVA (User user){
 
         double iva = NumberUtils.roundDecimals(userTotal (user)* 0.21);
@@ -53,9 +60,13 @@ public class CartService {
         List<Cart> carts=this.cartRepository.findByUser(user);
         double total = 0;
         for (Cart cart:carts) {
-            total= NumberUtils.roundDecimals(total+cart.getCount()*cart.getProduct().getFinalPrice());
+            total= NumberUtils.roundDecimals(total+cart.getCartPrice());
         }
         return total;
+    }
+
+    public Cart get(long id){
+        return this.cartRepository.findOne(id);
     }
 
     public void removeCart(Cart cart){

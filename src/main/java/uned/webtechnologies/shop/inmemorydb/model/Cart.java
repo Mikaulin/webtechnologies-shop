@@ -16,9 +16,13 @@ public class Cart {
     @JoinColumn(name="ID_USER")
     private User user;
     private double unitPrice;
+    @Transient
     private double cartPrice;
 
     @PrePersist
+    @PostPersist
+    @PostLoad
+    @PostUpdate
     private void calculatePrices(){
 
 

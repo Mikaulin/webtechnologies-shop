@@ -55,10 +55,9 @@
                         <th></th>
                     </tr>
                     </thead>
+
                     <c:forEach items="${carts}" var="cart">
-                        <tr>
-
-
+                        <tr id="cart-line-${cart.product.id}">
                             <td width="100" class="text-center hidden-xs-down">
                                 <a href="${pageContext.request.contextPath}/producto/detalle/${cart.product.id}"><img
                                         class="card-img-top"
@@ -70,11 +69,11 @@
                             </td>
 
                             <td>
-                                <span class="order-product-price"> ${cart.product.finalPrice} &euro;</span>
+                                <span class="order-product-price"> ${cart.unitPrice} &euro;</span>
                             </td>
 
                             <td>
-                                <select class="select select-qty form-control" name="" title="Qty">
+                                <select class="select select-qty form-control" id="select-qty-${cart.id}" name="" title="Qty">
 
 
                                     <option value=${cart.count} selected="selected">${cart.count}</option>
@@ -102,12 +101,14 @@
                                 </select>
                             </td>
 
+
                             <td>
-                                <span class="order-product-subtotal">${cart.product.finalPrice * cart.count} &euro;</span>
+                                <span class="order-product-subtotal">${cart.cartPrice} &euro;</span>
                             </td>
 
                             <td>
-                                <a class="btn btn-danger btn-sm cart-product-remove" href="" title="Quitar Producto">
+                               <%-- TODO se pasa el valor por get, esto hay que mejorarlo --%>
+                                <a class="btn btn-danger btn-sm cart-product-remove" href='${pageContext.request.contextPath}/carrito/remove/${cart.id}'  id="remove-from-cart-${cart.product.id}" title="Quitar Producto">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             </td>
