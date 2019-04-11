@@ -51,8 +51,11 @@ public class PurchaseLineService {
     public long count(){
         return this.purchaseLineRepository.count();
     }
+    public List<PurchaseLine> getAllByDate(Date date){
+        return this.purchaseLineRepository.findAllByDateEquals(date);
+    }
 
-    public List<PurchaseLine> getPurhcaseLines(User user){
+    public List<PurchaseLine> getPurchaseLines(User user){
         return this.purchaseLineRepository.findByUser(user);
     }
 

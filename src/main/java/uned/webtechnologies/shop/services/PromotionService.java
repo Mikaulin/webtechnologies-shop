@@ -16,6 +16,7 @@ public class PromotionService {
     @Autowired
     private PromotionRepository promotionRepository;
 
+
     public Set<Product> getProductsByPromotionId(long id){
         return  this.promotionRepository.getPromotionById(id).getProducts();
     }

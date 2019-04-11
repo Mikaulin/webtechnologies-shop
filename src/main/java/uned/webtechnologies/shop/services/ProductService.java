@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ProductService{
@@ -17,6 +19,11 @@ public class ProductService{
 
     public List<Product> getProducts() {
         return this.productRepository.findAll();
+    }
+
+    public Set<Promotion> getPromotionsByProductId(long id){
+        Product product=this.productRepository.getOne(id);
+        return product.getPromotions();
     }
 
     public Product getProduct(long id){
@@ -47,6 +54,8 @@ public class ProductService{
     }
 
     public List<Product> getProductsByCategoryId(long id){
+
+
         return this.productRepository.getProductByCategoryId(id);
     }
 

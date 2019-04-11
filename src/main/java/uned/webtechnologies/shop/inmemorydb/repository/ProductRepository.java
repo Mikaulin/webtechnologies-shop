@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.Brand;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
      List<Product> getProductByFeaturedTrue();
      List<Product> getProductByBrandId(long id);
      List<Product> getProductByCategoryId(long id);
+
+
 
 
 

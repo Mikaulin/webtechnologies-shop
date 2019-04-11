@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Promotion;
+import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.PromotionService;
 import uned.webtechnologies.shop.services.RatingService;
 
@@ -15,13 +16,15 @@ public class PromoController {
 
 
     private PromotionService promotionService;
+    private ProductService productService;
     private RatingService ratingService;
 
 
     @Autowired
-    public PromoController(PromotionService promotionService, RatingService ratingService) {
+    public PromoController(PromotionService promotionService, RatingService ratingService,ProductService productService) {
         this.promotionService = promotionService;
         this.ratingService = ratingService;
+        this.productService= productService;
     }
 
 
@@ -33,6 +36,15 @@ public class PromoController {
         result.addObject("rating", this.ratingService);
         return result;
     }
+    @GetMapping("/product/{id}")
+    public ModelAndView promoProductList(@PathVariable("id") long id) {
+        ModelAndView result = new ModelAndView("promo/listpromoproduct");
+
+        result.addObject("promotion", this.productService.getPromotionsByProductId(id));
+
+        return result;
+    }
+
 
     @GetMapping("")
     public ModelAndView promotion() {
