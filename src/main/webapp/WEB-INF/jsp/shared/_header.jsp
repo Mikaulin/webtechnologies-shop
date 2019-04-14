@@ -126,7 +126,7 @@
                        aria-haspopup="true" aria-expanded="false">Ventas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown06">
                         <a class="dropdown-item" href="#">Devoluciones</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/informe">Informes</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/fecha">Informes</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/listado">Listado</a>
 
                     </div>

@@ -57,7 +57,7 @@ public class PromotionLoader implements ILoader {
 
         Promotion d20 = new Promotion();
         d20.setDescription("Descuento del 20% en primavera 2019");
-        d20.setName("Descuento del 20% campaña primavera 2019");
+        d20.setName("Descuento 20% primavera 2019");
         d20.setStartDate(new GregorianCalendar(2019, 1, 21));
         d20.setEndDate(new GregorianCalendar(2019, 5, 21));
         d20.setDiscount(20);

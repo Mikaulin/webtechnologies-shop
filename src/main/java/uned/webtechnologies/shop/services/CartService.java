@@ -31,10 +31,12 @@ public class CartService {
     public void save(Cart cart){
         this.cartRepository.save(cart);
     }
-     public List<Cart> get(User user,Product product){
+
+    public List<Cart> get(User user,Product product){
         return this.cartRepository.findByUserAndProduct(user,product);
      }
-    public long totalProducts(User user) {
+
+     public long totalProducts(User user) {
         return this.cartRepository.sumUserCartUnits(user.getId());
     }
 

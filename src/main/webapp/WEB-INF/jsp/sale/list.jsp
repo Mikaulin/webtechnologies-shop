@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/ventas/informe">
+            <a href="${pageContext.request.contextPath}/ventas/fecha">
                 <button type="button" class="btn btn-success btn-sm">Informes</button>
             </a>
         </div>
@@ -39,7 +39,7 @@
         </thead>
         <tbody>
 
-   <c:forEach items="${lines}" var="purchaseLine" >
+        <c:forEach items="${lines}" var="purchaseLine" >
             <tr>
                 <td scope="row">${purchaseLine.id}</td>
                 <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" ></td>

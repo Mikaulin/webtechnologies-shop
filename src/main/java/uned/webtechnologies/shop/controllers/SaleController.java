@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 import uned.webtechnologies.shop.services.UserService;
 
+import java.util.Date;
+
 @Controller
 @RequestMapping("/ventas")
 public class SaleController {
@@ -27,6 +29,21 @@ public class SaleController {
         ModelAndView result = new ModelAndView("sale/list");
         result.addObject("lines", this.purchaseLineService.getAllPurchases());
         return result;
+    }
+
+    @GetMapping("/fecha")
+    public ModelAndView saleDate(@ModelAttribute("sale") Date date) {
+        ModelAndView result = new ModelAndView("sale/date");
+        return result;
+    }
+
+    @RequestMapping(value = "/informe/{date}", method = RequestMethod.POST)
+    public String create(@PathVariable("date") Date date) {
+        ModelAndView result = new ModelAndView("sale/report");
+        result.addObject("date", this.saleDate(date));
+        result.addObject("detailUser", this.userService.getUser());
+        result.addObject("lines", this.purchaseLineService.getAllPurchases());
+        return "redirect:/ventas/informe";
     }
 
     @GetMapping("/informe")
