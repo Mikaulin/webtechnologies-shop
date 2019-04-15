@@ -45,12 +45,13 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Producto</th>
-            <th scope="col">Descripci&oacute;n</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
             <th scope="col">importe</th>
             <th scope="col">Fecha</th>
             <th scope="col">F. Pago</th>
+            <th scope="col">Acciones</th>
 
         </tr>
         </thead>
@@ -64,12 +65,20 @@
                     <td scope="row">${sale.id}</td>
                     <td width="100"><img class="card-img-top" alt="${sale.product.name}"
                                          src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></td>
-                    <td width="280"> ${sale.product.description}</td>
+                    <td width="280"> ${sale.product.name}</td>
                     <td> ${sale.unitPrice}</td>
                     <td> ${sale.count}</td>
-                    <td> ${sale.unitPrice * sale.count}</td>
-                    <td> ${sale.date.toLocaleString().substring(1,11)}</td>
+           <%--TODO calcular bien AQUI el precio final.--%>
+                    <td> ${sale.purchasePrice}</td>
+                    <td> ${sale.date.toLocaleString().substring(0,11)}</td>
                     <td> Tarjeta</td>
+                    <td>
+                        <div class="btn-group">
+
+                            <a class="btn btn-sm btn-outline-danger" role="button"
+                               href="${pageContext.request.contextPath}/ventas/devoluciones/${user.username}">Devolver</a>
+                        </div>
+                    </td>
 
                 </tr>
             </c:if>

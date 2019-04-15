@@ -1,8 +1,6 @@
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,23 +30,16 @@ public class SaleController {
     }
 
     @GetMapping("/fecha")
-    public ModelAndView saleDate(@ModelAttribute("sale") Date date) {
+    public ModelAndView saleDate() {
         ModelAndView result = new ModelAndView("sale/date");
+        result.addObject("date", new Date());
         return result;
     }
 
-    @RequestMapping(value = "/informe/{date}", method = RequestMethod.POST)
-    public String create(@PathVariable("date") Date date) {
+    @RequestMapping(value = "/informe", method = RequestMethod.POST)
+    public ModelAndView report(@ModelAttribute("date") String date) {
         ModelAndView result = new ModelAndView("sale/report");
-        result.addObject("date", this.saleDate(date));
-        result.addObject("detailUser", this.userService.getUser());
-        result.addObject("lines", this.purchaseLineService.getAllPurchases());
-        return "redirect:/ventas/informe";
-    }
-
-    @GetMapping("/informe")
-    public ModelAndView report() {
-        ModelAndView result = new ModelAndView("sale/report");
+        result.addObject("date", date);
         result.addObject("detailUser", this.userService.getUser());
         result.addObject("lines", this.purchaseLineService.getAllPurchases());
         return result;

@@ -25,6 +25,7 @@ public class HomeController {
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
         result.addObject("featuredProducts", this.productService.getFeaturedProducts());
+        result.addObject("products", this.productService.getProducts());
         return result;
     }
 

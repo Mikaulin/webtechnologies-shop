@@ -29,17 +29,29 @@
 
                 <div class="card-body">
 
-                <form method="post"  class="form-signin" action="report.jsp">
+
+                    <form:form method="post" modelAttribute="date" action="informe">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <input type="date" class="form-control" placeholder="">
+
+                               <%-- <label for="fecha"></label>
+                                <spring:bind path="fecha">
+                                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                                        <form:input type="date" path="fecha" class="form-control" placeholder="" />
+                                        <form:errors path="fecha" />
+                                    </div>
+                                </spring:bind>--%>
+
+                                <%--<input  type="date" class="form-control" id="date" value=""/>--%>
+                                <form:input type="date" path="date" class="form-control" value="" />
                             </div>
                             <div class="col-md-6 mb-3">
-                                <button type="button" class="btn btn-success btn-sm">Generar informe</button>
+                                <button class="btn btn-lg btn-success btn-sm" type="submit">Generar Informe</button>
                             </div>
                         </div>
-                </form>
+                    </form:form>
+
 
                 </div>
             </div>

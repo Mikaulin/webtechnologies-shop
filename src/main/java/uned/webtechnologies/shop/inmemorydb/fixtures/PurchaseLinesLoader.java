@@ -20,7 +20,7 @@ public class PurchaseLinesLoader implements ILoader {
 
     private SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
     private Date fechaInicio = dateformat.parse("01/04/2019");
-    private Date fechaFin = dateformat.parse("07/04/2019");
+    private Date fechaFin = dateformat.parse("16/04/2019");
 
 
 
@@ -50,9 +50,9 @@ public class PurchaseLinesLoader implements ILoader {
 
 
             for (User user : userList) {
-                for(int s=0;s<5;s++){
-                line=new PurchaseLine();
-                ThreadLocalRandom r =ThreadLocalRandom.current();
+                for(int s=0;s<5;s++){        // numero de productos por cliente, en este caso 5
+                line = new PurchaseLine();
+                ThreadLocalRandom r = ThreadLocalRandom.current();
                 Date today = new Date(r.nextLong(fechaInicio.getTime(), fechaFin.getTime()));
                 id = (int) Math.floor(Math.random() * this.productRepository.count());
 

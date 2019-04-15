@@ -109,15 +109,10 @@
                             <mvc:label class="custom-control-label" path="deleted"
                                        for="customControlInline">Descatalogado</mvc:label>
                         </div>
-
                     </div>
-
                 </div>
-
                 <p></p>
-
                 <button class="btn btn-lg btn-danger" type="submit">Actualizar</button>
-
             </div>
 
 
@@ -126,8 +121,6 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
 
-
-                            <%--TODO si no se selecciona ninguna se borraran las promociones del producto--%>
                         <h4 class="my-0 font-weight-normal">Promociones</h4>
                     </div>
 
@@ -191,7 +184,6 @@
                             <li><b>Leyenda:</b></li>
                             <li>Promociones <span class="text-danger">CADUCADAS</span></li>
                             <li>Promociones <span class="text-success">ACTIVAS</span></li>
-
 
                         </ul>
                     </div>
