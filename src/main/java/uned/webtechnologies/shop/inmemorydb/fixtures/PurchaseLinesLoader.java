@@ -45,7 +45,7 @@ public class PurchaseLinesLoader implements ILoader {
             for (User user : userList) {
                 for (int s = 0; s < 5; s++) {
                     line = new PurchaseLine();
-                    Calendar today = new GregorianCalendar(2019, (int) Math.floor(Math.random() * 4), (int) Math.floor(Math.random() * 27));
+                    Calendar today = new GregorianCalendar(2019, (int) Math.floor(Math.random() * 3), (int) Math.floor(Math.random() * 27));
                     id = (int) Math.floor(Math.random() * this.productRepository.count());
 
                     count = (int) Math.floor(Math.random() * 4);
@@ -57,7 +57,7 @@ public class PurchaseLinesLoader implements ILoader {
                     line.setUser(user);
                     line.setProduct(productList.get(id));
                     line.setUnitPrice(productList.get(id).getFinalPrice());
-                    line.setPurchasePrice(productList.get(id).getFinalPrice() * id);
+                    line.setPurchasePrice(productList.get(id).getFinalPrice()*count);
 
 
                     this.purchaseLineService.saveRandom(line);

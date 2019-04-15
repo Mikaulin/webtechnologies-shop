@@ -21,6 +21,9 @@ public class PurchaseLineService {
     public List<PurchaseLine> getPurchasesByDate(Calendar date){
         return this.purchaseLineRepository.findAllByDate(date);
     }
+    public PurchaseLine getOne(long id){
+        return this.purchaseLineRepository.findOne(id);
+    }
 
     public List<PurchaseLine> getAllPurchases(){
         return this.purchaseLineRepository.findAll();
@@ -42,9 +45,9 @@ public class PurchaseLineService {
         ) {
             purchase = new PurchaseLine();
             purchase.setProduct(cart.getProduct());
-            purchase.setUnitPrice(cart.getProduct().getFinalPrice());
+            purchase.setUnitPrice(cart.getUnitPrice());
             purchase.setCount(cart.getCount());
-            purchase.setPurchasePrice(cart.getProduct().getFinalPrice() * cart.getCount());
+            purchase.setPurchasePrice(cart.getCartPrice());
             purchase.setUser(cart.getUser());
             this.save(purchase);
 
@@ -55,7 +58,7 @@ public class PurchaseLineService {
         return this.purchaseLineRepository.count();
     }
 
-    public List<PurchaseLine> getPurhcaseLines(User user){
+    public List<PurchaseLine> getPurchaseLines(User user){
         return this.purchaseLineRepository.findByUser(user);
     }
 

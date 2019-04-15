@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 import uned.webtechnologies.shop.services.UserService;
 
@@ -14,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 @Controller
 @RequestMapping("/ventas")
@@ -38,15 +40,26 @@ public class SaleController {
     @GetMapping("/fecha")
     public ModelAndView saleDate() {
         ModelAndView result = new ModelAndView("sale/date");
-        result.addObject("date", new String());
+        result.addObject("date", new Date());
         return result;
     }
 
     @RequestMapping(value = "/informe", method = RequestMethod.POST)
-    public ModelAndView report(@ModelAttribute  String date) {
+    public ModelAndView report(@ModelAttribute("date") String date) {
         ModelAndView result = new ModelAndView("sale/report");
-       // result.addObject("date", date);
-        result.addObject("lines", this.purchaseLineService.getPurchasesByDate(new GregorianCalendar(2019,10,01)));
+         int day= Integer.parseInt(date.substring(8,10));
+         int month=Integer.parseInt(date.substring(5,7));
+         int year=Integer.parseInt(date.substring(0,4));
+
+        Calendar cal=new GregorianCalendar(year,month-1,day);
+        result.addObject("day",day);
+        result.addObject("month",month);
+        result.addObject("year",year);
+        List<PurchaseLine> sales=this.purchaseLineService.getAllPurchases();
+        List<PurchaseLine> salesDate=this.purchaseLineService.getPurchasesByDate(cal);
+
+
+        result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
         return result;
     }
 

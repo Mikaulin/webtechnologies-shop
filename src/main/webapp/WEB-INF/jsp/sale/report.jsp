@@ -11,12 +11,11 @@
         <div class="btn-group" role="group" aria-label="First group">
             <div class="input-group-prepend">
 
-                <c:set var="now" value="${date}"/>
 
                 <h4 class="mb-3">Informe de ventas
                     <small> ( fecha seleccionada:
                         <small>
-                            <b><c:out value="${now.time.day}-${now.time.month}-${now.time.year}"/></b>
+                            <b><c:out value="${day}-${month}-${year}"/></b>
                         </small>
                         )
                     </small>
