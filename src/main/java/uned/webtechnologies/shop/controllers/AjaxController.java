@@ -3,26 +3,28 @@ package uned.webtechnologies.shop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import uned.webtechnologies.shop.controllers.input.AddCartInput;
-
 import uned.webtechnologies.shop.controllers.input.UpdateCartInput;
 import uned.webtechnologies.shop.controllers.output.AddToCartOutput;
-
+import uned.webtechnologies.shop.controllers.output.Output;
 import uned.webtechnologies.shop.controllers.output.UpdateCartOutput;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.CartService;
 import uned.webtechnologies.shop.services.ProductService;
+
 import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.utils.StringUtils;
 
 import javax.validation.Valid;
+
 
 @RestController
 public class AjaxController {
@@ -37,11 +39,8 @@ public class AjaxController {
         this.userService = userService;
     }
 
-    @PostMapping("/ajax/add-cart")
-    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
 
-        AddToCartOutput output = new AddToCartOutput();
-
+    private ResponseEntity<?> checkErrors(UserDetails activeUser, Errors errors, Output output) {
         if (errors.hasErrors()) {
             output.setMessage(StringUtils.getStringFromErrors(errors));
             return ResponseEntity.badRequest().body(output);
@@ -49,6 +48,16 @@ public class AjaxController {
             output.setMessage("No te has conectado.");
             return ResponseEntity.badRequest().body(output);
         }
+        return null;
+
+    }
+
+    @PostMapping("/ajax/add-cart")
+    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
+
+        AddToCartOutput output = new AddToCartOutput();
+        ResponseEntity<?> response = checkErrors(activeUser, errors, output);
+        if (response != null) return response;
         User user = userService.findByUsername(activeUser.getUsername());
         Product product = this.productService.getProduct(input.getProductId());
         Cart cart = new Cart(input.getCount(), product, user);
@@ -64,15 +73,9 @@ public class AjaxController {
 
         UpdateCartOutput output = new UpdateCartOutput();
 
-        if (errors.hasErrors()) {
-            output.setMessage(StringUtils.getStringFromErrors(errors));
-            return ResponseEntity.badRequest().body(output);
-        } else if (activeUser == null) {
-            output.setMessage("No te has conectado.");
-            return ResponseEntity.badRequest().body(output);
-        }
-        User user = userService.findByUsername(activeUser.getUsername());
-        int count = input.getCount();
+        ResponseEntity<?> response = checkErrors(activeUser, errors, output);
+        if (response != null) return response;
+
         long id = (long) input.getCartId();
         Cart cart = this.cartService.get(id);
 
