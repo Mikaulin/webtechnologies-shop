@@ -112,7 +112,6 @@
 
                 <div class="card mb-4 shadow-sm">
                 <div class="card-header">
-                        <%--TODO si no se selecciona ninguna se borraran las promociones del producto--%>
                     <h4 class="my-0 font-weight-normal">Promociones disponibles</h4>
                 </div>
 
