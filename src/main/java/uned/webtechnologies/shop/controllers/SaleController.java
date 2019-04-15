@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
+import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 import uned.webtechnologies.shop.services.UserService;
 
@@ -64,8 +65,9 @@ public class SaleController {
     @GetMapping("/historial/{username}")
     public ModelAndView listHistory(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("sale/history");
-        result.addObject("user", this.userService.findByUsername(username));
-        result.addObject("lines", this.purchaseLineService.getAllPurchases());
+        User user=this.userService.findByUsername(username);
+        result.addObject("user",user);
+        result.addObject("lines", user.getPurchaseLines());
         return result;
     }
 
