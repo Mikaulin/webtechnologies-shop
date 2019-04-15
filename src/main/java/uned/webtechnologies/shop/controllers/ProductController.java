@@ -71,13 +71,12 @@ public class ProductController {
         result.addObject("promotion", this.promotionService.getPromotions());
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
-        result.addObject("promotionActive",new boolean[this.promotionService.getPromotions().size()]);
+        result.addObject("productPromo", this.productService.getPromotionsByProductId(id));
         return result;
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
     public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
-
         productService.update(id, product);
         return "redirect:/producto/listado";
     }

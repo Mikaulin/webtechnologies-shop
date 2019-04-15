@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/ventas/informe">
+            <a href="${pageContext.request.contextPath}/ventas/fecha">
                 <button type="button" class="btn btn-success btn-sm">Informes</button>
             </a>
         </div>
@@ -28,7 +28,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Producto</th>
-            <th scope="col">Descripci&oacute;n</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
             <th scope="col">Cantidad</th>
             <th scope="col">importe</th>
@@ -39,15 +39,16 @@
         </thead>
         <tbody>
 
-   <c:forEach items="${lines}" var="purchaseLine" >
+        <c:forEach items="${lines}" var="purchaseLine" >
             <tr>
                 <td scope="row">${purchaseLine.id}</td>
-                <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" ></td>
-                <td width="280"> ${purchaseLine.product.description}</td>
+                <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" alt="foto producto" ></td>
+                <td width="280"> ${purchaseLine.product.name}</td>
                 <td> ${purchaseLine.unitPrice}</td>
                 <td> ${purchaseLine.count}</td>
+          <%--TODO calcular bien AQUI el precio final.--%>
                 <td> ${purchaseLine.purchasePrice}</td>
-                <td> ${purchaseLine.date.toLocaleString().substring(1,11)}</td>
+                <td> ${purchaseLine.date.toLocaleString().substring(0,11)}</td>
                 <td> Tarjeta</td>
                 <td> ${purchaseLine.user.username}</td>
             </tr>

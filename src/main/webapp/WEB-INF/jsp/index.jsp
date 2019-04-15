@@ -25,7 +25,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
-            <c:if test="${product.id > 0 and product.id < 5 and product.count > 0}">
+            <c:if test="${product.id <= products.size()/2 and product.count > 0}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
                         <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'
@@ -113,7 +113,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
-            <c:if test="${product.id > 4 and product.id < 9 and product.count > 0}">
+            <c:if test="${product.id >= products.size()/2 + products.size()%2 and product.count > 0}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
                         <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'
