@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
-import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.CartService;
 import uned.webtechnologies.shop.services.UserService;
@@ -30,35 +29,36 @@ public class CartController {
     public ModelAndView list(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("cart/list");
 
-        return listCart(result,activeUser);
+        return listCart(result, activeUser);
     }
 
     @GetMapping("/orden")
     public ModelAndView orden(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("cart/order");
 
-        return listCart(result,activeUser);
+        return listCart(result, activeUser);
     }
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
     public String remove(@PathVariable("id") long id) {
 
-        Cart cart=this.cartService.get(id);
+        Cart cart = this.cartService.get(id);
         this.cartService.removeCart(cart);
         //result.addObject("product", this.productService.getProduct(id));
         return "redirect:/carrito";
     }
 
-    private ModelAndView listCart(ModelAndView result,UserDetails activeUser){
-        if(activeUser != null) {
+    private ModelAndView listCart(ModelAndView result, UserDetails activeUser) {
+        if (activeUser != null) {
             User user = userService.findByUsername(activeUser.getUsername());
             result.addObject("carts", this.cartService.findByUser(user));
-            result.addObject("total",this.cartService.userTotal(user)) ;
-            result.addObject("subtotal",this.cartService.userSubtotal(user)) ;
-            result.addObject("iva",this.cartService.userIVA(user)) ;
+            result.addObject("total", this.cartService.userTotal(user));
+            result.addObject("subtotal", this.cartService.userSubtotal(user));
+            result.addObject("iva", this.cartService.userIVA(user));
             result.addObject("user", this.userService.getUser(user.getId()));
 
-        }return result;
+        }
+        return result;
 
     }
 

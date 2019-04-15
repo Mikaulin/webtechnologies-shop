@@ -1,14 +1,10 @@
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
-import uned.webtechnologies.shop.inmemorydb.model.Promotion;
-import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.*;
 
 @Controller
@@ -20,17 +16,17 @@ public class ProductController {
     private BrandService brandService;
     private PromotionService promotionService;
     private RatingService ratingService;
-    private UserService userService;
+
 
 
     @Autowired
-    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService, UserService userService) {
+    public ProductController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService, RatingService ratingService) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.brandService = brandService;
         this.promotionService = promotionService;
         this.ratingService = ratingService;
-        this.userService = userService;
+
     }
 
     @GetMapping("/detalle/{id}")
@@ -71,12 +67,13 @@ public class ProductController {
         result.addObject("promotion", this.promotionService.getPromotions());
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
-        result.addObject("productPromo", this.productService.getPromotionsByProductId(id));
+        result.addObject("promotionActive", new boolean[this.promotionService.getPromotions().size()]);
         return result;
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
     public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
+
         productService.update(id, product);
         return "redirect:/producto/listado";
     }

@@ -13,17 +13,15 @@ import uned.webtechnologies.shop.services.*;
 @RequestMapping("/compra")
 public class PurchaseLineController {
 
-    private ProductService productService;
     private PurchaseLineService purchaseLineService;
     private UserService userService;
     private CartService cartService;
 
     @Autowired
-    public PurchaseLineController(ProductService productService,
-                                  PurchaseLineService purchaseLineService,
+    public PurchaseLineController(PurchaseLineService purchaseLineService,
                                   CartService cartService,
                                   UserService userService) {
-        this.productService = productService;
+
         this.purchaseLineService = purchaseLineService;
         this.cartService = cartService;
         this.userService = userService;
