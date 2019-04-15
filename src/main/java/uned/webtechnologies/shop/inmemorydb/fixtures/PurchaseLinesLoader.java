@@ -9,19 +9,12 @@ import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 
-import java.text.SimpleDateFormat;
-
 import java.util.*;
 import java.text.*;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 @Service
 public class PurchaseLinesLoader implements ILoader {
-
-    private SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
-    private Date fechaInicio = dateformat.parse("01/04/2019");
-    private Date fechaFin = dateformat.parse("07/04/2019");
-
 
 
     private Logger log = LoggerFactory.getLogger("Application");
@@ -32,9 +25,9 @@ public class PurchaseLinesLoader implements ILoader {
 
     @Autowired
     public PurchaseLinesLoader(PurchaseLineService purchaseLineService, UserRepository userRepository, ProductRepository productRepository) throws ParseException {
-        this.purchaseLineService=purchaseLineService;
-        this.productRepository=productRepository;
-        this.userRepository=userRepository;
+        this.purchaseLineService = purchaseLineService;
+        this.productRepository = productRepository;
+        this.userRepository = userRepository;
     }
 
 
@@ -50,14 +43,13 @@ public class PurchaseLinesLoader implements ILoader {
 
 
             for (User user : userList) {
-                for(int s=0;s<5;s++){
-                line=new PurchaseLine();
-                ThreadLocalRandom r =ThreadLocalRandom.current();
-                Date today = new Date(r.nextLong(fechaInicio.getTime(), fechaFin.getTime()));
-                id = (int) Math.floor(Math.random() * this.productRepository.count());
+                for (int s = 0; s < 5; s++) {
+                    line = new PurchaseLine();
+                    Calendar today = new GregorianCalendar(2019, (int) Math.floor(Math.random() * 4), (int) Math.floor(Math.random() * 27));
+                    id = (int) Math.floor(Math.random() * this.productRepository.count());
 
-                    count=(int) Math.floor(Math.random()*4);
-                    if (count == 0){
+                    count = (int) Math.floor(Math.random() * 4);
+                    if (count == 0) {
                         count++;
                     }
                     line.setDate(today);
@@ -65,17 +57,17 @@ public class PurchaseLinesLoader implements ILoader {
                     line.setUser(user);
                     line.setProduct(productList.get(id));
                     line.setUnitPrice(productList.get(id).getFinalPrice());
-                    line.setPurchasePrice(productList.get(id).getFinalPrice()*id);
+                    line.setPurchasePrice(productList.get(id).getFinalPrice() * id);
 
 
                     this.purchaseLineService.saveRandom(line);
 
                 }
-              }
             }
-            log.info("Compras cargadas en DataBase: "+this.purchaseLineService.count());
         }
-
-
+        log.info("Compras cargadas en DataBase: " + this.purchaseLineService.count());
     }
+
+
+}
 
