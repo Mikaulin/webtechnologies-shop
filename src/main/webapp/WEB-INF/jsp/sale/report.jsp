@@ -16,7 +16,7 @@
                 <h4 class="mb-3">Informe de ventas
                     <small> ( fecha seleccionada:
                         <small>
-                            <b><c:out value="${now.substring(8,10)}-${now.substring(5,7)}-${now.substring(0,4)}"/></b>
+                            <b><c:out value="${now.time.day}-${now.time.month}-${now.time.year}"/></b>
                         </small>
                         )
                     </small>
@@ -50,10 +50,7 @@
 
         <c:forEach items="${lines}" var="sale">
 
-            <c:if test="${
-                     sale.date.toLocaleString().substring(7,11) eq now.substring(0,4)
-                    and sale.date.month+1 eq now.substring(5,7)
-                    and sale.date.toLocaleString().substring(0,2) eq now.substring(8,10)}">
+
 
                 <tr>
                     <td>
@@ -90,7 +87,7 @@
                     </td>
                 </tr>
 
-            </c:if>
+
         </c:forEach>
 
         </tbody>
