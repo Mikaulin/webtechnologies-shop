@@ -39,14 +39,6 @@ public class CartController {
         return listCart(result, activeUser);
     }
 
-    @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
-    public String remove(@PathVariable("id") long id) {
-
-        Cart cart = this.cartService.get(id);
-        this.cartService.removeCart(cart);
-        //result.addObject("product", this.productService.getProduct(id));
-        return "redirect:/carrito";
-    }
 
     private ModelAndView listCart(ModelAndView result, UserDetails activeUser) {
         if (activeUser != null) {
