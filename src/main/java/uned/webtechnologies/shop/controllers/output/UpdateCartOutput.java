@@ -1,6 +1,6 @@
 package uned.webtechnologies.shop.controllers.output;
 
-public class UpdateCartOutput {
+public class UpdateCartOutput implements Output {
     private String message;
 
 
