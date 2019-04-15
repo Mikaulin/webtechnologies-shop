@@ -17,7 +17,7 @@ public class HomeController {
     private ProductService productService;
 
     @Autowired
-    public HomeController(ProductService productService, PurchaseLineService purchaseLineService) {
+    public HomeController(ProductService productService) {
         this.productService = productService;
 
     }
