@@ -59,7 +59,6 @@
 
         <c:forEach items="${lines}" var="sale">
 
-            <c:if test="${sale.user.username eq user.username}">
 
                 <tr>
                     <td scope="row">${sale.id}</td>
@@ -70,7 +69,7 @@
                     <td> ${sale.count}</td>
            <%--TODO calcular bien AQUI el precio final.--%>
                     <td> ${sale.purchasePrice}</td>
-                    <td> ${sale.date.toLocaleString().substring(0,11)}</td>
+                    <td> ${sale.date.time.toLocaleString().substring(0,11)}</td>
                     <td> Tarjeta</td>
                     <td>
                         <div class="btn-group">
@@ -81,7 +80,7 @@
                     </td>
 
                 </tr>
-            </c:if>
+
 
         </c:forEach>
 
