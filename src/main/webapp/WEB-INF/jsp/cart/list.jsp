@@ -3,7 +3,6 @@
 <%@ include file="../shared/_header.jsp" %>
 
 
-<%--TODO Esto de momento no se usa, terminar o eliminar--%>
 
 <div class="container">
 
@@ -107,7 +106,6 @@
                             </td>
 
                             <td>
-                               <%-- TODO se pasa el valor por get, esto hay que mejorarlo --%>
                                 <a class="btn btn-danger btn-sm cart-product-remove" href=''  id="remove-from-cart-${cart.id}" title="Quitar Producto">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
