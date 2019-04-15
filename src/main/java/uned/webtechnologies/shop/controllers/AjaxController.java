@@ -86,26 +86,15 @@ public class AjaxController {
 
     }
 
-  /*  @PostMapping("/ajax/remove-cart")
-  public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody RemoveCartInput input, Errors errors) {
+    @PostMapping("/ajax/remove-cart")
+    public ResponseEntity<?> removeCartViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
 
-        RemoveCartOutput output = new RemoveCartOutput();
+        UpdateCartOutput output = new UpdateCartOutput();
+        ResponseEntity<?> response = checkErrors(activeUser, errors, output);
+        if (response != null) return response;
 
-        if (errors.hasErrors()) {
-            output.setMessage(StringUtils.getStringFromErrors(errors));
-            return ResponseEntity.badRequest().body(output);
-        } else if(activeUser == null) {
-            output.setMessage("No te has conectado.");
-            return ResponseEntity.badRequest().body(output);
-        }
-        User user = userService.findByUsername(activeUser.getUsername());
-        Product product = this.productService.getProduct(input.getProductId());
-        List<Cart> carts = this.cartService.get(user,product);
-        for (Cart cart: carts
-             ) {
-            cartService.removeCart(cart);
-
-        }
+        Cart cart = this.cartService.get(input.getCartId());
+        cartService.removeCart(cart);
 
 
         output.setMessage("Se ha eliminado correctamente del carrito.");
@@ -113,7 +102,7 @@ public class AjaxController {
         return ResponseEntity.ok(output);
 
 
-    }*/
+    }
 
 
 }

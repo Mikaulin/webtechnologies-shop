@@ -1,4 +1,18 @@
 $(document).ready(function () {
+    $(".cart-product-remove").click(function (event) {
+
+        var elementId = $(this).attr('id');
+        // extrae del  id="remove-from-cart-${cart.product.id}" del boton de la papelera el id del producto
+        var cartId = parseInt(elementId.substring(17));
+        event.preventDefault();
+
+        removeFromCart(cartId);
+        $(document).ajaxStop(function () {
+            window.location.reload();
+        });
+
+
+    });
 
 
     $("#buy-form").submit(function (event) {
@@ -13,8 +27,10 @@ $(document).ready(function () {
         var productId = parseInt(elementId.substring(11));
         event.preventDefault();
 
-       updateCart(productId);
-        $(document).ajaxStop(function(){ window.location.reload(); });
+        updateCart(productId);
+        $(document).ajaxStop(function () {
+            window.location.reload();
+        });
 
 
     });
@@ -49,10 +65,11 @@ $(document).ready(function () {
             }
         });
     }
+
     function updateCart(cartId) {
         var input = {};
-        input["count"] = parseInt($("#select-qty-"+cartId).val());
-        input["cartId"]= parseInt(cartId);
+        input["count"] = parseInt($("#select-qty-" + cartId).val());
+        input["cartId"] = parseInt(cartId);
 
         $.ajax({
             type: "POST",
@@ -76,6 +93,37 @@ $(document).ready(function () {
 
             }
         });
+
+    }
+
+    function removeFromCart(cartId) {
+
+        var input = {};
+        input["cartId"] =cartId;
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/ajax/remove-cart",
+            data: JSON.stringify(input),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                $.alert(data["message"], {
+                    type: 'success',
+                });
+
+            },
+            error: function (e) {
+                var json = JSON.parse(e.responseText);
+                $.alert(json["message"], {
+                    type: 'danger',
+                });
+
+            }
+        });
+
 
     }
 
