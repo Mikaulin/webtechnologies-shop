@@ -33,7 +33,8 @@ public class PurchaseLineService {
     public void saveRandom(PurchaseLine purchaseLine) {purchaseLineRepository.save(purchaseLine);}
 
     public void save(PurchaseLine purchaseLine) {
-        Calendar today=new GregorianCalendar(2018,0,17);
+        Calendar today=new GregorianCalendar();
+        today.getTime();
         purchaseLine.setDate(today);
         purchaseLineRepository.save(purchaseLine);
     }

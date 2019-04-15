@@ -55,10 +55,6 @@ public class SaleController {
         result.addObject("day",day);
         result.addObject("month",month);
         result.addObject("year",year);
-        List<PurchaseLine> sales=this.purchaseLineService.getAllPurchases();
-        List<PurchaseLine> salesDate=this.purchaseLineService.getPurchasesByDate(cal);
-
-
         result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
         return result;
     }

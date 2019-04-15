@@ -14,6 +14,7 @@ public class PurchaseLine {
     @GeneratedValue
     private long id;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Calendar date;
     private double unitPrice;
     private double purchasePrice;
