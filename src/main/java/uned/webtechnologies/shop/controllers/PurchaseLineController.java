@@ -27,7 +27,10 @@ public class PurchaseLineController {
         this.userService = userService;
     }
 
-
+    /*Este metodo maneja una excepcion probocada por el
+     purchaseLineService en en caso de no poder realizar la compra de alguna de
+    las lineas de Cart y pone a disposicion de la vista un String con el mensaje.
+    Si se quiere modificar el mensaje de error, habra que hacerlo en el PurchaseLineService*/
     @GetMapping("/confirmacion")
     public ModelAndView purchaseBuy(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("purchase/purchaseOk");
