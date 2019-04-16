@@ -33,14 +33,16 @@ public class PurchaseLineController {
     Si se quiere modificar el mensaje de error, habra que hacerlo en el PurchaseLineService*/
     @GetMapping("/confirmacion")
     public ModelAndView purchaseBuy(@AuthenticationPrincipal UserDetails activeUser) {
-        ModelAndView result = new ModelAndView("purchase/purchaseOk");
+        ModelAndView result = new ModelAndView();
         if (activeUser != null) {
             User user = userService.findByUsername(activeUser.getUsername());
             try {
+                result.setViewName("purchase/purchaseOk");
                 result.addObject("mensaje","Compra realizada con exito");
 
                 this.purchaseLineService.saveCarts(this.cartService.findByUser(user));
             } catch (Exception e) {
+                result.setViewName("purchase/purchaseWrong");//este jsp no existe
                 e.printStackTrace();
                 result.addObject("mensaje",e.getMessage());
             }
