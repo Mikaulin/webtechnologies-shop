@@ -1,5 +1,7 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import uned.webtechnologies.shop.utils.NumberUtils;
+
 import javax.persistence.*;
 
 @Entity
@@ -27,7 +29,7 @@ public class Cart {
 
 
         setUnitPrice(getProduct().getFinalPrice());
-        setCartPrice(getUnitPrice()*getCount());
+        setCartPrice(NumberUtils.roundDecimals(getUnitPrice()*getCount()));
 
     }
 
@@ -50,7 +52,7 @@ public class Cart {
     }
 
     public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
+        this.unitPrice = NumberUtils.roundDecimals(unitPrice);
     }
 
     public double getCartPrice() {
@@ -58,7 +60,7 @@ public class Cart {
     }
 
     public void setCartPrice(double cartPrice) {
-        this.cartPrice = cartPrice;
+        this.cartPrice = NumberUtils.roundDecimals(cartPrice);
     }
 
     public long getId() {
