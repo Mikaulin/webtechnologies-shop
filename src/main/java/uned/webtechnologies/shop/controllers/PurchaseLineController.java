@@ -41,12 +41,13 @@ public class PurchaseLineController {
                 result.addObject("mensaje","Compra realizada con exito");
 
                 this.purchaseLineService.saveCarts(this.cartService.findByUser(user));
+                this.cartService.removeAllOfUser(user);
             } catch (Exception e) {
                 result.setViewName("purchase/purchaseWrong");//este jsp no existe
                 e.printStackTrace();
                 result.addObject("mensaje",e.getMessage());
             }
-            this.cartService.removeAllOfUser(user);
+
         }
         return result;
     }
