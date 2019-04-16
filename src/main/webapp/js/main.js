@@ -13,12 +13,26 @@ $(document).ready(function () {
 
 
     });
+    $(".product-rating").click(function (event) {
+
+        var elementId = $(this).attr('id');
+        // extrae del  id="product-rating-${product.id}"}" del boton de la papelera el id del producto
+        var productId = parseInt(elementId.substring(15));
+        event.preventDefault();
+        addRating(productId);
+      /*  $(document).ajaxStop(function () {
+            window.location.reload();
+        });*/
+
+
+    });
 
 
     $("#buy-form").submit(function (event) {
         event.preventDefault();
         addToCart();
     });
+
     $(".select-qty").change(function (event) {
 
 
@@ -34,6 +48,36 @@ $(document).ready(function () {
 
 
     });
+    function addRating(productId) {
+
+        var input = {};
+        input["count"] = parseInt($("#exampleFormControlSelect1").val());
+        input["productId"] = parseInt(productId);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/ajax/rating-product",
+            data: JSON.stringify(input),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+                $.alert(data["message"], {
+                    type: 'success',
+                });
+
+            },
+            error: function (e) {
+                var json = JSON.parse(e.responseText);
+                $.alert(json["message"], {
+                    type: 'danger',
+                });
+
+            }
+        });
+
+    }
 
     function addToCart() {
         var input = {};
@@ -95,6 +139,7 @@ $(document).ready(function () {
         });
 
     }
+
 
     function removeFromCart(cartId) {
 

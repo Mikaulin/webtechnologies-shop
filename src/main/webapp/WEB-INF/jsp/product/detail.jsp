@@ -119,7 +119,7 @@
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-secondary ">Votar</button>
+                                    <button type="button" id="product-rating-${product.id}" class="btn btn-secondary product-rating">Votar</button>
                                 </div>
 
                             </div>
