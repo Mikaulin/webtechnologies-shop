@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.*;
 
@@ -31,6 +32,7 @@ public class PurchaseLineController {
      purchaseLineService en en caso de no poder realizar la compra de alguna de
     las lineas de Cart y pone a disposicion de la vista un String con el mensaje.
     Si se quiere modificar el mensaje de error, habra que hacerlo en el PurchaseLineService*/
+
     @GetMapping("/confirmacion")
     public ModelAndView purchaseBuy(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView();
@@ -61,6 +63,18 @@ public class PurchaseLineController {
             result.addObject("purchaseLines", this.purchaseLineService.getPurchaseLines(user));
         }
         return result;
+    }
+    @GetMapping("/detalle/{id}")
+    public ModelAndView detail(@PathVariable("id") long id) {
+        ModelAndView result = new ModelAndView("purchase/detail");
+        result.addObject("purchase", this.purchaseLineService.getOne(id));
+        return result;
+    }
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String delete(@ModelAttribute("purchase")PurchaseLine purchaseLine) {
+        purchaseLineService.returnPurchase(purchaseLine);
+
+        return "redirect:/compra/listado";
     }
 
 
