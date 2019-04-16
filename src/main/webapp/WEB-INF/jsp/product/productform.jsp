@@ -15,28 +15,54 @@
             <div class="col-md-8 order-md-1">
 
                 <div class="mb-3">
-                    <mvc:label path="name">Nombre</mvc:label>
-                    <mvc:input path="name" class="form-control" value=""/>
+                    <spring:bind path="name">
+                        <div class="form-group ${status.error ? 'has-error' : ''}">
+                            <mvc:label path="name">Nombre</mvc:label>
+                            <mvc:input type="text" path="name" class="form-control" value="" />
+                            <mvc:errors path="name" />
+                        </div>
+                    </spring:bind>
+
                 </div>
 
                 <div class="mb-3">
-                    <mvc:label path="description">Descripci&oacute;n</mvc:label>
-                    <mvc:input path="description" class="form-control" value=""/>
+                    <spring:bind path="description">
+                        <div class="form-group ${status.error ? 'has-error' : ''}">
+                            <mvc:label path="description">Descripci&oacute;n</mvc:label>
+                            <mvc:input type="text" path="description" class="form-control" value="" />
+                            <mvc:errors path="description" />
+                        </div>
+                    </spring:bind>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="width">Ancho (mm)</mvc:label>
-                        <mvc:input path="width" class="form-control" value=""/>
+                        <spring:bind path="width">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <mvc:label path="width">Ancho (mm)</mvc:label>
+                                <mvc:input type="text" path="width" class="form-control" value="" />
+                                <mvc:errors path="width" />
+                            </div>
+                        </spring:bind>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="depth">Profundidad (mm)</mvc:label>
-                        <mvc:input path="depth" class="form-control" value=""/>
+                        <spring:bind path="depth">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <mvc:label path="depth">Profundidad (mm)</mvc:label>
+                                <mvc:input type="text" path="depth" class="form-control" value="" />
+                                <mvc:errors path="depth" />
+                            </div>
+                        </spring:bind>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="height">Alto (mm)</mvc:label>
-                        <mvc:input path="height" class="form-control" value=""/>
+                        <spring:bind path="height">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <mvc:label path="height">Alto (mm)</mvc:label>
+                                <mvc:input type="text" path="height" class="form-control" value="" />
+                                <mvc:errors path="height" />
+                            </div>
+                        </spring:bind>
                     </div>
                 </div>
 
@@ -83,8 +109,13 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="discount">Descuento (%)</mvc:label>
-                        <mvc:input path="discount" class="form-control" value=""/>
+                        <spring:bind path="discount">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <mvc:label path="discount">Descuento (%)</mvc:label>
+                                <mvc:input type="text" path="discount" class="form-control" value="" />
+                                <mvc:errors path="discount" />
+                            </div>
+                        </spring:bind>
                     </div>
                 </div>
 
@@ -93,13 +124,23 @@
 
             <div class="col-md-4 order-md-2 mb-4">
                 <div class="mb-3">
-                    <mvc:label path="count">Cantidad</mvc:label>
-                    <mvc:input path="count" class="form-control" value=""/>
+                    <spring:bind path="count">
+                        <div class="form-group ${status.error ? 'has-error' : ''}">
+                            <mvc:label path="count">Cantidad</mvc:label>
+                            <mvc:input type="text" path="count" class="form-control" value="" />
+                            <mvc:errors path="count" />
+                        </div>
+                    </spring:bind>
                 </div>
 
                 <div class="mb-3">
-                    <mvc:label path="price">Precio Ud.</mvc:label>
-                    <mvc:input path="price" class="form-control" value=""/>
+                    <spring:bind path="price">
+                        <div class="form-group ${status.error ? 'has-error' : ''}">
+                            <mvc:label path="price">Precio Ud.</mvc:label>
+                            <mvc:input type="text" path="price" class="form-control" value="" />
+                            <mvc:errors path="price" />
+                        </div>
+                    </spring:bind>
                 </div>
 
                 <div class="card mb-4 shadow-sm">
@@ -109,7 +150,6 @@
 
                     <div class="card-body">
                         <ul class="list-unstyled mt-3 mb-4">
-
 
                             <c:forEach items="${promotion}" var="promo">
                                 <li>

@@ -1,24 +1,17 @@
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Temporal;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 import uned.webtechnologies.shop.services.UserService;
 
-import javax.persistence.TemporalType;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
+
 
 @Controller
 @RequestMapping("/ventas")
@@ -48,7 +41,7 @@ public class SaleController {
     }
 
     @RequestMapping(value = "/informe", method = RequestMethod.POST)
-    public ModelAndView report(@ModelAttribute("date") String date) {
+    public ModelAndView report(@ModelAttribute("date") String date ) {
         ModelAndView result = new ModelAndView("sale/report");
          int day= Integer.parseInt(date.substring(8,10));
          int month=Integer.parseInt(date.substring(5,7));

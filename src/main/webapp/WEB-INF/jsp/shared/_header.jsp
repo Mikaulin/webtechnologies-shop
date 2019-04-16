@@ -99,21 +99,23 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">B&uacute;squeda</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/categorias">Categor&iacute;a</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/categorias">Categor&iacute;as</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/marcas">Marcas</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/valoraciones">Valoraci&oacute;n</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/valoraciones">Valoraciones</a>
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
+                <%--<li class="nav-item">
+                    <a class="nav-link " href="${pageContext.request.contextPath}/promociones">Promociones</a>
+                </li>--%>
+
+               <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Promociones</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown07">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones">Promo Activas</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones/altaPromociones">Alta
-                            Promocion</a>
-                        <a class="dropdown-item"
-                           href="${pageContext.request.contextPath}/promociones/listado">Listado</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones/altaPromociones">Alta Promocion</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones/listado">Listado</a>
                     </div>
                 </li>
 
@@ -121,7 +123,7 @@
                     <a class="nav-link " href="${pageContext.request.contextPath}/servicios">Servicios</a>
                 </li>
 
-                <li class="nav-item dropdown">
+               <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Ventas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown06">
@@ -151,6 +153,8 @@
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/user/usuarios">Listado</a>
                     </div>
                 </li>
+
+
             </ul>
 
            <div class=" my-2 my-md-0">

@@ -33,8 +33,7 @@ public class BrandController {
     public ModelAndView detail(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("brand/detail");
         result.addObject("products", this.productService.getProductsByBrandId(id));
-        //TODO Las marcas, ya que se repite el HTML en varias ocasiones, lo suyo sería sacar esto a una vista parcial
-        /// como las que tenemos en shared y así dividimos responsabilidades
+        result.addObject("id", id);
         result.addObject("brand", this.brandService.getBrands());
         return result;
     }

@@ -49,42 +49,40 @@
 
         <c:forEach items="${lines}" var="sale">
 
+            <tr>
+                <td>
+                    <span>${sale.id}</span>
+                </td>
 
+                <td width="100" class="text-center hidden-xs-down">
+                    <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
+                        <img class="card-img-top" alt="${sale.product.name}"
+                             src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
+                </td>
+                <td width="280">
+                    <span>${sale.product.name}</span>
+                </td>
+                <td>
+                    <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
+                </td>
+                <td>
+                    <span class="order-product-price"> ${sale.count}</span>
+                </td>
+                <td>
+                        <%--TODO calcular bien AQUI el precio final.--%>
+                    <span class="order-product-subtotal">${sale.purchasePrice} &euro;</span>
+                </td>
+                <td>
+                    <span>Tarjeta</span>
+                </td>
+                <td>
+                    <div class="btn-group">
 
-                <tr>
-                    <td>
-                        <span>${sale.id}</span>
-                    </td>
-
-                    <td width="100" class="text-center hidden-xs-down">
-                        <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
-                            <img class="card-img-top" alt="${sale.product.name}"
-                                 src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
-                    </td>
-                    <td width="280">
-                        <span>${sale.product.name}</span>
-                    </td>
-                    <td>
-                        <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
-                    </td>
-                    <td>
-                        <span class="order-product-price"> ${sale.count}</span>
-                    </td>
-                    <td>
-                            <%--TODO calcular bien AQUI el precio final.--%>
-                        <span class="order-product-subtotal">${sale.purchasePrice} &euro;</span>
-                    </td>
-                    <td>
-                        <span>Tarjeta</span>
-                    </td>
-                    <td>
-                        <div class="btn-group">
-
-                            <a class="btn btn-sm btn-outline-secondary" role="button"
-                               href="${pageContext.request.contextPath}/ventas/historial/${sale.user.username}">${sale.user.username}</a>
-                        </div>
-                    </td>
-                </tr>
+                        <a class="btn btn-sm btn-outline-secondary" role="button"
+                           href="${pageContext.request.contextPath}/ventas/historial/${sale.user.username}">${sale.user.username}</a>
+                    </div>
+                </td>
+            </tr>
 
 
         </c:forEach>

@@ -5,7 +5,6 @@
 
 <%@ include file="../shared/_header.jsp" %>
 
-
 <div class="container">
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
@@ -29,29 +28,24 @@
 
                 <div class="card-body">
 
-
-                    <form:form method="post" modelAttribute="date" action="informe">
+                    <form:form method="post" modelAttribute="date" class="form-signin" action="informe">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
 
-                               <%-- <label for="fecha"></label>
-                                <spring:bind path="fecha">
+                                <spring:bind path="date">
                                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                                        <form:input type="date" path="fecha" class="form-control" placeholder="" />
-                                        <form:errors path="fecha" />
+                                        <form:input type="date" path="date" class="form-control" value=""/>
+                                        <form:errors path="date"/>
                                     </div>
-                                </spring:bind>--%>
+                                </spring:bind>
 
-                                <%--<input  type="date" class="form-control" id="date" value=""/>--%>
-                                <form:input type="date" path="date" class="form-control" value="" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <button class="btn btn-lg btn-success btn-sm" type="submit">Generar Informe</button>
                             </div>
                         </div>
                     </form:form>
-
 
                 </div>
             </div>
@@ -61,9 +55,7 @@
 
     </div>
 
-
     <p>&nbsp;</p>
-
 
 </div>
 

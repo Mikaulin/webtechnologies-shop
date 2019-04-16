@@ -23,6 +23,7 @@ public class UserValidator implements Validator {
         User user = (User) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "common.empty");
+
         if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
             errors.rejectValue("username", "register.username.length");
         }
@@ -39,4 +40,6 @@ public class UserValidator implements Validator {
             errors.rejectValue("passwordConfirm", "register.password.confirm");
         }
     }
+
+
 }

@@ -72,18 +72,18 @@ public class ProductLoader implements ILoader {
 
 
                         new Product(60, "Horno ZOP37922XU (57 L - 59.4 cm - Pirolítico - Inox)", "2515 W, A+, 9 programas, control digital, multifunción, grill electr.", "H001.jpg", 349.99, 590, 594, 560, false, brandList.get(8), categoryList.get(3)),
-                        new Product(60, "Horno SteamCrisp BSE576321M (72 L - 59.6 cm - Hidrolítico - Inox)", "3380 W, A, 10 programas, visor digital, sonda térmica, grill electr.", "H002.jpg", 649.99, 596, 568, 580, false, brandList.get(4), categoryList.get(3)),
+                        new Product(60, "Horno SteamCrisp BSE576321M (72 L - 59.6 cm - Hidrolítico - Inox)", "3380 W, A, 10 programas, visor digital, sonda térmica, grill electr.", "H002.jpg", 649.99, 596, 568, 580, true, brandList.get(4), categoryList.get(3)),
                         new Product(60, "Horno HS636GDS1 (71 L - 59.4 cm - Catalítico - Negro)", "3600 W,A, limpieza catalítico, vapor 100%, Deep-frozen, turbogrill", "H003.jpg", 1359,  595, 594, 548, false, brandList.get(6), categoryList.get(3)),
                         new Product(60, "Horno HR675GBS1 (71 L - 59.4 cm - Pirolítico - Inox)", "3600 W, A, 20 programas, control digital, multifunc., color inox.", "H004.jpg", 999.99, 595, 594, 548, true, brandList.get(6), categoryList.get(3)),
                         new Product(60, "Horno HLF 940 (77 L - 89 cm - Hidrolítico - Inox)", "3553 W, A, 9 programas, control digital, visor digital, grill electr.", "H005.jpg", 819.99, 480, 890, 558, false, brandList.get(2), categoryList.get(3)),
 
                         new Product(60, "Congelador vertical GSN33VL3P", "90 W, No frost, A++, 4 cestos, 2 años garantía, 225 L cap.", "C001.jpg", 821.99,  1760, 600, 650, false, brandList.get(5), categoryList.get(2)),
-                        new Product(60, "Congelador vertical HSN36AI3P", "90 W, A++, No frost, Pantalla LCD, máquina hielos, 242 L cap.", "C002.jpg", 1019,  1860, 600, 650, false, brandList.get(5), categoryList.get(2)),
+                        new Product(60, "Congelador vertical HSN36AI3P", "90 W, A++, No frost, Pantalla LCD, máquina hielos, 242 L cap.", "C002.jpg", 1019,  1860, 600, 650, true, brandList.get(5), categoryList.get(2)),
                         new Product(60, "Congelador Vertical No Frost ZFU25200WA", "160 W, A+, No frost, color blanco, 227 L cap.", "C003.jpg", 699.99, 1850, 595, 668, true, brandList.get(8), categoryList.get(2)),
                         new Product(60, "Congelador vertical TGF3 270 inox", "95 W, B, No frost, acero inox., 225 L cap.", "C004.jpg", 626.99, 1900, 595, 650, false, brandList.get(2), categoryList.get(2)),
                         new Product(60, "Congelador Vertical No Frost UI8 F1C W", "A+, color blanco, 2 años garantía,  260 L cap.", "C005.jpg", 499.99, 1875, 595, 630, false, brandList.get(7), categoryList.get(2)),
 
-                        new Product(60, "Secadora T8DEE942 (9 kg - Bomba de Calor - Blanco)", "800 W, A++, 8 programas, pantalla LCD, func. antiarrugas", "S001.jpg", 899.99, 850, 600, 630, false, brandList.get(4), categoryList.get(4)),
+                        new Product(60, "Secadora T8DEE942 (9 kg - Bomba de Calor - Blanco)", "800 W, A++, 8 programas, pantalla LCD, func. antiarrugas", "S001.jpg", 899.99, 850, 600, 630, true, brandList.get(4), categoryList.get(4)),
                         new Product(60, "Secadora 3SC871B (7 kg - Condensación - Blanco)", "2800 W, B, 8 programas, pantalla táctil, func. antiarrugas", "S002.jpg", 359.99, 842, 598, 600, false, brandList.get(0), categoryList.get(4)),
                         new Product(60, "Secadora Bomba Calor WTG87239ES (8 kg - Bomba de Calor - Blanco)", "1000 W, A++, 10 programas, pantalla táctil, func. antiarrugas", "S003.jpg", 599.99, 599, 598, 580, false, brandList.get(5), categoryList.get(4)),
                         new Product(60, "Secadora DV90M6200CW/EC (9 kg - Bomba de Calor - Blanco)", "1000 W, A+++, 14 programas, pantalla LED, sensor secado, func. antiarrugas", "S004.jpg", 849.99, 850, 600, 650, true, brandList.get(3), categoryList.get(4)),
@@ -93,7 +93,7 @@ public class ProductLoader implements ILoader {
                         new Product(60, "Campana Extraible DFT63AC50 60 cm", "146 W, D, 3 niv. potencia, ilum. LED, ruido 68 DB, 2 filtros antigrasa", "CP001.jpg", 129.99, 180, 598, 280, false, brandList.get(5), categoryList.get(5)),
                         new Product(60, "Campana Decorativa DWQ96DM50 90 cm", "220 W, A, mandos electr., color acero inox", "CP002.jpg", 399.99,  570, 750, 500, true, brandList.get(5), categoryList.get(5)),
                         new Product(60, "Campana integrable GFG-2", "180 W, 3 niv. potencia, ruido 58 DB, ilumin. LED, 1 filtro antigrasa", "CP003.jpg", 129.99,  175, 550, 310, false, brandList.get(2), categoryList.get(5)),
-                        new Product(60, "Campana Pared DBB5660HM 60 cm", "265 W, A, 3 niv. potencia, ruido 36 DB, ilum. LED, camp. pared", "CP004.jpg", 399.99, 900, 598, 500, false, brandList.get(4), categoryList.get(5)),
+                        new Product(60, "Campana Pared DBB5660HM 60 cm", "265 W, A, 3 niv. potencia, ruido 36 DB, ilum. LED, camp. pared", "CP004.jpg", 399.99, 900, 598, 500, true, brandList.get(4), categoryList.get(5)),
                         new Product(60, "Campana Decoración BALAY 3BC694MX 90 cm", "100 W, C, 3 niv. potencia, ruido 65 DB, ilum. LED", "CP005.jpg", 219.99, 900, 900, 500, false, brandList.get(0), categoryList.get(5))
 
 

@@ -28,7 +28,6 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">T&iacute;tulo</th>
-            <%--<th scope="col">Descripci&oacute;n</th>--%>
             <th scope="col">Dto. (%)</th>
             <th scope="col">Fecha Inicio</th>
             <th scope="col">Fecha Fin</th>
@@ -41,7 +40,6 @@
             <tr>
                 <td scope="row"> ${promo.id}</td>
                 <td> ${promo.name}</td>
-                <%--<td>${promo.description}</td>--%>
                 <td> ${promo.discount}</td>
                 <td> ${promo.startDate.time.toLocaleString().substring(0,11)}</td>
                 <td> ${promo.endDate.time.toLocaleString().substring(0,11)}</td>
@@ -50,7 +48,7 @@
                     <div class="btn-group">
 
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/promociones/editar/${promo.id}">Edit</a>
+                           href="${pageContext.request.contextPath}/promociones/editar/${promo.id}">Editar</a>
                     </div>
                 </td>
             </tr>

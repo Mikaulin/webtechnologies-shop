@@ -42,9 +42,8 @@
                 <td width="280"> ${purchaseLine.product.description}</td>
                 <td> ${purchaseLine.unitPrice}</td>
                 <td> ${purchaseLine.count}</td>
-           <%--TODO calcular bien AQUI el precio final.--%>
                 <td> ${purchaseLine.purchasePrice}</td>
-                <td> ${purchaseLine.date.time.toLocaleString().substring(1,11)}</td>
+                <td> ${purchaseLine.date.time.toLocaleString().substring(0,11)}</td>
                 <td> Tarjeta</td>
 
 

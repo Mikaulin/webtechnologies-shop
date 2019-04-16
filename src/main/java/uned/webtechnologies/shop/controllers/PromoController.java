@@ -30,6 +30,7 @@ public class PromoController {
         ModelAndView result = new ModelAndView("promo/listproductpromo");
         result.addObject("products", this.promotionService.getProductsByPromotionId(id));
         result.addObject("promotion", this.promotionService.getActivePromotions());
+        result.addObject("id", id);
         result.addObject("rating", this.ratingService);
         return result;
     }

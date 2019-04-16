@@ -1,76 +1,43 @@
-<%@page contentType="text/html" %>
-<%@page pageEncoding="UTF-8" %>
-<%@ include file="../shared/_header.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ include file="../shared/_header.jsp" %>
 
 <div class="container">
 
+    <h4>Promociones</h4>
+
+    <div class="border-top my-3"></div>
+
     <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-
             <div class="sidebar-sticky">
 
-                <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>PROMOCIONES</span>
-                </h5>
+                <p>&nbsp;</p>
+
                 <c:forEach items="${promotion}" var="promo">
                     <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/promociones/${promo.id}">
-                                <span data-feather="file-text">${promo.name}</span>
-                            </a>
-                        </li>
+
+                        <c:choose>
+                            <c:when test="${promo.id eq id}">
+                                <li class="nav-item"><h6><b>&nbsp;&nbsp; ${promo.name}</b></h6></li>
+                            </c:when>
+
+                            <c:otherwise>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/promociones/${promo.id}">
+                                        <span data-feather="file-text">${promo.name}</span>
+                                    </a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
                 </c:forEach>
             </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">
+        <%@ include file="../shared/_listSearch.jsp" %>
 
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="row">
-                        <c:forEach items="${products}" var="product">
-
-                            <div class='col-md-4'>
-                                <div class='card mb-4 box-shadow'>
-                                    <img class='card-img-top'
-                                         src='${pageContext.request.contextPath}/electro/${product.photo}'
-                                         alt='${product.name} '>
-                                    <div class='card-body'>
-                                        <p class='card-text'>
-                                                ${product.brand.name}
-                                        </p>
-                                        <p class='card-text'>
-                                                ${product.name}
-                                        </p>
-                                        <h4 class='card-title pricing-card-title'>
-                                            <fmt:formatNumber currencySymbol="&euro;" value="${product.finalPrice}"
-                                                              type="currency"/>
-                                            <c:if test="${product.finalPrice != product.price}">
-                                                <small class='text-muted'>
-                                                    <del><fmt:formatNumber currencySymbol="&euro;"
-                                                                           value="${product.price}"
-                                                                           type="currency"/></del>
-                                                </small>
-                                            </c:if>
-                                        </h4>
-
-                                        <%@ include file="../shared/_rating.jsp" %>
-
-                                        <a href='${pageContext.request.contextPath}/producto/detalle/${product.id}'
-                                           class='btn btn-outline-danger btn-lg btn-block'
-                                           role='button' aria-pressed='true'>
-                                            Ver detalles
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </main>
     </div>
 
 </div>

@@ -64,8 +64,8 @@ public class PromotionLoader implements ILoader {
         promotionRepository.save(d20);
 
         Promotion d15Z = new Promotion();
-        d15Z.setDescription("Descuento del 15% todos los productos ZANUSSI");
-        d15Z.setName("Rebajas 15% productos ZANUSSI");
+        d15Z.setDescription("Descuento del 15% en algunos productos");
+        d15Z.setName("Descuento 15% productos seleccionados");
         d15Z.setStartDate(new GregorianCalendar(2019, 0, 1));
         d15Z.setEndDate(new GregorianCalendar(2019, 5, 31));
         d15Z.setDiscount(15);
