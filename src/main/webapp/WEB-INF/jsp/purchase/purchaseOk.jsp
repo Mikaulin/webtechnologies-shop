@@ -14,13 +14,13 @@
 
     <div class="row">
         <div class="col-md-8 order-md-1">
-            <h5>Tu compra ha sido realizada con éxito. Agradecemos tu confianza.
+            <h5>${mensaje}
             </h5>
 
             <br><br>
 
-            <h5>En breve recibirá un email con todos los datos de tu compra, así como un ID de pedido
-                con el que podrá realizar el seguimiento del mismo.</h5>
+            <%--<h5>En breve recibirá un email con todos los datos de tu compra, así como un ID de pedido
+                con el que podrá realizar el seguimiento del mismo.</h5>--%>
         </div>
     </div>
 

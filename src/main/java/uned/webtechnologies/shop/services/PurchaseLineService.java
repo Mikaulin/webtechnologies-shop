@@ -2,12 +2,14 @@ package uned.webtechnologies.shop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
+import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.PurchaseLineRepository;
 
-import java.sql.Time;
+
 import java.util.*;
 import java.util.List;
 
@@ -32,15 +34,29 @@ public class PurchaseLineService {
 
     public void saveRandom(PurchaseLine purchaseLine) {purchaseLineRepository.save(purchaseLine);}
 
-    public void save(PurchaseLine purchaseLine) {
-        Calendar today=new GregorianCalendar();
-        today.getTime();
-        purchaseLine.setDate(today);
-        purchaseLineRepository.save(purchaseLine);
+
+    private void checkQuantity(Product product,int count) throws RuntimeException{
+
+        if(product.getCount()<count) throw new RuntimeException("No hay suficientes unidades del producto : "+product.getName());
     }
 
 
-    public void saveCarts(List<Cart> carts) {
+    public void save(PurchaseLine purchaseLine) {
+        Product product=purchaseLine.getProduct();
+        int count=purchaseLine.getCount();
+        int productCount=product.getCount();
+
+        checkQuantity(product,count);
+        Calendar today=new GregorianCalendar();
+        today.getTime();
+        purchaseLine.setDate(today);
+        product.setCount(productCount-count);
+        purchaseLineRepository.save(purchaseLine);
+
+    }
+
+
+    public void saveCarts(List<Cart> carts)  {
         PurchaseLine purchase;
         for (Cart cart : carts
         ) {

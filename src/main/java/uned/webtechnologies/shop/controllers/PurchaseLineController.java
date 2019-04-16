@@ -33,7 +33,14 @@ public class PurchaseLineController {
         ModelAndView result = new ModelAndView("purchase/purchaseOk");
         if (activeUser != null) {
             User user = userService.findByUsername(activeUser.getUsername());
-            this.purchaseLineService.saveCarts(this.cartService.findByUser(user));
+            try {
+                result.addObject("mensaje","Compra realizada con exito");
+
+                this.purchaseLineService.saveCarts(this.cartService.findByUser(user));
+            } catch (Exception e) {
+                e.printStackTrace();
+                result.addObject("mensaje",e.getMessage());
+            }
             this.cartService.removeAllOfUser(user);
         }
         return result;
