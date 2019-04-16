@@ -58,6 +58,16 @@ public class PurchaseLineService {
 
     }
 
+    @Transactional
+    public void returnPurchase(PurchaseLine purchaseLine) {
+        Product product=purchaseLine.getProduct();
+        int count=purchaseLine.getCount();
+        int productCount=product.getCount();
+        product.setCount(productCount+count);
+        purchaseLineRepository.delete(purchaseLine);
+
+    }
+
 @Transactional
     public void saveCarts(List<Cart> carts)  {
         PurchaseLine purchase;
