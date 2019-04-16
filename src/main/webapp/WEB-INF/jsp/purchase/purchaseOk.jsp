@@ -19,8 +19,8 @@
 
             <br><br>
 
-            <%--<h5>En breve recibirá un email con todos los datos de tu compra, así como un ID de pedido
-                con el que podrá realizar el seguimiento del mismo.</h5>--%>
+            <h5>En breve recibirá un email con todos los datos de tu compra, así como un ID de pedido
+                con el que podrá realizar el seguimiento del mismo.</h5>
         </div>
     </div>
 

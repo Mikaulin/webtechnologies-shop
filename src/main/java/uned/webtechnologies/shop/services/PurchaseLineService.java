@@ -43,7 +43,7 @@ public class PurchaseLineService {
                 "Unidades disponibles = "+product.getCount());
     }
 
-@Transactional
+    @Transactional
     public void save(PurchaseLine purchaseLine) {
         Product product=purchaseLine.getProduct();
         int count=purchaseLine.getCount();
@@ -58,7 +58,17 @@ public class PurchaseLineService {
 
     }
 
-@Transactional
+    @Transactional
+    public void returnPurchase(PurchaseLine purchaseLine) {
+        Product product=purchaseLine.getProduct();
+        int count=purchaseLine.getCount();
+        int productCount=product.getCount();
+        product.setCount(productCount+count);
+        purchaseLineRepository.delete(purchaseLine);
+
+    }
+
+    @Transactional
     public void saveCarts(List<Cart> carts)  {
         PurchaseLine purchase;
         for (Cart cart : carts

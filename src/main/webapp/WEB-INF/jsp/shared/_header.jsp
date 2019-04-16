@@ -1,5 +1,4 @@
-<%@page contentType="text/html" %>
-<%@page pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -125,7 +124,6 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Ventas</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown06">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/informe">Devoluciones</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/fecha">Informes</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/listado">Listado</a>
 

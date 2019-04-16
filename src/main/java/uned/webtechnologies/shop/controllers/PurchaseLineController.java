@@ -1,3 +1,4 @@
+
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.*;
 
@@ -38,12 +40,12 @@ public class PurchaseLineController {
             User user = userService.findByUsername(activeUser.getUsername());
             try {
                 result.setViewName("purchase/purchaseOk");
-                result.addObject("mensaje","Compra realizada con exito");
+                result.addObject("mensaje","Tu compra ha sido realizada con exito. Agradecemos tu confianza.");
 
                 this.purchaseLineService.saveCarts(this.cartService.findByUser(user));
                 this.cartService.removeAllOfUser(user);
             } catch (Exception e) {
-                result.setViewName("purchase/purchaseWrong");//este jsp no existe
+                result.setViewName("purchase/purchaseWrong");
                 e.printStackTrace();
                 result.addObject("mensaje",e.getMessage());
             }
@@ -63,5 +65,17 @@ public class PurchaseLineController {
         return result;
     }
 
+    @GetMapping("/detalle/{id}")
+    public ModelAndView detail(@PathVariable("id") long id) {
+        ModelAndView result = new ModelAndView("purchase/detail");
+        result.addObject("purchase", this.purchaseLineService.getOne(id));
+        return result;
+    }
+
+    @PostMapping(value = "/delete")
+    public String delete(@RequestParam("id")long id) {
+        purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));
+        return "redirect:/user/usuarios";
+    }
 
 }

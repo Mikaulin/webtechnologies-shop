@@ -59,28 +59,25 @@
 
         <c:forEach items="${lines}" var="sale">
 
+            <tr>
+                <td scope="row">${sale.id}</td>
+                <td width="100"><img class="card-img-top" alt="${sale.product.name}"
+                                     src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></td>
+                <td width="280"> ${sale.product.name}</td>
+                <td> ${sale.unitPrice}</td>
+                <td> ${sale.count}</td>
+                <td> ${sale.purchasePrice}</td>
+                <td> ${sale.date.time.toLocaleString().substring(0,11)}</td>
+                <td> Tarjeta</td>
+                <td>
+                    <div class="btn-group">
 
-                <tr>
-                    <td scope="row">${sale.id}</td>
-                    <td width="100"><img class="card-img-top" alt="${sale.product.name}"
-                                         src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></td>
-                    <td width="280"> ${sale.product.name}</td>
-                    <td> ${sale.unitPrice}</td>
-                    <td> ${sale.count}</td>
-           <%--TODO calcular bien AQUI el precio final.--%>
-                    <td> ${sale.purchasePrice}</td>
-                    <td> ${sale.date.time.toLocaleString().substring(0,11)}</td>
-                    <td> Tarjeta</td>
-                    <td>
-                        <div class="btn-group">
+                        <a class="btn btn-sm btn-outline-danger" role="button"
+                           href="${pageContext.request.contextPath}/compra/detalle/${sale.id}">Devolver</a>
+                    </div>
+                </td>
 
-                            <a class="btn btn-sm btn-outline-danger" role="button"
-                               href="${pageContext.request.contextPath}/ventas/devoluciones/${user.username}">Devolver</a>
-                        </div>
-                    </td>
-
-                </tr>
-
+            </tr>
 
         </c:forEach>
 
@@ -94,4 +91,3 @@
 
 <%@ include file="../shared/_js.jsp" %>
 <%@ include file="../shared/_footer.jsp" %>
-

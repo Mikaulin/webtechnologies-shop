@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Rating;
+import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
+import uned.webtechnologies.shop.inmemorydb.model.User;
+import uned.webtechnologies.shop.inmemorydb.model.persistense.ProductUserRating;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingRepository;
 
@@ -22,7 +25,6 @@ public class RatingService {
     public List<Product> getProductsByRating(int rating) {
         List<Product> products = this.productRepository.findAll();
         List<Product> result = new ArrayList<>();
-        List<Rating> ratings = this.ratingRepository.findAll();
 
         for (Product p : products) {
             if (getProductRating(p.getId()) == rating) {
@@ -37,6 +39,16 @@ public class RatingService {
 
     }
 
+    public void setProductRating(User user, Product product, RatingValue ratingValue){
+        Rating rating=new Rating();
+        ProductUserRating productUserRating=new ProductUserRating();
+        productUserRating.setProductId(product.getId());
+        productUserRating.setUserId(user.getId());
+        rating.setProductUserRating(productUserRating);
+        rating.setRatingValue(ratingValue);
+        this.ratingRepository.save(rating);
+
+    }
 
     public int getProductRating(long id) {
 
@@ -61,4 +73,3 @@ public class RatingService {
 
 
 }
-

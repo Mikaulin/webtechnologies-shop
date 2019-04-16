@@ -1,5 +1,4 @@
-<%@page contentType="text/html" %>
-<%@page pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -25,7 +24,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
-            <c:if test="${product.id <= products.size()/2 and product.count > 0}">
+            <c:if test="${product.id <= products.size()/2}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
                         <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'
@@ -113,7 +112,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
-            <c:if test="${product.id >= products.size()/2 + products.size()%2 and product.count > 0}">
+            <c:if test="${product.id >= products.size()/2 + products.size()%2}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
                         <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'

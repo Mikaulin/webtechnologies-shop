@@ -10,16 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import uned.webtechnologies.shop.controllers.input.AddCartInput;
+import uned.webtechnologies.shop.controllers.input.RatingInput;
 import uned.webtechnologies.shop.controllers.input.UpdateCartInput;
 import uned.webtechnologies.shop.controllers.output.AddToCartOutput;
 import uned.webtechnologies.shop.controllers.output.Output;
+import uned.webtechnologies.shop.controllers.output.RatingOutput;
 import uned.webtechnologies.shop.controllers.output.UpdateCartOutput;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.model.User;
+import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
 import uned.webtechnologies.shop.services.CartService;
 import uned.webtechnologies.shop.services.ProductService;
 
+import uned.webtechnologies.shop.services.RatingService;
 import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.utils.StringUtils;
 
@@ -31,12 +36,16 @@ public class AjaxController {
     private UserService userService;
     private CartService cartService;
     private ProductService productService;
+    private RatingService ratingService;
+    private RatingValueRepository ratingValueRepository;
 
     @Autowired
-    public AjaxController(CartService cartService, ProductService productService, UserService userService) {
+    public AjaxController(CartService cartService, ProductService productService, UserService userService,RatingService ratingService,RatingValueRepository ratingValueRepository) {
         this.cartService = cartService;
         this.productService = productService;
         this.userService = userService;
+        this.ratingService= ratingService;
+        this.ratingValueRepository=ratingValueRepository;
     }
 
 
@@ -52,18 +61,19 @@ public class AjaxController {
 
     }
 
-    @PostMapping("/ajax/add-cart")
-    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
 
-        AddToCartOutput output = new AddToCartOutput();
+    @PostMapping("/ajax/rating-product")
+    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody RatingInput input, Errors errors) {
+
+        RatingOutput output = new RatingOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
         User user = userService.findByUsername(activeUser.getUsername());
         Product product = this.productService.getProduct(input.getProductId());
-        Cart cart = new Cart(input.getCount(), product, user);
-        cartService.add(cart);
-        output.setTotalProducts((int) cartService.totalProducts(user));
-        output.setMessage("Se ha añadido correctamente al carrito.");
+        RatingValue ratingValue=this.ratingValueRepository.getOne((long)input.getCount());
+        this.ratingService.setProductRating(user,product,ratingValue);
+
+        output.setMessage("Se ha valorado correctamente.");
         return ResponseEntity.ok(output);
 
     }
@@ -103,6 +113,5 @@ public class AjaxController {
 
 
     }
-
 
 }
