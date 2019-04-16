@@ -38,7 +38,9 @@ public class PurchaseLineService {
 
     private void checkQuantity(Product product,int count) throws RuntimeException{
 
-        if(product.getCount()<count) throw new RuntimeException("No hay suficientes unidades del producto : "+product.getName());
+        if(product.getCount()<count) throw new RuntimeException("No hay suficientes unidades del producto : "+product.getName()+"\n" +
+                "Unidades solicitadas ="+count+"\n" +
+                "Unidades disponibles = "+product.getCount());
     }
 
 @Transactional

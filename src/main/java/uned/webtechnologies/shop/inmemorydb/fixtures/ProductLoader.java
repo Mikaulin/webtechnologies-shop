@@ -47,7 +47,7 @@ public class ProductLoader implements ILoader {
                         new Product(60, "Lavadora L6FBI824U (8 kg - 1200 rpm - Blanco)", "Cuba Acero Inox., A+++, 52 L, 10 programas lavado", "L001.jpg", 419.99, 850, 600, 575, false, brandList.get(4), categoryList.get(0)),
                         new Product(60, "Lavadora L6FBG144 (10 kg - 1400 rpm - Blanco)", "2200 W, A+++, 57 L, Programa rápido", "L002.jpg", 599.99,850, 600, 630, false, brandList.get(4), categoryList.get(0)),
                         new Product(60, "Lavadora F4J6VY2W (9 kg - 1400 rpm - Blanco)", "Motor Inverter, Opción media carga, 14 programas lavado", "L003.jpg", 599.99, 850, 600, 560, false, brandList.get(1), categoryList.get(0)),
-                        new Product(60, "Lavadora 3TS775BE (7 kg - 1200 rpm - Blanco)", "Garantía 2 años, Eficiencia energética A+++", "L004.jpg", 399.99,  848, 598, 550, true, brandList.get(0), categoryList.get(0)),
+                        new Product(5, "Lavadora 3TS775BE (7 kg - 1200 rpm - Blanco)", "Garantía 2 años, Eficiencia energética A+++", "L004.jpg", 399.99,  848, 598, 550, true, brandList.get(0), categoryList.get(0)),
                         new Product(60, "Lavasecadora XWDE 140 X (6/8 kg - 1400 rpm - Blanco)", "1850 W, A, 60 L, Tecn. Innex, Cuba Poliplex, Pantalla LED", "L005.jpg", 499.99, 850, 595, 540, false, brandList.get(7), categoryList.get(0)),
                         new Product(60, "Lavadora WM14U940EU (10 kg - 1400 rpm - Blanco)", "Cuba Acero Inox., A+++, 16 programas lavado, Wifi, 2050 W.", "L006.jpg", 1438, 848, 598, 622, false, brandList.get(3), categoryList.get(0)),
 
