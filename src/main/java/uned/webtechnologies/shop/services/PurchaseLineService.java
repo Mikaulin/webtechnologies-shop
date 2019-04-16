@@ -2,7 +2,6 @@ package uned.webtechnologies.shop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
@@ -10,11 +9,13 @@ import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.PurchaseLineRepository;
 
 
+import javax.transaction.Transactional;
 import java.util.*;
 import java.util.List;
 
 @Service
 public class PurchaseLineService {
+
     @Autowired
     private PurchaseLineRepository purchaseLineRepository;
 
@@ -40,7 +41,7 @@ public class PurchaseLineService {
         if(product.getCount()<count) throw new RuntimeException("No hay suficientes unidades del producto : "+product.getName());
     }
 
-
+@Transactional
     public void save(PurchaseLine purchaseLine) {
         Product product=purchaseLine.getProduct();
         int count=purchaseLine.getCount();
@@ -55,7 +56,7 @@ public class PurchaseLineService {
 
     }
 
-
+@Transactional
     public void saveCarts(List<Cart> carts)  {
         PurchaseLine purchase;
         for (Cart cart : carts
