@@ -20,57 +20,17 @@
 
     <div class="row">
 
-        <mvc:form method="post" modelAttribute="purchase" action="delete">
-
-        <div class="col-sm-12 col-md-12 col-lg-8 mb-4">
-
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th class="hidden-xs-down">Producto</th>
-                        <th>Descripci&oacute;n</th>
-                        <th class="hidden-xs-down">Precio</th>
-                        <th>Cantidad</th>
-                        <th>Importe</th>
-                        <th>Fecha de compra </th>
-                        <th>Accion</th>
-                    </tr>
-                    </thead>
-                        <tr>
-                            <td width="100" class="text-center hidden-xs-down">
-                                <a href="${pageContext.request.contextPath}/producto/detalle/${purchase.product.id}"><img
-                                        class="card-img-top"
-                                        src="${pageContext.request.contextPath}/electro/${purchase.product.photo}"></a>
-                            </td>
-
-                            <td width="280">
-                                <span>${purchase.product.name}</span>
-                            </td>
-                            <td class="hidden-xs-down">
-                                <span> ${purchase.unitPrice} &euro;</span>
-                            </td>
-                            <td>
-                                <span>${purchase.count}</span>
-                            </td>
-                            <td>
-                                <span>${purchase.purchasePrice} &euro;</span>
-                            </td>
-                        </tr>
-                </table>
-                <button class="btn btn-lg btn-danger" type="submit">Devolver compra</button>
-
-                <hr class="my-3">
-
-                <p>&nbsp;</p>
-
-            </div>
+        <mvc:form method="post" modelAttribute="purchase" action="../delete">
+            <mvc:input type="hidden" path="id" class="form-control" value="${purchase.id}"/>
+            <div>${purchase.product.name}</div>
+            <div>${purchase.product.count}</div>
+            <div>${purchase.product.id}</div>
 
 
-        </div>
+            <button class="btn btn-lg btn-danger" type="submit">Eliminar</button>
 
 
-</mvc:form>
+        </mvc:form>
 
     </div>
 

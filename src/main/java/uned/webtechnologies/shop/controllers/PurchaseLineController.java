@@ -70,11 +70,11 @@ public class PurchaseLineController {
         result.addObject("purchase", this.purchaseLineService.getOne(id));
         return result;
     }
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@ModelAttribute("purchase")PurchaseLine purchaseLine) {
-        purchaseLineService.returnPurchase(purchaseLine);
+    @PostMapping(value = "/delete")
+    public String delete(@RequestParam("id")long id) {
+        purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));
 
-        return "redirect:/compra/listado";
+        return "redirect:/user/usuarios";
     }
 
 
