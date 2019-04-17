@@ -93,6 +93,7 @@ public class AjaxController {
 
     }
 
+
     @PostMapping("/ajax/update-cart")
     public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
 
