@@ -31,6 +31,9 @@
     </div>
 
     <div class="border-top my-3"></div>
+    <c:forEach items="${users}" var="user">
+
+    <h1>${user.name}</h1>
 
     <table id="example" class="table">
         <thead>
@@ -47,15 +50,15 @@
         </thead>
         <tbody>
 
-        <c:forEach items="${lines}" var="sale">
+
 
 
 
                 <tr>
                     <td>
-                        <span>${sale.id}</span>
-                    </td>
 
+                    </td>
+             <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
                     <td width="100" class="text-center hidden-xs-down">
                         <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
                             <img class="card-img-top" alt="${sale.product.name}"
@@ -86,13 +89,15 @@
                     </td>
                 </tr>
 
+             </c:forEach>
 
-        </c:forEach>
+
 
         </tbody>
     </table>
+        <h3>Total facturacion para ${user.name} = ${user.getPruchaseTotalByDate(date)}</h3>
 
-
+    </c:forEach>
     <div class="border-top my-3"></div>
 
 

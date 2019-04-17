@@ -15,10 +15,7 @@ import uned.webtechnologies.shop.services.UserService;
 
 import javax.persistence.TemporalType;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/ventas")
@@ -55,10 +52,19 @@ public class SaleController {
          int year=Integer.parseInt(date.substring(0,4));
 
         Calendar cal=new GregorianCalendar(year,month-1,day);
+        result.addObject("date",cal);
         result.addObject("day",day);
         result.addObject("month",month);
         result.addObject("year",year);
-        result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
+        List<PurchaseLine> lines=this.purchaseLineService.getPurchasesByDate(cal);
+        Set<User> user=new HashSet<>();
+        for (PurchaseLine l:lines
+             ) {
+            user.add(l.getUser());
+
+        }
+      result.addObject("users",user);
+      //  result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
         return result;
     }
 
