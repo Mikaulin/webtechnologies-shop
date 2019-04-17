@@ -69,7 +69,6 @@
 
                 <tbody>
 
-
                   <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
 
                   <tr>
@@ -98,7 +97,6 @@
                   </tr>
 
                    </c:forEach>
-
 
                 </tbody>
 

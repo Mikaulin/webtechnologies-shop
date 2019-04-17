@@ -40,13 +40,7 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
 
-    <div class="jumbotron mt-3">
-        <h4>Le recordamos que ...</h4>
-        <p class="lead">Te mandaremos otro e-mail cuando enviemos tu(s) producto(s).<br>
-            La fecha estimada de entrega se te indicará en dicho email.<br>
-            Visita "Mi cuenta" en ElectroHOME para consultar tus compras o gestionar tus devoluciones.<br><br>
-            Gracias por tu pedido en ElectroHOME.</p>
-    </div>
+
 
 </div>
 
