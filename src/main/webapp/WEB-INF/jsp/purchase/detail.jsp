@@ -19,7 +19,7 @@
 
                 <mvc:input type="hidden" path="id" class="form-control" value="${purchase.id}"/>
 
-                <mvc:input type="hidden" path="username" class="form-control" value="${purchase.user.username}"/>
+
 
                 <table class="table">
                     <thead>
