@@ -67,6 +67,7 @@ public class ProductController {
         result.addObject("promotion", this.promotionService.getPromotions());
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
+        result.addObject("productPromo", this.productService.getPromotionsByProductId(id));
         result.addObject("promotionActive", new boolean[this.promotionService.getPromotions().size()]);
         return result;
     }

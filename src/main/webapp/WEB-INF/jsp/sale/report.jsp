@@ -71,7 +71,6 @@
                         <span class="order-product-price"> ${sale.count}</span>
                     </td>
                     <td>
-                            <%--TODO calcular bien AQUI el precio final.--%>
                         <span class="order-product-subtotal">${sale.purchasePrice} &euro;</span>
                     </td>
                     <td>
