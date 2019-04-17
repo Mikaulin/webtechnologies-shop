@@ -32,34 +32,52 @@
 
     <div class="border-top my-3"></div>
 
-    <table id="example" class="table">
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Importe</th>
-            <th scope="col">F. pago</th>
-            <th scope="col">Usuario</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <c:forEach items="${lines}" var="sale">
+    <c:forEach items="${users}" var="user">
 
 
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group" role="group" aria-label="First group">
+                <h5 class="mb-3">
+                    <a class="btn btn-success btn-sm" href="#${user.username}" data-toggle="collapse"
+                       role="button" aria-expanded="false" aria-controls="${user.username}">
+
+                        <i class="fa fa-bars" aria-hidden="true"></i></a>
+                    <span class="customer-name">&nbsp;&nbsp;${user.name} ${user.lastname1}
+
+                   </span>
+                </h5>
+            </div>
+            <div class="input-group">
+                <h5>Facturaci&oacute;n: <b>${user.getPruchaseTotalByDate(date)} &euro;</b></h5>
+            </div>
+        </div>
+
+        <div class="collapse multi-collapse" id="${user.username}">
+
+            <table id="example" class="table">
+                <thead>
+                <tr>
+
+                    <th scope="col">Producto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Importe</th>
+                    <th scope="col">F. pago</th>
+
+                </tr>
+                </thead>
+                <tbody>
 
                 <tr>
-                    <td>
-                        <span>${sale.id}</span>
-                    </td>
 
-                    <td width="100" class="text-center hidden-xs-down">
-                        <a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">
+                    <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
+
+                    <td width="100">
+                        <%--<a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">--%>
                             <img class="card-img-top" alt="${sale.product.name}"
-                                 src="${pageContext.request.contextPath}/electro/${sale.product.photo}"></a>
+                                 src="${pageContext.request.contextPath}/electro/${sale.product.photo}">
+                            <%--</a>--%>
                     </td>
                     <td width="280">
                         <span>${sale.product.name}</span>
@@ -76,23 +94,17 @@
                     <td>
                         <span>Tarjeta</span>
                     </td>
-                    <td>
-                        <div class="btn-group">
-
-                            <a class="btn btn-sm btn-outline-secondary" role="button"
-                               href="${pageContext.request.contextPath}/ventas/historial/${sale.user.username}">${sale.user.username}</a>
-                        </div>
-                    </td>
                 </tr>
 
+                </c:forEach>
 
-        </c:forEach>
+                </tbody>
+            </table>
+        </div>
 
-        </tbody>
-    </table>
+        <div class="border-top my-3"></div>
 
-
-    <div class="border-top my-3"></div>
+    </c:forEach>
 
 
     <p>&nbsp;</p>

@@ -4,8 +4,10 @@ import org.springframework.data.annotation.Transient;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
+import uned.webtechnologies.shop.utils.NumberUtils;
 
 @Entity
 public class User implements Serializable {
@@ -172,6 +174,28 @@ public class User implements Serializable {
 
     public Set<PurchaseLine> getPurchaseLines() {
         return purchaseLines;
+    }
+    public double getPruchaseTotalByDate(Calendar date){
+        Set<PurchaseLine> purchases=getPurchaseByDate(date);
+        double total=0;
+        for (PurchaseLine p :purchases
+        ) {total=total+p.getPurchasePrice();
+
+        }
+        return NumberUtils.roundDecimals(total);
+    }
+
+    public Set<PurchaseLine> getPurchaseByDate(Calendar date) {
+        Set<PurchaseLine> purchases=new HashSet<>();
+        for (PurchaseLine p: this.purchaseLines
+        ) {
+            if (p.getDate().equals(date)){
+                purchases.add(p);
+            }
+
+        }
+
+        return purchases;
     }
 
     public void setPurchaseLines(Set<PurchaseLine> purchaseLines) {
