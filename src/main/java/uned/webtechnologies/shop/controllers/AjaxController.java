@@ -77,6 +77,21 @@ public class AjaxController {
         return ResponseEntity.ok(output);
 
     }
+    @PostMapping("/ajax/add-cart")
+    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
+
+        AddToCartOutput output = new AddToCartOutput();
+        ResponseEntity<?> response = checkErrors(activeUser, errors, output);
+        if (response != null) return response;
+        User user = userService.findByUsername(activeUser.getUsername());
+        Product product = this.productService.getProduct(input.getProductId());
+        Cart cart = new Cart(input.getCount(), product, user);
+        cartService.add(cart);
+        output.setTotalProducts((int) cartService.totalProducts(user));
+        output.setMessage("Se ha añadido correctamente al carrito.");
+        return ResponseEntity.ok(output);
+
+    }
 
     @PostMapping("/ajax/update-cart")
     public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
