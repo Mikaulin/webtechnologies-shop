@@ -69,10 +69,10 @@
 
                 <tbody>
 
-                <tr>
 
                   <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
 
+                  <tr>
                     <td width="100">
                         <img class="card-img-top" alt="${sale.product.name}"
                              src="${pageContext.request.contextPath}/electro/${sale.product.photo}">
@@ -95,10 +95,11 @@
                     <td>
                         <span>Tarjeta</span>
                     </td>
+                  </tr>
 
                    </c:forEach>
 
-                </tr>
+
                 </tbody>
 
             </table>
