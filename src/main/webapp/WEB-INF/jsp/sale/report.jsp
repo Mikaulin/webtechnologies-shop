@@ -57,31 +57,32 @@
             <table id="example" class="table">
                 <thead>
                 <tr>
-
                     <th scope="col">Producto</th>
                     <th scope="col">Nombre</th>
+                    <th scope="col">Descripci&oacute;n</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Importe</th>
                     <th scope="col">F. pago</th>
-
                 </tr>
                 </thead>
+
                 <tbody>
 
                 <tr>
 
-                    <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
+                  <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
 
                     <td width="100">
-                        <%--<a href="${pageContext.request.contextPath}/producto/detalle/${sale.product.id}">--%>
-                            <img class="card-img-top" alt="${sale.product.name}"
-                                 src="${pageContext.request.contextPath}/electro/${sale.product.photo}">
-                            <%--</a>--%>
+                        <img class="card-img-top" alt="${sale.product.name}"
+                             src="${pageContext.request.contextPath}/electro/${sale.product.photo}">
                     </td>
                     <td width="280">
                         <span>${sale.product.name}</span>
                     </td>
+                      <td width="280">
+                          <span>${sale.product.description}</span>
+                      </td>
                     <td>
                         <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
                     </td>
@@ -94,11 +95,12 @@
                     <td>
                         <span>Tarjeta</span>
                     </td>
+
+                   </c:forEach>
+
                 </tr>
-
-                </c:forEach>
-
                 </tbody>
+
             </table>
         </div>
 
