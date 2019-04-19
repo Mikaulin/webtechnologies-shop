@@ -21,8 +21,8 @@
                     <label for="name">Nombre</label>
                     <spring:bind path="name">
                         <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="name" class="form-control" placeholder=""></form:input>
-                            <form:errors path="name"></form:errors>
+                            <form:input type="text" path="name" class="form-control" placeholder="" />
+                            <form:errors path="name" />
                         </div>
                     </spring:bind>
                 </div>
@@ -31,8 +31,8 @@
                     <label for="description">Descripci&oacute;n</label>
                     <spring:bind path="description">
                         <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="description" class="form-control" placeholder=""></form:input>
-                            <form:errors path="description"></form:errors>
+                            <form:input type="text" path="description" class="form-control" placeholder="" />
+                            <form:errors path="description" />
                         </div>
                     </spring:bind>
                 </div>
@@ -42,9 +42,8 @@
                         <label for="startDate">Fecha Inicio</label>
                         <spring:bind path="startDate">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="startDate" class="form-control"
-                                            placeholder=""></form:input>
-                                <form:errors path="startDate"></form:errors>
+                                <form:input type="date" path="startDate" class="form-control" placeholder="" />
+                                <form:errors path="startDate" />
                             </div>
                         </spring:bind>
                             <%-- <mvc:label path="startDate">Fecha Inicio</mvc:label>
@@ -56,8 +55,8 @@
                         <label for="endDate">Fecha Fin</label>
                         <spring:bind path="endDate">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="endDate" class="form-control" placeholder=""></form:input>
-                                <form:errors path="endDate"></form:errors>
+                                <form:input type="date" path="endDate" class="form-control" placeholder="" />
+                                <form:errors path="endDate" />
                             </div>
                         </spring:bind>
                             <%-- <mvc:label path="endDate">Fecha Fin</mvc:label>&ndash;%&gt;
@@ -70,9 +69,8 @@
                         <label for="discount">Descuento</label>
                         <spring:bind path="discount">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="text" path="discount" class="form-control"
-                                            placeholder=""></form:input>
-                                <form:errors path="discount"></form:errors>
+                                <form:input type="text" path="discount" class="form-control" placeholder="" />
+                                <form:errors path="discount" />
                             </div>
                         </spring:bind>
                             <%-- <mvc:label path="discount">Descuento</mvc:label>

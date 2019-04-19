@@ -43,8 +43,11 @@
                                     </div>
                                 </spring:bind>--%>
 
-                                <%--<input  type="date" class="form-control" id="date" value=""/>--%>
-                                <form:input type="date" path="date" class="form-control" value="" />
+
+                                <input  type="date" class="form-control" name ="date" id="date" value="" required="" />
+
+
+                                <%--<form:input type="date" path="date" class="form-control" value="" />--%>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <button class="btn btn-lg btn-success btn-sm" type="submit">Generar Informe</button>
