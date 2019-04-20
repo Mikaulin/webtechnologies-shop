@@ -4,6 +4,13 @@ import uned.webtechnologies.shop.utils.NumberUtils;
 
 import javax.persistence.*;
 
+/**
+ * Esta clase define una linea de carro de compra.
+ *
+ * @see Product
+ * @see User
+ */
+
 @Entity
 public class Cart {
 
@@ -12,10 +19,10 @@ public class Cart {
     private long id;
     private int count;
     @ManyToOne
-    @JoinColumn(name="ID_PRODUCT")
+    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
     @ManyToOne
-    @JoinColumn(name="ID_USER")
+    @JoinColumn(name = "ID_USER")
     private User user;
     private double unitPrice;
     @Transient
@@ -25,74 +32,156 @@ public class Cart {
     @PostPersist
     @PostLoad
     @PostUpdate
-    private void calculatePrices(){
+    private void calculatePrices() {
 
 
         setUnitPrice(getProduct().getFinalPrice());
-        setCartPrice(NumberUtils.roundDecimals(getUnitPrice()*getCount()));
+        setCartPrice(NumberUtils.roundDecimals(getUnitPrice() * getCount()));
 
     }
 
-    public Cart(){}
+    /**
+     * Constructor vacio
+     */
+    public Cart() {
+    }
 
 
-
+    /**
+     * Construye un Cart con una cantidad de productos, un producto y un usuario
+     *
+     * @param count   Cantidad de productos ha comprar
+     * @param product Producto que se desea comprar
+     * @param user    Usuario registrado que va ha realizar la compra.
+     * @see Product
+     * @see User
+     */
     public Cart(int count, Product product, User user) {
         this.count = count;
         this.product = product;
-        this.user=user;
+        this.user = user;
     }
 
+    /**
+     * Define el identificador único del Cart
+     *
+     * @param id identificador único de tipo long
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Devuelve el precio unitario del producto que se desea comprar
+     *
+     * @return precio unitario del producto que se desea comprar
+     */
     public double getUnitPrice() {
         return unitPrice;
     }
 
+    /**
+     * Define el precio unitario del producto redondeado.
+     *
+     * @param unitPrice Precio unitario del producto.
+     * @see NumberUtils#roundDecimals(double)
+     */
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = NumberUtils.roundDecimals(unitPrice);
     }
 
+    /**
+     * Devuelve el precio total de la compra.
+     *
+     * @return Precio double total de la compra calculado a partir del precio unitario múltiplicado por la cantidad de productos a comprar
+     */
     public double getCartPrice() {
         return cartPrice;
     }
 
+    /**
+     * Define el precio total de la compra
+     *
+     * @param cartPrice Precio total de la compra
+     * @see NumberUtils#roundDecimals(double)
+     */
     public void setCartPrice(double cartPrice) {
         this.cartPrice = NumberUtils.roundDecimals(cartPrice);
     }
 
+    /**
+     * Devuelve el identificador único de la compra
+     *
+     * @return Identificador long único del Cart
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Devuelve el Usuario que quiere realizar la compra
+     *
+     * @return El usuario User que quiere realizar la compra
+     * @see User
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * Define el usuario que quiere realizar la compra
+     *
+     * @param user El usuario que quiere realizar la compra
+     * @see User
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     * Devuelve la cantidad de productos a comprar
+     *
+     * @return La cantidad int de productos a comprar
+     */
     public int getCount() {
         return count;
     }
 
+    /**
+     * Define la cantidad de productos a comprar
+     *
+     * @param count La cantidad de productos a comprar
+     */
     public void setCount(int count) {
         this.count = count;
     }
 
+    /**
+     * Devuelve el producto que se desea comprar
+     *
+     * @return El producto Product que se desea comprar
+     * @see Product
+     */
     public Product getProduct() {
         return product;
     }
 
+    /**
+     * Define el producto que se desea comprar
+     *
+     * @param product El producto que se quiere comprar
+     * @see Product
+     */
     public void setProduct(Product product) {
         this.product = product;
     }
 
 
-
+    /**
+     * Devuelve una representacion en texto de la linea de carrito
+     *
+     * @return La representación String de la linea de carrito
+     */
     @Override
     public String toString() {
         return "Cart{" +
