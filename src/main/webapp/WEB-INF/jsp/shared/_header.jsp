@@ -108,7 +108,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Promociones</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown07">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones">Promo Activas</a>
+                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/promociones">Promo Activas</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones/altaPromociones">Alta
                             Promocion</a>
                         <a class="dropdown-item"
@@ -117,7 +117,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="${pageContext.request.contextPath}/servicios">Servicios</a>
+                    <a class="nav-link " href="./${pageContext.request.contextPath}/servicios">Servicios</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -156,9 +156,9 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Documentación</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown08">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/memoria">Memoria</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/manual">Manual</a>
-                        <a class="dropdown-item" href="#">Javadoc</a>
+                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/memoria">Memoria</a>
+                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/manual">Manual</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/javadoc/index.html"  target="_blank">Javadoc</a>
                     </div>
                 </li></ul>
             </div>
