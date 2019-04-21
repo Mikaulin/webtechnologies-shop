@@ -145,7 +145,7 @@ public class Promotion {
     /**Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
-     * @see Calendar
+     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>ar
      */
     public Calendar getStartDate() {
         return startDate;
@@ -153,7 +153,7 @@ public class Promotion {
 
     /** Define la fecha de inicio de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
      * @param startDate Calendar con la fecha de inicio de la promoción en formato ("yyyy-MM-dd")
-     * @see Calendar
+     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>@see Calendar
      */
     public void setStartDate(Calendar startDate) {
         this.startDate = startDate;
@@ -161,14 +161,14 @@ public class Promotion {
     /**Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") fin de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de finalización de la promoción
-     * @see Calendar
+     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
     public Calendar getEndDate() {
         return endDate;
     }
     /** Define la fecha de finalización de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
      * @param endDate Calendar con la fecha de finalización de la promoción en formato ("yyyy-MM-dd")
-     * @see Calendar
+     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
     public void setEndDate(Calendar endDate) {
         this.endDate = endDate;

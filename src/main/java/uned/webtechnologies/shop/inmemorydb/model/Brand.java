@@ -27,7 +27,7 @@ public class Brand {
 
     private Set<Product> products = new HashSet<>();
 
-    /**
+    /**Define el identificador único de la marca
      * @param id Identificador único de la entidad.
      */
     public void setId(long id) {
