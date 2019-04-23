@@ -34,7 +34,7 @@ public class RatingValue implements Serializable {
     }
 
     /** Define el valor del RatingValue
-     * @param value
+     * @param value Valor del RatingValue
      */
     public void setValue(int value) {
         this.value = value;
