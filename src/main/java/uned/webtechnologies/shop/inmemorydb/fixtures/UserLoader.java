@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import uned.webtechnologies.shop.inmemorydb.model.Role;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
@@ -31,6 +32,7 @@ public class UserLoader implements ILoader {
     @Override
     public void load() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        Role adminRole = this.roleRepository.findByName("ROLE_ADMIN");
         ArrayList<User> users = new ArrayList<>(
                 Arrays.asList(
                         new User("Enrique", "Pérez", "Paseo Morlans 4","Donostia", 20009,"Gipuzkoa","España", "kike@hotmail.com","688243155", "KikePerez", bCryptPasswordEncoder.encode("123456789")),
@@ -41,7 +43,8 @@ public class UserLoader implements ILoader {
                         new User("Pepe", "Gotera", "Avenida los Pajaritos 34","Renteria", 20012,"Gipuzkoa","España", "pepe@hotmail.com","673998179", "PepeGotera", bCryptPasswordEncoder.encode("123456789")),
                         new User("Lucas", "Alboraz", "Calle Lamiquiz 25","Donostia", 20008,"Gipuzkoa","España", "lucas@hotmail.com","677002322", "LucasAlboraz", bCryptPasswordEncoder.encode("123456789")),
                         new User("Marta", "Sánchez", "Paseo de Mons 13","Pasajes", 20021,"Gipuzkoa","España", "marta@hotmail.com","686255009", "MartaSanchez", bCryptPasswordEncoder.encode("123456789")),
-                        new User("Juan", "López", "Calle Unzue 9","Oiartzun", 20015,"Gipuzkoa","España", "juan@hotmail.com","677888132", "JuanLopez", bCryptPasswordEncoder.encode("123456789"))
+                        new User("Juan", "López", "Calle Unzue 9","Oiartzun", 20015,"Gipuzkoa","España", "juan@hotmail.com","677888132", "JuanLopez", bCryptPasswordEncoder.encode("123456789")),
+                        new User("Administrador", "Tienda", "Calle Unzue 9","Oiartzun", 20015,"Gipuzkoa","España", "admin@foo.com","000", "Admin", bCryptPasswordEncoder.encode("admin"), adminRole)
                 )
         );
         userRepository.save(users);

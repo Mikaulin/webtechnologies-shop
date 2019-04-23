@@ -19,41 +19,31 @@ public class RatingService {
     @Autowired
     private RatingRepository ratingRepository;
     @Autowired
-    private ProductRepository productRepository;
-
+    private ProductService productService;
 
     public List<Product> getProductsByRating(int rating) {
-        List<Product> products = this.productRepository.findAll();
+        List<Product> products = this.productService.getProducts();
         List<Product> result = new ArrayList<>();
-
         for (Product p : products) {
             if (getProductRating(p.getId()) == rating) {
                 result.add(p);
-
             }
-
         }
-
         return result;
-
-
     }
 
-    public void setProductRating(User user, Product product, RatingValue ratingValue){
-        Rating rating=new Rating();
-        ProductUserRating productUserRating=new ProductUserRating();
+    public void setProductRating(User user, Product product, RatingValue ratingValue) {
+        Rating rating = new Rating();
+        ProductUserRating productUserRating = new ProductUserRating();
         productUserRating.setProductId(product.getId());
         productUserRating.setUserId(user.getId());
         rating.setProductUserRating(productUserRating);
         rating.setRatingValue(ratingValue);
         this.ratingRepository.save(rating);
-
     }
 
     public int getProductRating(long id) {
-
         List<Rating> ratings = this.ratingRepository.getRatingsByProductUserRating_ProductId(id);
-
         return getRatingAVG(ratings);
     }
 
@@ -67,9 +57,5 @@ public class RatingService {
         }
 
         return Math.round(total / count);
-
     }
-
-
-
 }

@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
+
 import uned.webtechnologies.shop.utils.NumberUtils;
 
 @Entity
@@ -54,7 +55,7 @@ public class User implements Serializable {
         addRole(role);
     }
 
-    public User(String name, String lastname1, String direction, String  city, int postalCode, String  province, String country, String email, String phone, String username, String password) {
+    public User(String name, String lastname1, String direction, String city, int postalCode, String province, String country, String email, String phone, String username, String password) {
         this.name = name;
         this.lastname1 = lastname1;
         this.direction = direction;
@@ -66,15 +67,32 @@ public class User implements Serializable {
         this.phone = phone;
         this.username = username;
         this.password = password;
-        this.passwordConfirm=password;
+        this.passwordConfirm = password;
+    }
 
+    public User(String name, String lastname1, String direction, String city, int postalCode, String province, String country, String email, String phone, String username, String password, Role role) {
+        this.name = name;
+        this.lastname1 = lastname1;
+        this.direction = direction;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.province = province;
+        this.country = country;
+        this.email = email;
+        this.phone = phone;
+        this.username = username;
+        this.password = password;
+        this.passwordConfirm = password;
+        addRole(role);
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id){ this.id = id;}
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -175,21 +193,23 @@ public class User implements Serializable {
     public Set<PurchaseLine> getPurchaseLines() {
         return purchaseLines;
     }
-    public double getPruchaseTotalByDate(Calendar date){
-        Set<PurchaseLine> purchases=getPurchaseByDate(date);
-        double total=0;
-        for (PurchaseLine p :purchases
-        ) {total=total+p.getPurchasePrice();
+
+    public double getPruchaseTotalByDate(Calendar date) {
+        Set<PurchaseLine> purchases = getPurchaseByDate(date);
+        double total = 0;
+        for (PurchaseLine p : purchases
+        ) {
+            total = total + p.getPurchasePrice();
 
         }
         return NumberUtils.roundDecimals(total);
     }
 
     public Set<PurchaseLine> getPurchaseByDate(Calendar date) {
-        Set<PurchaseLine> purchases=new HashSet<>();
-        for (PurchaseLine p: this.purchaseLines
+        Set<PurchaseLine> purchases = new HashSet<>();
+        for (PurchaseLine p : this.purchaseLines
         ) {
-            if (p.getDate().equals(date)){
+            if (p.getDate().equals(date)) {
                 purchases.add(p);
             }
 
@@ -214,7 +234,6 @@ public class User implements Serializable {
     public String getPasswordConfirm() {
         return passwordConfirm;
     }
-
 
 
     public Set<Role> getRoles() {
@@ -247,6 +266,7 @@ public class User implements Serializable {
         }
         this.roles.add(role);
     }
+
     @Override
     public String toString() {
         return "User{" +

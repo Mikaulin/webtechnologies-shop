@@ -14,7 +14,8 @@
     <title>ElectroHOME | Tienda de electrodomésticos online</title>
 
     <%--DataTABLE--%>
-    <script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" language="javascript"
+            src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery.dataTables.min.css"/>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/shop.css">
@@ -31,8 +32,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/img/logo.png"
-                                              alt="logo ElectroHOME"></a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/"><img
+                src="${pageContext.request.contextPath}/img/logo.png"
+                alt="logo ElectroHOME"></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
                 aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +44,8 @@
             <ul class="nav navbar-nav float-right nav-top">
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/carrito" class="trsn nav-link" title="Comprobar compras">
+                    <a href="${pageContext.request.contextPath}/carrito" class="trsn nav-link"
+                       title="Comprobar compras">
                         <i class="fa fa-shopping-cart"></i>
                         <span id="nav-bar-cart"> <span id="total-products">0</span> Producto(s)</span>
                     </a>
@@ -50,7 +53,8 @@
 
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li>
-                        <a href="${pageContext.request.contextPath}/user/detail/${pageContext.request.userPrincipal.name}" id="account-link" class="trsn nav-link"
+                        <a href="${pageContext.request.contextPath}/user/detail/${pageContext.request.userPrincipal.name}"
+                           id="account-link" class="trsn nav-link"
                            title="Mi cuenta">
                             <i class="fa fa-user fa-fw"></i>
                             <span class="customer-name">Hola, ${pageContext.request.userPrincipal.name}</span>
@@ -98,7 +102,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">B&uacute;squeda</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/categorias">Categor&iacute;a</a>
+                        <a class="dropdown-item"
+                           href="${pageContext.request.contextPath}/categorias">Categor&iacute;a</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/marcas">Marcas</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/valoraciones">Valoraci&oacute;n</a>
                     </div>
@@ -108,7 +113,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Promociones</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown07">
-                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/promociones">Promo Activas</a>
+                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/promociones">Promo
+                            Activas</a>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/promociones/altaPromociones">Alta
                             Promocion</a>
                         <a class="dropdown-item"
@@ -151,16 +157,19 @@
                 </li>
             </ul>
 
-           <div class=" my-2 my-md-0">
-                 <ul class="navbar-nav mr-auto"> <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Documentación</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown08">
-                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/memoria">Memoria</a>
-                        <a class="dropdown-item" href="./${pageContext.request.contextPath}/manual">Manual</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/javadoc/index.html"  target="_blank">Javadoc</a>
-                    </div>
-                </li></ul>
+            <div class=" my-2 my-md-0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Documentación</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown08">
+                            <a class="dropdown-item" href="./${pageContext.request.contextPath}/memoria">Memoria</a>
+                            <a class="dropdown-item" href="./${pageContext.request.contextPath}/manual">Manual</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/javadoc/index.html"
+                               target="_blank">Javadoc</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
 

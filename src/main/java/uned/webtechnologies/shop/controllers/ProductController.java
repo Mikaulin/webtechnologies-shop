@@ -26,7 +26,6 @@ public class ProductController {
         this.brandService = brandService;
         this.promotionService = promotionService;
         this.ratingService = ratingService;
-
     }
 
     @GetMapping("/detalle/{id}")
@@ -68,13 +67,11 @@ public class ProductController {
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
         result.addObject("productPromo", this.productService.getPromotionsByProductId(id));
-        result.addObject("promotionActive", new boolean[this.promotionService.getPromotions().size()]);
         return result;
     }
 
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
     public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
-
         productService.update(id, product);
         return "redirect:/producto/listado";
     }
@@ -89,7 +86,6 @@ public class ProductController {
     public ModelAndView ratinglist(@PathVariable("id") int id) {
         ModelAndView result = new ModelAndView("search/list");
         result.addObject("products", this.ratingService.getProductsByRating(id));
-        result.addObject("rating", this.ratingService);
         return result;
     }
 

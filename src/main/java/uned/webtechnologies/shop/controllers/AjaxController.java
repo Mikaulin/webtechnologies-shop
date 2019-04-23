@@ -21,11 +21,8 @@ import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
-import uned.webtechnologies.shop.services.CartService;
-import uned.webtechnologies.shop.services.ProductService;
+import uned.webtechnologies.shop.services.*;
 
-import uned.webtechnologies.shop.services.RatingService;
-import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.utils.StringUtils;
 
 import javax.validation.Valid;
@@ -37,17 +34,22 @@ public class AjaxController {
     private CartService cartService;
     private ProductService productService;
     private RatingService ratingService;
-    private RatingValueRepository ratingValueRepository;
+    private RatingValueService ratingValueService;
 
     @Autowired
-    public AjaxController(CartService cartService, ProductService productService, UserService userService,RatingService ratingService,RatingValueRepository ratingValueRepository) {
+    public AjaxController(
+            CartService cartService,
+            ProductService productService,
+            UserService userService,
+            RatingService ratingService,
+            RatingValueService ratingValueService
+    ) {
         this.cartService = cartService;
         this.productService = productService;
         this.userService = userService;
-        this.ratingService= ratingService;
-        this.ratingValueRepository=ratingValueRepository;
+        this.ratingService = ratingService;
+        this.ratingValueService = ratingValueService;
     }
-
 
     private ResponseEntity<?> checkErrors(UserDetails activeUser, Errors errors, Output output) {
         if (errors.hasErrors()) {
@@ -58,76 +60,65 @@ public class AjaxController {
             return ResponseEntity.badRequest().body(output);
         }
         return null;
-
     }
-
 
     @PostMapping("/ajax/rating-product")
     public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody RatingInput input, Errors errors) {
-
         RatingOutput output = new RatingOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
         User user = userService.findByUsername(activeUser.getUsername());
         Product product = this.productService.getProduct(input.getProductId());
-        RatingValue ratingValue=this.ratingValueRepository.getOne((long)input.getCount());
-        this.ratingService.setProductRating(user,product,ratingValue);
-
+        RatingValue ratingValue = this.ratingValueService.getOne((long) input.getCount());
+        this.ratingService.setProductRating(user, product, ratingValue);
+        //TODO Product no actualiza su lista de Rating hasta la siguiente petición
+        output.setAverageRating(product.getAverageRating());
+        output.setRatingPercent(product.getRatingPercent());
         output.setMessage("Se ha valorado correctamente.");
         return ResponseEntity.ok(output);
-
     }
+
     @PostMapping("/ajax/add-cart")
     public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
-
         AddToCartOutput output = new AddToCartOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
-        User user = userService.findByUsername(activeUser.getUsername());
         Product product = this.productService.getProduct(input.getProductId());
+        User user = userService.findByUsername(activeUser.getUsername());
         Cart cart = new Cart(input.getCount(), product, user);
         cartService.add(cart);
         output.setTotalProducts((int) cartService.totalProducts(user));
         output.setMessage("Se ha añadido correctamente al carrito.");
         return ResponseEntity.ok(output);
-
     }
 
 
     @PostMapping("/ajax/update-cart")
     public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
-
         UpdateCartOutput output = new UpdateCartOutput();
-
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
-
         long id = (long) input.getCartId();
         Cart cart = this.cartService.get(id);
-
         cart.setCount(input.getCount());
         this.cartService.save(cart);
         output.setMessage("Se ha modificado la cantidad.");
         return ResponseEntity.ok(output);
-
     }
 
     @PostMapping("/ajax/remove-cart")
-    public ResponseEntity<?> removeCartViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
-
+    public ResponseEntity<?> removeCartViaAjax(
+            @AuthenticationPrincipal UserDetails activeUser,
+            @Valid @RequestBody UpdateCartInput input,
+            Errors errors
+    ) {
         UpdateCartOutput output = new UpdateCartOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
-
         Cart cart = this.cartService.get(input.getCartId());
         cartService.removeCart(cart);
-
-
         output.setMessage("Se ha eliminado correctamente del carrito.");
-
         return ResponseEntity.ok(output);
-
-
     }
 
 }
