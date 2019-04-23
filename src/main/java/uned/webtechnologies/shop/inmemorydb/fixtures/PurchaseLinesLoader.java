@@ -12,6 +12,11 @@ import uned.webtechnologies.shop.services.PurchaseLineService;
 import java.util.*;
 import java.text.*;
 
+/**Clase encargada de cargar lineas de compra en el respositorio de Lineas de compra.
+ * @see PurchaseLineService
+ * @see PurchaseLine
+ *
+ */
 
 @Service
 public class PurchaseLinesLoader implements ILoader {
@@ -23,6 +28,16 @@ public class PurchaseLinesLoader implements ILoader {
     private final ProductRepository productRepository;
 
 
+    /**Construye un cargador con los repositorios necesarios para el guardado y la consulta.
+     * @param purchaseLineService Respositorio en el que guardar las lineas de compra
+     * @param userRepository Repositorio del que obtener los usuarios a los que asignar compras
+     * @param productRepository Repositorio del que obtener los productos y poder comprarlos
+     * @throws ParseException
+     * @see UserRepository
+     * @see ProductRepository
+     * @see User
+     * @see Product
+     */
     @Autowired
     public PurchaseLinesLoader(PurchaseLineService purchaseLineService, UserRepository userRepository, ProductRepository productRepository) throws ParseException {
         this.purchaseLineService = purchaseLineService;
@@ -31,6 +46,11 @@ public class PurchaseLinesLoader implements ILoader {
     }
 
 
+    /**
+     * Metodo encargado de obtener los usuarios y los
+     * productos de sus correspondientes respositorios y crear instancias de 5
+     * compras por usuario con fechas de compra aleatorias y guardarlas en el repositorio de lineas de compra
+     */
     @Override
     public void load() {
         {

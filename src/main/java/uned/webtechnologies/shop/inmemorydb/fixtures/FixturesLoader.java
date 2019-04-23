@@ -3,6 +3,9 @@ package uned.webtechnologies.shop.inmemorydb.fixtures;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Clase encargada de llamar a todos los cargadores de ejemplos
+ */
 @Component
 public class FixturesLoader {
     private RoleLoader roleLoader;
@@ -16,7 +19,18 @@ public class FixturesLoader {
     private PurchaseLinesLoader purchaseLinesLoader;
 
 
-
+    /**
+     * Construye el cargador de cargadores
+     * @param roleLoader Cargador de roles
+     * @param userLoader Cargador de usuarios
+     * @param brandLoader Cargador de marcas
+     * @param categoryLoader Cargador de categorias
+     * @param productLoader Cargador de productos
+     * @param ratingValueLoader Cargador de RatingValues
+     * @param ratingLoader Cargador de Ratings
+     * @param promotionLoader Cargador de promociones
+     * @param purchaseLinesLoader Cargador de lineas de compra
+     */
     @Autowired
     public FixturesLoader(
                           RoleLoader roleLoader,
@@ -41,6 +55,10 @@ public class FixturesLoader {
         this.purchaseLinesLoader=purchaseLinesLoader;
     }
 
+    /**
+     * Metodo encargado de llamar al metodo de carga de cada uno de los cargadores.
+     *
+     */
     public void execute() {
         roleLoader.load();
         userLoader.load();
