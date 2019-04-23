@@ -14,7 +14,6 @@ $(document).ready(function () {
 
     });
     $(".product-rating").click(function (event) {
-
         var elementId = $(this).attr('id');
         // extrae del  id="product-rating-${product.id}"}" del boton de la papelera el id del producto
         var productId = parseInt(elementId.substring(15));
@@ -23,8 +22,6 @@ $(document).ready(function () {
         /*  $(document).ajaxStop(function () {
               window.location.reload();
           });*/
-
-
     });
 
 
@@ -34,8 +31,6 @@ $(document).ready(function () {
     });
 
     $(".select-qty").change(function (event) {
-
-
         var elementId = $(this).attr('id');
         // extrae del  id="select-qty-${cart.id}"del selector de cantidad el id del producto
         var productId = parseInt(elementId.substring(11));
@@ -57,7 +52,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: "/ajax/rating-product",
+            url: ctx + "/ajax/rating-product",
             data: JSON.stringify(input),
             dataType: 'json',
             cache: false,
@@ -88,7 +83,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: "/ajax/add-cart",
+            url: ctx + "/ajax/add-cart",
             data: JSON.stringify(input),
             dataType: 'json',
             cache: false,
