@@ -9,6 +9,7 @@ import java.util.*;
 /**
  * Esta clase define un Producto.
  * La clase Producto pretende cubrir los atributos generales que se pueden esperar de cualquier tipo de producto que se quiera vender en una tienda de electrodomesticos.
+ *
  */
 
 @Entity
