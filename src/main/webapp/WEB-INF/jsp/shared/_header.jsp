@@ -140,9 +140,9 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Productos</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown02">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/alta">Alta
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/alta">Alta
                             Producto</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/producto/listado">Listado</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/listado">Listado</a>
                     </div>
                 </li>
 

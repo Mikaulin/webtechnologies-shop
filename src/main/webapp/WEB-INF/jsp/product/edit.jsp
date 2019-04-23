@@ -6,15 +6,12 @@
 
     <mvc:form method="post" modelAttribute="product">
 
-
         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group" role="group" aria-label="First group">
                 <div class="input-group-prepend">
                     <h4 class="mb-3">Editar un producto</h4>
                 </div>
             </div>
-
-
             <div class="input-group">
                 <div class="custom-control custom-checkbox my-1 mr-sm-2">
                     <mvc:checkbox class="custom-control-input" id="customControlInline2" path="featured"

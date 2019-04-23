@@ -64,7 +64,7 @@
                         <a class="btn btn-sm btn-outline-info" role="button"
                            href="${pageContext.request.contextPath}/producto/detalle/${product.id}">View</a>
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/producto/editar/${product.id}">Edit</a>
+                           href="${pageContext.request.contextPath}/admin/producto/editar/${product.id}">Edit</a>
                     </div>
                 </td>
             </tr>

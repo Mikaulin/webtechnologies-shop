@@ -2,13 +2,12 @@
 <%@taglib prefix="mvc" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="../shared/_header.jsp" %>
 
-
 <div class="container">
 
     <h4 class="mb-3">Dar de alta un producto</h4>
     <hr>
 
-    <mvc:form method="post" modelAttribute="product" action="create">
+    <mvc:form method="post" modelAttribute="product" action="alta">
 
         <div class="row">
 
