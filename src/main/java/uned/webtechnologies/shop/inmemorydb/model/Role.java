@@ -6,6 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Set;
 
+/**
+ * Esta clase define un Role
+ */
+
 @Entity
 public class Role {
     @Id
@@ -16,6 +20,7 @@ public class Role {
 
     public Role() {
     }
+
 
     public Role(String name) {
         this.name = name;

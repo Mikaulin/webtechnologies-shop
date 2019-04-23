@@ -145,7 +145,7 @@ public class Promotion {
     /**Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
-     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>ar
+     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
     public Calendar getStartDate() {
         return startDate;
@@ -153,7 +153,7 @@ public class Promotion {
 
     /** Define la fecha de inicio de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
      * @param startDate Calendar con la fecha de inicio de la promoción en formato ("yyyy-MM-dd")
-     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>@see Calendar
+     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
     public void setStartDate(Calendar startDate) {
         this.startDate = startDate;
