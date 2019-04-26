@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    //Comprobar el estaodo del carrito
+
+
     $(".cart-product-remove").click(function (event) {
 
         var elementId = $(this).attr('id');
@@ -135,7 +139,6 @@ $(document).ready(function () {
 
     }
 
-
     function removeFromCart(cartId) {
 
         var input = {};
@@ -164,7 +167,24 @@ $(document).ready(function () {
             }
         });
 
-
     }
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: ctx + "/ajax/current-cart",
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            $("#total-products").text(data["totalProducts"]);
+        },
+        error: function (e) {
+            var json = JSON.parse(e.responseText);
+            $.alert(json["message"], {
+                type: 'danger',
+            });
+        }
+    });
 
 });

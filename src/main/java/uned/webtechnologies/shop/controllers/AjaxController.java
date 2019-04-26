@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import uned.webtechnologies.shop.controllers.input.AddCartInput;
 import uned.webtechnologies.shop.controllers.input.RatingInput;
 import uned.webtechnologies.shop.controllers.input.UpdateCartInput;
-import uned.webtechnologies.shop.controllers.output.AddToCartOutput;
-import uned.webtechnologies.shop.controllers.output.Output;
-import uned.webtechnologies.shop.controllers.output.RatingOutput;
-import uned.webtechnologies.shop.controllers.output.UpdateCartOutput;
+import uned.webtechnologies.shop.controllers.output.*;
 import uned.webtechnologies.shop.inmemorydb.model.Cart;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
@@ -59,7 +56,7 @@ public class AjaxController {
     }
 
     @PostMapping("/ajax/rating-product")
-    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody RatingInput input, Errors errors) {
+    public ResponseEntity<?> addUserRating(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody RatingInput input, Errors errors) {
         RatingOutput output = new RatingOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
@@ -74,8 +71,24 @@ public class AjaxController {
         return ResponseEntity.ok(output);
     }
 
+    @PostMapping("/ajax/current-cart")
+    public ResponseEntity<?> getUserCurrentCart(@AuthenticationPrincipal UserDetails activeUser) {
+        UserCartOutput output = new UserCartOutput();
+        if(activeUser != null) {
+            User user = userService.findByUsername(activeUser.getUsername());
+            output.setTotalProducts((int) cartService.totalProducts(user));
+            output.setMessage("Petición correcta.");
+            return ResponseEntity.ok(output);
+        } else {
+            output.setTotalProducts(0);
+            output.setMessage("Petición correcta.");
+            return ResponseEntity.ok(output);
+        }
+
+    }
+
     @PostMapping("/ajax/add-cart")
-    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
+    public ResponseEntity<?> addToUserCart(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody AddCartInput input, Errors errors) {
         AddToCartOutput output = new AddToCartOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;
@@ -88,9 +101,8 @@ public class AjaxController {
         return ResponseEntity.ok(output);
     }
 
-
     @PostMapping("/ajax/update-cart")
-    public ResponseEntity<?> getSearchResultViaAjax(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
+    public ResponseEntity<?> updateUserCart(@AuthenticationPrincipal UserDetails activeUser, @Valid @RequestBody UpdateCartInput input, Errors errors) {
         UpdateCartOutput output = new UpdateCartOutput();
         ResponseEntity<?> response = checkErrors(activeUser, errors, output);
         if (response != null) return response;

@@ -294,9 +294,6 @@ public class User implements Serializable {
                 ", passwordConfirm='" + passwordConfirm + '\'' +
                 ", username='" + username + '\'' +
                 ", subscribed=" + subscribed +
-                ", carts=" + carts +
-                ", purchaseLines=" + purchaseLines +
-                ", roles=" + roles +
                 '}';
     }
 }
