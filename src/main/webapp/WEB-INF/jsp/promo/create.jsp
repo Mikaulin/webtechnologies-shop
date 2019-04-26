@@ -6,13 +6,12 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@ include file="../shared/_header.jsp" %>
 
-
 <div class="container">
 
     <div class="row">
         <div class="col-md-8 order-md-1">
 
-            <form:form method="POST" modelAttribute="promotionForm" class="form-signin" action="create">
+            <form:form method="POST" modelAttribute="promotionForm" class="form-signin" action="crear">
 
                 <h4 class="mb-3">Dar de alta una promoci&oacute;n</h4>
                 <hr>
@@ -21,8 +20,8 @@
                     <label for="name">Nombre</label>
                     <spring:bind path="name">
                         <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="name" class="form-control" placeholder="" />
-                            <form:errors path="name" />
+                            <form:input type="text" path="name" class="form-control" placeholder=""/>
+                            <form:errors path="name"/>
                         </div>
                     </spring:bind>
                 </div>
@@ -31,8 +30,8 @@
                     <label for="description">Descripci&oacute;n</label>
                     <spring:bind path="description">
                         <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="description" class="form-control" placeholder="" />
-                            <form:errors path="description" />
+                            <form:input type="text" path="description" class="form-control" placeholder=""/>
+                            <form:errors path="description"/>
                         </div>
                     </spring:bind>
                 </div>
@@ -42,8 +41,8 @@
                         <label for="startDate">Fecha Inicio</label>
                         <spring:bind path="startDate">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="startDate" class="form-control" placeholder="" />
-                                <form:errors path="startDate" />
+                                <form:input type="date" path="startDate" class="form-control" placeholder=""/>
+                                <form:errors path="startDate"/>
                             </div>
                         </spring:bind>
                             <%-- <mvc:label path="startDate">Fecha Inicio</mvc:label>
@@ -55,8 +54,8 @@
                         <label for="endDate">Fecha Fin</label>
                         <spring:bind path="endDate">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="endDate" class="form-control" placeholder="" />
-                                <form:errors path="endDate" />
+                                <form:input type="date" path="endDate" class="form-control" placeholder=""/>
+                                <form:errors path="endDate"/>
                             </div>
                         </spring:bind>
                             <%-- <mvc:label path="endDate">Fecha Fin</mvc:label>&ndash;%&gt;
@@ -69,8 +68,8 @@
                         <label for="discount">Descuento</label>
                         <spring:bind path="discount">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="text" path="discount" class="form-control" placeholder="" />
-                                <form:errors path="discount" />
+                                <form:input type="text" path="discount" class="form-control" placeholder=""/>
+                                <form:errors path="discount"/>
                             </div>
                         </spring:bind>
                             <%-- <mvc:label path="discount">Descuento</mvc:label>
@@ -105,7 +104,6 @@
         </div>
     </div>
 </div>
-
 
 <%@ include file="../shared/_js.jsp" %>
 <%@ include file="../shared/_footer.jsp" %>
