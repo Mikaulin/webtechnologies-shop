@@ -7,9 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
-import uned.webtechnologies.shop.services.*;
+import uned.webtechnologies.shop.services.CartService;
+import uned.webtechnologies.shop.services.PurchaseLineService;
+import uned.webtechnologies.shop.services.UserService;
 
 @Controller
 @RequestMapping("/compra")

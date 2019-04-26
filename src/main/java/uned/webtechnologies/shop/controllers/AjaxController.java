@@ -3,7 +3,6 @@ package uned.webtechnologies.shop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +19,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Cart;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.model.User;
-import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
 import uned.webtechnologies.shop.services.*;
-
 import uned.webtechnologies.shop.utils.StringUtils;
 
 import javax.validation.Valid;

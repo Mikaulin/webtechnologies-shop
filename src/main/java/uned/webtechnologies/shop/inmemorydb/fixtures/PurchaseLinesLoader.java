@@ -4,13 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uned.webtechnologies.shop.inmemorydb.model.*;
+import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
+import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 
-import java.util.*;
-import java.text.*;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 
 @Service

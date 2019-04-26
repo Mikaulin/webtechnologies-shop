@@ -108,16 +108,6 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Ventas</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown06">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/fecha">Informes</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/listado">Listado</a>
-
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Clientes</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown03">
@@ -146,6 +136,16 @@
                                 Promocion</a>
                             <a class="dropdown-item"
                                href="${pageContext.request.contextPath}/admin/promociones/listado">Listado</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Ventas</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown06">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/fecha">Informes</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/listado">Listado</a>
+
                         </div>
                     </li>
 

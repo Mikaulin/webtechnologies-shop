@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.ProductService;
-import uned.webtechnologies.shop.services.PurchaseLineService;
 
 @Controller
 @RequestMapping

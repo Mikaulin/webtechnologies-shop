@@ -1,7 +1,6 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.transaction.annotation.Transactional;
 import uned.webtechnologies.shop.utils.NumberUtils;
 
 import javax.persistence.*;

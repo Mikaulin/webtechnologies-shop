@@ -1,14 +1,13 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
 import org.springframework.data.annotation.Transient;
+import uned.webtechnologies.shop.utils.NumberUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
-
-import uned.webtechnologies.shop.utils.NumberUtils;
 
 @Entity
 public class User implements Serializable {

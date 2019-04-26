@@ -8,9 +8,9 @@ import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.PurchaseLineRepository;
 
-
 import javax.transaction.Transactional;
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @Service

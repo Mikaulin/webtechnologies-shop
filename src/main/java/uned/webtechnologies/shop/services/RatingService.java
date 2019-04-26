@@ -7,7 +7,6 @@ import uned.webtechnologies.shop.inmemorydb.model.Rating;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.model.persistense.ProductUserRating;
-import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingRepository;
 
 import java.util.ArrayList;
