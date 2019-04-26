@@ -34,20 +34,8 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-
-                               <%-- <label for="fecha"></label>
-                                <spring:bind path="fecha">
-                                    <div class="form-group ${status.error ? 'has-error' : ''}">
-                                        <form:input type="date" path="fecha" class="form-control" placeholder="" />
-                                        <form:errors path="fecha" />
-                                    </div>
-                                </spring:bind>--%>
-
-
                                 <input  type="date" class="form-control" name ="date" id="date" value="" required="" />
 
-
-                                <%--<form:input type="date" path="date" class="form-control" value="" />--%>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <button class="btn btn-lg btn-success btn-sm" type="submit">Generar Informe</button>

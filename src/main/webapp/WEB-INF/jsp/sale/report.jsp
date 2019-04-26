@@ -24,7 +24,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/ventas/fecha">
+            <a href="${pageContext.request.contextPath}/admin/ventas/fecha">
                 <button type="button" class="btn btn-success btn-sm">Nuevo Informe</button>
             </a>
         </div>

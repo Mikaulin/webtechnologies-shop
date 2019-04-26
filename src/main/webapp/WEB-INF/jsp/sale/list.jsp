@@ -2,11 +2,7 @@
 
 <%@ include file="../shared/_header.jsp" %>
 
-<%--Script DataTABLE--%>
-<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
-
 <div class="container">
-
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group" aria-label="First group">
             <div class="input-group-prepend">
@@ -15,7 +11,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/ventas/fecha">
+            <a href="${pageContext.request.contextPath}/admin/ventas/fecha">
                 <button type="button" class="btn btn-success btn-sm">Informes</button>
             </a>
         </div>
