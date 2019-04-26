@@ -26,10 +26,12 @@ public class PromotionService {
 
     public Promotion getPromotion(long id){return this.promotionRepository.getOne(id);}
 
+
+
     public void save(Promotion promotion) {promotionRepository.save(promotion); }
 
     public List<Promotion> getActivePromotions(){
-        List<Promotion> valids=new ArrayList<>();
+        List<Promotion> valids = new ArrayList<>();
         List<Promotion> promos=this.promotionRepository.findAll();
         for (Promotion p:promos) {
             if(p.isActive()){
@@ -39,6 +41,16 @@ public class PromotionService {
         }
 
         return valids;
+    }
+
+    public void update(long id, Promotion promotion) {
+        Promotion updatedPromotion = getPromotion(id);
+        updatedPromotion.setName(promotion.getName());
+        updatedPromotion.setDescription(promotion.getDescription());
+        updatedPromotion.setStartDate(promotion.getStartDate());
+        updatedPromotion.setEndDate(promotion.getEndDate());
+        updatedPromotion.setDiscount(promotion.getDiscount());
+        save(updatedPromotion);
     }
 
 }

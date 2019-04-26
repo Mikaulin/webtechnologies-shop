@@ -1,6 +1,6 @@
 package uned.webtechnologies.shop.controllers.output;
 
-public class AddToCartOutput {
+public class AddToCartOutput implements Output{
     private String message;
     private int totalProducts;
 

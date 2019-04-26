@@ -1,5 +1,7 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import uned.webtechnologies.shop.utils.NumberUtils;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -20,15 +22,15 @@ public class Product implements Serializable {
     private double depth;
     private boolean featured;
     private boolean deleted;
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_BRAND")
     private Brand brand;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_CATEGORY")
     private Category category;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Promotion> promotions;
 
     @OneToMany(cascade = CascadeType.DETACH)
@@ -174,7 +176,8 @@ public class Product implements Serializable {
     }
 
     public double getFinalPrice() {
-        return this.price - (price * (getDiscount() / 100));
+
+        return  NumberUtils.roundDecimals(this.price - (price * (getDiscount() / 100)));
     }
 
     public double getDif() {

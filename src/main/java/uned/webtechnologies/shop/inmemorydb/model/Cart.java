@@ -1,5 +1,7 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import uned.webtechnologies.shop.utils.NumberUtils;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,13 +17,50 @@ public class Cart {
     @ManyToOne
     @JoinColumn(name="ID_USER")
     private User user;
+    private double unitPrice;
+    @Transient
+    private double cartPrice;
+
+    @PrePersist
+    @PostPersist
+    @PostLoad
+    @PostUpdate
+    private void calculatePrices(){
+
+
+        setUnitPrice(getProduct().getFinalPrice());
+        setCartPrice(NumberUtils.roundDecimals(getUnitPrice()*getCount()));
+
+    }
 
     public Cart(){}
+
+
 
     public Cart(int count, Product product, User user) {
         this.count = count;
         this.product = product;
         this.user=user;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = NumberUtils.roundDecimals(unitPrice);
+    }
+
+    public double getCartPrice() {
+        return cartPrice;
+    }
+
+    public void setCartPrice(double cartPrice) {
+        this.cartPrice = NumberUtils.roundDecimals(cartPrice);
     }
 
     public long getId() {

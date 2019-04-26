@@ -26,18 +26,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/user/registration").permitAll()
+                .antMatchers("/resources/**", "/usuarios/registro").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 //TODO Hasta que no decidamos las URLs "privadas", dejamos acceso a cualquier url.
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/user/login")
+                .loginPage("/usuarios/login")
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/error/acceso-denegado");
 
         http.csrf().disable();
         http.headers().frameOptions().disable();

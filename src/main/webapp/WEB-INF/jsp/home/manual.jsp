@@ -1,16 +1,11 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="../shared/_header.jsp" %>
 
 <div class="container">
 
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
 
-            <div class="sidebar-sticky">
-                <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                    <span>MANUAL</span>
-                </h5>
-            </div>
-        </nav>
+        <%@ include file="../shared/_doc.jsp" %>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 

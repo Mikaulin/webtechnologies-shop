@@ -1,6 +1,8 @@
 package uned.webtechnologies.shop.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +14,7 @@ import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.validator.UserValidator;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/usuarios")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -24,23 +26,20 @@ public class UserController {
     private UserValidator userValidator;
 
 
-    @GetMapping("/registration")
+    @GetMapping("/registro")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
         return "auth/register";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/registro")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "auth/register";
         }
-
         userService.save(userForm);
-
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-
         return "redirect:/";
     }
 
@@ -50,34 +49,38 @@ public class UserController {
             model.addAttribute("error", "Tus datos son incorrectos.");
 
         if (logout != null)
-            model.addAttribute("message", "Te has conectado correctamente..");
+            model.addAttribute("message", "Te has desconectado correctamente.");
 
         return "auth/login";
     }
 
-    @GetMapping("/usuarios")
-    public ModelAndView listUser() {
-        ModelAndView result = new ModelAndView("user/list");
-        result.addObject("users", this.userService.getUser());
-        return result;
-    }
-
     @GetMapping("/baja")
-    public ModelAndView deleteUser() {
+    public ModelAndView bajaUser(@AuthenticationPrincipal UserDetails activeUser){
+        User user = userService.findByUsername(activeUser.getUsername());
         ModelAndView result = new ModelAndView("user/baja");
-        result.addObject("user", this.userService.getUser());
+        result.addObject("bajaUser", user);
         return result;
     }
 
-    @GetMapping("/editar/{username}")
-    public ModelAndView editUser(@PathVariable("username")String username){
-        ModelAndView result = new ModelAndView("user/edit");
-        result.addObject("editUser", this.userService.findByUsername(username));
-        return result;
+    @PostMapping("/baja")
+    public String deleteUser(@AuthenticationPrincipal UserDetails activeUser){
+        User user = this.userService.findByUsername(activeUser.getUsername());
+        if(user != null) {
+            this.userService.delete(user);
+        }
+        return "redirect:/logout";
     }
 
     @GetMapping({ "/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
+
+    @GetMapping("/detalles/{username}")
+    public ModelAndView detailUser(@PathVariable("username")String username){
+        ModelAndView result = new ModelAndView("user/detail");
+        result.addObject("detailUser", this.userService.findByUsername(username));
+        return result;
+    }
+
 }

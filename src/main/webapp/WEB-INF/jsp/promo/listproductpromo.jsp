@@ -21,7 +21,6 @@
                             </a>
                         </li>
                     </ul>
-
                 </c:forEach>
             </div>
         </nav>

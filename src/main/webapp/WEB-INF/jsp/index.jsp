@@ -1,5 +1,4 @@
-<%@page contentType="text/html" %>
-<%@page pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -25,7 +24,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
-            <c:if test="${product.id > 0 and product.id < 5 and product.count > 0}">
+            <c:if test="${product.id <= products.size()/2}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
                         <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'
@@ -78,7 +77,8 @@
                     <p></p>
                     <p class="card-text mb-auto">V&aacute;lido desde el 28 de febrero al 6 de marzo en todos
                         los electrodom&eacute;sticos TEKA. Te descontamos el importe equivalente al IVA.</p>
-                    <a href="${pageContext.request.contextPath}/promociones">Continuar leyendo</a>
+                    <a class="btn btn-danger" href="./${pageContext.request.contextPath}/promociones">Continua leyendo
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block"
                      src="${pageContext.request.contextPath}/img/servicios01.jpg" alt="Card image cap">
@@ -95,7 +95,11 @@
                     <p></p>
                     <p class="card-text mb-auto">Servicio de Entregas a Domicilio. Disponible para todos
                         aquellos productos que no disfrutan de entrega a domicilio gratuita.</p>
-                    <a href="${pageContext.request.contextPath}/servicios">Continuar leyendo</a>
+
+                    <a class="btn btn-danger" href="./${pageContext.request.contextPath}/servicios">Continua leyendo
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+
+
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block"
                      src="${pageContext.request.contextPath}/img/servicios02.jpg" alt="">
@@ -108,7 +112,7 @@
 
     <div class="row">
         <c:forEach items="${featuredProducts}" var="product">
-            <c:if test="${product.id > 4 and product.id < 9 and product.count > 0}">
+            <c:if test="${product.id >= products.size()/2 + products.size()%2}">
                 <div class='col-md-3'>
                     <div class='card mb-3 box-shadow'>
                         <img class='card-img-top' src='${pageContext.request.contextPath}/electro/${product.photo}'

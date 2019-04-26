@@ -27,9 +27,11 @@ public class Promotion {
 
     @PostLoad
     private void postLoad(){
-        Date today=new Date();
+        Date today = new Date();
         today.getTime();
         if((today.after(startDate.getTime()))&&(today.before(endDate.getTime()))){
+            this.setActive(true);
+        }else if((today.before(startDate.getTime()))&&(today.before(endDate.getTime()))){
             this.setActive(true);
         }else{
             this.setActive(false);

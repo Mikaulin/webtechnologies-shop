@@ -1,7 +1,11 @@
 package uned.webtechnologies.shop.inmemorydb.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import uned.webtechnologies.shop.utils.NumberUtils;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 @Entity
 public class PurchaseLine {
@@ -9,7 +13,9 @@ public class PurchaseLine {
     @Id
     @GeneratedValue
     private long id;
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Calendar date;
     private double unitPrice;
     private double purchasePrice;
     private int count;
@@ -23,9 +29,16 @@ public class PurchaseLine {
     public PurchaseLine(){}
 
     public PurchaseLine(Cart cart) {
-        date=new Date();
+        date = new GregorianCalendar();
         this.count = cart.getCount();
-        this.product=cart.getProduct();
+        this.product = cart.getProduct();
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getId() {
@@ -36,11 +49,11 @@ public class PurchaseLine {
         return user;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 
@@ -49,7 +62,7 @@ public class PurchaseLine {
     }
 
     public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
+        this.unitPrice = NumberUtils.roundDecimals(unitPrice);
     }
 
     public double getPurchasePrice() {
@@ -57,7 +70,7 @@ public class PurchaseLine {
     }
 
     public void setPurchasePrice(double purchasePrice) {
-        this.purchasePrice = purchasePrice;
+        this.purchasePrice = NumberUtils.roundDecimals(purchasePrice);
     }
 
     public int getCount() {
@@ -84,6 +97,8 @@ public class PurchaseLine {
                 ", unitPrice=" + unitPrice +
                 ", purchasePrice=" + purchasePrice +
                 ", count=" + count +
+                ", product=" + product +
+                ", user=" + user +
                 '}';
     }
 }

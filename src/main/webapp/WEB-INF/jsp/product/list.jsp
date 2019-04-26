@@ -1,10 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="../shared/_header.jsp" %>
 
-<%--Script DataTABLE--%>
-<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
-
-
 <div class="container">
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
@@ -15,7 +11,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/producto/alta">
+            <a href="${pageContext.request.contextPath}/admin/producto/alta">
                 <button type="button" class="btn btn-success btn-sm">Añadir Producto</button>
             </a>
         </div>
@@ -64,7 +60,7 @@
                         <a class="btn btn-sm btn-outline-info" role="button"
                            href="${pageContext.request.contextPath}/producto/detalle/${product.id}">View</a>
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/producto/editar/${product.id}">Edit</a>
+                           href="${pageContext.request.contextPath}/admin/producto/editar/${product.id}">Edit</a>
                     </div>
                 </td>
             </tr>
@@ -79,4 +75,6 @@
 <p>&nbsp;</p>
 
 <%@ include file="../shared/_js.jsp" %>
+<%--Script DataTABLE--%>
+<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
 <%@ include file="../shared/_footer.jsp" %>

@@ -18,12 +18,13 @@ public class HomeController {
     @Autowired
     public HomeController(ProductService productService) {
         this.productService = productService;
-    }
 
+    }
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
         result.addObject("featuredProducts", this.productService.getFeaturedProducts());
+        result.addObject("products", this.productService.getProducts());
         return result;
     }
 
@@ -32,12 +33,10 @@ public class HomeController {
         return "home/services";
     }
 
-
     @GetMapping("/memoria")
     public String memory(Model model) {
         return "home/memoria";
     }
-
 
     @GetMapping("/manual")
     public String manual(Model model) {

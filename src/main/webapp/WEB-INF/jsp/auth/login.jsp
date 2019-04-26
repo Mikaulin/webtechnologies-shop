@@ -6,33 +6,44 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@ include file="../shared/_header.jsp" %>
 
-
 <div class="container">
 
-    <h4>Iniciar sesi&oacute;n en ElectroHOME</h4>
-    <hr>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+            <div class="input-group-prepend">
+                <h4 class="mb-3">Iniciar sesión en ElectroHOME</h4>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <h4><span class="badge badge-warning">${message}</span></h4>
+            <h4><span class="badge badge-warning">${error}</span></h4>
+        </div>
+    </div>
+
+    <div class="border-top my-3"></div>
+
+    <br>
 
     <div class="row">
         <div class="col-md-8 order-md-1">
 
-            <form method="POST" action="${contextPath}/user/login" class="form-signin">
+            <form method="POST" action="${contextPath}/usuarios/login" class="form-signin">
 
                 <div class="row">
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
-                        <span>${message}</span>
-                        <input name="username" type="text" class="form-control" placeholder="Usuario"
-                               autofocus="true"/>
+                        <input name="username" type="text" class="form-control" placeholder="Usuario" />
                     </div>
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
                         <input name="password" type="password" class="form-control" placeholder="Contraseña"/>
-                        <span>${error}</span>
+
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </div>
                 </div>
 
                 <div class="checkbox mb-3">
                     <label>
-                        <a href="#" class="text-danger">Has olvidado tu contrase&ntilde;a ?</a>
+                        <a href="#" class="text-danger">¿Has olvidado tu contrase&ntilde;a?</a>
                     </label>
                 </div>
 
@@ -54,7 +65,7 @@
     <div class="jumbotron mt-3">
         <h4>Si no tienes una cuenta puedes crearla ahora</h4>
         <p class="lead">Y empezar&aacute;s a disfrutar de todas las ventajas que te ofrece ElectroHOME</p>
-        <a class="btn btn-outline-danger" href="${contextPath}/user/registration" role="button">Crear Cuenta</a>
+        <a class="btn btn-outline-danger" href="${contextPath}/usuarios/registro" role="button">Crear Cuenta</a>
     </div>
 
 </div>

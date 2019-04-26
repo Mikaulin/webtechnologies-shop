@@ -20,9 +20,7 @@
                             </a>
                         </li>
                     </ul>
-
                 </c:forEach>
-
             </div>
         </nav>
 
@@ -67,14 +65,13 @@
                         </div>
                     </div>
 
-
                     <p></p>
 
                     <div class="card mb-4 shadow-sm">
                         <img class="card-img-right flex-auto d-none d-md-block"
                              src="${pageContext.request.contextPath}/img/boschPromo.jpg" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">Lava como siempre, seca como nnunca</h5>
+                            <h5 class="card-title">Lava como siempre, seca como nunca</h5>
                             <p class="card-text">Lavadoras con funci&oacute;n secado de Bosch.</p>
                         </div>
                     </div>
