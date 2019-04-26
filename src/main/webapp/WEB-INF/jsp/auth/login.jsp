@@ -6,7 +6,6 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%@ include file="../shared/_header.jsp" %>
 
-
 <div class="container">
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
@@ -29,7 +28,7 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
 
-            <form method="POST" action="${contextPath}/user/login" class="form-signin">
+            <form method="POST" action="${contextPath}/usuarios/login" class="form-signin">
 
                 <div class="row">
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
@@ -44,7 +43,7 @@
 
                 <div class="checkbox mb-3">
                     <label>
-                        <a href="#" class="text-danger">Has olvidado tu contrase&ntilde;a ?</a>
+                        <a href="#" class="text-danger">¿Has olvidado tu contrase&ntilde;a?</a>
                     </label>
                 </div>
 
@@ -66,7 +65,7 @@
     <div class="jumbotron mt-3">
         <h4>Si no tienes una cuenta puedes crearla ahora</h4>
         <p class="lead">Y empezar&aacute;s a disfrutar de todas las ventajas que te ofrece ElectroHOME</p>
-        <a class="btn btn-outline-danger" href="${contextPath}/user/registration" role="button">Crear Cuenta</a>
+        <a class="btn btn-outline-danger" href="${contextPath}/usuarios/registro" role="button">Crear Cuenta</a>
     </div>
 
 </div>

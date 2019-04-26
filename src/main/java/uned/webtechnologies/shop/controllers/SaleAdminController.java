@@ -14,7 +14,7 @@ import java.util.*;
 
 @Secured("ROLE_ADMIN")
 @Controller
-@RequestMapping("/ventas")
+@RequestMapping("/admin/ventas")
 public class SaleAdminController {
 
     private UserService userService;

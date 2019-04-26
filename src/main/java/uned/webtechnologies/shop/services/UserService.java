@@ -18,8 +18,8 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
-    public List<User> getUser() {
-        return this.userRepository.findAll();
+    public List<User> getUsers() {
+        return this.userRepository.findByDeletedFalse();
     }
 
     public User getUser(long id){
@@ -29,20 +29,12 @@ public class UserService {
     public void save(User user) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-/*        user.setName(user.getName());
-        user.setLastname1(user.getLastname1());
-        user.setDirection(user.getDirection());
-        user.setPostalCode(user.getPostalCode());
-        user.setCity(user.getCity());
-        user.setProvince(user.getProvince());
-        user.setCountry(user.getCountry());
-        user.setPhone(user.getPhone());*/
         user.setRoles(new HashSet<>(roleRepository.findAll()));
         userRepository.save(user);
     }
 
     public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+        return userRepository.findByUsernameAndDeletedFalse(username);
     }
 
     public void update(String username, User user) {
@@ -57,5 +49,10 @@ public class UserService {
         updatedUser.setPhone(user.getPhone());
         updatedUser.setPostalCode(user.getPostalCode());
         save(updatedUser);
+    }
+
+    public void delete(User user) {
+        user.setDeleted(true);
+        this.userRepository.save(user);
     }
 }

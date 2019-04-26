@@ -40,6 +40,8 @@ public class User implements Serializable {
     @ManyToMany
     private Set<Role> roles;
 
+    private boolean deleted = false;
+
     public User() {
     }
 
@@ -257,6 +259,14 @@ public class User implements Serializable {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     public void addRole(Role role) {

@@ -45,7 +45,7 @@
 
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li>
-                        <a href="${pageContext.request.contextPath}/user/detail/${pageContext.request.userPrincipal.name}"
+                        <a href="${pageContext.request.contextPath}/usuarios/detalles/${pageContext.request.userPrincipal.name}"
                            id="account-link" class="trsn nav-link"
                            title="Mi cuenta">
                             <i class="fa fa-user fa-fw"></i>
@@ -66,7 +66,7 @@
 
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li>
-                        <a href="${pageContext.request.contextPath}/user/login" id="login-link" class="trsn nav-link"
+                        <a href="${pageContext.request.contextPath}/usuarios/login" id="login-link" class="trsn nav-link"
                            title="Iniciar sesión">
                             <i class="fa fa-user fa-fw"></i>
                             <span class="customer-name">&Aacute;rea de cliente </span>
@@ -107,17 +107,17 @@
                     <a class="nav-link" href="${pageContext.request.contextPath}/servicios">Servicios</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Clientes</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/user/registration">Alta
-                            Usuario</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/user/usuarios">Listado</a>
-                    </div>
-                </li>
-
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Clientes</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/usuarios/alta">Alta
+                                Usuario</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/usuarios/listado">Listado</a>
+                        </div>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Productos</a>
@@ -143,8 +143,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown06" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Ventas</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown06">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/fecha">Informes</a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/ventas/listado">Listado</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ventas/fecha">Informes</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ventas/listado">Listado</a>
 
                         </div>
                     </li>

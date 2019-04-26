@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/user/registration">
+            <a href="${pageContext.request.contextPath}/admin/usuarios/alta">
                 <button type="button" class="btn btn-success btn-sm">Añadir Cliente</button>
             </a>
         </div>
@@ -59,11 +59,11 @@
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-info" role="button"
-                           href="${pageContext.request.contextPath}/user/editar/${user.username}">Editar</a>
+                           href="${pageContext.request.contextPath}/admin/usuarios/editar/${user.username}">Editar</a>
                         <a class="btn btn-sm btn-outline-secondary" role="button"
-                           href="${pageContext.request.contextPath}/ventas/historial/${user.username}">H. Ventas</a>
+                           href="${pageContext.request.contextPath}/admin/ventas/historial/${user.username}">Ventas</a>
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/user/delete/${user.username}">Baja</a>
+                           href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
                     </div>
                 </td>
             </tr>

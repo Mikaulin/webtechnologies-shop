@@ -11,7 +11,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/producto/alta">
+            <a href="${pageContext.request.contextPath}/admin/producto/alta">
                 <button type="button" class="btn btn-success btn-sm">Añadir Producto</button>
             </a>
         </div>

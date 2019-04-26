@@ -11,13 +11,13 @@
 
     <p>&nbsp;</p>
 
-    <mvc:form method="POST" modelAttribute="bajaUser" action="${contextPath}/${bajaUser.username}"
+    <mvc:form method="POST" modelAttribute="bajaUser" action="${contextPath}/usuarios/baja"
               commandName="bajaUser" class="form-signin">
 
         <div class="row">
 
             <div class="col-md-8 order-md-1">
-                <h4><b>Desea eliminar su cuenta, ${bajaUser.name} ${bajaUser.lastname1} ?</b></h4>
+                <h4><b>¿Desea eliminar su cuenta, ${bajaUser.name} ${bajaUser.lastname1} ?</b></h4>
             </div>
 
             <div class="col-md-4 order-md-2 mb-4">
@@ -28,10 +28,6 @@
     </mvc:form>
 
     <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-
-
     <div class="jumbotron mt-3">
         <h4>Le recordamos que ...</h4>
         <p class="lead">Una vez dado de baja, le recordamos que ya no podrá acceder a todos los servicios que tenía con

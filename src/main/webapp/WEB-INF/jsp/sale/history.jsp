@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/user/usuarios">
+            <a href="${pageContext.request.contextPath}/admin/usuarios/listado">
                 <button type="button" class="btn btn-success btn-sm">Listado clientes</button>
             </a>
         </div>

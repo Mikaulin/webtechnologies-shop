@@ -13,7 +13,7 @@
         </div>
 
         <div class="input-group">
-            <a href="${pageContext.request.contextPath}/user/baja/${pageContext.request.userPrincipal.name}"
+            <a href="${pageContext.request.contextPath}/usuarios/baja"
                title="Darme de baja">
                 <button type="button" class="btn btn-danger btn-sm">Darme de baja</button>
             </a>
