@@ -50,7 +50,7 @@
                     <div class="btn-group">
 
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/admin/promociones/editar/${promo.id}">Edit</a>
+                           href="${pageContext.request.contextPath}/admin/promociones/editar/${promo.id}">Editar</a>
                     </div>
                 </td>
             </tr>
