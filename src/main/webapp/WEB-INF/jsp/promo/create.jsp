@@ -18,62 +18,28 @@
 
                 <div class="mb-3">
                     <label for="name">Nombre</label>
-                    <spring:bind path="name">
-                        <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="name" class="form-control" placeholder=""/>
-                            <form:errors path="name"/>
-                        </div>
-                    </spring:bind>
+                    <input type="text" id="name" name="name" class="form-control" required=""/>
                 </div>
 
                 <div class="mb-3">
                     <label for="description">Descripci&oacute;n</label>
-                    <spring:bind path="description">
-                        <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="text" path="description" class="form-control" placeholder=""/>
-                            <form:errors path="description"/>
-                        </div>
-                    </spring:bind>
+                    <input type="text" id="description" name="description" class="form-control" required=""/>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="startDate">Fecha Inicio</label>
-                        <spring:bind path="startDate">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="startDate" class="form-control" placeholder=""/>
-                                <form:errors path="startDate"/>
-                            </div>
-                        </spring:bind>
-                            <%-- <mvc:label path="startDate">Fecha Inicio</mvc:label>
-                             <mvc:input id="startDate" path="startDate" class="form-control" value="" />--%>
-
+                        <input type="date" id="startDate" name="startDate" class="form-control" value="" required=""/>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label for="endDate">Fecha Fin</label>
-                        <spring:bind path="endDate">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="date" path="endDate" class="form-control" placeholder=""/>
-                                <form:errors path="endDate"/>
-                            </div>
-                        </spring:bind>
-                            <%-- <mvc:label path="endDate">Fecha Fin</mvc:label>&ndash;%&gt;
-                             &lt;%&ndash;<mvc:input id="endDate" path="endDate" class="form-control" value="" />--%>
-
+                        <input type="date" id="endDate" name="endDate" class="form-control" value="" required=""/>
                     </div>
 
                     <div class="col-md-4 mb-3">
-
                         <label for="discount">Descuento</label>
-                        <spring:bind path="discount">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
-                                <form:input type="text" path="discount" class="form-control" placeholder=""/>
-                                <form:errors path="discount"/>
-                            </div>
-                        </spring:bind>
-                            <%-- <mvc:label path="discount">Descuento</mvc:label>
-                             <mvc:input path="discount" class="form-control" value="" />--%>
+                        <input type="text" id="discount" name="discount" class="form-control" placeholder="0" required=""/>
                     </div>
                 </div>
 

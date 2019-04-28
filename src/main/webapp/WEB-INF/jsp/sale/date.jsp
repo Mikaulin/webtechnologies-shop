@@ -34,8 +34,7 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <input  type="date" class="form-control" name ="date" id="date" value="" required="" />
-
+                                <input type="date" class="form-control" name="date" id="date" value="" required="" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <button class="btn btn-lg btn-success btn-sm" type="submit">Generar Informe</button>
