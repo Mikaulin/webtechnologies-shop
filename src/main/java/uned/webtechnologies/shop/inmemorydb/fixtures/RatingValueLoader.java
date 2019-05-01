@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 /**
  * Clase encargagda de cargar los RatingValues en el repositorio
+ *
  * @see RatingValueRepository
  * @see RatingValue
  */
@@ -22,13 +23,15 @@ public class RatingValueLoader implements ILoader {
     private Logger log = LoggerFactory.getLogger("Application");
     private final RatingValueRepository ratingValueRepository;
 
-    /** Construye un cargador y le asigna su correspondiente repositorio
+    /**
+     * Construye un cargador y le asigna su correspondiente repositorio
+     *
      * @param ratingValueRepository Repositorio en el que guardar los RatingValues
      * @see RatingValueRepository
      */
     @Autowired
-    public RatingValueLoader(RatingValueRepository ratingValueRepository){
-        this.ratingValueRepository=ratingValueRepository;
+    public RatingValueLoader(RatingValueRepository ratingValueRepository) {
+        this.ratingValueRepository = ratingValueRepository;
     }
 
     /**
@@ -49,6 +52,6 @@ public class RatingValueLoader implements ILoader {
                 )
         );
         ratingValueRepository.save(values);
-        log.info("RatingValues cargados en DataBase: " +ratingValueRepository.count());
+        log.info("RatingValues cargados en DataBase: " + ratingValueRepository.count());
     }
 }

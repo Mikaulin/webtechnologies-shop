@@ -7,6 +7,14 @@ import javax.persistence.*;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * <P>Esta clase define una linea de compra realizada.</P>
+ * <P>Una linea de compra debe pertenecer a un Usuario y contiene la información sobre el  producto que se ha comprado así como las unidades compradas y el precio que se pago por la compra </p>
+ *
+ * @see Product
+ * @see User
+ */
+
 @Entity
 public class PurchaseLine {
 
@@ -20,35 +28,34 @@ public class PurchaseLine {
     private double purchasePrice;
     private int count;
     @ManyToOne
-    @JoinColumn(name="ID_PRODUCT")
+    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
     @ManyToOne
-    @JoinColumn(name="ID_USER")
+    @JoinColumn(name = "ID_USER")
     private User user;
 
-    public PurchaseLine(){}
+    public PurchaseLine() {
+    }
 
     public PurchaseLine(Cart cart) {
         date = new GregorianCalendar();
         this.count = cart.getCount();
         this.product = cart.getProduct();
     }
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
-    /**Define el identificador único de la linea de compra
+    /**
+     * Define el identificador único de la linea de compra
+     *
      * @param id identificador único de la linea de compra
      */
     public void setId(long id) {
         this.id = id;
     }
 
-    /**Define el usuario que ha realizado la compra
+    /**
+     * Define el usuario que ha realizado la compra
+     *
      * @param user Usuario que realiza la compra
      * @see User
      */
@@ -56,14 +63,18 @@ public class PurchaseLine {
         this.user = user;
     }
 
-    /**Devuelve el identificador único de la linea de compra
+    /**
+     * Devuelve el identificador único de la linea de compra
+     *
      * @return long con el identificador único de la linea de compra
      */
     public long getId() {
         return id;
     }
 
-    /**Devuelve el usuario que ha realizado la compra
+    /**
+     * Devuelve el usuario que ha realizado la compra
+     *
      * @return User usuario que ha realizado la compra
      * @see User
      */
@@ -71,7 +82,9 @@ public class PurchaseLine {
         return user;
     }
 
-    /**Devuelve un objeto Calendar que contiene la fecha de realización de la compra
+    /**
+     * Devuelve un objeto Calendar que contiene la fecha de realización de la compra
+     *
      * @return Calendar que contiene la fecha de realización de la compra
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
@@ -79,7 +92,9 @@ public class PurchaseLine {
         return date;
     }
 
-    /**Define la fecha de la compra
+    /**
+     * Define la fecha de la compra
+     *
      * @param date Calendar que contiene la fecha de la realización de la compra
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
@@ -87,49 +102,63 @@ public class PurchaseLine {
         this.date = date;
     }
 
-    /**Devuelve el precio unitario del producto que se compra
+    /**
+     * Devuelve el precio unitario del producto que se compra
+     *
      * @return double con el precio únitario del producto que se compra
      */
     public double getUnitPrice() {
         return unitPrice;
     }
 
-    /**Define el precio unitario del producto que se compra
+    /**
+     * Define el precio unitario del producto que se compra
+     *
      * @param unitPrice Precio unitario del producto que se compra
      */
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = NumberUtils.roundDecimals(unitPrice);
     }
 
-    /**Devuelve el precio total de la compra realizada
+    /**
+     * Devuelve el precio total de la compra realizada
+     *
      * @return double con el precio total de la compra realizada
      */
     public double getPurchasePrice() {
         return purchasePrice;
     }
 
-    /**Define el precio total de la compra realizada
+    /**
+     * Define el precio total de la compra realizada
+     *
      * @param purchasePrice Precio total de la compra realizada
      */
     public void setPurchasePrice(double purchasePrice) {
         this.purchasePrice = NumberUtils.roundDecimals(purchasePrice);
     }
 
-    /**Devuelve la cantidad de productos incluidos en la compra realizada
+    /**
+     * Devuelve la cantidad de productos incluidos en la compra realizada
+     *
      * @return Entero con la cantidad de productos incluidos en la compra realizada
      */
     public int getCount() {
         return count;
     }
 
-    /**Define la cantidad de productos que incluidos en la compra
+    /**
+     * Define la cantidad de productos que incluidos en la compra
+     *
      * @param count Cantidad de productos incluidos en la compra
      */
     public void setCount(int count) {
         this.count = count;
     }
 
-    /**Devuelve el producto que se compra
+    /**
+     * Devuelve el producto que se compra
+     *
      * @return Producto que se compra.
      * @see Product
      */
@@ -139,6 +168,7 @@ public class PurchaseLine {
 
     /**
      * Define el producto comprado
+     *
      * @param product Producto comprado
      * @see Product
      */
@@ -146,7 +176,9 @@ public class PurchaseLine {
         this.product = product;
     }
 
-    /**Devuelve una cadena que representa la compra realizada.
+    /**
+     * Devuelve una cadena que representa la compra realizada.
+     *
      * @return Cadena que representa la compra realizada.
      */
     @Override

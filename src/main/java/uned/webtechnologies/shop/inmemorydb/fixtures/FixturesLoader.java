@@ -21,43 +21,43 @@ public class FixturesLoader {
 
     /**
      * Construye el cargador de cargadores
-     * @param roleLoader Cargador de roles
-     * @param userLoader Cargador de usuarios
-     * @param brandLoader Cargador de marcas
-     * @param categoryLoader Cargador de categorias
-     * @param productLoader Cargador de productos
-     * @param ratingValueLoader Cargador de RatingValues
-     * @param ratingLoader Cargador de Ratings
-     * @param promotionLoader Cargador de promociones
+     *
+     * @param roleLoader          Cargador de roles
+     * @param userLoader          Cargador de usuarios
+     * @param brandLoader         Cargador de marcas
+     * @param categoryLoader      Cargador de categorias
+     * @param productLoader       Cargador de productos
+     * @param ratingValueLoader   Cargador de RatingValues
+     * @param ratingLoader        Cargador de Ratings
+     * @param promotionLoader     Cargador de promociones
      * @param purchaseLinesLoader Cargador de lineas de compra
      */
     @Autowired
     public FixturesLoader(
-                          RoleLoader roleLoader,
-                          UserLoader userLoader,
-                          BrandLoader brandLoader,
-                          CategoryLoader categoryLoader,
-                          ProductLoader productLoader,
-                          RatingValueLoader ratingValueLoader,
-                          RatingLoader ratingLoader,
-                          PromotionLoader promotionLoader,
-                          PurchaseLinesLoader purchaseLinesLoader
+            RoleLoader roleLoader,
+            UserLoader userLoader,
+            BrandLoader brandLoader,
+            CategoryLoader categoryLoader,
+            ProductLoader productLoader,
+            RatingValueLoader ratingValueLoader,
+            RatingLoader ratingLoader,
+            PromotionLoader promotionLoader,
+            PurchaseLinesLoader purchaseLinesLoader
 
-    ){
+    ) {
         this.roleLoader = roleLoader;
         this.userLoader = userLoader;
         this.brandLoader = brandLoader;
         this.categoryLoader = categoryLoader;
         this.productLoader = productLoader;
-        this.ratingValueLoader=ratingValueLoader;
-        this.ratingLoader=ratingLoader;
-        this.promotionLoader=promotionLoader;
-        this.purchaseLinesLoader=purchaseLinesLoader;
+        this.ratingValueLoader = ratingValueLoader;
+        this.ratingLoader = ratingLoader;
+        this.promotionLoader = promotionLoader;
+        this.purchaseLinesLoader = purchaseLinesLoader;
     }
 
     /**
      * Metodo encargado de llamar al metodo de carga de cada uno de los cargadores.
-     *
      */
     public void execute() {
         roleLoader.load();

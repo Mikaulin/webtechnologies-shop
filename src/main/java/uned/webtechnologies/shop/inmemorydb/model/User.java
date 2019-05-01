@@ -355,39 +355,6 @@ public class User implements Serializable {
         this.carts = carts;
     }
 
-    /**
-     * Devuelve un conjunto "Set" de todas las compras realizadas por el usuario
-     *
-     * @return Conjunto "Set" de todas las compras realizadas por el usuario.
-     * @see PurchaseLine
-     */
-    public Set<PurchaseLine> getPurchaseLines() {
-        return purchaseLines;
-    }
-
-    public double getPruchaseTotalByDate(Calendar date) {
-        Set<PurchaseLine> purchases = getPurchaseByDate(date);
-        double total = 0;
-        for (PurchaseLine p : purchases
-        ) {
-            total = total + p.getPurchasePrice();
-
-        }
-        return NumberUtils.roundDecimals(total);
-    }
-
-    public Set<PurchaseLine> getPurchaseByDate(Calendar date) {
-        Set<PurchaseLine> purchases = new HashSet<>();
-        for (PurchaseLine p : this.purchaseLines
-        ) {
-            if (p.getDate().equals(date)) {
-                purchases.add(p);
-            }
-
-        }
-
-        return purchases;
-    }
 
     /**
      * Devuelve el coste total de las compras realizadas en una determinda fecha.
@@ -428,7 +395,9 @@ public class User implements Serializable {
         return purchases;
     }
 
-    /**Define las compras realizadas
+    /**
+     * Define las compras realizadas
+     *
      * @param purchaseLines Conjunto "Set" que contiene las compras realizadas
      * @see PurchaseLine
      */
@@ -437,21 +406,27 @@ public class User implements Serializable {
     }
 
 
-    /**Devuelve el nombre del usuario
+    /**
+     * Devuelve el nombre del usuario
+     *
      * @return Nombre del usuario
      */
     public String getUsername() {
         return username;
     }
 
-    /**Devuelve la contraseña del usuario
+    /**
+     * Devuelve la contraseña del usuario
+     *
      * @return Contraseña del usuario
      */
     public String getPassword() {
         return password;
     }
 
-    /**Devuelve la confirmación de contraseña del usuario
+    /**
+     * Devuelve la confirmación de contraseña del usuario
+     *
      * @return Clonfirmación de contraseña del usuario
      */
     public String getPasswordConfirm() {
@@ -459,7 +434,9 @@ public class User implements Serializable {
     }
 
 
-    /**Devuelve los roles asignados al usuario
+    /**
+     * Devuelve los roles asignados al usuario
+     *
      * @return Conjunto "Set" de roles asignados al usuario
      * @see Role
      */
@@ -467,35 +444,45 @@ public class User implements Serializable {
         return roles;
     }
 
-    /**Define el identificador único del usuario
+    /**
+     * Define el identificador único del usuario
+     *
      * @param id Identificador único del usuario
      */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**Define el nombre de usuario del usuario
+    /**
+     * Define el nombre de usuario del usuario
+     *
      * @param username Nombre de usuario del usuario
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
-    /**Define la contraseña del usuario
+    /**
+     * Define la contraseña del usuario
+     *
      * @param password Contraseña del usuario
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
-    /**Define la confirmación de contraseña del usuario
+    /**
+     * Define la confirmación de contraseña del usuario
+     *
      * @param passwordConfirm Confirmación de contraseña del usuario
      */
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
 
-    /**Define los roles asignados al usuario
+    /**
+     * Define los roles asignados al usuario
+     *
      * @param roles Conjunto "Set" de roles asignados al usuario
      * @see Role
      */
@@ -511,7 +498,9 @@ public class User implements Serializable {
         this.deleted = deleted;
     }
 
-    /**Añade un nuevo Role al usuario
+    /**
+     * Añade un nuevo Role al usuario
+     *
      * @param role Role que se le quiere añadir al usuario
      * @see Role
      */
@@ -522,8 +511,19 @@ public class User implements Serializable {
         this.roles.add(role);
     }
 
+    /** Devuelve todas las compras realizadas
+     * @return Conjunto "Set" de las compras realizadas.
+     * @see PurchaseLine
+     * @see Set
+     */
+    public Set<PurchaseLine> getPurchaseLines() {
+        return purchaseLines;
+    }
 
-    /**Devuelve una cadena que representa el Usuario
+
+    /**
+     * Devuelve una cadena que representa el Usuario
+     *
      * @return Cadena que representa el usuario
      */
     @Override

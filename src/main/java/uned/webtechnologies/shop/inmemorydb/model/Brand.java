@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * Esta clase define un objeto de tipo Marca.
  * Una Marca contiene objetos de tipo Producto.
+ *
  * @see Product
  */
 
@@ -27,7 +28,9 @@ public class Brand {
 
     private Set<Product> products = new HashSet<>();
 
-    /**Define el identificador único de la marca
+    /**
+     * Define el identificador único de la marca
+     *
      * @param id Identificador único de la entidad.
      */
     public void setId(long id) {

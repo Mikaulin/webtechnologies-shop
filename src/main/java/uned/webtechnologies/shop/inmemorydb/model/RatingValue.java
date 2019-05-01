@@ -16,38 +16,50 @@ public class RatingValue implements Serializable {
     @GeneratedValue
     private long id;
     private int value;
-    public RatingValue(){}
 
-
-    /**Crea un nuevo RatingValue con un valor.
-     * @param value Entero con el valor del RatingValue
-     */
-    public RatingValue(int value){
-        this.value=value;
+    public RatingValue() {
     }
 
-    /**Devuelve el valor del RatingValue
+
+    /**
+     * Crea un nuevo RatingValue con un valor.
+     *
+     * @param value Entero con el valor del RatingValue
+     */
+    public RatingValue(int value) {
+        this.value = value;
+    }
+
+    /**
+     * Devuelve el valor del RatingValue
+     *
      * @return Entero con el valor del RatingValue
      */
     public int getValue() {
         return value;
     }
 
-    /** Define el valor del RatingValue
+    /**
+     * Define el valor del RatingValue
+     *
      * @param value Valor del RatingValue
      */
     public void setValue(int value) {
         this.value = value;
     }
 
-    /**Devuelve el identificador único del RatingValue
+    /**
+     * Devuelve el identificador único del RatingValue
+     *
      * @return long con el identificador único del RatingValue
      */
     public long getId() {
         return id;
     }
 
-    /**Devuelve una cadena que representa el RatingValue
+    /**
+     * Devuelve una cadena que representa el RatingValue
+     *
      * @return Cadena que representa el RatingValue
      */
     @Override

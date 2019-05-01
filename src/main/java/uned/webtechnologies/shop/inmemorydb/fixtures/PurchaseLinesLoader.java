@@ -16,10 +16,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-/**Clase encargada de cargar lineas de compra en el respositorio de Lineas de compra.
+/**
+ * Clase encargada de cargar lineas de compra en el respositorio de Lineas de compra.
+ *
  * @see PurchaseLineService
  * @see PurchaseLine
- *
  */
 
 @Service
@@ -32,10 +33,12 @@ public class PurchaseLinesLoader implements ILoader {
     private final ProductRepository productRepository;
 
 
-    /**Construye un cargador con los repositorios necesarios para el guardado y la consulta.
+    /**
+     * Construye un cargador con los repositorios necesarios para el guardado y la consulta.
+     *
      * @param purchaseLineService Respositorio en el que guardar las lineas de compra
-     * @param userRepository Repositorio del que obtener los usuarios a los que asignar compras
-     * @param productRepository Repositorio del que obtener los productos y poder comprarlos
+     * @param userRepository      Repositorio del que obtener los usuarios a los que asignar compras
+     * @param productRepository   Repositorio del que obtener los productos y poder comprarlos
      * @throws ParseException
      * @see UserRepository
      * @see ProductRepository
@@ -81,7 +84,7 @@ public class PurchaseLinesLoader implements ILoader {
                     line.setUser(user);
                     line.setProduct(productList.get(id));
                     line.setUnitPrice(productList.get(id).getFinalPrice());
-                    line.setPurchasePrice(productList.get(id).getFinalPrice()*count);
+                    line.setPurchasePrice(productList.get(id).getFinalPrice() * count);
 
 
                     this.purchaseLineService.saveRandom(line);

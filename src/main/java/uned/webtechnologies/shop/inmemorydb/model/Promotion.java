@@ -36,7 +36,6 @@ public class Promotion {
      * Metodo que se ejecuta en el momento de persistir el objeto en la BBDD.
      * La  promocion solo estará activa mientras la fecha actual este comprendida entre las fechas de inicio y fin.
      * El metodo de definición como activa o inactiva se ejecuta de forma automática.
-     *
      */
     @PostLoad
     private void postLoad() {
@@ -44,9 +43,9 @@ public class Promotion {
         today.getTime();
         if ((today.after(startDate.getTime())) && (today.before(endDate.getTime()))) {
             this.setActive(true);
-        }else if((today.before(startDate.getTime()))&&(today.before(endDate.getTime()))){
+        } else if ((today.before(startDate.getTime())) && (today.before(endDate.getTime()))) {
             this.setActive(true);
-        }else {
+        } else {
             this.setActive(false);
         }
 
@@ -95,7 +94,9 @@ public class Promotion {
         return id;
     }
 
-    /** Devuelve un conjunto "Set" con los productos que pertenecen a la promoción
+    /**
+     * Devuelve un conjunto "Set" con los productos que pertenecen a la promoción
+     *
      * @return Conjunto "Set" de productos que pertenecen a la promoción
      * @see Product
      */
@@ -103,21 +104,27 @@ public class Promotion {
         return products;
     }
 
-    /**Devuelve una cadena con el nombre de la promoción
+    /**
+     * Devuelve una cadena con el nombre de la promoción
+     *
      * @return Cadena con el nombre de la promoción
      */
     public String getName() {
         return name;
     }
 
-    /** Define el nombre de la promoción
+    /**
+     * Define el nombre de la promoción
+     *
      * @param name Cadena con el nombre de la promoción
      */
     public void setName(String name) {
         this.name = name;
     }
 
-    /** Define los productos que tienen esta promoción asignada
+    /**
+     * Define los productos que tienen esta promoción asignada
+     *
      * @param products conjunto "Set" de productos a los que se les quiere asignar esta promoción.
      * @see Product
      */
@@ -125,15 +132,19 @@ public class Promotion {
         this.products = products;
     }
 
-    /** Devuelve el porcentaje de descuento  que aplica la promoción a los productos
-     * @return  Entero con el porcentaje de descuento que aplica la promoción a los productos
+    /**
+     * Devuelve el porcentaje de descuento  que aplica la promoción a los productos
+     *
+     * @return Entero con el porcentaje de descuento que aplica la promoción a los productos
      * @see Product
      */
     public int getDiscount() {
         return discount;
     }
 
-    /** Define el porcentaje de descuento que debe aplicar la promoción a los productos
+    /**
+     * Define el porcentaje de descuento que debe aplicar la promoción a los productos
+     *
      * @param discount Entero con el porcentaje que debe aplicar la promoción a los productos
      * @see Product
      */
@@ -142,7 +153,8 @@ public class Promotion {
     }
 
 
-    /**Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
+    /**
+     * Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -151,14 +163,18 @@ public class Promotion {
         return startDate;
     }
 
-    /** Define la fecha de inicio de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
+    /**
+     * Define la fecha de inicio de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
+     *
      * @param startDate Calendar con la fecha de inicio de la promoción en formato ("yyyy-MM-dd")
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
     public void setStartDate(Calendar startDate) {
         this.startDate = startDate;
     }
-    /**Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") fin de la promoción
+
+    /**
+     * Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") fin de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de finalización de la promoción
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -166,7 +182,10 @@ public class Promotion {
     public Calendar getEndDate() {
         return endDate;
     }
-    /** Define la fecha de finalización de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
+
+    /**
+     * Define la fecha de finalización de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
+     *
      * @param endDate Calendar con la fecha de finalización de la promoción en formato ("yyyy-MM-dd")
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
      */
@@ -175,14 +194,18 @@ public class Promotion {
     }
 
 
-    /** Devuelve una cadena de texto con la descripción de la promoción
+    /**
+     * Devuelve una cadena de texto con la descripción de la promoción
+     *
      * @return Cadena de texto con la descripción de la promoción
      */
     public String getDescription() {
         return description;
     }
 
-    /**Define la descripción de la promoción
+    /**
+     * Define la descripción de la promoción
+     *
      * @param description Cadena con la descripción de la promoción
      */
     public void setDescription(String description) {
@@ -208,7 +231,9 @@ public class Promotion {
         return Objects.hash(getId(), getStartDate(), getEndDate(), getName(), getDescription(), getDiscount(), getProducts());
     }
 
-    /**Devuelve una cadena que representa la promoción
+    /**
+     * Devuelve una cadena que representa la promoción
+     *
      * @return Cadena que representa la promoción
      */
     @Override

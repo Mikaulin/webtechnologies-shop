@@ -11,9 +11,9 @@ import java.util.Objects;
 /**
  * Esta clase define una valoración de un usuario sobre un producto utilizando una clase ProductUserRating para establecer la relación entre el producto y el usuario.
  * Un usuario solo puede valorar una vez un producto con un objeto RatingValue
+ *
  * @see ProductUserRating
  * @see RatingValue
- * 
  */
 
 @Entity
@@ -28,7 +28,9 @@ public class Rating {
 
     }
 
-    /**Crea un nuevo rating con una relación ProductUserRating establecida
+    /**
+     * Crea un nuevo rating con una relación ProductUserRating establecida
+     *
      * @param productUserRating Clase que establece la relación entre el producto y el usuario.
      * @see ProductUserRating
      */
@@ -36,7 +38,9 @@ public class Rating {
         this.productUserRating = productUserRating;
     }
 
-    /**Devuelve la relación entre el producto y el usuario
+    /**
+     * Devuelve la relación entre el producto y el usuario
+     *
      * @return Relación producto-usuario
      * @see ProductUserRating
      */
@@ -44,7 +48,9 @@ public class Rating {
         return productUserRating;
     }
 
-    /**Define la relacion del Rating entre el producto y el usuario
+    /**
+     * Define la relacion del Rating entre el producto y el usuario
+     *
      * @param productUserRating Relación producto-usuario.
      * @see ProductUserRating
      */
@@ -52,7 +58,9 @@ public class Rating {
         this.productUserRating = productUserRating;
     }
 
-    /**Devuelve el objeto RatingValue que valora el producto
+    /**
+     * Devuelve el objeto RatingValue que valora el producto
+     *
      * @return Valoración del producto.
      * @see RatingValue
      */
@@ -60,7 +68,9 @@ public class Rating {
         return ratingValue;
     }
 
-    /**Define la valoración del producto
+    /**
+     * Define la valoración del producto
+     *
      * @param ratingValue Valoración del producto
      * @see RatingValue
      */
@@ -81,7 +91,9 @@ public class Rating {
         return Objects.hash(getProductUserRating());
     }
 
-    /**Devuelve una cadena que representa el Rating
+    /**
+     * Devuelve una cadena que representa el Rating
+     *
      * @return Cadena que representa el Rating
      */
     @Override

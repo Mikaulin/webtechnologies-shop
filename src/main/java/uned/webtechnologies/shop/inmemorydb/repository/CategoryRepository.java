@@ -6,12 +6,13 @@ import uned.webtechnologies.shop.inmemorydb.model.Category;
 
 /**
  * Monta un repositorio de Categorias en la BBDD
+ *
  * @see JpaRepository
  * @see Category
  */
 
 @Repository
 
-public interface CategoryRepository extends JpaRepository<Category,Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 
 }

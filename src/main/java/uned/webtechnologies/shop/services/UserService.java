@@ -22,9 +22,6 @@ public class UserService {
         return this.userRepository.findByDeletedFalse();
     }
 
-    public User getUser(long id){
-        return this.userRepository.getOne(id);
-    }
 
     public User getUser(long id){
         return this.userRepository.getOne(id);
@@ -39,20 +36,6 @@ public class UserService {
 
     public User findByUsername(String username) {
         return userRepository.findByUsernameAndDeletedFalse(username);
-    }
-
-    public void update(String username, User user) {
-        User updatedUser = findByUsername(username);
-        updatedUser.setName(user.getName());
-        updatedUser.setLastname1(user.getLastname1());
-        updatedUser.setDirection(user.getDirection());
-        updatedUser.setCity(user.getCity());
-        updatedUser.setProvince(user.getProvince());
-        updatedUser.setCountry(user.getCountry());
-        updatedUser.setEmail(user.getEmail());
-        updatedUser.setPhone(user.getPhone());
-        updatedUser.setPostalCode(user.getPostalCode());
-        save(updatedUser);
     }
 
     public void delete(User user) {

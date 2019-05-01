@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Monta un repositorio de Rating en la BBDD
+ *
  * @see JpaRepository
  * @see Rating
  */
@@ -15,16 +16,14 @@ import java.util.List;
 public interface RatingRepository extends JpaRepository<Rating, Long> {
 
 
-    /** Devuelve todos los ratings de un producto
+    /**
+     * Devuelve todos los ratings de un producto
+     *
      * @param id Identificador único del producto sobre el que se realiza la consulta
      * @return Lista de ratings del producto.
      * @see uned.webtechnologies.shop.inmemorydb.model.Product
      */
-List<Rating> getRatingsByProductUserRating_ProductId(long id);
-
-
-
-
+    List<Rating> getRatingsByProductUserRating_ProductId(long id);
 
 
 }

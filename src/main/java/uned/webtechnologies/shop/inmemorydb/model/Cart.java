@@ -5,7 +5,8 @@ import uned.webtechnologies.shop.utils.NumberUtils;
 import javax.persistence.*;
 
 /**
- * Esta clase define una linea de carro de compra.
+ * <P>Esta clase define una linea de carro de compra.</P>
+ * Una linea de compra debe pertenecer a un Usuario y contiene la información del producto que desea comprar y la cantidad de unidades por linea.
  *
  * @see Product
  * @see User
@@ -19,10 +20,10 @@ public class Cart {
     private long id;
     private int count;
     @ManyToOne
-    @JoinColumn(name="ID_PRODUCT")
+    @JoinColumn(name = "ID_PRODUCT")
     private Product product;
     @ManyToOne
-    @JoinColumn(name="ID_USER")
+    @JoinColumn(name = "ID_USER")
     private User user;
     private double unitPrice;
     @Transient
@@ -32,43 +33,24 @@ public class Cart {
     @PostPersist
     @PostLoad
     @PostUpdate
-    private void calculatePrices(){
+    private void calculatePrices() {
 
 
         setUnitPrice(getProduct().getFinalPrice());
-        setCartPrice(NumberUtils.roundDecimals(getUnitPrice()*getCount()));
+        setCartPrice(NumberUtils.roundDecimals(getUnitPrice() * getCount()));
 
     }
 
-    public Cart(){}
-
+    public Cart() {
+    }
 
 
     public Cart(int count, Product product, User user) {
         this.count = count;
         this.product = product;
-        this.user=user;
+        this.user = user;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = NumberUtils.roundDecimals(unitPrice);
-    }
-
-    public double getCartPrice() {
-        return cartPrice;
-    }
-
-    public void setCartPrice(double cartPrice) {
-        this.cartPrice = NumberUtils.roundDecimals(cartPrice);
-    }
 
     /**
      * Define el identificador único del Cart

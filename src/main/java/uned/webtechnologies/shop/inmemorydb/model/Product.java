@@ -9,7 +9,6 @@ import java.util.*;
 /**
  * Esta clase define un Producto.
  * La clase Producto pretende cubrir los atributos generales que se pueden esperar de cualquier tipo de producto que se quiera vender en una tienda de electrodomesticos.
- *
  */
 
 @Entity
@@ -51,7 +50,6 @@ public class Product implements Serializable {
     /**
      * <P>Metodo privado que se ejecuta tras persistir el objeto en la BBDD.</P>
      * <p>Calcula el rating del producto a partir de su lista de Rating, el pocentaje de rating y el promedio</p>
-     *
      *
      * @see Rating
      */
@@ -118,7 +116,7 @@ public class Product implements Serializable {
      * @param deleted     Valor booleano que indica si el producto esta borrado
      * @param brand       Marca del producto
      * @param category    Categoría del producto
-     * @param featured   Booleano que define el producto como destacado o no destacado
+     * @param featured    Booleano que define el producto como destacado o no destacado
      * @see Brand
      * @see Category
      */
@@ -272,13 +270,13 @@ public class Product implements Serializable {
      */
     public double getFinalPrice() {
 
-        return  NumberUtils.roundDecimals(this.price - (price * (getDiscount() / 100)));
+        return NumberUtils.roundDecimals(this.price - (price * (getDiscount() / 100)));
     }
 
     /**
      * Devuelve la diferencia entre el precio original del producto y el precio final una vez aplicados los desctuentos
      *
-     * @return double con la diferencia entre el precio original del producto y el precio final una vez aplicados los desctuentos
+     * @return double con la diferencia entre el precio original del producto y el precio final una vez aplicados los descuentos
      */
     public double getDif() {
         return this.price - getFinalPrice();

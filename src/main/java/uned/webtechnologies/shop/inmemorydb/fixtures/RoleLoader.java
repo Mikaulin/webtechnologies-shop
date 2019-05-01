@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 /**
  * Clase encargada de cargar los Roles en su respositorio.
+ *
  * @see RoleRepository
  * @see Role
  */
@@ -21,7 +22,9 @@ public class RoleLoader implements ILoader {
     private Logger log = LoggerFactory.getLogger(RoleLoader.class);
     private final RoleRepository roleRepository;
 
-    /**Construye un cargador y le asigna su correspondiente repositorio
+    /**
+     * Construye un cargador y le asigna su correspondiente repositorio
+     *
      * @param roleRepository Repositorio en el que guardar los roles
      * @see RoleRepository
      */
@@ -34,8 +37,8 @@ public class RoleLoader implements ILoader {
      * Metodo encargado de crear dos instancias de Role y cargarlas en el repositorio.
      * <p>Roles cargados</p>
      * <ul>
-     *     <li>ROLE_ADMIN</li>
-     *     <li>ROLE_USER</li>
+     * <li>ROLE_ADMIN</li>
+     * <li>ROLE_USER</li>
      * </ul>
      */
     @Override
