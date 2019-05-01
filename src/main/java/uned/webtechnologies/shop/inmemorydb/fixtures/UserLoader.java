@@ -20,15 +20,35 @@ public class UserLoader implements ILoader {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
+
+    /**
+     * Construye un cargador y le asigna los repositorios necesarios.
+     *
+     * @param userRepository Repositorio en el que cargar los usuarios
+     */
     @Autowired
     public UserLoader(
-            UserRepository userRepository,
-            RoleRepository roleRepository
-    ) {
+            UserRepository userRepository
+            ) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
 
+    /**
+     * Metodo encargado e crear usuarios de ejemplo, todos ellos con la contraseña "123456789"
+     * <p>Nombres de usuario cargados</p>
+     * <ul>
+     * <li>KikePerez</li>
+     * <li>PabloUzquiano</li>
+     * <li>MikelMikaulin</li>
+     * <li>JaimeRodriguez</li>
+     * <li>AnaCuesta</li>
+     * <li>PepeGotera</li>
+     * <li>LucasAlboraz</li>
+     * <li>MartaSanchez</li>
+     * <li>JuanLopez</li>
+     * </ul>
+     */
     @Override
     public void load() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

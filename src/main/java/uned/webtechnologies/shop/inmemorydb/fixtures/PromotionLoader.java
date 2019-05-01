@@ -9,17 +9,29 @@ import uned.webtechnologies.shop.inmemorydb.repository.PromotionRepository;
 
 import java.util.GregorianCalendar;
 
+/**
+ * Clase encargada de cargar promociones en el repositorio de promociones
+ * @see PromotionRepository
+ * @see Promotion
+ */
+
 @Service
 public class PromotionLoader implements ILoader {
 
     private Logger log = LoggerFactory.getLogger("Application");
     private final PromotionRepository promotionRepository;
 
+    /** Crea un cargador y le asigna su correspondiente repositorio
+     * @param promotionRepository Repositorio en el que cargar las promociones
+     */
     @Autowired
     public PromotionLoader(PromotionRepository promotionRepository) {
         this.promotionRepository = promotionRepository;
     }
 
+    /**
+     * Metodo encargado de cargar algunas promociones de ejemplo en el repositorio
+     */
     @Override
     public void load() {
 

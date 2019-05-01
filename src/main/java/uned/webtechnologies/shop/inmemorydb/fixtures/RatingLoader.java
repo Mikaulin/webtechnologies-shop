@@ -15,6 +15,12 @@ import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 
 import java.util.List;
 
+/**
+ * Clase encargada de cargar Ratings en el repositorio de Ratings
+ * @see RatingRepository
+ * @see Rating
+ */
+
 @Service
 public class RatingLoader implements ILoader {
 
@@ -25,6 +31,15 @@ public class RatingLoader implements ILoader {
     private final RatingValueRepository ratingValueRepository;
 
 
+    /** Construye un cargador con los respositorios necesarios para la creación y guardado de ratings
+     * @param ratingRepository Repositorio en el que guardar los ratings de ejemplo
+     * @param userRepository Rapositorio del que obtener los usuarios existentes
+     * @param productRepository Repositorio del que obtener los productos existentes
+     * @param ratingValueRepository Repositorio del que obtener las valoraciones posibles
+     * @see UserRepository
+     * @see ProductRepository
+     * @see RatingValueRepository
+     */
     @Autowired
     public RatingLoader(RatingRepository ratingRepository, UserRepository userRepository, ProductRepository productRepository, RatingValueRepository ratingValueRepository){
         this.ratingRepository=ratingRepository;
@@ -33,6 +48,9 @@ public class RatingLoader implements ILoader {
         this.ratingValueRepository=ratingValueRepository;
     }
 
+    /**
+     * Metodo encargado de asignar una valoración aleatoria a cada producto existente por cada usuario existente.
+     */
     @Override
     public void load() {
         List<User> userList = this.userRepository.findAll();

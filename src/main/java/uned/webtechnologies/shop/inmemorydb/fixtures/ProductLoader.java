@@ -16,6 +16,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Clase encargada de cargar Productos en el respositorio de categorias.
+ * @see ProductRepository
+ * @see Product
+ */
+
 
 @Service
 public class ProductLoader implements ILoader {
@@ -25,6 +31,12 @@ public class ProductLoader implements ILoader {
     private final BrandRepository brandRepository;
     private final PromotionRepository promotionRepository;
 
+    /**Construye un cargador de productos y le asigna los repositorios necesarios para construir las instancias de productos y guardarlas.
+     * @param productRepository Repositorio de productos en el que guardar las instancias de productos.
+     * @param categoryRepository Repositorio de categorias del que obtener las categorías existentes.
+     * @param brandRepository Respositorio de marcas del que obtener las marcas existentes.
+     * @param promotionRepository Repositorio de promociones del que obtener las promociones existentes.
+     */
     @Autowired
     public ProductLoader(ProductRepository productRepository,
                          CategoryRepository categoryRepository,
@@ -37,6 +49,11 @@ public class ProductLoader implements ILoader {
         this.promotionRepository=promotionRepository;
     }
 
+    /** Este metodo obtiene las marcas,categorais y promociones de sus correspondientes respositorios,
+     * crea algunos productos de ejemplo asignandoles algunas de las marcas,categorias y promociones obtenidas
+     * y guarda los productos en su correspondiente repositorio.
+     *
+     */
     @Override
     public void load() {
         List<Brand> brandList = this.brandRepository.findAll();
