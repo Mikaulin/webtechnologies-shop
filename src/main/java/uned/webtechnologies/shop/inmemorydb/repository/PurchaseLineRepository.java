@@ -15,10 +15,10 @@ import java.util.List;
 
 public interface PurchaseLineRepository extends JpaRepository<PurchaseLine, Long> {
     /**
-     * Método que devuelve una todas las lineas de compra de un usuario
+     * Método que devuelve las lineas de compra de un usuario
      *
      * @param user Usuario del que se quieren obtener las lineas de compra
-     * @return Lista con todas las lineas de compra del usuario
+     * @return Lista con las lineas de compra del usuario
      * @see User
      * @see List
      */

@@ -20,7 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     /**
      * Método que devuelve todos los productos que pertenecen a una categoría concreta
      *
-     * @param category Categoría sobre la que se hace la consulta
+     * @param category Categoría sobre la que se realiza la consulta
      * @return Lista de productos que pertenecen a la categoría.
      * @see Category
      */

@@ -10,11 +10,22 @@ import uned.webtechnologies.shop.utils.NumberUtils;
 
 import java.util.List;
 
+/**
+ * @see Cart
+ * @see CartRepository
+ */
 @Service
 public class CartService {
     @Autowired
     private CartRepository cartRepository;
 
+    /**Método que se encarga de añadir una linea de carrito (Cart) al repositorio evitando que existan para un mismo usuario diferentes Carts con el mismo producto
+     *
+     * @param cart Linea de carrito que se quiere añadir al repositorio
+     * @see Cart
+     * @see uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository
+     * @see Product
+     */
     public void add(Cart cart) {
         List<Cart> cartList = cartRepository.findByUserAndProduct(cart.getUser(), cart.getProduct());
         if (!cartList.isEmpty()) {
@@ -28,20 +39,28 @@ public class CartService {
         this.cartRepository.save(cart);
     }
 
+    /**Método que guarda un Cart en el repositorio de Carts.
+     * @param cart Linea de carrito que se quiere guardar.
+     * @see Cart
+     * @see CartRepository
+     */
     public void save(Cart cart) {
         this.cartRepository.save(cart);
     }
 
-    public List<Cart> get(User user, Product product) {
-        return this.cartRepository.findByUserAndProduct(user, product);
-    }
 
+    /**Método que devuelve la cantidad total de productos existentes en los Carts de un usuario
+     * @param user Usuario sobre el que se desea obtener el sumatorio de productos existentes en sus Carts
+     * @return Sumatorio de productos existentes en los Carts de un usuario concreto
+     * @see User
+     */
     public long totalProducts(User user) {
         if(this.cartRepository.countByUser(user) > 0) {
             return this.cartRepository.sumUserCartUnits(user.getId());
         } else
             return 0;
     }
+
 
     public double userSubtotal(User user) {
         return NumberUtils.roundDecimals(userTotal(user) - (userTotal(user) * 0.21));
@@ -55,9 +74,6 @@ public class CartService {
         return iva;
     }
 
-    public double usertotalPrice(User user) {
-        return this.userTotal(user);
-    }
 
     public double userTotal(User user) {
         List<Cart> carts = this.cartRepository.findByUser(user);

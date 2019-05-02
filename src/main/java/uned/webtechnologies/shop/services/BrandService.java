@@ -7,7 +7,7 @@ import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 
 import java.util.List;
 
-/**
+/** Servicio que implementa la lógica de negócio del MVC entre el controlador y las Marcas del modelo
  *
  */
 
@@ -19,8 +19,9 @@ public class BrandService {
     private BrandRepository brandRepository;
 
 
-    /**
-     * @return
+    /**Método que devuelve las Marcas del repositorio
+     * @return Las marcas del repositorio
+     * @see Brand
      */
     public List<Brand> getBrands() {
         return this.brandRepository.findAll();
