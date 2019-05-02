@@ -104,18 +104,18 @@ public class User implements Serializable {
 
     /**
      * Construye un nuevo usuario con un nombre, apellido, dirección completa, número de telefono,dirección de correo electrónico, nombre de usuario , contraseña y Rol
-     * @param name 
-     * @param lastname1
-     * @param direction
-     * @param city
-     * @param postalCode
-     * @param province
-     * @param country
-     * @param email
-     * @param phone
-     * @param username
-     * @param password
-     * @param role
+     * @param name Nombre
+     * @param lastname1 1er apellido
+     * @param direction Dirección
+     * @param city Ciudad
+     * @param postalCode Codigo postal
+     * @param province Provincia
+     * @param country País
+     * @param email Dirección de correo electrónico
+     * @param phone Número de telefono
+     * @param username Nombre de usuario
+     * @param password Contraseña
+     * @param role Role
      */
     public User(String name, String lastname1, String direction, String city, int postalCode, String province, String country, String email, String phone, String username, String password, Role role) {
         this.name = name;

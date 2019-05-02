@@ -52,6 +52,8 @@ public class CartService {
     /**Método que devuelve la cantidad total de productos existentes en los Carts de un usuario
      * @param user Usuario sobre el que se desea obtener el sumatorio de productos existentes en sus Carts
      * @return Sumatorio de productos existentes en los Carts de un usuario concreto
+     * @see CartRepository
+     * @see Cart
      * @see User
      */
     public long totalProducts(User user) {

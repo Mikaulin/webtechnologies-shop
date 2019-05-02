@@ -21,6 +21,7 @@ public class BrandService {
 
     /**Método que devuelve las Marcas del repositorio
      * @return Las marcas del repositorio
+     * @see BrandRepository
      * @see Brand
      */
     public List<Brand> getBrands() {

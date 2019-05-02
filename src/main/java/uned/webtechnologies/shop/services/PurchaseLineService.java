@@ -13,12 +13,18 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+/**
+ *
+ */
 @Service
 public class PurchaseLineService {
 
     @Autowired
     private PurchaseLineRepository purchaseLineRepository;
 
+    /**
+     *
+     */
     public PurchaseLineService() {
     }
     public List<PurchaseLine> getPurchasesByDate(Calendar date){
