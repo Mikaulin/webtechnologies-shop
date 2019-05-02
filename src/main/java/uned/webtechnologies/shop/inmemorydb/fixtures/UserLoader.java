@@ -36,7 +36,7 @@ public class UserLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado e crear usuarios de ejemplo, todos ellos con la contraseña "123456789"
+     * Método encargado e crear usuarios de ejemplo, todos ellos con la contraseña "123456789"
      * <p>Nombres de usuario cargados</p>
      * <ul>
      * <li>KikePerez</li>

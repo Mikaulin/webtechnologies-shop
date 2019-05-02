@@ -52,7 +52,7 @@ public class RatingLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado de asignar una valoración aleatoria a cada producto existente por cada usuario existente.
+     * Método encargado de asignar una valoración aleatoria a cada producto existente por cada usuario existente.
      */
     @Override
     public void load() {

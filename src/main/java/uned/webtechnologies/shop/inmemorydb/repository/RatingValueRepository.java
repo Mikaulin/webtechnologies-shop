@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 
 /**
- * Monta un repositorio de RatingValue en la BBDD
+ * Interfaz encargada de montar un repositorio de RatingValue en la BBDD
  *
  * @see RatingValue
  */

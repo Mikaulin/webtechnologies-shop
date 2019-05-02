@@ -35,7 +35,7 @@ public class BrandLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado de crear instancias de marcas y guardarlas en el repositorio.
+     * Método encargado de crear instancias de marcas y guardarlas en el repositorio.
      * <P>Marcas cargadas:</P>
      * <ul>
      * <li>BALAY</li>

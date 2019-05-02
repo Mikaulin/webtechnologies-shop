@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Esta clase define un Producto.
+ * Esta clase Método que define un Producto.
  * La clase Producto pretende cubrir los atributos generales que se pueden esperar de cualquier tipo de producto que se quiera vender en una tienda de electrodomesticos.
  */
 
@@ -73,7 +73,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define el identificador único del Producto
+     * Método que define el identificador único del Producto
      *
      * @param id identificador único del producto
      */
@@ -83,7 +83,7 @@ public class Product implements Serializable {
 
 
     /**
-     * Devuelve un conjunto "Set" con las promociones asignadas al producto
+     * Método que devuelve  un conjunto "Set" con las promociones asignadas al producto
      *
      * @return Conjunto "Set" de promociones que tiene asignadas el producto-
      * @see Promotion
@@ -93,7 +93,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define las promociones que se le pueden aplicar al producto.
+     * Método que define las promociones que se le pueden aplicar al producto.
      *
      * @param promotions Conjunto "Set" de promociones aplicables al producto
      * @see Promotion
@@ -116,7 +116,7 @@ public class Product implements Serializable {
      * @param deleted     Valor booleano que indica si el producto esta borrado
      * @param brand       Marca del producto
      * @param category    Categoría del producto
-     * @param featured    Booleano que define el producto como destacado o no destacado
+     * @param featured    Booleano que Método que define el producto como destacado o no destacado
      * @see Brand
      * @see Category
      */
@@ -170,7 +170,7 @@ public class Product implements Serializable {
 
 
     /**
-     * Devuelve el identificador único del producto
+     * Método que devuelve  el identificador único del producto
      *
      * @return identificador único long del producto
      */
@@ -180,7 +180,7 @@ public class Product implements Serializable {
 
 
     /**
-     * Asigna un conjunto "Set" de promociones al producto
+     * Método que asigna un conjunto "Set" de promociones al producto
      *
      * @param promo Conjunto "Set" de promociones que se le asignan al producto
      * @see Promotion
@@ -197,7 +197,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve la cantidad de productos disponibles
+     * Método que devuelve  la cantidad de productos disponibles
      *
      * @return Entero con la cantidad de productos disponibles
      */
@@ -206,7 +206,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define la cantidad de productos disponibles
+     * Método que define la cantidad de productos disponibles
      *
      * @param count Entero  con la cantidad de productos dissponibles
      */
@@ -215,7 +215,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve el nombre del  producto
+     * Método que devuelve  el nombre del  producto
      *
      * @return Cadena de texto con el nombre del producto
      */
@@ -224,7 +224,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define el nombre del producto
+     * Método que define el nombre del producto
      *
      * @param name Cadena que describe el producto
      */
@@ -233,7 +233,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve una descripción del producto un poco más especifica que el nombre
+     * Método que devuelve  una descripción del producto un poco más especifica que el nombre
      *
      * @return Cadena descriptiva del producto
      */
@@ -242,7 +242,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve el porcentaje de descuento que se aplica al precio del producto
+     * Método que devuelve  el porcentaje de descuento que se aplica al precio del producto
      *
      * @return double que representa el porcentaje de descuento aplicable al producto
      */
@@ -264,7 +264,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve el precio final del producto redondeado una vez aplicado el descuento.
+     * Método que devuelve  el precio final del producto redondeado una vez aplicado el descuento.
      *
      * @return double con el precio final del producto redondeado una vez aplicado el descuento
      */
@@ -274,7 +274,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve la diferencia entre el precio original del producto y el precio final una vez aplicados los desctuentos
+     * Método que devuelve  la diferencia entre el precio original del producto y el precio final una vez aplicados los desctuentos
      *
      * @return double con la diferencia entre el precio original del producto y el precio final una vez aplicados los descuentos
      */
@@ -283,7 +283,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define una descripcion del producto.
+     * Método que define una descripcion del producto.
      *
      * @param description descripción del producto
      */
@@ -292,7 +292,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve la ruta a la foto del producto
+     * Método que devuelve  la ruta a la foto del producto
      *
      * @return Cadena que contiene la ruta del producto
      */
@@ -301,7 +301,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define la ruta a la foto del producto
+     * Método que define la ruta a la foto del producto
      *
      * @param photo Cadena con la ruta a la foto del producto
      */
@@ -310,7 +310,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve el precio sin descuento del producto
+     * Método que devuelve  el precio sin descuento del producto
      *
      * @return double con el precio del producto sin descuento
      */
@@ -319,7 +319,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define el precio del producto sin descuento
+     * Método que define el precio del producto sin descuento
      *
      * @param price precio del producto sin descuento
      */
@@ -328,7 +328,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve un double con la altura del producto
+     * Método que devuelve  un double con la altura del producto
      *
      * @return double con la altura del producto
      */
@@ -337,7 +337,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define la altura del producto
+     * Método que define la altura del producto
      *
      * @param height Altura del producto
      */
@@ -346,7 +346,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve la anchura del producto
+     * Método que devuelve  la anchura del producto
      *
      * @return double con la anchura del producto
      */
@@ -355,7 +355,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define la anchura del producto
+     * Método que define la anchura del producto
      *
      * @param width Anchura del producto
      */
@@ -364,7 +364,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve la profundidad del producto
+     * Método que devuelve  la profundidad del producto
      *
      * @return double con la profundidad del producto
      */
@@ -373,7 +373,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define la profundidad del producto
+     * Método que define la profundidad del producto
      *
      * @param depth la profundidad del producto
      */
@@ -382,7 +382,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve un valor booleano verdadero si el producto esta borrado.
+     * Método que devuelve  un valor booleano verdadero si el producto esta borrado.
      * Sirve para descatalogar un producto sin tener que borrarlo de la base de datos
      *
      * @return booleano para comprobar si el producto esta borrado.
@@ -392,7 +392,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define el estado "borrado-no borrado" del producto
+     * Método que define el estado "borrado-no borrado" del producto
      *
      * @param deleted booleano para definir si el producto esta o no borrado
      */
@@ -402,7 +402,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve un objeto tipo  Marca del producto
+     * Método que devuelve  un objeto tipo  Marca del producto
      *
      * @return La marca del producto
      * @see Brand
@@ -412,7 +412,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define la marca del producto
+     * Método que define la marca del producto
      *
      * @param brand Marca del producto.
      * @see Brand
@@ -422,7 +422,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve el objeto Categoria del producto
+     * Método que devuelve  el objeto Categoria del producto
      *
      * @return Objeto Categoria del producto
      * @see Category
@@ -432,9 +432,9 @@ public class Product implements Serializable {
     }
 
     /**
-     * Define el objeto Categoria del producto
+     * Método que define el objeto Categoria del producto
      *
-     * @param category Objeto que define la categoria a la que pertenece el producto
+     * @param category Objeto que Método que define la categoria a la que pertenece el producto
      * @see Category
      */
 
@@ -443,7 +443,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve un booleano en funcion de si el producto es desatcado
+     * Método que devuelve  un booleano en funcion de si el producto es desatcado
      *
      * @return booleano con el valor del estado destacado del producto
      */
@@ -453,7 +453,7 @@ public class Product implements Serializable {
 
 
     /**
-     * Define si el producto es destacado
+     * Método que define si el producto es destacado
      *
      * @param featured booleano para definir el producto como destacado o no destacado
      */
@@ -462,7 +462,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve una lista de Rating del producto
+     * Método que devuelve  una lista de Rating del producto
      *
      * @return Lista de Rating del producto
      * @see Rating
@@ -473,7 +473,7 @@ public class Product implements Serializable {
 
 
     /**
-     * Define la lista de Rating del producto
+     * Método que define la lista de Rating del producto
      *
      * @param ratingList Lista con Rating del producto
      * @see Rating
@@ -484,7 +484,7 @@ public class Product implements Serializable {
 
 
     /**
-     * Devuelve el promedio de rating del producto
+     * Método que devuelve  el promedio de rating del producto
      *
      * @return double con el promedio de rating del producto
      */
@@ -494,7 +494,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve el porcentaje de rating del producto
+     * Método que devuelve  el porcentaje de rating del producto
      *
      * @return double con el porcentaje del producto
      */
@@ -504,7 +504,7 @@ public class Product implements Serializable {
     }
 
     /**
-     * Devuelve una cadena de texto que representa el producto
+     * Método que devuelve  una cadena de texto que representa el producto
      *
      * @return Cadena de texto que representa el producto
      */

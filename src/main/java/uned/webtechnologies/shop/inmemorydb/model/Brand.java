@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Esta clase define un objeto de tipo Marca.
+ * Esta clase Método que define un objeto de tipo Marca.
  * Una Marca contiene objetos de tipo Producto.
  *
  * @see Product
@@ -29,7 +29,7 @@ public class Brand {
     private Set<Product> products = new HashSet<>();
 
     /**
-     * Define el identificador único de la marca
+     * Método que define el identificador único de la marca
      *
      * @param id Identificador único de la entidad.
      */
@@ -51,7 +51,7 @@ public class Brand {
     }
 
     /**
-     * Devuelve un conjunto de productos que pertenecen a esta categoría
+     * Método que devuelve un conjunto de productos que pertenecen a esta categoría
      *
      * @return Conjunto "Set" de productos que pertenecen a esta categoría
      * @see Product
@@ -61,7 +61,7 @@ public class Brand {
     }
 
     /**
-     * Añade un conjunto de productos a esta categoría
+     * Metodo que añade un conjunto de productos a esta categoría
      *
      * @param products Conjunto de productos que se quieren asignar a esta categoría
      * @see Product
@@ -72,7 +72,7 @@ public class Brand {
 
 
     /**
-     * Devuelve el nombre de la categoría
+     * Método que devuelve el nombre de la categoría
      *
      * @return Nombre de la categoría
      */
@@ -82,7 +82,7 @@ public class Brand {
 
 
     /**
-     * Define el nombre de la categoría
+     * Método que define el nombre de la categoría
      *
      * @param name Nombre de la categoría
      */
@@ -91,7 +91,7 @@ public class Brand {
     }
 
     /**
-     * Identificador único de la categoría
+     * Metodo que devuelve el identificador único de la categoría
      *
      * @return Id "identificador único de la categoría"
      */
@@ -101,7 +101,7 @@ public class Brand {
 
 
     /**
-     * Devuelve una representacion en texto de la marca
+     * Método que devuelve una representacion en texto de la marca
      *
      * @return String que representa el estado de la categoría
      */

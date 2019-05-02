@@ -31,7 +31,7 @@ public class RatingValue implements Serializable {
     }
 
     /**
-     * Devuelve el valor del RatingValue
+     * Método que devuelve el valor del RatingValue
      *
      * @return Entero con el valor del RatingValue
      */
@@ -40,7 +40,7 @@ public class RatingValue implements Serializable {
     }
 
     /**
-     * Define el valor del RatingValue
+     * Método que define el valor del RatingValue
      *
      * @param value Valor del RatingValue
      */
@@ -49,7 +49,7 @@ public class RatingValue implements Serializable {
     }
 
     /**
-     * Devuelve el identificador único del RatingValue
+     * Método que devuelve el identificador único del RatingValue
      *
      * @return long con el identificador único del RatingValue
      */
@@ -58,7 +58,7 @@ public class RatingValue implements Serializable {
     }
 
     /**
-     * Devuelve una cadena que representa el RatingValue
+     * Método que devuelve una cadena que representa el RatingValue
      *
      * @return Cadena que representa el RatingValue
      */

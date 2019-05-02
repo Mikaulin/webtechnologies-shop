@@ -54,7 +54,7 @@ public class PurchaseLinesLoader implements ILoader {
 
 
     /**
-     * Metodo encargado de obtener los usuarios y los
+     * Método encargado de obtener los usuarios y los
      * productos de sus correspondientes respositorios y crear instancias de 5
      * compras por usuario con fechas de compra aleatorias y guardarlas en el repositorio de lineas de compra
      */

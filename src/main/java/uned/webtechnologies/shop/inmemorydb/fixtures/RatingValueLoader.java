@@ -35,7 +35,7 @@ public class RatingValueLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado de crear 5 instancias de RatingValue con los valores del 1 al 5 y guardarlos en el RatingValueRepository.
+     * Método encargado de crear 5 instancias de RatingValue con los valores del 1 al 5 y guardarlos en el RatingValueRepository.
      * Los valores de los RatingValues coinciden con sus IDs debido a la forma en la que se persisten.
      */
     @Override

@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Define una categoría de producto.
+ * Método que define una categoría de producto.
  *
  * @see Product
  */
@@ -25,7 +25,7 @@ public class Category {
     private Set<Product> products = new HashSet<>();
 
     /**
-     * Define el identificador único de la categoría
+     * Método que define el identificador único de la categoría
      *
      * @param id identificador único de la categoría
      */
@@ -46,7 +46,7 @@ public class Category {
     }
 
     /**
-     * Devuelve el identificador único de la categoría
+     * Método que devuelve el identificador único de la categoría
      *
      * @return Identificador único long de la categoría
      */
@@ -55,7 +55,7 @@ public class Category {
     }
 
     /**
-     * Devuelve el nombre de la categoría
+     * Método que devuelve el nombre de la categoría
      *
      * @return String con el nombre de la categoría
      */
@@ -64,7 +64,7 @@ public class Category {
     }
 
     /**
-     * Define el nombre de la categoría
+     * Método que define el nombre de la categoría
      *
      * @param name Nombre de la categoría
      */
@@ -73,7 +73,7 @@ public class Category {
     }
 
     /**
-     * Devuelve un conjunto  "Set" que contiene todos los productos que pertenecen a la categoría
+     * Método que devuelve un conjunto  "Set" que contiene todos los productos que pertenecen a la categoría
      *
      * @return Conjunto "Set" de productos que pertenecesn a la categoría
      * @see Product
@@ -83,7 +83,7 @@ public class Category {
     }
 
     /**
-     * Añade un conjunto de productos a la categoría
+     * Método que añade un conjunto de productos a la categoría
      *
      * @param products Conjunto de productos que se quieren incluir en la categoría.
      * @see Product
@@ -94,7 +94,7 @@ public class Category {
 
 
     /**
-     * Devuelve la representación en texto de la categoría
+     * Método que devuelve la representación en texto de la categoría
      *
      * @return Una cadena que representa la categoría
      */

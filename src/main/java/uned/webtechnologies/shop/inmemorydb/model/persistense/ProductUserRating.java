@@ -21,7 +21,7 @@ public class ProductUserRating implements Serializable {
     }
 
     /**
-     * Devuelve el identificador único del usuario
+     * Método que devuelve el identificador único del usuario
      *
      * @return Identificador único del usuario
      * @see uned.webtechnologies.shop.inmemorydb.model.User
@@ -31,7 +31,7 @@ public class ProductUserRating implements Serializable {
     }
 
     /**
-     * Define el identificador del usuario
+     * Metodo que define el identificador del usuario
      *
      * @param userId Identificador único del usuario
      */
@@ -40,7 +40,7 @@ public class ProductUserRating implements Serializable {
     }
 
     /**
-     * Devuelve el identificador único del producto
+     * Método que devuelve el identificador único del producto
      *
      * @return Identificador único del producto
      */
@@ -49,7 +49,7 @@ public class ProductUserRating implements Serializable {
     }
 
     /**
-     * Define el identificador único del producto.
+     * Método que define el identificador único del producto.
      *
      * @param productId Identificador único del producto
      */
@@ -58,7 +58,7 @@ public class ProductUserRating implements Serializable {
     }
 
     /**
-     * Devuelve una cadena que representa la relación
+     * Método que devuelve una cadena que representa la relación
      *
      * @return Cadena que representa la relación
      */

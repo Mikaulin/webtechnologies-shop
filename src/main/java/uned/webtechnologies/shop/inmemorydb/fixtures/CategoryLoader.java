@@ -36,7 +36,7 @@ public class CategoryLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado de crear instancias de categorias y guardarlas en el repositorio.
+     * Método encargado de crear instancias de categorias y guardarlas en el repositorio.
      * <P>Categorías cargadas</P>
      * <UL>
      * <LI>Lavadoras</LI>

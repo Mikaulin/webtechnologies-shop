@@ -7,13 +7,21 @@ import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 
 import java.util.List;
 
+/**
+ *
+ */
+
 @Service
 public class BrandService {
+
 
     @Autowired
     private BrandRepository brandRepository;
 
 
+    /**
+     * @return
+     */
     public List<Brand> getBrands() {
         return this.brandRepository.findAll();
     }

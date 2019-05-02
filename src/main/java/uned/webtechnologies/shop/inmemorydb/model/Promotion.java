@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.*;
 
 /**
- * Clase que define una promocion.
+ * Clase que Método que define una promocion.
  * Las promociones sirven para ser asignadas a determinados productos y consisten en porcentajes de descuento sobre el precio del producto.
  * Las promociones estarán activas unicamente dentro del periodo comprendido entre la fecha de inicio y la fecha fin.
  *
@@ -52,7 +52,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve el estado (activo- inactivo) de la promoción
+     * Método que devuelve el estado (activo- inactivo) de la promoción
      *
      * @return booleano con es estado (activo-inactivo) de la promoción
      */
@@ -62,7 +62,7 @@ public class Promotion {
     }
 
     /**
-     * Define la promoción como activa o inactiva.
+     * Método que define la promoción como activa o inactiva.
      * <p>
      * Este metodo se ejecuta automaticamente al persistir o recuperar el objeto de la bbdd
      *
@@ -77,7 +77,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve el identificador único de la promoción
+     * Método que devuelve el identificador único de la promoción
      *
      * @param id double con el identificador único de la promoción
      */
@@ -86,7 +86,7 @@ public class Promotion {
     }
 
     /**
-     * Define el identificador único de la promoción-
+     * Método que define el identificador único de la promoción-
      *
      * @return double con el identificador único de la promoción
      */
@@ -95,7 +95,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve un conjunto "Set" con los productos que pertenecen a la promoción
+     * Método que devuelve un conjunto "Set" con los productos que pertenecen a la promoción
      *
      * @return Conjunto "Set" de productos que pertenecen a la promoción
      * @see Product
@@ -105,7 +105,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve una cadena con el nombre de la promoción
+     * Método que devuelve una cadena con el nombre de la promoción
      *
      * @return Cadena con el nombre de la promoción
      */
@@ -114,7 +114,7 @@ public class Promotion {
     }
 
     /**
-     * Define el nombre de la promoción
+     * Método que define el nombre de la promoción
      *
      * @param name Cadena con el nombre de la promoción
      */
@@ -123,7 +123,7 @@ public class Promotion {
     }
 
     /**
-     * Define los productos que tienen esta promoción asignada
+     * Método que define los productos que tienen esta promoción asignada
      *
      * @param products conjunto "Set" de productos a los que se les quiere asignar esta promoción.
      * @see Product
@@ -133,7 +133,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve el porcentaje de descuento  que aplica la promoción a los productos
+     * Método que devuelve el porcentaje de descuento  que aplica la promoción a los productos
      *
      * @return Entero con el porcentaje de descuento que aplica la promoción a los productos
      * @see Product
@@ -143,7 +143,7 @@ public class Promotion {
     }
 
     /**
-     * Define el porcentaje de descuento que debe aplicar la promoción a los productos
+     * Método que define el porcentaje de descuento que debe aplicar la promoción a los productos
      *
      * @param discount Entero con el porcentaje que debe aplicar la promoción a los productos
      * @see Product
@@ -154,7 +154,7 @@ public class Promotion {
 
 
     /**
-     * Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
+     * Método que devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de inicio de la promoción
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -164,7 +164,7 @@ public class Promotion {
     }
 
     /**
-     * Define la fecha de inicio de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
+     * Método que define la fecha de inicio de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
      *
      * @param startDate Calendar con la fecha de inicio de la promoción en formato ("yyyy-MM-dd")
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -174,7 +174,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") fin de la promoción
+     * Método que devuelve un objeto Calendar que contiene la fecha ("yyyy-MM-dd") fin de la promoción
      *
      * @return Calendar que contiene la fecha ("yyyy-MM-dd") de finalización de la promoción
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -184,7 +184,7 @@ public class Promotion {
     }
 
     /**
-     * Define la fecha de finalización de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
+     * Método que define la fecha de finalización de la promoción a partir de un objeto tipo Calendar que contenga la fecha en formato ("yyyy-MM-dd")
      *
      * @param endDate Calendar con la fecha de finalización de la promoción en formato ("yyyy-MM-dd")
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -195,7 +195,7 @@ public class Promotion {
 
 
     /**
-     * Devuelve una cadena de texto con la descripción de la promoción
+     * Método que devuelve una cadena de texto con la descripción de la promoción
      *
      * @return Cadena de texto con la descripción de la promoción
      */
@@ -204,7 +204,7 @@ public class Promotion {
     }
 
     /**
-     * Define la descripción de la promoción
+     * Método que define la descripción de la promoción
      *
      * @param description Cadena con la descripción de la promoción
      */
@@ -232,7 +232,7 @@ public class Promotion {
     }
 
     /**
-     * Devuelve una cadena que representa la promoción
+     * Método que devuelve una cadena que representa la promoción
      *
      * @return Cadena que representa la promoción
      */

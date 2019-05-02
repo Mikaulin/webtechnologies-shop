@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Esta clase define un Usuario
+ * Esta clase Método que define un Usuario
  */
 @Entity
 public class User implements Serializable {
@@ -102,6 +102,21 @@ public class User implements Serializable {
         this.passwordConfirm = password;
     }
 
+    /**
+     * Construye un nuevo usuario con un nombre, apellido, dirección completa, número de telefono,dirección de correo electrónico, nombre de usuario , contraseña y Rol
+     * @param name 
+     * @param lastname1
+     * @param direction
+     * @param city
+     * @param postalCode
+     * @param province
+     * @param country
+     * @param email
+     * @param phone
+     * @param username
+     * @param password
+     * @param role
+     */
     public User(String name, String lastname1, String direction, String city, int postalCode, String province, String country, String email, String phone, String username, String password, Role role) {
         this.name = name;
         this.lastname1 = lastname1;
@@ -119,7 +134,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el identificador único del usuario
+     * Método que devuelve el identificador único del usuario
      *
      * @return long con el identificador único del usuario
      */
@@ -128,7 +143,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el identificador único del usuario
+     * Método que define el identificador único del usuario
      *
      * @param id Identificador único del usuario
      */
@@ -137,7 +152,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el Nombre (real) del usuario
+     * Método que devuelve el Nombre (real) del usuario
      *
      * @return Nombre (real) del usuario
      */
@@ -146,7 +161,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el nombre (real) del usuario
+     * Método que define el nombre (real) del usuario
      *
      * @param name Nombre (real) del usuario
      */
@@ -155,7 +170,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el primer apellido del usuario
+     * Método que devuelve el primer apellido del usuario
      *
      * @return Primer apellido del usuario
      */
@@ -164,7 +179,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el primer apellido del usuario
+     * Método que define el primer apellido del usuario
      *
      * @param lastname1 Primer apellido del usuario
      */
@@ -173,7 +188,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el segundo apellido del usuario
+     * Método que devuelve el segundo apellido del usuario
      *
      * @return Segundo apellido del usuario
      */
@@ -182,7 +197,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el segundo apellido del usuario
+     * Método que define el segundo apellido del usuario
      *
      * @param lastname2 Segundo apellido del usuario
      */
@@ -191,7 +206,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve la dirección del usuario
+     * Método que devuelve la dirección del usuario
      *
      * @return Dirección del usuario
      */
@@ -200,7 +215,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define la dirección del usuario
+     * Método que define la dirección del usuario
      *
      * @param direction Dirección del usuario
      */
@@ -209,7 +224,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve la ciudad del usuario
+     * Método que devuelve la ciudad del usuario
      *
      * @return Ciudad del usuario
      */
@@ -218,7 +233,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define la ciudad del usuario
+     * Método que define la ciudad del usuario
      *
      * @param city Ciudad del usuario
      */
@@ -227,7 +242,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve la provincia del usuario
+     * Método que devuelve la provincia del usuario
      *
      * @return Provincia del usuario
      */
@@ -236,7 +251,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define la provincia del usuario
+     * Método que define la provincia del usuario
      *
      * @param province Provincia del usuario
      */
@@ -245,7 +260,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el país del usuario
+     * Método que devuelve el país del usuario
      *
      * @return País del usuario
      */
@@ -254,7 +269,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el país del usuario
+     * Método que define el país del usuario
      *
      * @param country País del usuario
      */
@@ -263,7 +278,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve la dirección de correo electrónico del usuario
+     * Método que devuelve la dirección de correo electrónico del usuario
      *
      * @return Dirección de correo electrónico del usuario
      */
@@ -272,7 +287,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define la dirección de correo electrónico del usuario
+     * Método que define la dirección de correo electrónico del usuario
      *
      * @param email Dirección de correo electrónico del usuario
      */
@@ -281,7 +296,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el número de teléfono del usuario
+     * Método que devuelve el número de teléfono del usuario
      *
      * @return Número de teléfono del usuario
      */
@@ -290,7 +305,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el número de teléfono del usuario
+     * Método que define el número de teléfono del usuario
      *
      * @param phone Número de teléfono del usuario
      */
@@ -299,7 +314,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve el código postal del usuario
+     * Método que devuelve el código postal del usuario
      *
      * @return Código postal del usuario
      */
@@ -308,7 +323,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el código postal del usuario
+     * Método que define el código postal del usuario
      *
      * @param postalCode Código postal del usuario
      */
@@ -317,7 +332,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve un valor booleano para comprobar si el usuario esta activo o no. Cuando un usuarió este dado de baja el valor deverá ser falso.
+     * Método que devuelve un valor booleano para comprobar si el usuario esta activo o no. Cuando un usuarió este dado de baja el valor deverá ser falso.
      *
      * @return Booleano con el valor de la suscripción.
      */
@@ -326,7 +341,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define al usuario como suscrito o no, en función de si esta dado de alta o no en el sistema
+     * Método que define al usuario como suscrito o no, en función de si esta dado de alta o no en el sistema
      *
      * @param subscribed Booleano con el estado (alta o baja) del usuario en el sistema.
      */
@@ -335,7 +350,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve un conjunto "Set" de las lineas de carrito del usuario.
+     * Método que devuelve un conjunto "Set" de las lineas de carrito del usuario.
      * Las lineas de carrito son las compras por finalizar del usuario.
      *
      * @return Conjunto "Set" de Carts del usuario.
@@ -346,7 +361,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define un conjunto de lineas de compra sin finalizar del usuario
+     * Método que define un conjunto de lineas de compra sin finalizar del usuario
      *
      * @param carts Conjunto "Set" de compras por finalizar del usuario.
      * @see Cart
@@ -357,7 +372,7 @@ public class User implements Serializable {
 
 
     /**
-     * Devuelve el coste total de las compras realizadas en una determinda fecha.
+     * Método que devuelve el coste total de las compras realizadas en una determinda fecha.
      *
      * @param date Calendar que contiene la fecha sobre la que se desean obtener el coste de las compras realizadas
      * @return double con el coste total de las compras realizadas según la fecha
@@ -375,7 +390,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve las compras realizadas en una determinada fecha.
+     * Método que devuelve las compras realizadas en una determinada fecha.
      *
      * @param date Calendar que contiene la fecha sobre la que se desean obtener las compras realizadas
      * @return Conjunto "Set" con las compras realizadas según la fecha
@@ -396,7 +411,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define las compras realizadas
+     * Método que define las compras realizadas
      *
      * @param purchaseLines Conjunto "Set" que contiene las compras realizadas
      * @see PurchaseLine
@@ -407,7 +422,7 @@ public class User implements Serializable {
 
 
     /**
-     * Devuelve el nombre del usuario
+     * Método que devuelve el nombre del usuario
      *
      * @return Nombre del usuario
      */
@@ -416,7 +431,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve la contraseña del usuario
+     * Método que devuelve la contraseña del usuario
      *
      * @return Contraseña del usuario
      */
@@ -425,7 +440,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Devuelve la confirmación de contraseña del usuario
+     * Método que devuelve la confirmación de contraseña del usuario
      *
      * @return Clonfirmación de contraseña del usuario
      */
@@ -435,7 +450,7 @@ public class User implements Serializable {
 
 
     /**
-     * Devuelve los roles asignados al usuario
+     * Método que devuelve los roles asignados al usuario
      *
      * @return Conjunto "Set" de roles asignados al usuario
      * @see Role
@@ -445,7 +460,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el identificador único del usuario
+     * Método que define el identificador único del usuario
      *
      * @param id Identificador único del usuario
      */
@@ -454,7 +469,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define el nombre de usuario del usuario
+     * Método que define el nombre de usuario del usuario
      *
      * @param username Nombre de usuario del usuario
      */
@@ -463,7 +478,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define la contraseña del usuario
+     * Método que define la contraseña del usuario
      *
      * @param password Contraseña del usuario
      */
@@ -472,7 +487,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define la confirmación de contraseña del usuario
+     * Método que define la confirmación de contraseña del usuario
      *
      * @param passwordConfirm Confirmación de contraseña del usuario
      */
@@ -481,7 +496,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Define los roles asignados al usuario
+     * Método que define los roles asignados al usuario
      *
      * @param roles Conjunto "Set" de roles asignados al usuario
      * @see Role
@@ -490,10 +505,16 @@ public class User implements Serializable {
         this.roles = roles;
     }
 
+    /**Método que devuelve un booleano sobre el estado "borrado" del usuario
+     * @return Booleano sobre el estado "borrado" del usuario
+     */
     public boolean isDeleted() {
         return deleted;
     }
 
+    /**Método que define el estado "borrado" del usuario
+     * @param deleted booleano del estado "borrado" del usuario.
+     */
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
@@ -511,7 +532,7 @@ public class User implements Serializable {
         this.roles.add(role);
     }
 
-    /** Devuelve todas las compras realizadas
+    /** Método que devuelve todas las compras realizadas
      * @return Conjunto "Set" de las compras realizadas.
      * @see PurchaseLine
      * @see Set
@@ -522,7 +543,7 @@ public class User implements Serializable {
 
 
     /**
-     * Devuelve una cadena que representa el Usuario
+     * Método que devuelve una cadena que representa el Usuario
      *
      * @return Cadena que representa el usuario
      */

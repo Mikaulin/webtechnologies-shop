@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * <P>Esta clase define una linea de compra realizada.</P>
+ * <P>Esta clase Método que define una linea de compra realizada.</P>
  * <P>Una linea de compra debe pertenecer a un Usuario y contiene la información sobre el  producto que se ha comprado así como las unidades compradas y el precio que se pago por la compra </p>
  *
  * @see Product
@@ -45,7 +45,7 @@ public class PurchaseLine {
 
 
     /**
-     * Define el identificador único de la linea de compra
+     * Método que define el identificador único de la linea de compra
      *
      * @param id identificador único de la linea de compra
      */
@@ -54,7 +54,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Define el usuario que ha realizado la compra
+     * Método que define el usuario que ha realizado la compra
      *
      * @param user Usuario que realiza la compra
      * @see User
@@ -64,7 +64,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve el identificador único de la linea de compra
+     * Método que devuelve  el identificador único de la linea de compra
      *
      * @return long con el identificador único de la linea de compra
      */
@@ -73,7 +73,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve el usuario que ha realizado la compra
+     * Método que devuelve  el usuario que ha realizado la compra
      *
      * @return User usuario que ha realizado la compra
      * @see User
@@ -83,7 +83,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve un objeto Calendar que contiene la fecha de realización de la compra
+     * Método que devuelve  un objeto Calendar que contiene la fecha de realización de la compra
      *
      * @return Calendar que contiene la fecha de realización de la compra
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -93,7 +93,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Define la fecha de la compra
+     * Método que define la fecha de la compra
      *
      * @param date Calendar que contiene la fecha de la realización de la compra
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html">Calendar</a>
@@ -103,7 +103,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve el precio unitario del producto que se compra
+     * Método que devuelve  el precio unitario del producto que se compra
      *
      * @return double con el precio únitario del producto que se compra
      */
@@ -112,7 +112,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Define el precio unitario del producto que se compra
+     * Método que define el precio unitario del producto que se compra
      *
      * @param unitPrice Precio unitario del producto que se compra
      */
@@ -121,7 +121,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve el precio total de la compra realizada
+     * Método que devuelve  el precio total de la compra realizada
      *
      * @return double con el precio total de la compra realizada
      */
@@ -130,7 +130,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Define el precio total de la compra realizada
+     * Método que define el precio total de la compra realizada
      *
      * @param purchasePrice Precio total de la compra realizada
      */
@@ -139,7 +139,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve la cantidad de productos incluidos en la compra realizada
+     * Método que devuelve  la cantidad de productos incluidos en la compra realizada
      *
      * @return Entero con la cantidad de productos incluidos en la compra realizada
      */
@@ -148,7 +148,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Define la cantidad de productos que incluidos en la compra
+     * Método que define la cantidad de productos que incluidos en la compra
      *
      * @param count Cantidad de productos incluidos en la compra
      */
@@ -157,7 +157,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve el producto que se compra
+     * Método que devuelve  el producto que se compra
      *
      * @return Producto que se compra.
      * @see Product
@@ -167,7 +167,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Define el producto comprado
+     * Método que define el producto comprado
      *
      * @param product Producto comprado
      * @see Product
@@ -177,7 +177,7 @@ public class PurchaseLine {
     }
 
     /**
-     * Devuelve una cadena que representa la compra realizada.
+     * Método que devuelve  una cadena que representa la compra realizada.
      *
      * @return Cadena que representa la compra realizada.
      */

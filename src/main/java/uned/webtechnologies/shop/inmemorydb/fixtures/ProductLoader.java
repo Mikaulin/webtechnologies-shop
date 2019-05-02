@@ -53,7 +53,7 @@ public class ProductLoader implements ILoader {
     }
 
     /**
-     * Este metodo obtiene las marcas,categorais y promociones de sus correspondientes respositorios,
+     * Este Método obtiene las marcas,categorais y promociones de sus correspondientes respositorios,
      * crea algunos productos de ejemplo asignandoles algunas de las marcas,categorias y promociones obtenidas
      * y guarda los productos en su correspondiente repositorio.
      */

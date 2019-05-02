@@ -33,7 +33,7 @@ public class PromotionLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado de cargar algunas promociones de ejemplo en el repositorio
+     * Método encargado de cargar algunas promociones de ejemplo en el repositorio
      */
     @Override
     public void load() {

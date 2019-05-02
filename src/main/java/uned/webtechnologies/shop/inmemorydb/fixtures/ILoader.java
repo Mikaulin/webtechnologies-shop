@@ -11,7 +11,7 @@ import java.text.ParseException;
 public interface ILoader {
 
     /**
-     * Metodo que se encarga de cargar las entidades en la BBDD
+     * Método que se encarga de cargar las entidades en la BBDD
      *
      * @throws ParseException
      */

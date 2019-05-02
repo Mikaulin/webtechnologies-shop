@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.Category;
 
 /**
- * Monta un repositorio de Categorias en la BBDD
+ * Interfaz encargada de montar un repositorio de Categorias en la BBDD
  *
  * @see JpaRepository
  * @see Category

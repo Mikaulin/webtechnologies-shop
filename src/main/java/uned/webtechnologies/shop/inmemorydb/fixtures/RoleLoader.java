@@ -34,7 +34,7 @@ public class RoleLoader implements ILoader {
     }
 
     /**
-     * Metodo encargado de crear dos instancias de Role y cargarlas en el repositorio.
+     * Método encargado de crear dos instancias de Role y cargarlas en el repositorio.
      * <p>Roles cargados</p>
      * <ul>
      * <li>ROLE_ADMIN</li>

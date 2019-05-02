@@ -7,7 +7,7 @@ import javax.persistence.ManyToMany;
 import java.util.Set;
 
 /**
- * Esta clase define un Role de usuario.
+ * Esta clase Método que define un Role de usuario.
  *
  * @see User
  */
@@ -38,7 +38,7 @@ public class Role {
     private Set<User> users;
 
     /**
-     * Devuelve el identificador único del Role
+     * Método que devuelve el identificador único del Role
      *
      * @return Identificador único del Role
      */
@@ -47,7 +47,7 @@ public class Role {
     }
 
     /**
-     * Define el identificador único del Role
+     * Método que define el identificador único del Role
      *
      * @param id Identificador único del Role
      */
@@ -56,7 +56,7 @@ public class Role {
     }
 
     /**
-     * Devuelve el nombre del Role
+     * Método que devuelve el nombre del Role
      *
      * @return Nombre del Role
      */
@@ -65,7 +65,7 @@ public class Role {
     }
 
     /**
-     * Define el nombre del Role
+     * Método que define el nombre del Role
      *
      * @param name Nombre del Role
      */
@@ -74,7 +74,7 @@ public class Role {
     }
 
     /**
-     * Devuelve el conjunto de usuarios que tienen este Role
+     * Método que devuelve el conjunto de usuarios que tienen este Role
      *
      * @return Conjunto "Set" de Usuarios que tienen este Role
      * @see User
@@ -85,7 +85,7 @@ public class Role {
     }
 
     /**
-     * Define los usuarios a los que se les asigna este Role
+     * Método que define los usuarios a los que se les asigna este Role
      *
      * @param users Conjunto de usuarios a los que se les asigna este Role
      * @see User

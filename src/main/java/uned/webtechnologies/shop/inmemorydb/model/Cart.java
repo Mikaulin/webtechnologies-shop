@@ -5,7 +5,7 @@ import uned.webtechnologies.shop.utils.NumberUtils;
 import javax.persistence.*;
 
 /**
- * <P>Esta clase define una linea de carro de compra.</P>
+ * <P>Esta clase Método que define una linea de carro de compra.</P>
  * Una linea de compra debe pertenecer a un Usuario y contiene la información del producto que desea comprar y la cantidad de unidades por linea.
  *
  * @see Product
@@ -53,7 +53,7 @@ public class Cart {
 
 
     /**
-     * Define el identificador único del Cart
+     * Método que define el identificador único del Cart
      *
      * @param id identificador único de tipo long
      */
@@ -62,7 +62,7 @@ public class Cart {
     }
 
     /**
-     * Devuelve el precio unitario del producto que se desea comprar
+     * Método que devuelve el precio unitario del producto que se desea comprar
      *
      * @return precio unitario del producto que se desea comprar
      */
@@ -71,7 +71,7 @@ public class Cart {
     }
 
     /**
-     * Define el precio unitario del producto redondeado.
+     * Método que define el precio unitario del producto redondeado.
      *
      * @param unitPrice Precio unitario del producto.
      * @see NumberUtils#roundDecimals(double)
@@ -81,7 +81,7 @@ public class Cart {
     }
 
     /**
-     * Devuelve el precio total de la compra.
+     * Método que devuelve el precio total de la compra.
      *
      * @return Precio double total de la compra calculado a partir del precio unitario múltiplicado por la cantidad de productos a comprar
      */
@@ -90,7 +90,7 @@ public class Cart {
     }
 
     /**
-     * Define el precio total de la compra
+     * Método que define el precio total de la compra
      *
      * @param cartPrice Precio total de la compra
      * @see NumberUtils#roundDecimals(double)
@@ -100,7 +100,7 @@ public class Cart {
     }
 
     /**
-     * Devuelve el identificador único de la compra
+     * Método que devuelve el identificador único de la compra
      *
      * @return Identificador long único del Cart
      */
@@ -109,7 +109,7 @@ public class Cart {
     }
 
     /**
-     * Devuelve el Usuario que quiere realizar la compra
+     * Método que devuelve el Usuario que quiere realizar la compra
      *
      * @return El usuario User que quiere realizar la compra
      * @see User
@@ -119,7 +119,7 @@ public class Cart {
     }
 
     /**
-     * Define el usuario que quiere realizar la compra
+     * Método que define el usuario que quiere realizar la compra
      *
      * @param user El usuario que quiere realizar la compra
      * @see User
@@ -129,7 +129,7 @@ public class Cart {
     }
 
     /**
-     * Devuelve la cantidad de productos a comprar
+     * Método que devuelve la cantidad de productos a comprar
      *
      * @return La cantidad int de productos a comprar
      */
@@ -138,7 +138,7 @@ public class Cart {
     }
 
     /**
-     * Define la cantidad de productos a comprar
+     * Método que define la cantidad de productos a comprar
      *
      * @param count La cantidad de productos a comprar
      */
@@ -147,7 +147,7 @@ public class Cart {
     }
 
     /**
-     * Devuelve el producto que se desea comprar
+     * Método que devuelve el producto que se desea comprar
      *
      * @return El producto Product que se desea comprar
      * @see Product
@@ -157,7 +157,7 @@ public class Cart {
     }
 
     /**
-     * Define el producto que se desea comprar
+     * Método que define el producto que se desea comprar
      *
      * @param product El producto que se quiere comprar
      * @see Product
@@ -168,7 +168,7 @@ public class Cart {
 
 
     /**
-     * Devuelve una representacion en texto de la linea de carrito
+     * Método que devuelve una representacion en texto de la linea de carrito
      *
      * @return La representación String de la linea de carrito
      */

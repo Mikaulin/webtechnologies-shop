@@ -8,14 +8,14 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- * Monta un repositorio de PurchaseLines (lineas de compra) en la BBDD
+ * Interfaz encargada de montar un repositorio de PurchaseLines (lineas de compra) en la BBDD
  *
  * @see PurchaseLine
  */
 
 public interface PurchaseLineRepository extends JpaRepository<PurchaseLine, Long> {
     /**
-     * Devuelve una todas las lineas de compra de un usuario
+     * Método que devuelve una todas las lineas de compra de un usuario
      *
      * @param user Usuario del que se quieren obtener las lineas de compra
      * @return Lista con todas las lineas de compra del usuario
@@ -25,7 +25,7 @@ public interface PurchaseLineRepository extends JpaRepository<PurchaseLine, Long
     List<PurchaseLine> findByUser(User user);
 
     /**
-     * Devuelve las lineas de compra de un día concreto
+     * Método que devuelve las lineas de compra de un día concreto
      *
      * @param purchaseDate Calendar que contiene la fecha sobre la que se realiza la consulta
      * @return Lista de lineas de compra

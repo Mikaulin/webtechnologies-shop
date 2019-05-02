@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 
 /**
- * Define un repositorio de Promociones
+ * Interfaz encargada de montar un repositorio de Promociones
  *
  * @see Promotion
  */
@@ -14,7 +14,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 public interface PromotionRepository extends JpaRepository<Promotion, Long> {
 
     /**
-     * Devuelve una promoción
+     * Método que devuelve una promoción
      *
      * @param id Identificador único de la promoción
      * @return Promoción
