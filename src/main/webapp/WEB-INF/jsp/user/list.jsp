@@ -37,6 +37,7 @@
             <th scope="col">Email</th>
             <%--<th scope="col">Tlf</th>--%>
             <th scope="col">Usuario</th>
+            <th scope="col">Alta/baja</th>
             <th scope="col">Acciones</th>
 
         </tr>
@@ -55,15 +56,29 @@
                     <%--<td>${user.country}</td>--%>
                 <td>${user.email}</td>
                     <%--<td>${user.phone}</td>--%>
-                <td>${user.username}</td>
+                <td >${user.username}</td>
+                <c:if test="${user.deleted}">
+                    <td class="text-danger">BAJA</td>
+                </c:if>
+                <c:if test="${!user.deleted}">
+                    <td>ALTA</td>
+                </c:if>
+
+
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-info" role="button"
                            href="${pageContext.request.contextPath}/admin/usuarios/editar/${user.username}">Editar</a>
                         <a class="btn btn-sm btn-outline-secondary" role="button"
                            href="${pageContext.request.contextPath}/admin/ventas/historial/${user.username}">Ventas</a>
+                        <c:if test="${!user.deleted}">
                         <a class="btn btn-sm btn-outline-danger" role="button"
                            href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
+                        </c:if>
+                        <c:if test="${user.deleted}">
+                            <a class="btn btn-sm btn-outline-danger disabled" role="button"
+                               href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
+                        </c:if>
                     </div>
                 </td>
             </tr>
