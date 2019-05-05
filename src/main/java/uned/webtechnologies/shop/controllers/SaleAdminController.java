@@ -43,23 +43,23 @@ public class SaleAdminController {
     @RequestMapping(value = "/informe", method = RequestMethod.POST)
     public ModelAndView report(@ModelAttribute("date") String date) {
         ModelAndView result = new ModelAndView("sale/report");
-        int day= Integer.parseInt(date.substring(8,10));
-        int month=Integer.parseInt(date.substring(5,7));
-        int year=Integer.parseInt(date.substring(0,4));
+        int day = Integer.parseInt(date.substring(8, 10));
+        int month = Integer.parseInt(date.substring(5, 7));
+        int year = Integer.parseInt(date.substring(0, 4));
 
-        Calendar cal=new GregorianCalendar(year,month-1,day);
-        result.addObject("date",cal);
-        result.addObject("day",day);
-        result.addObject("month",month);
-        result.addObject("year",year);
-        List<PurchaseLine> lines=this.purchaseLineService.getPurchasesByDate(cal);
-        Set<User> user=new HashSet<>();
-        for (PurchaseLine l:lines
+        Calendar cal = new GregorianCalendar(year, month - 1, day);
+        result.addObject("date", cal);
+        result.addObject("day", day);
+        result.addObject("month", month);
+        result.addObject("year", year);
+        List<PurchaseLine> lines = this.purchaseLineService.getPurchasesByDate(cal);
+        Set<User> user = new HashSet<>();
+        for (PurchaseLine l : lines
         ) {
             user.add(l.getUser());
 
         }
-        result.addObject("users",user);
+        result.addObject("users", user);
         //  result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
         return result;
     }
@@ -67,9 +67,10 @@ public class SaleAdminController {
     @GetMapping("/historial/{username}")
     public ModelAndView listHistory(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("sale/history");
-        User user=this.userService.findByUsername(username);
-        result.addObject("user",user);
-        result.addObject("lines", user.getPurchaseLines());
+        User user = this.userService.findByUsername(username);
+        result.addObject("user", user);
+        result.addObject("lines", userService.getPurchaseLines(user));
+
         return result;
     }
 
