@@ -52,7 +52,7 @@
                                 <span>${cart.count}</span>
                             </td>
                             <td>
-                                <span>${cart.product.finalPrice * cart.count} &euro;</span>
+                                <span>${cart.cartPrice} &euro;</span>
                             </td>
                         </tr>
                     </c:forEach>
