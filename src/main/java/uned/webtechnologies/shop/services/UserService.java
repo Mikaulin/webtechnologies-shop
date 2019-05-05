@@ -20,7 +20,7 @@ public class UserService {
     private RoleService roleService;
 
     public List<User> getUsers() {
-        return this.userRepository.findByDeletedFalse();
+        return this.userRepository.findAll();
     }
 
     public User getUser(long id){
