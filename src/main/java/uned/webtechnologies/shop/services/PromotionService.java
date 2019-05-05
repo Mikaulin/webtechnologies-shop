@@ -26,8 +26,6 @@ public class PromotionService {
 
     public Promotion getPromotion(long id){return this.promotionRepository.getOne(id);}
 
-
-
     public void save(Promotion promotion) {promotionRepository.save(promotion); }
 
     public List<Promotion> getActivePromotions(){
@@ -37,9 +35,7 @@ public class PromotionService {
             if(p.isActive()){
                 valids.add(p);
             }
-
         }
-
         return valids;
     }
 

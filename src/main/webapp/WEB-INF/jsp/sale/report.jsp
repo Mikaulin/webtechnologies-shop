@@ -107,6 +107,15 @@
 
     </c:forEach>
 
+    <c:if test="${users.size() == 0}">
+
+        <h5>Lo sentimos, no hay ninguna venta con la fecha seleccionada.
+
+            <p>&nbsp;</p>
+
+            Por favor, elige una fecha diferente para generar un nuevo informe.</h5>
+    </c:if>
+
 
     <p>&nbsp;</p>
 

@@ -14,62 +14,65 @@
             <div class="col-md-8 order-md-1">
 
                 <div class="mb-3">
-                    <mvc:label path="name">Nombre</mvc:label>
-                    <mvc:input path="name" class="form-control" value=""/>
+                    <label for="name">Nombre</label>
+                    <input name="name" id="name" class="form-control" value="" required=""/>
                 </div>
 
                 <div class="mb-3">
-                    <mvc:label path="description">Descripci&oacute;n</mvc:label>
-                    <mvc:input path="description" class="form-control" value=""/>
+                    <label for="description">Descripci&oacute;n</label>
+                    <input name="description" id="description" class="form-control" value="" required=""/>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="width">Ancho (mm)</mvc:label>
-                        <mvc:input path="width" class="form-control" value=""/>
+                        <label for="width">Ancho (mm)</label>
+                        <input name="width" id="width" class="form-control" placeholder="0.0" required=""/>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="depth">Profundidad (mm)</mvc:label>
-                        <mvc:input path="depth" class="form-control" value=""/>
+                        <label for="depth">Profundidad (mm)</label>
+                        <input name="depth" id="depth" class="form-control" placeholder="0.0" required=""/>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="height">Alto (mm)</mvc:label>
-                        <mvc:input path="height" class="form-control" value=""/>
+                        <label for="height">Alto (mm)</label>
+                        <input name="height" id="height" class="form-control" placeholder="0.0" required=""/>
                     </div>
                 </div>
 
                 <div class="row">
+
                     <div class="col-md-4 mb-3">
                         <div class="form-group">
-                            <mvc:label path="category">Categor&iacute;a</mvc:label>
-                            <mvc:select class="form-control" path="category">
-                                <mvc:option value="NONE" label="Elige ..."/>
+                            <label for="category">Categor&iacute;a</label>
+                            <select class="form-control" name="category" id="category" required>
+                                <option value=""> Elige ...</option>
                                 <c:forEach items="${categories}" var="category">
                                     <option value="${category.id}">${category.name}</option>
                                 </c:forEach>
-                            </mvc:select>
+                            </select>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <div class="form-group">
-                            <mvc:label path="brand">Marca</mvc:label>
-                            <mvc:select class="form-control" path="brand">
-                                <mvc:option value="NONE" label="Elige ..."/>
+                            <label for="brand">Marca</label>
+                            <select class="form-control" name="brand" id="brand" required>
+                                <option value=""> Elige ...</option>
                                 <c:forEach items="${brands}" var="brand">
-                                    <mvc:option value="${brand.id}" label="${brand.name}"/>
+                                    <option value="${brand.id}">${brand.name}</option>
                                 </c:forEach>
-                            </mvc:select>
+                            </select>
                         </div>
                     </div>
+
+
                     <div class="col-md-4 mb-3">
                         <div class="form-group">
-                            <mvc:label path="deleted">Descatalogado</mvc:label>
-                            <mvc:select class="form-control" path="deleted">
+                            <label for="deleted">Descatalogado</label>
+                            <select class="form-control" id="deleted" name="deleted">
                                 <option selected>FALSE</option>
                                 <option>TRUE</option>
-                            </mvc:select>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -77,13 +80,15 @@
                 <div class="row">
                     <div class="col-md-8 mb-3">
                         <div class="form-group">
-                            <mvc:label path="photo">Elige una foto del producto</mvc:label>
-                            <mvc:input type="file" path="photo" class="form-control" value="/electro/"/>
+                            <label for="photo">Elige una foto del producto</label>
+                            <input type="file" id="photo" name="photo" class="form-control" value="/electro/"
+                                   required=""/>
                         </div>
                     </div>
+
                     <div class="col-md-4 mb-3">
-                        <mvc:label path="discount">Descuento (%)</mvc:label>
-                        <mvc:input path="discount" class="form-control" value=""/>
+                        <label for="discount">Descuento (%)</label>
+                        <input id="discount" name="discount" class="form-control" value="0.0"/>
                     </div>
                 </div>
 
@@ -92,18 +97,18 @@
 
             <div class="col-md-4 order-md-2 mb-4">
                 <div class="mb-3">
-                    <mvc:label path="count">Cantidad</mvc:label>
-                    <mvc:input path="count" class="form-control" value=""/>
+                    <label for="count">Cantidad</label>
+                    <input id="count" name="count" class="form-control" placeholder="0" required=""/>
                 </div>
 
                 <div class="mb-3">
-                    <mvc:label path="price">Precio Ud.</mvc:label>
-                    <mvc:input path="price" class="form-control" value=""/>
+                    <label for="price">Precio Ud.</label>
+                    <input id="price" name="price" class="form-control" placeholder="0.0" required=""/>
                 </div>
 
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Promociones activas</h4>
+                        <h4 class="my-0 font-weight-normal">Promociones</h4>
                     </div>
 
                     <div class="card-body">
@@ -118,15 +123,6 @@
                                 </li>
                             </c:forEach>
 
-                                <%-- <c:forEach items="${promotion}" var="promo">
-                                     <li>
-                                         <div class="form-group form-check"><input type="checkbox"
-                                                                                   class="form-check-input"
-                                                                                   id="${promo.id}">
-                                             <label class="form-check-label" for="${promo.id}">${promo.name}</label>
-                                         </div>
-                                     </li>
-                                 </c:forEach>--%>
                         </ul>
                     </div>
                 </div>

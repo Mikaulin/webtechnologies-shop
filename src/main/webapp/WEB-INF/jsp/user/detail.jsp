@@ -12,12 +12,17 @@
             </div>
         </div>
 
-        <div class="input-group">
-            <a href="${pageContext.request.contextPath}/usuarios/baja"
-               title="Darme de baja">
-                <button type="button" class="btn btn-danger btn-sm">Darme de baja</button>
-            </a>
-        </div>
+        <c:if test="${!detailUser.username.equals('Admin')}">
+
+            <div class="input-group">
+                <a href="${pageContext.request.contextPath}/usuarios/baja"
+                   title="Darme de baja">
+                    <button type="button" class="btn btn-danger btn-sm">Darme de baja</button>
+                </a>
+            </div>
+
+        </c:if>
+
     </div>
 
     <div class="border-top my-3"></div>
@@ -80,9 +85,12 @@
             <div class="p-4 mb-3 bg-light rounded">
                 <h6 class="font-italic">Política de protección de datos<br>
                     <small>Los datos personales de los usuarios serán conservados mientras sean necesarios para la
-                        consecución de las finalidades propias que tengan que ver exclusivamente con el de la tienda online.
-                        En el momento en que no sean necesarios para dichas finalidades,  los datos serán bloqueados durante
-                        el periodo en el que puedan ser necesarios para el ejercicio  o la defensa frente a acciones judiciales
+                        consecución de las finalidades propias que tengan que ver exclusivamente con el de la tienda
+                        online.
+                        En el momento en que no sean necesarios para dichas finalidades, los datos serán bloqueados
+                        durante
+                        el periodo en el que puedan ser necesarios para el ejercicio o la defensa frente a acciones
+                        judiciales
                         o administrativas y solo podrán ser desbloqueados y tratados de nuevo por este motivo.
                     </small>
                 </h6>
@@ -91,21 +99,22 @@
 
     </div>
 
+    <c:if test="${!detailUser.username.equals('Admin')}">
 
+        <div class="row">
+            <div class="col-md-12 order-md-1">
 
-    <div class="row">
-        <div class="col-md-12 order-md-1">
-
-            <div class="jumbotron mt-3">
-                <h4>Necesita consultar su compras ?</h4>
-                <p class="lead">Desde aquí podrá consultar de forma cómoda el histórico de sus compras.</p>
-                <a class="btn btn-outline-danger" href="${pageContext.request.contextPath}/compra/listado" role="button">Consultar compras</a>
+                <div class="jumbotron mt-3">
+                    <h4>Necesita consultar su compras ?</h4>
+                    <p class="lead">Desde aquí podrá consultar de forma cómoda el histórico de sus compras.</p>
+                    <a class="btn btn-outline-danger" href="${pageContext.request.contextPath}/compra/listado"
+                       role="button">Consultar compras</a>
+                </div>
             </div>
+
         </div>
 
-    </div>
-
-
+    </c:if>
 </div>
 
 <p>&nbsp;</p>

@@ -134,7 +134,7 @@
 
                     <br>
 
-                    <a class="btn btn-outline-success" href="${pageContext.request.contextPath}/user/login">Área de cliente
+                    <a class="btn btn-outline-success" href="${pageContext.request.contextPath}/usuarios/login">Área de cliente
                         <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>

@@ -58,9 +58,9 @@
                 <td>
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-info" role="button"
-                           href="${pageContext.request.contextPath}/producto/detalle/${product.id}">View</a>
+                           href="${pageContext.request.contextPath}/producto/detalle/${product.id}">Ver</a>
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/admin/producto/editar/${product.id}">Edit</a>
+                           href="${pageContext.request.contextPath}/admin/producto/editar/${product.id}">Editar</a>
                     </div>
                 </td>
             </tr>

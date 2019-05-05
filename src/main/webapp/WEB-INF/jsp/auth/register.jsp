@@ -8,7 +8,7 @@
 
 <div class="container">
 
-    <h4>Formulario nuevo cliente</h4>
+    <h4>Registro</h4>
     <hr>
 
     <form:form method="POST" modelAttribute="userForm" class="form-signin">
