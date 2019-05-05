@@ -10,6 +10,13 @@ import uned.webtechnologies.shop.inmemorydb.repository.CategoryRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Clase encargada de cargar Categorias en el respositorio de categorias.
+ *
+ * @see CategoryRepository
+ * @see Category
+ */
+
 
 @Service
 public class CategoryLoader implements ILoader {
@@ -17,11 +24,31 @@ public class CategoryLoader implements ILoader {
     private Logger log = LoggerFactory.getLogger("Application");
     private final CategoryRepository categoryRepository;
 
+    /**
+     * Construye un cargador asignandole su correspondiente repositorio
+     *
+     * @param categoryRepository Repositorio de categorias
+     * @see CategoryRepository
+     */
     @Autowired
     public CategoryLoader(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
+    /**
+     * Método encargado de crear instancias de categorias y guardarlas en el repositorio.
+     * <P>Categorías cargadas</P>
+     * <UL>
+     * <LI>Lavadoras</LI>
+     * <LI>Lavavajillas</LI>
+     * <LI>Congeladores</LI>
+     * <LI>Hornos</LI>
+     * <LI>Secadoras</LI>
+     * <LI>Campanas</LI>
+     * <LI>Frigoríficos</LI>
+     * <LI>Vitrocerámicas</LI>
+     * </UL>
+     */
     @Override
     public void load() {
         ArrayList<Category> categories = new ArrayList<>(

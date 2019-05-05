@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.CartService;
 import uned.webtechnologies.shop.services.UserService;
+/** Controlador para gestionar las Lineas de carrito de la vista-modelo
+ * Responde a las URLs "/carrito(/..)*"
+ *
+ *
+ */
 
 @Controller
 @RequestMapping("/carrito")
@@ -18,6 +22,12 @@ public class CartController {
     private CartService cartService;
     private UserService userService;
 
+    /**Construye un controlador con un CartService y un UserService
+     * @param cartService CartService para interactuar con las lineas de Carrito
+     * @param userService UserService para interactuar con los usuarios
+     * @see CartService
+     * @see UserService
+     */
     @Autowired
     public CartController(CartService cartService, UserService userService) {
         this.cartService = cartService;
@@ -25,6 +35,13 @@ public class CartController {
     }
 
 
+    /**Método que responde a la solicitud get("carrito")
+     * poniendo a disposición de la vista la lista de lineas de carrito del usuario conectado
+     * @param activeUser Usuario conectado
+     * @return ModelAndView ("cart/list") con la lista de lineas de carrito del usuario conectado
+     * @see UserDetails
+     * @see  <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     */
     @GetMapping()
     public ModelAndView list(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("cart/list");
@@ -32,6 +49,13 @@ public class CartController {
         return listCart(result, activeUser);
     }
 
+    /**Método que responde a la solicitud get("/orden")
+     * poniendo a disposición de la vista la lista de lineas de carrito del usuario conectado
+     * @param activeUser Usuario conectado
+     * @return ModelAndView ("cart/list") con la lista de lineas de carrito del usuario conectado
+     * @see UserDetails
+     * @see  <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     */
     @GetMapping("/orden")
     public ModelAndView orden(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("cart/order");

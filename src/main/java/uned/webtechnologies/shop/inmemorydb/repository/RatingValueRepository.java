@@ -4,9 +4,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 
+/**
+ * Interfaz encargada de montar un repositorio de RatingValue en la BBDD
+ *
+ * @see RatingValue
+ */
+
 @Repository
 public interface RatingValueRepository extends JpaRepository<RatingValue, Long> {
-
 
 
 }

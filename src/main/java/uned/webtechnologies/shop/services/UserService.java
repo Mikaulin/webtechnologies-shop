@@ -23,6 +23,7 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
+
     public User getUser(long id){
         return this.userRepository.getOne(id);
     }
@@ -38,6 +39,11 @@ public class UserService {
         return userRepository.findByUsernameAndDeletedFalse(username);
     }
 
+    public void delete(User user) {
+        user.setDeleted(true);
+        this.userRepository.save(user);
+    }
+
     public void update(String username, User user) {
         User updatedUser = findByUsername(username);
         updatedUser.setName(user.getName());
@@ -50,10 +56,5 @@ public class UserService {
         updatedUser.setPhone(user.getPhone());
         updatedUser.setPostalCode(user.getPostalCode());
         save(updatedUser);
-    }
-
-    public void delete(User user) {
-        user.setDeleted(true);
-        this.userRepository.save(user);
     }
 }
