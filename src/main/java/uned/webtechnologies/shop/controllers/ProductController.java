@@ -9,6 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.RatingService;
 
+/**Controlador de productos
+ *
+ */
+
 @Controller
 @RequestMapping("/producto")
 public class ProductController {
@@ -16,12 +20,24 @@ public class ProductController {
     private ProductService productService;
     private RatingService ratingService;
 
+    /**Construye un controlador de productos
+     * @param productService Servicio para interactuar con los productos
+     * @param ratingService Servicio para interacturar con los Ratings
+     * @see ProductService
+     * @see RatingService
+     *
+     */
     @Autowired
     public ProductController(ProductService productService, RatingService ratingService) {
         this.productService = productService;
         this.ratingService = ratingService;
     }
 
+
+    /**Método
+     * @param id
+     * @return
+     */
     @GetMapping("/detalle/{id}")
     public ModelAndView detail(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/detail");

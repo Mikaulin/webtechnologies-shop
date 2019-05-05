@@ -10,16 +10,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @see PromotionRepository
+ * @see Promotion
+ */
+
 @Service
 public class PromotionService {
 
     @Autowired
     private PromotionRepository promotionRepository;
 
-    public Set<Product> getProductsByPromotionId(long id){
-        return  this.promotionRepository.getPromotionById(id).getProducts();
+    /**
+     * Método que un conjunto de productos que tienen una promoción concreta asignada del repositorio de promociónes
+     *
+     * @param id Identificador único de la promoción sobre la que se realiza la consulta
+     * @return Conjunto de productos que tienen asignada una promoción concreta
+     * @see PromotionRepository
+     * @see Promotion
+     * @see Product
+     */
+    public Set<Product> getProductsByPromotionId(long id) {
+        return this.promotionRepository.getPromotionById(id).getProducts();
     }
 
+    /**
+     * Método que devuelve las promociónes del repositorio
+     *
+     * @return Lista de promociónes del repositorio
+     * @see PromotionRepository
+     * @see Promotion
+     */
     public List<Promotion> getPromotions() {
         return this.promotionRepository.findAll();
     }
@@ -36,9 +57,6 @@ public class PromotionService {
         return this.promotionRepository.getOne(id);
     }
 
-    public void save(Promotion promotion) {promotionRepository.save(promotion); }
-
-    public List<Promotion> getActivePromotions(){
 
     /**
      * Método que guarda o actualiza una promoción en el repositorio
