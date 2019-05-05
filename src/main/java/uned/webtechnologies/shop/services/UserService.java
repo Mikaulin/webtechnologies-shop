@@ -3,6 +3,7 @@ package uned.webtechnologies.shop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import uned.webtechnologies.shop.inmemorydb.model.Role;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
@@ -16,7 +17,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private RoleRepository roleRepository;
+    private RoleService roleService;
 
     public List<User> getUsers() {
         return this.userRepository.findByDeletedFalse();
@@ -30,7 +31,7 @@ public class UserService {
     public void save(User user) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(new HashSet<>(roleRepository.findAll()));
+        user.addRole(this.roleService.getRoleByName(Role.ROLE_USER));
         userRepository.save(user);
     }
 

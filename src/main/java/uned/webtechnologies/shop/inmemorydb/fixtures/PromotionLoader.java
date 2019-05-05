@@ -65,8 +65,8 @@ public class PromotionLoader implements ILoader {
         Promotion d30 = new Promotion();
         d30.setDescription("Descuento del 30 en algunos productos");
         d30.setName("Superdescuento del 30%");
-        d30.setStartDate(new GregorianCalendar(2019, 1, 5));
-        d30.setEndDate(new GregorianCalendar(2019, 4, 21));
+        d30.setStartDate(new GregorianCalendar(2019, 4, 5));
+        d30.setEndDate(new GregorianCalendar(2019, 6, 20));
         d30.setDiscount(30);
         promotionRepository.save(d30);
 
@@ -74,15 +74,15 @@ public class PromotionLoader implements ILoader {
         d20.setDescription("Descuento del 20% en primavera 2019");
         d20.setName("Descuento 20% primavera 2019");
         d20.setStartDate(new GregorianCalendar(2019, 1, 21));
-        d20.setEndDate(new GregorianCalendar(2019, 5, 21));
+        d20.setEndDate(new GregorianCalendar(2019, 4, 21));
         d20.setDiscount(20);
         promotionRepository.save(d20);
 
         Promotion d15Z = new Promotion();
-        d15Z.setDescription("Descuento del 15% todos los productos ZANUSSI");
-        d15Z.setName("Rebajas 15% productos ZANUSSI");
+        d15Z.setDescription("Descuento del 15% todos los productos");
+        d15Z.setName("Rebajas 15% productos");
         d15Z.setStartDate(new GregorianCalendar(2019, 0, 1));
-        d15Z.setEndDate(new GregorianCalendar(2019, 5, 31));
+        d15Z.setEndDate(new GregorianCalendar(2019, 6, 30));
         d15Z.setDiscount(15);
         promotionRepository.save(d15Z);
 

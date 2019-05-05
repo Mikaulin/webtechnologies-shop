@@ -45,8 +45,8 @@ public class RoleLoader implements ILoader {
     public void load() {
         ArrayList<Role> roles = new ArrayList<>(
                 Arrays.asList(
-                        new Role("ROLE_ADMIN"),
-                        new Role("ROLE_USER")
+                        new Role(Role.ROLE_ADMIN),
+                        new Role(Role.ROLE_USER)
                 )
         );
         roleRepository.save(roles);
