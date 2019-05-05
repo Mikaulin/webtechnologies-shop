@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Transient;
 import uned.webtechnologies.shop.utils.NumberUtils;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -26,11 +27,13 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private int postalCode;
+    @NotNull
     private String password;
 
     @Transient
     private String passwordConfirm;
 
+    @NotNull
     private String username;
     private boolean subscribed;
     @OneToMany(mappedBy = "user")

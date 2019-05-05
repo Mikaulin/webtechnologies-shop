@@ -19,11 +19,21 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="" required="" />
+                        <spring:bind path="name">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="name" class="form-control" placeholder="" />
+                                <form:errors path="name" />
+                            </div>
+                        </spring:bind>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastname1">Apellido</label>
-                        <input type="text" id="lastname1" name="lastname1" class="form-control" placeholder="" required="" />
+                        <spring:bind path="lastname1">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="lastname1" class="form-control" placeholder="" />
+                                <form:errors path="lastname1" />
+                            </div>
+                        </spring:bind>
                     </div>
                 </div>
 
@@ -31,24 +41,44 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="email">Email</label>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="" required="" />
+                        <spring:bind path="email">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="email" class="form-control" placeholder="" />
+                                <form:errors path="email" />
+                            </div>
+                        </spring:bind>
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="phone">Tel&eacute;fono</label>
-                        <input type="text" id="phone" name="phone" class="form-control" placeholder="" />
+                        <spring:bind path="phone">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="phone" class="form-control" placeholder="" />
+                                <form:errors path="phone" />
+                            </div>
+                        </spring:bind>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-9 mb-3">
                         <label for="direction">Direcci&oacute;n</label>
-                        <input type="text" id="direction" name="direction" class="form-control" placeholder="" required="" />
+                        <spring:bind path="direction">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="direction" class="form-control" placeholder="" />
+                                <form:errors path="direction" />
+                            </div>
+                        </spring:bind>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <label for="postalCode">C.P.</label>
-                        <input type="text" id="postalCode" name="postalCode" class="form-control" placeholder="" required="" />
+                        <spring:bind path="postalCode">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="postalCode" class="form-control" placeholder="" />
+                                <form:errors path="postalCode" />
+                            </div>
+                        </spring:bind>
                     </div>
                 </div>
 
@@ -56,15 +86,30 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="city">Ciudad</label>
-                        <input type="text" id="city" name="city" class="form-control" placeholder="" required="" />
+                        <spring:bind path="city">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="city" class="form-control" placeholder="" />
+                                <form:errors path="city" />
+                            </div>
+                        </spring:bind>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="province">Provincia</label>
-                        <input type="text" id="province" name="province" class="form-control" placeholder="" required="" />
+                        <spring:bind path="province">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="province" class="form-control" placeholder="" />
+                                <form:errors path="province" />
+                            </div>
+                        </spring:bind>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="country">Pa&iacute;s</label>
-                        <input type="text" id="country" name="country" class="form-control" placeholder="" required="" />
+                        <spring:bind path="country">
+                            <div class="form-group ${status.error ? 'has-error' : ''}">
+                                <form:input type="text" path="country" class="form-control" placeholder="" />
+                                <form:errors path="country" />
+                            </div>
+                        </spring:bind>
                     </div>
                 </div>
 
