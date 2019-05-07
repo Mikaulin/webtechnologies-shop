@@ -13,7 +13,7 @@ import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.PromotionService;
 
 /**
- * Controlador para gestionar los productos solo accesible para usuarios con el ROLE de administrador
+ * Controlador  para gestionar los productos solo accesible para usuarios con el ROLE de ADMINISTRADOR
  */
 
 @Secured("ROLE_ADMIN")

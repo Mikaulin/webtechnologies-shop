@@ -34,7 +34,7 @@ public class CategoryController {
 
     /**Método que responde a la solicitud get ("/categorias")
      * poniendo a disposición de la vista ("category/list")
-     * la lista de marcas.
+     * la lista de marcas del sistema
      * @return ModelAndView (category/list) con la lista de marcas "categories"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see CategoryService#getCategories()

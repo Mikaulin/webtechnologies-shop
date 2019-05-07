@@ -34,7 +34,7 @@ public class BrandController {
     }
 
     /**Método que responde a la solicitud get ("/marcas")
-     * poniendo a disposición de la vista ("brand/list") una lista de marcas
+     * poniendo a disposición de la vista ("brand/list") la lista de marcas del sistema
      * @return ModelAndView "brand/list" con la lista de marcas "brands"
      * @see BrandService
      * @see uned.webtechnologies.shop.inmemorydb.model.Brand
