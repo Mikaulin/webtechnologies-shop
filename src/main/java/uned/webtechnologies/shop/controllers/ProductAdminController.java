@@ -14,6 +14,7 @@ import uned.webtechnologies.shop.services.PromotionService;
 
 /**
  * Controlador  para gestionar los productos solo accesible para usuarios con el ROLE de ADMINISTRADOR
+ * Responde a las URLs "/admin/producto(/..)*"
  */
 
 @Secured("ROLE_ADMIN")

@@ -10,6 +10,7 @@ import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.RatingService;
 
 /**Controlador de productos
+ * Responde a las URLs "/producto(/..)*"
  *
  */
 
