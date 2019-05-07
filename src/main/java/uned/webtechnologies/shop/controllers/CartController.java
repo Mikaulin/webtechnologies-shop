@@ -49,7 +49,7 @@ public class CartController {
         return listCart(result, activeUser);
     }
 
-    /**Método que responde a la solicitud get("/orden")
+    /**Método que responde a la solicitud get("/carrito/orden")
      * poniendo a disposición de la vista la lista de lineas de carrito del usuario conectado
      * @param activeUser Usuario conectado
      * @return ModelAndView ("cart/list") con la lista de lineas de carrito del usuario conectado

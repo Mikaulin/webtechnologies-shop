@@ -78,7 +78,7 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitud POST ("/alta") guardando el producto creado
+    /**Método que responde a la solicitud POST ("admin/producto/alta") guardando el producto creado
      * @param product Producto creado en el formulario que se desea guardar
      * @return Cadena de texto que redirecciona la "/listado"
      * @see ProductService#save(Product)
@@ -89,7 +89,7 @@ public class ProductAdminController {
         return "redirect:listado";
     }
 
-    /**Método que responde a la solicitud GET ("/listado") poniendo a
+    /**Método que responde a la solicitud GET ("admin/producto/listado") poniendo a
      * disposición de la vista "product/list" la lista de productos
      * @return ModelAndView "product/list" con la lista de productos
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
@@ -102,7 +102,7 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitus GET ("/editar/{id}") donde {id} corresponde con el
+    /**Método que responde a la solicitus GET ("admin/editar/{id}") donde {id} corresponde con el
      * identificador único del producto del que se obtienen los detalles
      * @param id Identificador único del producto del que se obtienen los detalles
      * @return ModelAndView "product/edit" con la información relativa al producto
@@ -120,7 +120,7 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitud POST (editar/{id}) donde {id} corresponde con el
+    /**Método que responde a la solicitud POST (admin/editar/{id}) donde {id} corresponde con el
      * identificador único que se quiere editar
      * @param id Identificador único del producto a editar
      * @param product Producto con la nueva información
