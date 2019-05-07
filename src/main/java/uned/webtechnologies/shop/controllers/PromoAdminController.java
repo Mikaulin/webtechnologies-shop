@@ -30,7 +30,7 @@ public class PromoAdminController {
     @GetMapping("/crear")
     public ModelAndView promoform() {
         ModelAndView result = new ModelAndView("promo/create");
-        result.addObject("promotion", this.promotionService.getActivePromotions());
+        result.addObject("promotion", this.promotionService.getPromotions());
         result.addObject("promotionForm", new Promotion());
         return result;
     }
