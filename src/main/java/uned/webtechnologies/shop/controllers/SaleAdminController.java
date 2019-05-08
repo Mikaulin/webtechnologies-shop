@@ -70,7 +70,7 @@ public class SaleAdminController {
 
     /**<p>Método que responde a la solicitud POST ("admin/ventas/informe")</p>
      * <p>recibiendo una cadena de texto que representa una fecha y poniendo </p>
-     * <p>>a disposición de la vista ("sale/report") lo necesario para imprimir un informe de ventas por fecha</p>
+     * <p>a disposición de la vista ("sale/report") lo necesario para imprimir un informe de ventas por fecha</p>
      * <ul>
      *     <li>La fecha "date"</li>
      *     <li>El día "day"</li>

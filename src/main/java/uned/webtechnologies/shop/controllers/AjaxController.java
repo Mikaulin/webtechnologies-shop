@@ -21,6 +21,7 @@ import uned.webtechnologies.shop.utils.StringUtils;
 
 import javax.validation.Valid;
 
+
 @RestController
 public class AjaxController {
     private UserService userService;
