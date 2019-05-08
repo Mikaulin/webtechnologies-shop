@@ -139,12 +139,31 @@ public class SaleAdminController {
         result.addObject("lines", purchaseLineService.getPurchaseLines(user));
         return result;
     }
+
+    /**<p>Método que responde a la solicitud GET ("/admin/ventas/detalle/{id}")</p>
+     * <p> poniendo a disposición de la vista "purchase/detail" los detalles de la compra "purchase" en concreto con id = {id}</p>
+     *
+     * @param id Identificador único de la compra que se obtienen los detalles
+     * @return ModelAndView "purchase/detail" con la compra solicitada "purchase"
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see PurchaseLineService#getOne(long)
+     *
+     *
+     */
     @GetMapping("/detalle/{id}")
     public ModelAndView detail(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("purchase/detail");
         result.addObject("purchase", this.purchaseLineService.getOne(id));
         return result;
     }
+
+    /**<p>Método que responde a la solicitud POST ("admin/ventas/delete")</p>
+     * <p>recibiendo un el id de la compra a devolver y solicitando al serviccio que sea borrada</p>
+     * @param id Identificador único de la compra a devolver
+     * @return Cadena que redireccion a "/admin/usuarios/listado"
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see PurchaseLineService#returnPurchase(PurchaseLine)
+     */
     @PostMapping(value = "/delete")
     public String delete(@RequestParam("id")long id) {
         purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));
