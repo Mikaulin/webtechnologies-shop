@@ -3,6 +3,7 @@ package uned.webtechnologies.shop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.Role;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
@@ -10,6 +11,7 @@ import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -36,12 +38,16 @@ public class UserService {
     }
 
     public User findByUsername(String username) {
-        return userRepository.findByUsernameAndDeletedFalse(username);
+        return userRepository.findByUsername(username);
     }
 
     public void delete(User user) {
         user.setDeleted(true);
         this.userRepository.save(user);
+    }
+    public Set<PurchaseLine> getPurchaseLines(User user){
+        User u=this.userRepository.getOne(user.getId());
+        return u.getPurchaseLines();
     }
 
     public void update(String username, User user) {
