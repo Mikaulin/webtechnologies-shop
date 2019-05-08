@@ -11,7 +11,7 @@ import uned.webtechnologies.shop.services.RatingService;
 
 /**
  * Controlador que gestiona las promociones en la vista-modelo .
- * Responde a las URLs "/promociones(/..)*"
+ * <p>Responde a las URLs "/promociones(/..)*"</p>
  *
  */
 

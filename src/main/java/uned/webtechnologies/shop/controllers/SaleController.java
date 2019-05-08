@@ -44,7 +44,7 @@ public class SaleController {
         return result;
     }
 
-    @RequestMapping(value = "/informe", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/informe", method = RequestMethod.POST)
     public ModelAndView report(@ModelAttribute("date") String date) {
         ModelAndView result = new ModelAndView("sale/report");
         int day= Integer.parseInt(date.substring(8,10));
@@ -66,7 +66,7 @@ public class SaleController {
         result.addObject("users",user);
         //  result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
         return result;
-    }
+    }*/
 
 
     @GetMapping("/historial/{username}")

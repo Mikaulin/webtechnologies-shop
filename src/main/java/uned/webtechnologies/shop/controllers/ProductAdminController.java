@@ -13,8 +13,8 @@ import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.PromotionService;
 
 /**
- * Controlador  para gestionar los productos solo accesible para usuarios con el ROLE de ADMINISTRADOR
- * Responde a las URLs "/admin/producto(/..)*"
+ * Controlador  para gestionar los productos, solo accesible para usuarios con el ROLE de ADMINISTRADOR
+ * <p>Responde a las URLs "/admin/producto(/..)*"</p>
  */
 
 @Secured("ROLE_ADMIN")
@@ -103,7 +103,7 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitus GET ("admin/editar/{id}") donde {id} corresponde con el
+    /**Método que responde a la solicitud GET ("admin/editar/{id}") donde {id} corresponde con el
      * identificador único del producto del que se obtienen los detalles
      * @param id Identificador único del producto del que se obtienen los detalles
      * @return ModelAndView "product/edit" con la información relativa al producto

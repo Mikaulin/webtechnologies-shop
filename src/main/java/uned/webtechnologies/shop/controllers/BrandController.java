@@ -10,7 +10,7 @@ import uned.webtechnologies.shop.services.BrandService;
 import uned.webtechnologies.shop.services.ProductService;
 
 /** Controlador para gestionar las marcas de la vista-modelo
- * Responde a las URLs "/marcas(/..)*"
+ * <P>Responde a las URLs "/marcas(/..)*"</P>
  *
  */
 

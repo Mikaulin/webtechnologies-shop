@@ -10,7 +10,7 @@ import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.CartService;
 import uned.webtechnologies.shop.services.UserService;
 /** Controlador para gestionar las Lineas de carrito de la vista-modelo
- * Responde a las URLs "/carrito(/..)*"
+ * <p>Responde a las URLs "/carrito(/..)*"</p>
  *
  *
  */

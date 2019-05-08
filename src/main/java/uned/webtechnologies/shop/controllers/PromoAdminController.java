@@ -10,7 +10,7 @@ import uned.webtechnologies.shop.services.PromotionService;
 
 /**
  * Controlador que gestiona las promociones de la vista-modelo , solo accesible para el ROLE de ADMINISTRADOR
- * Responde a las URLs "/admin/promociones(/..)*"
+ * <p>Responde a las URLs "/admin/promociones(/..)*"</p>
  *
  */
 @Secured("ROLE_ADMIN")

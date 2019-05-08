@@ -9,7 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.CategoryService;
 import uned.webtechnologies.shop.services.ProductService;
 /** Controlador para gestionar las categorias de la vista-modelo
- * Responde a las URLs "/categorias(/..)*"
+ * <p>Responde a las URLs "/categorias(/..)*"</p>
+ *
  *
  *
  */

@@ -48,7 +48,7 @@
                 </h5>
             </div>
             <div class="input-group">
-                <h5>Facturaci&oacute;n: <b>${user.getPruchaseTotalByDate(date)} &euro;</b></h5>
+                <h5>Facturaci&oacute;n: <b>${user.getPurchaseTotalByDate(date)} &euro;</b></h5>
             </div>
         </div>
 

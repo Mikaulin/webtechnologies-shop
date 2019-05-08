@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 /** Controlador para gestionar la página principal
- *
+ * <p>Responde al directorio Raiz y sus hijos</p>
  *
  *
  */
