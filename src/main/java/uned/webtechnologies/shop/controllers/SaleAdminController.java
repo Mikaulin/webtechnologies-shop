@@ -118,7 +118,6 @@ public class SaleAdminController {
         //  result.addObject("lines", this.purchaseLineService.getPurchasesByDate(cal));
         return result;
     }
-
     /**<p>Método que responde a la solicitud GET ("admin/ventas/historial/{username}")</p>
      * <p>Poniendo a disposición de la vista "sale/history"</p>
      * <p>el historial de ventas de un usuario concreto</p>
@@ -140,6 +139,18 @@ public class SaleAdminController {
         result.addObject("lines", purchaseLineService.getPurchaseLines(user));
         return result;
     }
+    @GetMapping("/detalle/{id}")
+    public ModelAndView detail(@PathVariable("id") long id) {
+        ModelAndView result = new ModelAndView("purchase/detail");
+        result.addObject("purchase", this.purchaseLineService.getOne(id));
+        return result;
+    }
+    @PostMapping(value = "/delete")
+    public String delete(@RequestParam("id")long id) {
+        purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));
+        return "redirect:/admin/usuarios/listado";
+    }
+
 
 
 }

@@ -108,18 +108,7 @@ public class PurchaseLineController {
         return result;
     }
 
-    //TODO este metodo parece que no se este utilizando ¿borramos?
-    @GetMapping("/detalle/{id}")
-    public ModelAndView detail(@PathVariable("id") long id) {
-        ModelAndView result = new ModelAndView("purchase/detail");
-        result.addObject("purchase", this.purchaseLineService.getOne(id));
-        return result;
-    }
-    //TODO este metodo parece que no se este utilizando ¿borramos?
-    @PostMapping(value = "/delete")
-    public String delete(@RequestParam("id")long id) {
-        purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));
-        return "redirect:/user/usuarios";
-    }
+
+
 
 }

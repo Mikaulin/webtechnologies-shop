@@ -73,7 +73,7 @@
                     <div class="btn-group">
 
                         <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/compra/detalle/${sale.id}">Devolver</a>
+                           href="${pageContext.request.contextPath}/admin/ventas/detalle/${sale.id}">Devolver</a>
                     </div>
                 </td>
 
