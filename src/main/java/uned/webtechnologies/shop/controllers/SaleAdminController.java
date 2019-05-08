@@ -137,9 +137,6 @@ public class SaleAdminController {
         User user=this.userService.findByUsername(username);
         result.addObject("user",user);
         result.addObject("lines", purchaseLineService.getPurchaseLines(user));
-        User user = this.userService.findByUsername(username);
-        result.addObject("user", user);
-        result.addObject("lines", userService.getPurchaseLines(user));
 
         return result;
     }
