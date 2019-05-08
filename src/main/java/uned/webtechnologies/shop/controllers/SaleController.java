@@ -17,12 +17,7 @@ import javax.persistence.TemporalType;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * Controlador de ventas de clientes
- *
- *
- */
-
+//Todo esta clase creo que no tiene sentido, para esto están los controladores PurchaseLineController SaleAdminController
 @Controller
 @RequestMapping("/ventas")
 public class SaleController {
@@ -30,32 +25,18 @@ public class SaleController {
     private UserService userService;
     private PurchaseLineService purchaseLineService;
 
+
     @Autowired
     public SaleController(PurchaseLineService purchaseLineService, UserService userService) {
         this.purchaseLineService = purchaseLineService;
         this.userService = userService;
     }
 
-    @GetMapping("/listado")
-    public ModelAndView listPurchaseLines() {
-        ModelAndView result = new ModelAndView("sale/list");
-        result.addObject("lines", this.purchaseLineService.getAllPurchases());
-        return result;
-    }
 
-    @GetMapping("/fecha")
-    public ModelAndView saleDate() {
-        ModelAndView result = new ModelAndView("sale/date");
-        result.addObject("date", new Date());
-        return result;
-    }
-
-
-
-    @GetMapping("/historial/{username}")
-    public ModelAndView listHistory(@PathVariable("username") String username) {
+    @GetMapping("/historial")
+    public ModelAndView listHistory(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView("sale/history");
-        User user=this.userService.findByUsername(username);
+        User user=this.userService.findByUsername(activeUser.getUsername());
         result.addObject("user",user);
         result.addObject("lines", user.getPurchaseLines());
         return result;

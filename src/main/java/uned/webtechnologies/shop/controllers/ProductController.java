@@ -38,7 +38,7 @@ public class ProductController {
     /**Método que responde a la solicitud GET ("/producto/detalle/{id}") poniendo a disposición de la vista
      * un producto, donde {id} es el identificador único del producto que se requiere
      * @param id Identificador único del producto
-     * @return ModelAndView ("product/detail") con el producto que se solicita
+     * @return ModelAndView ("product/detail") con el producto que se solicita "product"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see ProductService#getProduct(long)
      *
@@ -67,7 +67,7 @@ public class ProductController {
      * poniendo a disposición de la vista ("serach/list") los productos que tienen una valoración concreta
      * donden {id} es la valoración solicitada
      * @param id Identificador único de la valoración
-     * @return ModelAndView ("search/list") con la lista de poductos que tienen la valoración solicitada
+     * @return ModelAndView ("search/list") con la lista de poductos que tienen la valoración solicitada "products"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see RatingService#getProductRating(long)
      */

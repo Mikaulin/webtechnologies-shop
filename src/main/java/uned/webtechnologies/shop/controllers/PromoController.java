@@ -38,8 +38,8 @@ public class PromoController {
      * y la lista de productos que pertenecen a una promoción concreta donde
      * {id} es el identificador único de la promoción concreta
      * @param id Identficicador único de la promoción de la que se desean los productos
-     * @return ModelAndView "promo/listproductpromo" con la lista de promociones activas del sistema,
-     * y la lista de productos que pertenecen a una promoción concreta donde
+     * @return ModelAndView "promo/listproductpromo" con la lista de promociones activas del sistema "promotion",
+     * y la lista de productos que pertenecen a una promoción concreta "products" donde
      * {id} es el identificador único de la promoción concreta
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PromotionService#getProductsByPromotionId(long)
@@ -55,7 +55,7 @@ public class PromoController {
 
     /**Método que responde a la solicitud GET ("promociones") poniendo a disposición de la vista "promo/promotion"
      * la lista de promociones activas del sistema
-     * @return ModelAndView "promo/promotion" con la lista de promociones activas del sistema
+     * @return ModelAndView "promo/promotion" con la lista de promociones activas del sistema "promotion"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PromotionService#getActivePromotions()
      */

@@ -28,7 +28,7 @@ public class PromoAdminController {
     /**Método que responde a la solicitud GET ("/listado") poniendo a dispocición de
      * la vista "promo/list" la lista de promociones del sistema.
      *
-     * @return ModelAndView ("promo/list") con la lista de promociones del sistema
+     * @return ModelAndView ("promo/list") con la lista de promociones del sistema "promotion"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PromotionService#getPromotions()
      */
@@ -41,7 +41,7 @@ public class PromoAdminController {
 
     /**Método que responde a la solicitud GET ("crear") poniendo a disposición de
      * la vista "promo/create" la lista de promociones del sistema y una nueva promocion vacia
-     * @return ModelAndView "promo/create" con la lista de promociones del sistema y una nueva promocion vacia
+     * @return ModelAndView "promo/create" con la lista de promociones del sistema "promotion" y una nueva promocion vacia "promotionForm"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PromotionService#getActivePromotions() ()
      */
@@ -70,7 +70,7 @@ public class PromoAdminController {
      * poniendo a disposición de la vista "promo/edit" la lista de promociones del sistema y una
      * promociones concreta para poder ser editada donde {id} es el identificador único de la promoción a editar
      * @param id Identificador único de la promoción a editar
-     * @return ModelAndView "promo/edit" con las promociones del sistema y la promoción que se quiere editar
+     * @return ModelAndView "promo/edit" con las promociones del sistema "promotion" y la promoción que se quiere editar"editPromo"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PromotionService#getPromotions()
      * @see PromotionService#getPromotion(long)

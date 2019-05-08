@@ -52,7 +52,14 @@ public class CartController {
     /**Método que responde a la solicitud get("/carrito/orden")
      * poniendo a disposición de la vista la lista de lineas de carrito del usuario conectado
      * @param activeUser Usuario conectado
-     * @return ModelAndView ("cart/list") con la lista de lineas de carrito del usuario conectado
+     * @return ModelAndView ("cart/list") con la orden de compra
+     * <ul>
+     *     <li>Lineas de carrito del usuario "carts"</li>
+     *     <li>Coste total de la compra "total"</li>
+     *     <li> El subtotal de la compra</li>
+     *     <li>El I.V.A "iva"</li>
+     *     <li>El usuario "user" que va a realizar la compra</li>
+     * </ul>
      * @see UserDetails
      * @see  <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      */

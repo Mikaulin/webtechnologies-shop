@@ -57,12 +57,12 @@ public class PurchaseLineController {
      * <ul>
      *     <li>Si la compra se realiza con éxito
      *     <ul>
-     *     <li>Devueve un ModelAndView con la vista "purchase/purchaseOk" y mensaje de éxito
+     *     <li>Devueve un ModelAndView con la vista "purchase/purchaseOk" y mensaje de éxito "mensaje"
      *     <li>Guarda las lineas de carro como compra
      *     <li>Borra las lineas de carrito del usuario</ul></li>
      *     <li>Si algún producto del carrito no se puede comprar por falta de stock
      *     <ul>
-     *     <li>Devuelve un ModelAndView con la vista "purchase/purchaseWrong" y el mensaje de error</ul></li>
+     *     <li>Devuelve un ModelAndView con la vista "purchase/purchaseWrong" y el mensaje de error "mensaje"</ul></li>
      *  </ul>
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PurchaseLineService#saveCarts(List)
@@ -108,14 +108,14 @@ public class PurchaseLineController {
         return result;
     }
 
-
+    //TODO este metodo parece que no se este utilizando ¿borramos?
     @GetMapping("/detalle/{id}")
     public ModelAndView detail(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("purchase/detail");
         result.addObject("purchase", this.purchaseLineService.getOne(id));
         return result;
     }
-
+    //TODO este metodo parece que no se este utilizando ¿borramos?
     @PostMapping(value = "/delete")
     public String delete(@RequestParam("id")long id) {
         purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));

@@ -49,7 +49,7 @@ public class BrandController {
 
     /**Método que responde a la solicitud get ("/marcas/{id}") donde {id} es el identificador de la marca
      * @param id Identificador único de la marca a la que deben pertenecer los productos
-     * @return ModelAndView "brand/detail" con una Lista de productos que pertenecen a una marca concreta
+     * @return ModelAndView "brand/detail" con una Lista de productos que pertenecen a una marca concreta "products" y la lista de marcas del sistema "brands"
      * @see ProductService#getProductsByBrandId(long)
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      */
