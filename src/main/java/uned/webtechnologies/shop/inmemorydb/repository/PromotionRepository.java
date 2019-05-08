@@ -7,6 +7,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 /**
  * Interfaz encargada de montar un repositorio de Promociones
  *
+ * @see JpaRepository
  * @see Promotion
  */
 

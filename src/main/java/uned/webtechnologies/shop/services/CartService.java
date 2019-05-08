@@ -68,7 +68,7 @@ public class CartService {
         return NumberUtils.roundDecimals(userTotal(user) - (userTotal(user) * 0.21));
     }
 
-    //TODO el IVA es un concepto que no se ha hablado. No debería calcularse aquí
+
     public double userIVA(User user) {
 
         double iva = NumberUtils.roundDecimals(userTotal(user) * 0.21);

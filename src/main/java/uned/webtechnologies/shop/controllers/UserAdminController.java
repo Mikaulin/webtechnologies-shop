@@ -11,6 +11,12 @@ import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.validator.UserValidator;
 
+/** Controlador para gestionar los Usuarios de la vista-modelo,solo accesible para usuarios con el ROLE de ADMINISTRADOR
+ * <P>Responde a las URLs "/admin/usuarios(/..)*"</P>
+ *
+ *
+ */
+
 @Secured("ROLE_ADMIN")
 @Controller
 @RequestMapping("/admin/usuarios")
@@ -19,6 +25,7 @@ public class UserAdminController {
     private UserService userService;
     @Autowired
     private UserValidator userValidator;
+
 
     @GetMapping("/alta")
     public String registration(Model model) {

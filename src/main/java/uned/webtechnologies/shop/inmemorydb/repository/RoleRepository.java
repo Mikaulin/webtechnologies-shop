@@ -7,6 +7,7 @@ import uned.webtechnologies.shop.inmemorydb.model.Role;
 /**
  * Interfaz encargada de montar un respositorio de Roles en la BBDD.
  *
+ * @see JpaRepository
  * @see Role
  */
 

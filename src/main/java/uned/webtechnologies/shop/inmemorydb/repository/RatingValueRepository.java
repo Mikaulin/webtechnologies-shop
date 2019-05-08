@@ -7,6 +7,7 @@ import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 /**
  * Interfaz encargada de montar un repositorio de RatingValue en la BBDD
  *
+ * @see JpaRepository
  * @see RatingValue
  */
 

@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Interfaz encargada de montar un respositorio de User en la BBDD.
  *
+ * @see JpaRepository
  * @see User
  */
 

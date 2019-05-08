@@ -10,7 +10,7 @@ import uned.webtechnologies.shop.inmemorydb.model.User;
 import java.util.List;
 
 /**
- *  Interfaz encargada de montar un repositorio de Carts en la BBDD
+ * Interfaz encargada de montar un repositorio de Carts en la BBDD
  *
  * @see Cart
  * @see JpaRepository

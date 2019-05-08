@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Interfaz encargada de montar un repositorio de PurchaseLines (lineas de compra) en la BBDD
  *
+ * @see JpaRepository
  * @see PurchaseLine
  */
 
