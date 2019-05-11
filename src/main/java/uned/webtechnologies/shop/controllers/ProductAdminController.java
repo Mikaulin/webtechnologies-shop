@@ -161,7 +161,7 @@ public class ProductAdminController {
 
             BufferedOutputStream outputStream = new BufferedOutputStream(
                     new FileOutputStream(
-                            new File("c:/SingleFileUpload", file.getOriginalFilename())));
+                            new File(ruta+"/src/main/webapp/electro/", file.getOriginalFilename())));
             outputStream.write(file.getBytes());
             outputStream.flush();
             outputStream.close();
