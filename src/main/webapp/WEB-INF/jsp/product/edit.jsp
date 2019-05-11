@@ -93,8 +93,8 @@
                     <div class="col-md-8 mb-3">
                         <div class="form-group">
                             <mvc:label path="photo">Elige una foto del producto</mvc:label>
-                            <mvc:input type="file" path="photo" class="form-control"
-                                       value="'/electro/'+${product.photo}"/>
+                            <mvc:input path="photo" class="form-control"
+                                       value="${product.photo}"/>
                         </div>
                     </div>
 

@@ -17,6 +17,7 @@ public class FixturesLoader {
     private RatingLoader ratingLoader;
     private RatingValueLoader ratingValueLoader;
     private PurchaseLinesLoader purchaseLinesLoader;
+    private PhotoLoader photoLoader;
 
 
     /**
@@ -42,7 +43,8 @@ public class FixturesLoader {
             RatingValueLoader ratingValueLoader,
             RatingLoader ratingLoader,
             PromotionLoader promotionLoader,
-            PurchaseLinesLoader purchaseLinesLoader
+            PurchaseLinesLoader purchaseLinesLoader,
+            PhotoLoader photoLoader
 
     ) {
         this.roleLoader = roleLoader;
@@ -54,6 +56,7 @@ public class FixturesLoader {
         this.ratingLoader = ratingLoader;
         this.promotionLoader = promotionLoader;
         this.purchaseLinesLoader = purchaseLinesLoader;
+        this.photoLoader=photoLoader;
     }
 
     /**
@@ -65,9 +68,11 @@ public class FixturesLoader {
         brandLoader.load();
         categoryLoader.load();
         promotionLoader.load();
+        photoLoader.load();
         productLoader.load();
         ratingValueLoader.load();
         ratingLoader.load();
         purchaseLinesLoader.load();
+
     }
 }

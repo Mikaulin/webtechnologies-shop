@@ -3,14 +3,18 @@ package uned.webtechnologies.shop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Promotion;
-import uned.webtechnologies.shop.services.BrandService;
-import uned.webtechnologies.shop.services.CategoryService;
-import uned.webtechnologies.shop.services.ProductService;
-import uned.webtechnologies.shop.services.PromotionService;
+import uned.webtechnologies.shop.services.*;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Controlador  para gestionar los productos, solo accesible para usuarios con el ROLE de ADMINISTRADOR
@@ -25,6 +29,7 @@ public class ProductAdminController {
     private CategoryService categoryService;
     private BrandService brandService;
     private PromotionService promotionService;
+    private PhotoService photoService;
 
     /**
      * Construye un controlador .
@@ -39,11 +44,12 @@ public class ProductAdminController {
      * @see PromotionService
      */
     @Autowired
-    public ProductAdminController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService) {
+    public ProductAdminController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService,PhotoService photoService) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.brandService = brandService;
         this.promotionService = promotionService;
+        this.photoService= photoService;
     }
 
     /**
@@ -132,5 +138,37 @@ public class ProductAdminController {
     public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
         productService.update(id, product);
         return "redirect:/admin/producto/listado";
+    }
+    @GetMapping("/imagenes")
+    public String fileUploadForm(Model model) {
+        model.addAttribute("photos",this.photoService.getPhotos());
+
+        return "product/photoForm";
+
+    }
+    @PostMapping("/imagenes")
+    public String singleFileUpload(@RequestParam("file") MultipartFile file, Model model)
+
+            throws IOException {
+        model.addAttribute("photos",this.photoService.getPhotos());
+        String dir=new File(".").getAbsolutePath();
+        System.out.println(dir);
+
+        // Save file on system
+        if (!file.getOriginalFilename().isEmpty()) {
+
+            BufferedOutputStream outputStream = new BufferedOutputStream(
+                    new FileOutputStream(
+                            new File("C:/SingleFileUpload", file.getOriginalFilename())));
+            outputStream.write(file.getBytes());
+            outputStream.flush();
+            outputStream.close();
+
+            model.addAttribute("msg", "File uploaded successfully.");
+        } else {
+            model.addAttribute("msg", "Please select a valid file..");
+        }
+
+        return "/imagenes";
     }
 }

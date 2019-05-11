@@ -81,7 +81,7 @@
                     <div class="col-md-8 mb-3">
                         <div class="form-group">
                             <label for="photo">Elige una foto del producto</label>
-                            <input type="file" id="photo" name="photo" class="form-control" value="/electro/"
+                            <input id="photo" name="photo" class="form-control" value=""
                                    required=""/>
                         </div>
                     </div>
