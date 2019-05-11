@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/error")
 public class ErrorController {
+    /**
+     * Página de error personalizada para accesos denegados.
+     *
+     * @return Devolverá la vista de la página para accesos denegados.
+     */
     @GetMapping("/acceso-denegado")
     public String accessDenied() {
         return "error/accessDenied";

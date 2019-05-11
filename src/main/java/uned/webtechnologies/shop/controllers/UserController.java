@@ -13,6 +13,9 @@ import uned.webtechnologies.shop.services.SecurityService;
 import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.validator.UserValidator;
 
+/**
+ * Controlador para operaciones de usuario.
+ */
 @Controller
 @RequestMapping("/usuarios")
 public class UserController {
@@ -26,12 +29,25 @@ public class UserController {
     private UserValidator userValidator;
 
 
+    /**
+     * Método para registrarse en la aplicación
+     *
+     * @param model Modelo que se asigna a la vista, User.
+     * @return Devuelve la vista de registro.
+     */
     @GetMapping("/registro")
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
         return "auth/register";
     }
 
+    /**
+     * Método POST del registro de usuario.
+     *
+     * @param userForm Modelo User con los datos que vienen de la vista.
+     * @param bindingResult Interfaz de validación para obtener si hay errores.
+     * @return Redirecciona a la home de la web.
+     */
     @PostMapping("/registro")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
@@ -43,6 +59,14 @@ public class UserController {
         return "redirect:/";
     }
 
+    /**
+     * Método para conectarse a la web.
+     *
+     * @param model Modelo que se asigna a la vista.
+     * @param error String con algún mensaje de error.
+     * @param logout String para saber si hay que desconectar.
+     * @return La vista de login.
+     */
     @GetMapping("/login")
     public String login(Model model, String error, String logout) {
         if (error != null)
@@ -54,6 +78,12 @@ public class UserController {
         return "auth/login";
     }
 
+    /**
+     * Método para que el usuario conectado pueda darse de baja.
+     *
+     * @param activeUser El usuario conectado.
+     * @return Devuelve los datos del usuario para mostrarlos por pantalla.
+     */
     @GetMapping("/baja")
     public ModelAndView bajaUser(@AuthenticationPrincipal UserDetails activeUser){
         User user = userService.findByUsername(activeUser.getUsername());
@@ -62,6 +92,11 @@ public class UserController {
         return result;
     }
 
+    /**
+     * Método POST para que el usuario conectado pueda darse de baja y le desconecte.
+     * @param activeUser
+     * @return
+     */
     @PostMapping("/baja")
     public String deleteUser(@AuthenticationPrincipal UserDetails activeUser){
         User user = this.userService.findByUsername(activeUser.getUsername());
@@ -71,11 +106,23 @@ public class UserController {
         return "redirect:/logout";
     }
 
+    /**
+     * Método para devolver la vista de bienvenida.
+     *
+     * @param model Modelo actual de la vista.
+     * @return La vista de bienvenida.
+     */
     @GetMapping({ "/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
 
+    /**
+     * Método para obtener los detalles de un usuario.
+     *
+     * @param username String con el nombre de usuario.
+     * @return Devuelve a la vista el modelo User.
+     */
     @GetMapping("/detalles/{username}")
     public ModelAndView detailUser(@PathVariable("username")String username){
         ModelAndView result = new ModelAndView("user/detail");
