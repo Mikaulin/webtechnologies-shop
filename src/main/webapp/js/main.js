@@ -5,9 +5,10 @@ $(document).ready(function () {
 
     $(".cart-product-remove").click(function (event) {
 
-        var elementId = $(this).attr('id');
+
+        var cartId = $(this).attr('attr-cart-id');
         // extrae del  id="remove-from-cart-${cart.product.id}" del boton de la papelera el id del producto
-        var cartId = parseInt(elementId.substring(17));
+
         event.preventDefault();
 
         removeFromCart(cartId);

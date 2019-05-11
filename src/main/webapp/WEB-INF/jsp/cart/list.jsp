@@ -105,7 +105,7 @@
                             </td>
 
                             <td>
-                                <a class="btn btn-danger btn-sm cart-product-remove" href=''  id="remove-from-cart-${cart.id}" title="Quitar Producto">
+                                <a attr-cart-id="${cart.id}" class="btn btn-danger btn-sm cart-product-remove" href=''  id="remove-from-cart-${cart.id}" title="Quitar Producto">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             </td>

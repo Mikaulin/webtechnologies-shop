@@ -11,7 +11,7 @@ import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import java.util.List;
 import java.util.Set;
 
-/**
+/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Productos del modelo
  * @see ProductRepository
  * @see Product
  */
