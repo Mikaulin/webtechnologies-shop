@@ -85,16 +85,7 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitud POST ("admin/producto/alta") guardando el producto creado
-     * @param product Producto creado en el formulario que se desea guardar
-     * @return Cadena de texto que redirecciona la "/listado"
-     * @see ProductService#save(Product)
-     */
-    @RequestMapping(value = "/alta", method = RequestMethod.POST)
-    public String create(@ModelAttribute("product") Product product) {
-        productService.save(product);
-        return "redirect:listado";
-    }
+
 
     /**Método que responde a la solicitud GET ("admin/producto/listado") poniendo a
      * disposición de la vista "product/list" la lista de productos
@@ -146,14 +137,18 @@ public class ProductAdminController {
         return "product/photoForm";
 
     }
-    @PostMapping("/imagenes")
-    public String singleFileUpload(@RequestParam("file") MultipartFile file, Model model)
 
-            throws IOException {
-        model.addAttribute("photos",this.photoService.getPhotos());
+    /**Método que responde a la solicitud POST ("admin/producto/alta") guardando el producto creado
+     * @param product Producto creado en el formulario que se desea guardar
+     * @return Cadena de texto que redirecciona la "/listado"
+     * @see ProductService#save(Product)
+     */
+    @RequestMapping(value = "/alta", method = RequestMethod.POST)
+    public String create(@ModelAttribute("product") Product product,@RequestParam("file") MultipartFile file,Model model)  throws IOException {
 
-
-        // Save file on system
+        String url=file.getOriginalFilename();
+        product.setPhoto(url);
+        productService.save(product);
         if (!file.getOriginalFilename().isEmpty()) {
             File aux=new File(".");
             File aux2= new File(aux.getAbsolutePath());
@@ -170,7 +165,6 @@ public class ProductAdminController {
         } else {
             model.addAttribute("msg", "Please select a valid file..");
         }
-
-        return "redirect:/admin/producto/imagenes";
+        return "redirect:listado";
     }
 }
