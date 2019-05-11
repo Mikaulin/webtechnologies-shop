@@ -2,8 +2,7 @@
 
 <%@ include file="../shared/_header.jsp" %>
 
-<%--Script DataTABLE--%>
-<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
+
 
 <div class="container">
 
@@ -93,4 +92,7 @@
 <p>&nbsp;</p>
 
 <%@ include file="../shared/_js.jsp" %>
+<%--Script DataTABLE--%>
+<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
+
 <%@ include file="../shared/_footer.jsp" %>
