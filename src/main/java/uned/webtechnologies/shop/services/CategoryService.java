@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class CategoryService {
-    /**
+    /**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Categorias del modelo
      * @see Category
      * @see CategoryRepository
      */

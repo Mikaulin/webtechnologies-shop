@@ -7,9 +7,16 @@ import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
 
 @Service
 public class RoleService {
+    /**
+     *
+     */
     @Autowired
     private RoleRepository roleRepository;
 
+    /**
+     * @param name
+     * @return
+     */
     public Role getRoleByName(String name) {
         return roleRepository.findByName(name);
     }

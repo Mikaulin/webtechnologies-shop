@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
 
-/**
+/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las RatingValues del modelo
  * @see RatingValueRepository
  * @see RatingValue
  */
