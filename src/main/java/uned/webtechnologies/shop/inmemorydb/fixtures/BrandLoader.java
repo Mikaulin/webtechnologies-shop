@@ -10,17 +10,45 @@ import uned.webtechnologies.shop.inmemorydb.repository.BrandRepository;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Clase encargada de cargar marcas en el repositorio de marcas.
+ *
+ * @see BrandRepository
+ * @see Brand
+ */
+
 @Service
 public class BrandLoader implements ILoader {
 
     private Logger log = LoggerFactory.getLogger("Application");
     private final BrandRepository brandRepository;
 
+    /**
+     * Construye un cargador asignandole su correspondiente repositorio
+     *
+     * @param brandRepository Repositorio de marcas.
+     * @see BrandRepository
+     */
     @Autowired
     public BrandLoader(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
 
+    /**
+     * Método encargado de crear instancias de marcas y guardarlas en el repositorio.
+     * <P>Marcas cargadas:</P>
+     * <ul>
+     * <li>BALAY</li>
+     * <li>LG</li>
+     * <li>TEKA</li>
+     * <LI>SAMSUNG</LI>
+     * <LI>AEG</LI>
+     * <LI>BOSCH</LI>
+     * <LI>SIEMENS</LI>
+     * <LI>INDESIT</LI>
+     * <LI>ZANUSSI</LI>
+     * </ul>
+     */
     @Override
     public void load() {
         ArrayList<Brand> brands = new ArrayList<>(

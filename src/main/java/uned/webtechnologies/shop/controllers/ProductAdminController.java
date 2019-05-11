@@ -6,10 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
+import uned.webtechnologies.shop.inmemorydb.model.Promotion;
 import uned.webtechnologies.shop.services.BrandService;
 import uned.webtechnologies.shop.services.CategoryService;
 import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.PromotionService;
+
+/**
+ * Controlador  para gestionar los productos, solo accesible para usuarios con el ROLE de ADMINISTRADOR
+ * <p>Responde a las URLs "/admin/producto(/..)*"</p>
+ */
 
 @Secured("ROLE_ADMIN")
 @Controller
@@ -20,6 +26,18 @@ public class ProductAdminController {
     private BrandService brandService;
     private PromotionService promotionService;
 
+    /**
+     * Construye un controlador .
+     *
+     * @param productService   Servicio de productos
+     * @param categoryService  Servicio de categorias
+     * @param brandService     Servicio de marcas
+     * @param promotionService Servicio de promociones
+     * @see ProductService
+     * @see CategoryService
+     * @see BrandService
+     * @see PromotionService
+     */
     @Autowired
     public ProductAdminController(ProductService productService, CategoryService categoryService, BrandService brandService, PromotionService promotionService) {
         this.productService = productService;
@@ -28,6 +46,29 @@ public class ProductAdminController {
         this.promotionService = promotionService;
     }
 
+    /**
+     * Método que responde a la solicitud get ("admin/producto/alta")
+     * poniendo a disposición de la vista "product/productform") :
+     * <ul>
+     * <li>Lista de marcas  "brands"</li>
+     * <li>Lista de categorias "categories"</li>
+     * <li>Lista de promociones "promotion"</li>
+     * <li>Producto vacio para ser rellenado en la vista</li>
+     * </ul>
+     *
+     * @return ModelAndView "product/productform" con los siguientes objetos:
+     * <ul>
+     * <li>Lista de marcas  "brands"</li>
+     * <li>Lista de categorias "categories"</li>
+     * <li>Lista de promociones "promotion"</li>
+     * <li>Producto vacio para ser rellenado en la vista</li>
+     * </ul>
+     * @see BrandService#getBrands()
+     * @see CategoryService#getCategories()
+     * @see PromotionService#getPromotions()
+     * @see Product
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     */
     @GetMapping("/alta")
     public ModelAndView create() {
         ModelAndView result = new ModelAndView("product/productform");
@@ -38,12 +79,23 @@ public class ProductAdminController {
         return result;
     }
 
+    /**Método que responde a la solicitud POST ("admin/producto/alta") guardando el producto creado
+     * @param product Producto creado en el formulario que se desea guardar
+     * @return Cadena de texto que redirecciona la "/listado"
+     * @see ProductService#save(Product)
+     */
     @RequestMapping(value = "/alta", method = RequestMethod.POST)
     public String create(@ModelAttribute("product") Product product) {
         productService.save(product);
         return "redirect:listado";
     }
 
+    /**Método que responde a la solicitud GET ("admin/producto/listado") poniendo a
+     * disposición de la vista "product/list" la lista de productos
+     * @return ModelAndView "product/list" con la lista de productos
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see ProductService#getProducts()
+     */
     @GetMapping("/listado")
     public ModelAndView list() {
         ModelAndView result = new ModelAndView("product/list");
@@ -51,6 +103,13 @@ public class ProductAdminController {
         return result;
     }
 
+    /**Método que responde a la solicitud GET ("admin/editar/{id}") donde {id} corresponde con el
+     * identificador único del producto del que se obtienen los detalles
+     * @param id Identificador único del producto del que se obtienen los detalles
+     * @return ModelAndView "product/edit" con la información relativa al producto
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see Product
+     */
     @GetMapping("/editar/{id}")
     public ModelAndView edit(@PathVariable("id") long id) {
         ModelAndView result = new ModelAndView("product/edit");
@@ -62,6 +121,13 @@ public class ProductAdminController {
         return result;
     }
 
+    /**Método que responde a la solicitud POST (admin/editar/{id}) donde {id} corresponde con el
+     * identificador único que se quiere editar
+     * @param id Identificador único del producto a editar
+     * @param product Producto con la nueva información
+     * @return Cadena de texto que redirecciona a /admin/producto/listado
+     * @see ProductService#update(long, Product)
+     */
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
     public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
         productService.update(id, product);

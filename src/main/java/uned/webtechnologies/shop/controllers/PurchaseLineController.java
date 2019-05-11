@@ -12,6 +12,13 @@ import uned.webtechnologies.shop.services.CartService;
 import uned.webtechnologies.shop.services.PurchaseLineService;
 import uned.webtechnologies.shop.services.UserService;
 
+import java.util.List;
+
+/**
+ * Controlador de lineas de compra
+ * <p>Responde a las URLs "/compra(/..)*"</p>
+ */
+
 @Controller
 @RequestMapping("/compra")
 public class PurchaseLineController {
@@ -20,6 +27,14 @@ public class PurchaseLineController {
     private UserService userService;
     private CartService cartService;
 
+    /**Construye un controlador con los servicios de Lineas de compra, lineas de carrito y usuarios
+     * @param purchaseLineService Servicio de lineas de compra
+     * @param cartService Servicio de lineas de carrito
+     * @param userService Servicio de usuarios
+     * @see PurchaseLineService
+     * @see CartService
+     * @see UserService
+     */
     @Autowired
     public PurchaseLineController(PurchaseLineService purchaseLineService,
                                   CartService cartService,
@@ -30,10 +45,30 @@ public class PurchaseLineController {
         this.userService = userService;
     }
 
-    /*Este metodo maneja una excepcion probocada por el
-     purchaseLineService en en caso de no poder realizar la compra de alguna de
-    las lineas de Cart y pone a disposicion de la vista un String con el mensaje.
-    Si se quiere modificar el mensaje de error, habra que hacerlo en el PurchaseLineService*/
+    /**Método que responde a la solicitud GET ("/compra/confirmación")
+     * Este metodo maneja una excepcion probocada por el
+     * purchaseLineService en en caso de no poder realizar la compra de alguna de
+     * las lineas de Cart y pone a disposicion de la vista un String con el mensaje.
+     * <p>Si se quiere modificar el mensaje de error, habra que hacerlo en el PurchaseLineService</p>
+     *
+     *
+     * @param activeUser Usuario autenticado que quiere realizar la compra
+     * @return ModelAndView con diferentes propiedades según el resultado de la compra.
+     * <ul>
+     *     <li>Si la compra se realiza con éxito
+     *     <ul>
+     *     <li>Devueve un ModelAndView con la vista "purchase/purchaseOk" y mensaje de éxito "mensaje"
+     *     <li>Guarda las lineas de carro como compra
+     *     <li>Borra las lineas de carrito del usuario</ul></li>
+     *     <li>Si algún producto del carrito no se puede comprar por falta de stock
+     *     <ul>
+     *     <li>Devuelve un ModelAndView con la vista "purchase/purchaseWrong" y el mensaje de error "mensaje"</ul></li>
+     *  </ul>
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see PurchaseLineService#saveCarts(List)
+     * @see CartService#removeAllOfUser(User)
+     * */
+
     @GetMapping("/confirmacion")
     public ModelAndView purchaseBuy(@AuthenticationPrincipal UserDetails activeUser) {
         ModelAndView result = new ModelAndView();
@@ -55,6 +90,13 @@ public class PurchaseLineController {
         return result;
     }
 
+    /**Método que responde a la solicitud GET ("/compra/listado") poniendo a disposición de la vista "Purchase/list")
+     * la lista de lienas de compra de un usuario concreto.
+     * @param activeUser Usuario del que se obtienen las lineas de compra
+     * @return ModelAndView "purchase/list" con la lista de lienas de compra del usuario "purchaseLines"
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see PurchaseLineService#getPurchaseLines(User)
+     */
     @GetMapping("/listado")
     public ModelAndView purchaseLines(@AuthenticationPrincipal UserDetails activeUser) {
 
@@ -66,17 +108,7 @@ public class PurchaseLineController {
         return result;
     }
 
-    @GetMapping("/detalle/{id}")
-    public ModelAndView detail(@PathVariable("id") long id) {
-        ModelAndView result = new ModelAndView("purchase/detail");
-        result.addObject("purchase", this.purchaseLineService.getOne(id));
-        return result;
-    }
 
-    @PostMapping(value = "/delete")
-    public String delete(@RequestParam("id")long id) {
-        purchaseLineService.returnPurchase(this.purchaseLineService.getOne(id));
-        return "redirect:/user/usuarios";
-    }
+
 
 }

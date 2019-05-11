@@ -3,6 +3,7 @@ package uned.webtechnologies.shop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.Role;
 import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
@@ -10,6 +11,8 @@ import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 
 
 @Service
@@ -20,8 +23,9 @@ public class UserService {
     private RoleService roleService;
 
     public List<User> getUsers() {
-        return this.userRepository.findByDeletedFalse();
+        return this.userRepository.findAll();
     }
+
 
     public User getUser(long id){
         return this.userRepository.getOne(id);
@@ -35,7 +39,16 @@ public class UserService {
     }
 
     public User findByUsername(String username) {
-        return userRepository.findByUsernameAndDeletedFalse(username);
+        return userRepository.findByUsername(username);
+    }
+
+    public void delete(User user) {
+        user.setDeleted(true);
+        this.userRepository.save(user);
+    }
+    public Set<PurchaseLine> getPurchaseLines(User user){
+        User u=this.userRepository.getOne(user.getId());
+        return u.getPurchaseLines();
     }
 
     public void update(String username, User user) {
@@ -50,10 +63,5 @@ public class UserService {
         updatedUser.setPhone(user.getPhone());
         updatedUser.setPostalCode(user.getPostalCode());
         save(updatedUser);
-    }
-
-    public void delete(User user) {
-        user.setDeleted(true);
-        this.userRepository.save(user);
     }
 }
