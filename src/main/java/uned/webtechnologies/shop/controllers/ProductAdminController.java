@@ -151,15 +151,17 @@ public class ProductAdminController {
 
             throws IOException {
         model.addAttribute("photos",this.photoService.getPhotos());
-        String dir=new File(".").getAbsolutePath();
-        System.out.println(dir);
+
 
         // Save file on system
         if (!file.getOriginalFilename().isEmpty()) {
+            File aux=new File(".");
+            File aux2= new File(aux.getAbsolutePath());
+            String ruta=aux2.getParent();
 
             BufferedOutputStream outputStream = new BufferedOutputStream(
                     new FileOutputStream(
-                            new File("C:/SingleFileUpload", file.getOriginalFilename())));
+                            new File("c:/SingleFileUpload", file.getOriginalFilename())));
             outputStream.write(file.getBytes());
             outputStream.flush();
             outputStream.close();
