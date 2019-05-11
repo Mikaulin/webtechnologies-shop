@@ -24,6 +24,7 @@ public class PromoController {
 
     /**Construye un controlador con el servicio de promociones y el servicio de Ratings
      * @param promotionService Servicio de promociones con el que interactuar
+     * @param ratingService  Servicio de valoraciones de productos
      * @see PromotionService
      */
     @Autowired

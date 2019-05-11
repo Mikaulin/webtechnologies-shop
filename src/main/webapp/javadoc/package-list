@@ -1,2 +1,13 @@
+uned.webtechnologies.shop
+uned.webtechnologies.shop.config
+uned.webtechnologies.shop.controllers
+uned.webtechnologies.shop.controllers.input
+uned.webtechnologies.shop.controllers.output
+uned.webtechnologies.shop.inmemorydb.fixtures
 uned.webtechnologies.shop.inmemorydb.model
 uned.webtechnologies.shop.inmemorydb.model.persistense
+uned.webtechnologies.shop.inmemorydb.repository
+uned.webtechnologies.shop.runner
+uned.webtechnologies.shop.services
+uned.webtechnologies.shop.utils
+uned.webtechnologies.shop.validator

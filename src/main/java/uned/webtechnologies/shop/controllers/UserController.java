@@ -94,8 +94,8 @@ public class UserController {
 
     /**
      * Método POST para que el usuario conectado pueda darse de baja y le desconecte.
-     * @param activeUser
-     * @return
+     * @param activeUser Usuario autenticado en el sistema
+     * @return Cadena de texto que redirecciona a "/logout"
      */
     @PostMapping("/baja")
     public String deleteUser(@AuthenticationPrincipal UserDetails activeUser){
