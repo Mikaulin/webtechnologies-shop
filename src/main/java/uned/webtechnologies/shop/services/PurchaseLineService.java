@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-/**
+/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Lineas de compra del modelo
  * @see PurchaseLineRepository
  * @see PurchaseLine
  */

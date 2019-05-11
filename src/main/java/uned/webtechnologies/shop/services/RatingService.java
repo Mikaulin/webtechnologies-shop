@@ -12,7 +12,7 @@ import uned.webtechnologies.shop.inmemorydb.repository.RatingRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las valoraciones de productos del modelo
  * @see RatingRepository
  * @see Rating
  * @see ProductService

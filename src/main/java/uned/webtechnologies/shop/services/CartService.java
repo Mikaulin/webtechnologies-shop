@@ -11,7 +11,7 @@ import uned.webtechnologies.shop.utils.NumberUtils;
 import java.io.Serializable;
 import java.util.List;
 
-/**
+/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Lineas de carrito del modelo
  * @see Cart
  * @see CartRepository
  */
