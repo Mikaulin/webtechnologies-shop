@@ -83,6 +83,7 @@
                             <label for="photo">Elige una foto del producto</label>
                             <input id="photo" name="photo" class="form-control" value=""
                                    required=""/>
+                            <img src="${ photo }" />
                         </div>
                     </div>
 

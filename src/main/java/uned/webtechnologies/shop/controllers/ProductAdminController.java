@@ -171,6 +171,6 @@ public class ProductAdminController {
             model.addAttribute("msg", "Please select a valid file..");
         }
 
-        return "/imagenes";
+        return "redirect:/admin/producto/imagenes";
     }
 }
