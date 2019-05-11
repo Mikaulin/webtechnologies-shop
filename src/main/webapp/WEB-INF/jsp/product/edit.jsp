@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <mvc:form method="post" modelAttribute="product">
+    <mvc:form method="post" modelAttribute="product" enctype="multipart/form-data">
 
         <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
             <div class="btn-group" role="group" aria-label="First group">
@@ -88,17 +88,37 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-8 mb-3">
                         <div class="form-group">
-                            <mvc:label path="photo">Elige una foto del producto</mvc:label>
-                            <mvc:input path="photo" class="form-control"
-                                       value="${product.photo}"/>
+                            <img src='${pageContext.request.contextPath}/electro/${product.photo}' alt=''
+                                 class='img-fluid img-thumbnail'>
+
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-3">
+                </div>
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <div class="form-group">
+                            <label name="photo">${product.photo}</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                            <label for="file">Cambiar la foto del producto</label>
+                            <input type="file" id="file" name="file" class="form-control" value=""
+                            />
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
                         <div class="custom-control custom-checkbox my-1 mr-sm-2">
                             <br>
                             <mvc:checkbox class="custom-control-input" id="customControlInline" path="deleted"
@@ -107,9 +127,13 @@
                                        for="customControlInline">Descatalogado</mvc:label>
                         </div>
                     </div>
+                    <div class="col-md-3 mb-3">
+                        <button class="btn btn-lg btn-danger" type="submit">Actualizar</button>
+                    </div>
                 </div>
-                <p></p>
-                <button class="btn btn-lg btn-danger" type="submit">Actualizar</button>
+
+
+
             </div>
 
 
@@ -184,6 +208,7 @@
 
                         </ul>
                     </div>
+
                 </div>
 
             </div>
@@ -194,7 +219,7 @@
     </mvc:form>
 
 </div>
+<div class="row"></div>
 
 <%@ include file="../shared/_js.jsp" %>
 <%@ include file="../shared/_footer.jsp" %>
-

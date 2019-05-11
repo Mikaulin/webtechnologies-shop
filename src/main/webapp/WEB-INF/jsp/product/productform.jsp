@@ -80,8 +80,8 @@
                 <div class="row">
                     <div class="col-md-8 mb-3">
                         <div class="form-group">
-                            <label for="photo">Elige una foto del producto</label>
-                            <input type="file" id="fileo" name="file" class="form-control" value=""
+                            <label for="file">Elige una foto del producto</label>
+                            <input type="file" id="file" name="file" class="form-control" value=""
                                    required=""/>
 
                         </div>
