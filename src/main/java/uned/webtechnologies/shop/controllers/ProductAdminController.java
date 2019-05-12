@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
 import uned.webtechnologies.shop.inmemorydb.model.Promotion;
@@ -11,6 +12,11 @@ import uned.webtechnologies.shop.services.BrandService;
 import uned.webtechnologies.shop.services.CategoryService;
 import uned.webtechnologies.shop.services.ProductService;
 import uned.webtechnologies.shop.services.PromotionService;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Controlador  para gestionar los productos, solo accesible para usuarios con el ROLE de ADMINISTRADOR
@@ -85,8 +91,15 @@ public class ProductAdminController {
      * @see ProductService#save(Product)
      */
     @RequestMapping(value = "/alta", method = RequestMethod.POST)
-    public String create(@ModelAttribute("product") Product product) {
-        productService.save(product);
+    public String create(@ModelAttribute("product") Product product,@RequestParam("file")MultipartFile file) {
+        product.setPhoto(file.getOriginalFilename());
+        try {
+            fileUpload(file);
+            productService.save(product);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return "redirect:listado";
     }
 
@@ -129,8 +142,35 @@ public class ProductAdminController {
      * @see ProductService#update(long, Product)
      */
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
-    public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product) {
+    public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product,@RequestParam("file")MultipartFile file) {
+        if(!file.getOriginalFilename().isEmpty()){
+            try {
+                product.setPhoto(file.getOriginalFilename());
+                fileUpload(file);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         productService.update(id, product);
         return "redirect:/admin/producto/listado";
+    }
+    private void fileUpload(MultipartFile file) throws IOException {
+        if (!file.getOriginalFilename().isEmpty()) {
+
+            File aux= new File(".");
+            File aux2=new File(aux.getParent());
+
+            String url=aux2.getAbsolutePath();
+            BufferedOutputStream outputStream = new BufferedOutputStream(
+                    new FileOutputStream(
+                            new File(url+"/src/main/webapp/electro", file.getOriginalFilename())));
+            outputStream.write(file.getBytes());
+            outputStream.flush();
+            outputStream.close();
+
+
+        }
     }
 }
