@@ -125,7 +125,7 @@
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/alta">Alta
                                 Producto</a>
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/listado">Listado</a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/imagenes">Imagenes</a>
+
                         </div>
                     </li>
 
