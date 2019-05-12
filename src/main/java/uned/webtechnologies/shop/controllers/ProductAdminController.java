@@ -1,17 +1,15 @@
 package uned.webtechnologies.shop.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
-import uned.webtechnologies.shop.inmemorydb.model.Promotion;
-import uned.webtechnologies.shop.services.BrandService;
-import uned.webtechnologies.shop.services.CategoryService;
-import uned.webtechnologies.shop.services.ProductService;
-import uned.webtechnologies.shop.services.PromotionService;
+import uned.webtechnologies.shop.services.*;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -32,6 +30,7 @@ public class ProductAdminController {
     private BrandService brandService;
     private PromotionService promotionService;
 
+
     /**
      * Construye un controlador .
      *
@@ -50,6 +49,7 @@ public class ProductAdminController {
         this.categoryService = categoryService;
         this.brandService = brandService;
         this.promotionService = promotionService;
+
     }
 
     /**
@@ -85,26 +85,11 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitud POST ("admin/producto/alta") guardando el producto creado
-     * @param product Producto creado en el formulario que se desea guardar
-     * @return Cadena de texto que redirecciona la "/listado"
-     * @see ProductService#save(Product)
-     */
-    @RequestMapping(value = "/alta", method = RequestMethod.POST)
-    public String create(@ModelAttribute("product") Product product,@RequestParam("file")MultipartFile file) {
-        product.setPhoto(file.getOriginalFilename());
-        try {
-            fileUpload(file);
-            productService.save(product);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        return "redirect:listado";
-    }
-
-    /**Método que responde a la solicitud GET ("admin/producto/listado") poniendo a
+    /**
+     * Método que responde a la solicitud GET ("admin/producto/listado") poniendo a
      * disposición de la vista "product/list" la lista de productos
+     *
      * @return ModelAndView "product/list" con la lista de productos
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see ProductService#getProducts()
@@ -116,8 +101,10 @@ public class ProductAdminController {
         return result;
     }
 
-    /**Método que responde a la solicitud GET ("admin/editar/{id}") donde {id} corresponde con el
+    /**
+     * Método que responde a la solicitud GET ("admin/editar/{id}") donde {id} corresponde con el
      * identificador único del producto del que se obtienen los detalles
+     *
      * @param id Identificador único del producto del que se obtienen los detalles
      * @return ModelAndView "product/edit" con la información relativa al producto
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
@@ -131,45 +118,64 @@ public class ProductAdminController {
         result.addObject("categoryList", this.categoryService.getCategories());
         result.addObject("product", this.productService.getProduct(id));
         result.addObject("productPromo", this.productService.getPromotionsByProductId(id));
+
         return result;
     }
 
-    /**Método que responde a la solicitud POST (admin/editar/{id}) donde {id} corresponde con el
+    /**
+     * Método que responde a la solicitud POST (admin/editar/{id}) donde {id} corresponde con el
      * identificador único que se quiere editar
-     * @param id Identificador único del producto a editar
+     *
+     * @param id      Identificador único del producto a editar
      * @param product Producto con la nueva información
      * @return Cadena de texto que redirecciona a /admin/producto/listado
      * @see ProductService#update(long, Product)
      */
     @RequestMapping(value = "/editar/{id}", method = RequestMethod.POST)
-    public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product,@RequestParam("file")MultipartFile file) {
-        if(!file.getOriginalFilename().isEmpty()){
-            try {
-                product.setPhoto(file.getOriginalFilename());
-                fileUpload(file);
+    public String edit(@PathVariable("id") long id, @ModelAttribute("product") Product product, @RequestParam("file") MultipartFile file) throws IOException {
+        if (file != null) {
+            String photo = file.getOriginalFilename();
+            product.setPhoto(photo);
+            uploadFile(file);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
         productService.update(id, product);
         return "redirect:/admin/producto/listado";
     }
-    private void fileUpload(MultipartFile file) throws IOException {
+
+
+    /**
+     * Método que responde a la solicitud POST ("admin/producto/alta") guardando el producto creado
+     *
+     * @param product Producto creado en el formulario que se desea guardar
+     * @return Cadena de texto que redirecciona la "/listado"
+     * @see ProductService#save(Product)
+     */
+    @RequestMapping(value = "/alta", method = RequestMethod.POST)
+    public String create(@ModelAttribute("product") Product product, @RequestParam("file") MultipartFile file, Model model) throws IOException {
+
+        String url = file.getOriginalFilename();
+        product.setPhoto(url);
+        productService.save(product);
+        uploadFile(file);
+
+
+        return "redirect:listado";
+    }
+
+    private void uploadFile(MultipartFile file) throws IOException {
         if (!file.getOriginalFilename().isEmpty()) {
+            File aux = new File(".");
+            File aux2 = new File(aux.getAbsolutePath());
+            String ruta = aux2.getParent();
 
-            File aux= new File(".");
-            File aux2=new File(aux.getParent());
-
-            String url=aux2.getAbsolutePath();
             BufferedOutputStream outputStream = new BufferedOutputStream(
                     new FileOutputStream(
-                            new File(url+"/src/main/webapp/electro", file.getOriginalFilename())));
+                            new File(ruta + "/src/main/webapp/electro/", file.getOriginalFilename())));
             outputStream.write(file.getBytes());
             outputStream.flush();
             outputStream.close();
-
 
         }
     }
