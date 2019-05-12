@@ -22,6 +22,9 @@ public class PurchaseLineService {
 
     @Autowired
     private PurchaseLineRepository purchaseLineRepository;
+    @Autowired
+    private CartService cartService;
+
 
     /**
      *
@@ -150,9 +153,13 @@ public class PurchaseLineService {
             purchase.setPurchasePrice(cart.getCartPrice());
             purchase.setUser(cart.getUser());
             this.save(purchase);
+            this.cartService.removeCart(cart);
+
+
 
 
         }
+
     }
 
     /** Método que devuelve la cantidad de compras existentes en el repositorio

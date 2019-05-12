@@ -79,7 +79,6 @@ public class PurchaseLineController {
                 result.addObject("mensaje","Tu compra ha sido realizada con exito. Agradecemos tu confianza.");
 
                 this.purchaseLineService.saveCarts(this.cartService.findByUser(user));
-                this.cartService.removeAllOfUser(user);
             } catch (Exception e) {
                 result.setViewName("purchase/purchaseWrong");
                 e.printStackTrace();
