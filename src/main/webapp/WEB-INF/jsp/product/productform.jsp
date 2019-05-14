@@ -7,7 +7,7 @@
     <h4 class="mb-3">Dar de alta un producto</h4>
     <hr>
 
-    <mvc:form method="post" modelAttribute="product" action="alta">
+    <mvc:form method="post" modelAttribute="product" action="alta" enctype="multipart/form-data">
 
         <div class="row">
 
@@ -80,9 +80,10 @@
                 <div class="row">
                     <div class="col-md-8 mb-3">
                         <div class="form-group">
-                            <label for="photo">Elige una foto del producto</label>
-                            <input type="file" id="photo" name="photo" class="form-control" value="/electro/"
+                            <label for="file">Elige una foto del producto</label>
+                            <input type="file" id="file" name="file" class="form-control" value=""
                                    required=""/>
+
                         </div>
                     </div>
 

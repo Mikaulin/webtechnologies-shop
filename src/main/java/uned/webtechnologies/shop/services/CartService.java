@@ -11,7 +11,9 @@ import uned.webtechnologies.shop.utils.NumberUtils;
 import java.io.Serializable;
 import java.util.List;
 
-/**Servicio que implementa la lógica de negocio del MVC entre el controlador y las Lineas de carrito del modelo
+/**
+ * Servicio que implementa la lógica de negocio del MVC entre el controlador y las Lineas de carrito del modelo
+ *
  * @see Cart
  * @see CartRepository
  */
@@ -69,16 +71,20 @@ public class CartService {
     }
 
 
-    /**Método que devuelve la coste total de las lineas de  carrito de la compra descontando un supuesto I.V.A aplicado del 21%
+    /**
+     * Método que devuelve la coste total de las lineas de  carrito de la compra descontando un supuesto I.V.A aplicado del 21%
+     *
      * @param user Usuario del que se obtiene el subtotal del carrito de compra
      * @return coste total de las lineas de  carrito de la compra descontando un supuesto I.V.A aplicado del 21%
      */
     public double userSubtotal(User user) {
-        return NumberUtils.roundDecimals(userTotal(user) /1.21);
+        return NumberUtils.roundDecimals(userTotal(user) / 1.21);
     }
 
 
-    /**Método que devuelve sumatorio el coste de un supuesto I.V.A del 21% aplicado a todos las lineas de carrito de un usuario
+    /**
+     * Método que devuelve sumatorio el coste de un supuesto I.V.A del 21% aplicado a todos las lineas de carrito de un usuario
+     *
      * @param user Usuario sobre el que se obtiene el I.V.A del 21%
      * @return sumatorio el coste de un supuesto I.V.A del 21% aplicado a todos las lineas de carrito de un usuario
      */
@@ -90,7 +96,9 @@ public class CartService {
     }
 
 
-    /**Método que devuelve el coste del sumatorio de las lineas de carrito del usuario
+    /**
+     * Método que devuelve el coste del sumatorio de las lineas de carrito del usuario
+     *
      * @param user Usuario sobre el que se quiere obtener el total
      * @return coste del sumatorio de las lineas de carrito del usuario
      * @see CartRepository#findByUser(User)
@@ -104,7 +112,9 @@ public class CartService {
         return total;
     }
 
-    /**Método que devuelve una linea de carro concreta del repositorio de lineas de carrito
+    /**
+     * Método que devuelve una linea de carro concreta del repositorio de lineas de carrito
+     *
      * @param id Identificador único de la linea de carrito que se desea
      * @return Linea de carrito "Cart"
      * @see CartRepository#findOne(Serializable)
@@ -113,7 +123,9 @@ public class CartService {
         return this.cartRepository.findOne(id);
     }
 
-    /**Método que borra una linea de carrito del repositorio de lineas de carrito
+    /**
+     * Método que borra una linea de carrito del repositorio de lineas de carrito
+     *
      * @param cart Linea de carrito que se desea borrar
      * @see CartRepository#delete(Serializable)
      */
@@ -121,10 +133,11 @@ public class CartService {
         this.cartRepository.delete(cart.getId());
     }
 
-    /**<P>Método que borra todas las lineas de carrito de un usuario.</P>
+    /**
+     * <P>Método que borra todas las lineas de carrito de un usuario.</P>
      * <p>Pensado prinipalmente para ser llamado tras formalizar la compra</p>
      *
-     * @param user  Usuario del que borrar las lineas de carrito.
+     * @param user Usuario del que borrar las lineas de carrito.
      * @see CartRepository#delete(Object)
      */
     public void removeAllOfUser(User user) {
@@ -135,7 +148,9 @@ public class CartService {
         }
     }
 
-    /**Método que devuelve todas las lineas de carrito de un usuario
+    /**
+     * Método que devuelve todas las lineas de carrito de un usuario
+     *
      * @param user Usuario del que obtener la lista de lineas de carrito
      * @return Lista de lineas de carrito de un usuario
      * @see CartRepository#findByUser(User)

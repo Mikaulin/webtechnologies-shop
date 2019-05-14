@@ -32,7 +32,7 @@
 
                 <div class="row">
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
-                        <input name="username" type="text" class="form-control" placeholder="Usuario" />
+                        <input name="username" type="text" class="form-control" placeholder="Usuario"/>
                     </div>
                     <div class="col-md-6 mb-3 ${error != null ? 'has-error' : ''}">
                         <input name="password" type="password" class="form-control" placeholder="Contraseña"/>

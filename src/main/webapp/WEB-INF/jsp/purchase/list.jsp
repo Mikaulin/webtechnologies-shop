@@ -38,7 +38,9 @@
         <c:forEach items="${purchaseLines}" var="purchaseLine">
             <tr>
                 <td> ${purchaseLine.id}</td>
-                <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" ></td>
+                <td width="100"><img class="card-img-top"
+                                     src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}">
+                </td>
                 <td width="280"> ${purchaseLine.product.description}</td>
                 <td> ${purchaseLine.unitPrice}</td>
                 <td> ${purchaseLine.count}</td>

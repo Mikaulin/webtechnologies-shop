@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Promociones del modelo
+/**
+ * Servicio que implementa la lógica de negócio del MVC entre el controlador y las Promociones del modelo
+ *
  * @see PromotionRepository
  * @see Promotion
  */
@@ -69,7 +71,9 @@ public class PromotionService {
         promotionRepository.save(promotion);
     }
 
-    /**Método que devuelve las promociones del repositorio que se encuentran activas en el momento de la consulta
+    /**
+     * Método que devuelve las promociones del repositorio que se encuentran activas en el momento de la consulta
+     *
      * @return Lista de promociones activas en el momento de la consulta
      * @see PromotionRepository
      * @see Promotion
@@ -87,8 +91,10 @@ public class PromotionService {
         return valids;
     }
 
-    /**Método que actualiza una promoción en el repositorio
-     * @param id Identificador único de la promoción que se desea actualizar
+    /**
+     * Método que actualiza una promoción en el repositorio
+     *
+     * @param id        Identificador único de la promoción que se desea actualizar
      * @param promotion promoción con la nueva información
      * @see PromotionRepository
      * @see Promotion

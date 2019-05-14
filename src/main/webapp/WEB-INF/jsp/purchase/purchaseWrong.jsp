@@ -27,7 +27,8 @@
     <div class="row">
         <div class="col-md-8 order-md-1">
             <h5>Causa del error:
-                <br><small>${mensaje}</small>
+                <br>
+                <small>${mensaje}</small>
             </h5>
 
             <br><br>
@@ -39,7 +40,6 @@
 
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-
 
 
 </div>

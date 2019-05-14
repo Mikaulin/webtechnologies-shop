@@ -2,8 +2,6 @@
 
 <%@ include file="../shared/_header.jsp" %>
 
-<%--Script DataTABLE--%>
-<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
 
 <div class="container">
 
@@ -56,7 +54,7 @@
                     <%--<td>${user.country}</td>--%>
                 <td>${user.email}</td>
                     <%--<td>${user.phone}</td>--%>
-                <td >${user.username}</td>
+                <td>${user.username}</td>
                 <c:if test="${user.deleted}">
                     <td class="text-danger">BAJA</td>
                 </c:if>
@@ -72,8 +70,8 @@
                         <a class="btn btn-sm btn-outline-secondary" role="button"
                            href="${pageContext.request.contextPath}/admin/ventas/historial/${user.username}">Ventas</a>
                         <c:if test="${!user.deleted}">
-                        <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
+                            <a class="btn btn-sm btn-outline-danger" role="button"
+                               href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
                         </c:if>
                         <c:if test="${user.deleted}">
                             <a class="btn btn-sm btn-outline-danger disabled" role="button"
@@ -93,4 +91,7 @@
 <p>&nbsp;</p>
 
 <%@ include file="../shared/_js.jsp" %>
+<%--Script DataTABLE--%>
+<script type="text/javascript" language="javascript" src="${pageContext.request.contextPath}/js/table.js"></script>
+
 <%@ include file="../shared/_footer.jsp" %>

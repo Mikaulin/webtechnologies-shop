@@ -39,7 +39,8 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="discount">Descuento</label>
-                        <input type="text" id="discount" name="discount" class="form-control" placeholder="0" required=""/>
+                        <input type="text" id="discount" name="discount" class="form-control" placeholder="0"
+                               required=""/>
                     </div>
                 </div>
 

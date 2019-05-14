@@ -6,13 +6,10 @@ import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.PurchaseLine;
 import uned.webtechnologies.shop.inmemorydb.model.Role;
 import uned.webtechnologies.shop.inmemorydb.model.User;
-import uned.webtechnologies.shop.inmemorydb.repository.RoleRepository;
 import uned.webtechnologies.shop.inmemorydb.repository.UserRepository;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 
 
 @Service
@@ -27,7 +24,7 @@ public class UserService {
     }
 
 
-    public User getUser(long id){
+    public User getUser(long id) {
         return this.userRepository.getOne(id);
     }
 
@@ -46,8 +43,9 @@ public class UserService {
         user.setDeleted(true);
         this.userRepository.save(user);
     }
-    public Set<PurchaseLine> getPurchaseLines(User user){
-        User u=this.userRepository.getOne(user.getId());
+
+    public Set<PurchaseLine> getPurchaseLines(User user) {
+        User u = this.userRepository.getOne(user.getId());
         return u.getPurchaseLines();
     }
 

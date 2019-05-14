@@ -3,13 +3,15 @@ package uned.webtechnologies.shop.utils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 
-/** Clase que implementa utilizades sobre cadenas de texto
- *
+/**
+ * Clase que implementa utilizades sobre cadenas de texto
  */
 public class StringUtils {
     private static final String separator = ", ";
 
-    /** Devuelve una representacion en texto formateada de un Error cambiando los "." por ","
+    /**
+     * Devuelve una representacion en texto formateada de un Error cambiando los "." por ","
+     *
      * @param errors Error sobre el que se desea obtener la representación en texto formateada
      * @return Cadena que representa el error con el formato deseado.
      * @see Errors
@@ -24,7 +26,8 @@ public class StringUtils {
 
     /**
      * Metodo que encarga de modificar una cadena de texto.
-     * @param str Cadena que se desea modificar
+     *
+     * @param str      Cadena que se desea modificar
      * @param original cadena sustituta
      * @param replaced cadena a sustituir por la sustituta
      * @return Cadena con las sustituciones solicitadas

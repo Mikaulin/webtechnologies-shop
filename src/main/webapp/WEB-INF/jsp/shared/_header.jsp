@@ -66,7 +66,8 @@
 
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <li>
-                        <a href="${pageContext.request.contextPath}/usuarios/login" id="login-link" class="trsn nav-link"
+                        <a href="${pageContext.request.contextPath}/usuarios/login" id="login-link"
+                           class="trsn nav-link"
                            title="Iniciar sesión">
                             <i class="fa fa-user fa-fw"></i>
                             <span class="customer-name">&Aacute;rea de cliente </span>
@@ -125,6 +126,7 @@
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/alta">Alta
                                 Producto</a>
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/producto/listado">Listado</a>
+
                         </div>
                     </li>
 

@@ -69,34 +69,34 @@
 
                 <tbody>
 
-                  <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
+                <c:forEach items="${user.getPurchaseByDate(date)}" var="sale">
 
-                  <tr>
-                    <td width="100">
-                        <img class="card-img-top" alt="${sale.product.name}"
-                             src="${pageContext.request.contextPath}/electro/${sale.product.photo}">
-                    </td>
-                    <td width="280">
-                        <span>${sale.product.name}</span>
-                    </td>
-                      <td width="280">
-                          <span>${sale.product.description}</span>
-                      </td>
-                    <td>
-                        <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
-                    </td>
-                    <td>
-                        <span class="order-product-price"> ${sale.count}</span>
-                    </td>
-                    <td>
-                        <span class="order-product-subtotal">${sale.purchasePrice} &euro;</span>
-                    </td>
-                    <td>
-                        <span>Tarjeta</span>
-                    </td>
-                  </tr>
+                    <tr>
+                        <td width="100">
+                            <img class="card-img-top" alt="${sale.product.name}"
+                                 src="${pageContext.request.contextPath}/electro/${sale.product.photo}">
+                        </td>
+                        <td width="280">
+                            <span>${sale.product.name}</span>
+                        </td>
+                        <td width="280">
+                            <span>${sale.product.description}</span>
+                        </td>
+                        <td>
+                            <span class="order-product-price"> ${sale.product.finalPrice} &euro;</span>
+                        </td>
+                        <td>
+                            <span class="order-product-price"> ${sale.count}</span>
+                        </td>
+                        <td>
+                            <span class="order-product-subtotal">${sale.purchasePrice} &euro;</span>
+                        </td>
+                        <td>
+                            <span>Tarjeta</span>
+                        </td>
+                    </tr>
 
-                   </c:forEach>
+                </c:forEach>
 
                 </tbody>
 
@@ -113,7 +113,8 @@
 
             <p>&nbsp;</p>
 
-            Por favor, elige una fecha diferente para generar un nuevo informe.</h5>
+            Por favor, elige una fecha diferente para generar un nuevo informe.
+        </h5>
     </c:if>
 
 
