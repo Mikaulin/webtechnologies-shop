@@ -2,6 +2,7 @@ package uned.webtechnologies.shop.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Controlador  para gestionar los productos, solo accesible para usuarios con el ROLE de ADMINISTRADOR
@@ -33,6 +36,8 @@ public class ProductAdminController {
     private BrandService brandService;
     private PromotionService promotionService;
 
+    @Value("${upload.images.path}")
+    private String uploadImagesPath;
 
     /**
      * Construye un controlador .
@@ -169,13 +174,10 @@ public class ProductAdminController {
 
     private void uploadFile(MultipartFile file) throws IOException {
         if (!file.getOriginalFilename().isEmpty()) {
-            File aux = new File(".");
-            File aux2 = new File(aux.getAbsolutePath());
-            String ruta = aux2.getParent();
-
+            Path currentWorkingDir = Paths.get("").toAbsolutePath();
             BufferedOutputStream outputStream = new BufferedOutputStream(
                     new FileOutputStream(
-                            new File(ruta + "/src/main/webapp/electro/", file.getOriginalFilename())));
+                            new File(currentWorkingDir + uploadImagesPath, file.getOriginalFilename())));
             outputStream.write(file.getBytes());
             outputStream.flush();
             outputStream.close();

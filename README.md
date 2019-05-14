@@ -32,32 +32,13 @@ Tenemos que añadir la siguiente dependencia para habilitar el soporte para JSP 
         </dependency>
 ```
 
-### Prerequisites
+### Para desplegar
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Para especificar la ruta relativa del proyecto donde se suben las imágenes, modificar el valor del archivo "application.properties":
 
 ```
-Give the example
+upload.images.path=/src/main/webapp/electro/
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 
 ### Generar un WAR con Spring Boot
 
