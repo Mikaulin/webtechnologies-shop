@@ -1,13 +1,11 @@
 $(document).ready(function () {
 
-    //Comprobar el estaodo del carrito
-
 
     $(".cart-product-remove").click(function (event) {
 
 
         var cartId = $(this).attr('attr-cart-id');
-        // extrae del  id="remove-from-cart-${cart.product.id}" del boton de la papelera el id del producto
+
 
         event.preventDefault();
 
@@ -48,6 +46,7 @@ $(document).ready(function () {
 
 
     });
+
     function addRating(productId) {
 
         var input = {};
@@ -143,7 +142,7 @@ $(document).ready(function () {
     function removeFromCart(cartId) {
 
         var input = {};
-        input["cartId"] =cartId;
+        input["cartId"] = cartId;
 
         $.ajax({
             type: "POST",
