@@ -3,7 +3,7 @@ package uned.webtechnologies.shop.controllers.output;
 /**
  * Clase que se encarga de recoger y mapear valores de salida de la puntuación de un producto.
  */
-public class RatingOutput implements Output{
+public class RatingOutput implements Output {
     private String message;
     private double averageRating;
     private double ratingPercent;

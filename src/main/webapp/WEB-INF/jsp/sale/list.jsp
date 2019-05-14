@@ -35,10 +35,12 @@
         </thead>
         <tbody>
 
-        <c:forEach items="${lines}" var="purchaseLine" >
+        <c:forEach items="${lines}" var="purchaseLine">
             <tr>
                 <td scope="row">${purchaseLine.id}</td>
-                <td width="100"><img class="card-img-top" src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}" alt="foto producto" ></td>
+                <td width="100"><img class="card-img-top"
+                                     src="${pageContext.request.contextPath}/electro/${purchaseLine.product.photo}"
+                                     alt="foto producto"></td>
                 <td width="280"> ${purchaseLine.product.name}</td>
                 <td> ${purchaseLine.unitPrice}</td>
                 <td> ${purchaseLine.count}</td>

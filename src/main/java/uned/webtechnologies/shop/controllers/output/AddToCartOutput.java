@@ -3,7 +3,7 @@ package uned.webtechnologies.shop.controllers.output;
 /**
  * Clase que se encarga de recoger y mapear valores de salida del carrito para su actualización.
  */
-public class AddToCartOutput implements Output{
+public class AddToCartOutput implements Output {
     private String message;
     private int totalProducts;
 

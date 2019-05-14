@@ -44,7 +44,7 @@ public class UserController {
     /**
      * Método POST del registro de usuario.
      *
-     * @param userForm Modelo User con los datos que vienen de la vista.
+     * @param userForm      Modelo User con los datos que vienen de la vista.
      * @param bindingResult Interfaz de validación para obtener si hay errores.
      * @return Redirecciona a la home de la web.
      */
@@ -62,8 +62,8 @@ public class UserController {
     /**
      * Método para conectarse a la web.
      *
-     * @param model Modelo que se asigna a la vista.
-     * @param error String con algún mensaje de error.
+     * @param model  Modelo que se asigna a la vista.
+     * @param error  String con algún mensaje de error.
      * @param logout String para saber si hay que desconectar.
      * @return La vista de login.
      */
@@ -85,7 +85,7 @@ public class UserController {
      * @return Devuelve los datos del usuario para mostrarlos por pantalla.
      */
     @GetMapping("/baja")
-    public ModelAndView bajaUser(@AuthenticationPrincipal UserDetails activeUser){
+    public ModelAndView bajaUser(@AuthenticationPrincipal UserDetails activeUser) {
         User user = userService.findByUsername(activeUser.getUsername());
         ModelAndView result = new ModelAndView("user/baja");
         result.addObject("bajaUser", user);
@@ -94,13 +94,14 @@ public class UserController {
 
     /**
      * Método POST para que el usuario conectado pueda darse de baja y le desconecte.
+     *
      * @param activeUser Usuario autenticado en el sistema
      * @return Cadena de texto que redirecciona a "/logout"
      */
     @PostMapping("/baja")
-    public String deleteUser(@AuthenticationPrincipal UserDetails activeUser){
+    public String deleteUser(@AuthenticationPrincipal UserDetails activeUser) {
         User user = this.userService.findByUsername(activeUser.getUsername());
-        if(user != null) {
+        if (user != null) {
             this.userService.delete(user);
         }
         return "redirect:/logout";
@@ -112,7 +113,7 @@ public class UserController {
      * @param model Modelo actual de la vista.
      * @return La vista de bienvenida.
      */
-    @GetMapping({ "/welcome"})
+    @GetMapping({"/welcome"})
     public String welcome(Model model) {
         return "welcome";
     }
@@ -124,7 +125,7 @@ public class UserController {
      * @return Devuelve a la vista el modelo User.
      */
     @GetMapping("/detalles/{username}")
-    public ModelAndView detailUser(@PathVariable("username")String username){
+    public ModelAndView detailUser(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("user/detail");
         result.addObject("detailUser", this.userService.findByUsername(username));
         return result;

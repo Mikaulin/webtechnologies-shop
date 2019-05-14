@@ -107,18 +107,19 @@ public class User implements Serializable {
 
     /**
      * Construye un nuevo usuario con un nombre, apellido, dirección completa, número de telefono,dirección de correo electrónico, nombre de usuario , contraseña y Rol
-     * @param name Nombre
-     * @param lastname1 1er apellido
-     * @param direction Dirección
-     * @param city Ciudad
+     *
+     * @param name       Nombre
+     * @param lastname1  1er apellido
+     * @param direction  Dirección
+     * @param city       Ciudad
      * @param postalCode Codigo postal
-     * @param province Provincia
-     * @param country País
-     * @param email Dirección de correo electrónico
-     * @param phone Número de telefono
-     * @param username Nombre de usuario
-     * @param password Contraseña
-     * @param role Role
+     * @param province   Provincia
+     * @param country    País
+     * @param email      Dirección de correo electrónico
+     * @param phone      Número de telefono
+     * @param username   Nombre de usuario
+     * @param password   Contraseña
+     * @param role       Role
      */
     public User(String name, String lastname1, String direction, String city, int postalCode, String province, String country, String email, String phone, String username, String password, Role role) {
         this.name = name;
@@ -508,14 +509,18 @@ public class User implements Serializable {
         this.roles = roles;
     }
 
-    /**Método que devuelve un booleano sobre el estado "borrado" del usuario
+    /**
+     * Método que devuelve un booleano sobre el estado "borrado" del usuario
+     *
      * @return Booleano sobre el estado "borrado" del usuario
      */
     public boolean isDeleted() {
         return deleted;
     }
 
-    /**Método que define el estado "borrado" del usuario
+    /**
+     * Método que define el estado "borrado" del usuario
+     *
      * @param deleted booleano del estado "borrado" del usuario.
      */
     public void setDeleted(boolean deleted) {
@@ -535,7 +540,9 @@ public class User implements Serializable {
         this.roles.add(role);
     }
 
-    /** Método que devuelve todas las compras realizadas
+    /**
+     * Método que devuelve todas las compras realizadas
+     *
      * @return Conjunto "Set" de las compras realizadas.
      * @see PurchaseLine
      * @see Set

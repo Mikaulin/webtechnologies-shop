@@ -2,8 +2,6 @@ package uned.webtechnologies.shop.inmemorydb.fixtures;
 
 import java.text.ParseException;
 
-import java.text.ParseException;
-
 /**
  * Interface que deben implementar todas las clases que se encarguen de persistir entidades en la BBDD
  */

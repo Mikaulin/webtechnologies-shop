@@ -20,7 +20,6 @@
                 <mvc:input type="hidden" path="id" class="form-control" value="${purchase.id}"/>
 
 
-
                 <table class="table">
                     <thead>
                     <tr>
@@ -70,7 +69,7 @@
 
                 <p>&nbsp;</p>
 
-                <button class="btn btn-lg btn-danger" type="submit"> Confirmar </button>
+                <button class="btn btn-lg btn-danger" type="submit"> Confirmar</button>
 
             </mvc:form>
 

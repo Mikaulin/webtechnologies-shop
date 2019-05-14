@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import uned.webtechnologies.shop.inmemorydb.model.RatingValue;
 import uned.webtechnologies.shop.inmemorydb.repository.RatingValueRepository;
 
-/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las RatingValues del modelo
+/**
+ * Servicio que implementa la lógica de negócio del MVC entre el controlador y las RatingValues del modelo
+ *
  * @see RatingValueRepository
  * @see RatingValue
  */
@@ -15,13 +17,15 @@ public class RatingValueService {
     @Autowired
     private RatingValueRepository ratingValueRepository;
 
-    /**Método que devuelve una RatingValue del repositorio
+    /**
+     * Método que devuelve una RatingValue del repositorio
+     *
      * @param id Identificaro único del RatingValue que se desea
      * @return RatingValue
      * @see RatingValueRepository
      * @see RatingValue
      */
-    public RatingValue getOne(long id){
+    public RatingValue getOne(long id) {
         return this.ratingValueRepository.getOne(id);
     }
 }

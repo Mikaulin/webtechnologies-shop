@@ -17,7 +17,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     FixturesLoader fixturesLoader;
 
     @Override
-    public void run(String...args) throws Exception {
+    public void run(String... args) throws Exception {
         fixturesLoader.execute();
     }
 }

@@ -11,9 +11,9 @@ import uned.webtechnologies.shop.inmemorydb.model.User;
 import uned.webtechnologies.shop.services.UserService;
 import uned.webtechnologies.shop.validator.UserValidator;
 
-/** Controlador para gestionar los Usuarios de la vista-modelo,solo accesible para usuarios con el ROLE de ADMINISTRADOR
+/**
+ * Controlador para gestionar los Usuarios de la vista-modelo,solo accesible para usuarios con el ROLE de ADMINISTRADOR
  * <P>Responde a las URLs "/admin/usuarios(/..)*"</P>
- *
  */
 
 @Secured("ROLE_ADMIN")
@@ -40,7 +40,7 @@ public class UserAdminController {
     /**
      * Método POST para que el administrador de de alta un nuevo cliente.
      *
-     * @param userForm Modelo User con los datos del nuevo usuario.
+     * @param userForm      Modelo User con los datos del nuevo usuario.
      * @param bindingResult Interfaz de validación para obtener si hay errores.
      * @return Redirecciona al listado de usuarios.
      */
@@ -73,7 +73,7 @@ public class UserAdminController {
      * @return Devuelve a la vista los datos del usuario.
      */
     @GetMapping("/editar/{username}")
-    public ModelAndView editUser(@PathVariable("username")String username){
+    public ModelAndView editUser(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("user/edit");
         result.addObject("editUser", this.userService.findByUsername(username));
         return result;
@@ -83,7 +83,7 @@ public class UserAdminController {
      * Método POST para modificar los datos de un usuario ya existente.
      *
      * @param username Un string con el username del usuario.
-     * @param user La entidad User.
+     * @param user     La entidad User.
      * @return Redirige a la pantalla del listado.
      */
     @RequestMapping(value = "/editar/{username}", method = RequestMethod.POST)
@@ -99,7 +99,7 @@ public class UserAdminController {
      * @return Devuelve a la vista los datos de un usuario.
      */
     @GetMapping("/detalles/{username}")
-    public ModelAndView detailUser(@PathVariable("username")String username){
+    public ModelAndView detailUser(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("user/detail");
         result.addObject("detailUser", this.userService.findByUsername(username));
         return result;
@@ -112,7 +112,7 @@ public class UserAdminController {
      * @return Devuelve los datos del usuario a la vista.
      */
     @GetMapping("/baja/{username}")
-    public ModelAndView bajaUser(@PathVariable("username")String username){
+    public ModelAndView bajaUser(@PathVariable("username") String username) {
         ModelAndView result = new ModelAndView("user/adminBaja");
         result.addObject("user", this.userService.findByUsername(username));
         return result;
@@ -125,9 +125,9 @@ public class UserAdminController {
      * @return Redirige al listado de usuarios.
      */
     @PostMapping("/baja/{username}")
-    public String deleteUser(@PathVariable("username")String username){
+    public String deleteUser(@PathVariable("username") String username) {
         User user = this.userService.findByUsername(username);
-        if(user != null) {
+        if (user != null) {
             this.userService.delete(user);
         }
         return "redirect:/admin/usuarios/listado";

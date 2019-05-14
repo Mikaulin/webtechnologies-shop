@@ -3,7 +3,6 @@
 <%@ include file="../shared/_header.jsp" %>
 
 
-
 <div class="container">
 
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
@@ -55,7 +54,7 @@
                     <%--<td>${user.country}</td>--%>
                 <td>${user.email}</td>
                     <%--<td>${user.phone}</td>--%>
-                <td >${user.username}</td>
+                <td>${user.username}</td>
                 <c:if test="${user.deleted}">
                     <td class="text-danger">BAJA</td>
                 </c:if>
@@ -71,8 +70,8 @@
                         <a class="btn btn-sm btn-outline-secondary" role="button"
                            href="${pageContext.request.contextPath}/admin/ventas/historial/${user.username}">Ventas</a>
                         <c:if test="${!user.deleted}">
-                        <a class="btn btn-sm btn-outline-danger" role="button"
-                           href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
+                            <a class="btn btn-sm btn-outline-danger" role="button"
+                               href="${pageContext.request.contextPath}/admin/usuarios/baja/${user.username}">Baja</a>
                         </c:if>
                         <c:if test="${user.deleted}">
                             <a class="btn btn-sm btn-outline-danger disabled" role="button"

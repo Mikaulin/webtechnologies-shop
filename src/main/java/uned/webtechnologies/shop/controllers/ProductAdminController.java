@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.inmemorydb.model.Product;
-import uned.webtechnologies.shop.services.*;
+import uned.webtechnologies.shop.services.BrandService;
+import uned.webtechnologies.shop.services.CategoryService;
+import uned.webtechnologies.shop.services.ProductService;
+import uned.webtechnologies.shop.services.PromotionService;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

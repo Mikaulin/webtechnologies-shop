@@ -11,7 +11,9 @@ import uned.webtechnologies.shop.inmemorydb.repository.ProductRepository;
 import java.util.List;
 import java.util.Set;
 
-/**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Productos del modelo
+/**
+ * Servicio que implementa la lógica de negócio del MVC entre el controlador y las Productos del modelo
+ *
  * @see ProductRepository
  * @see Product
  */
@@ -59,7 +61,9 @@ public class ProductService {
     }
 
 
-    /**Método que devuelve todos los productos destacados del repositorio
+    /**
+     * Método que devuelve todos los productos destacados del repositorio
+     *
      * @return Lista de productos destacados
      * @see ProductRepository
      * @see Product
@@ -68,7 +72,9 @@ public class ProductService {
         return this.productRepository.getProductByFeaturedTrue();
     }
 
-    /**Método que guarda o actualiza un producto en el repositorio
+    /**
+     * Método que guarda o actualiza un producto en el repositorio
+     *
      * @param product Producto que se quiere guardar o actualizar
      * @see ProductRepository
      * @see Product
@@ -77,7 +83,9 @@ public class ProductService {
         this.productRepository.save(product);
     }
 
-    /**Método que devuelve un numero que indica la cantidad total de productos existentes en el repositorio
+    /**
+     * Método que devuelve un numero que indica la cantidad total de productos existentes en el repositorio
+     *
      * @return Número con la cantidad total de productos existentes en el repositorio
      * @see ProductRepository
      * @see Product
@@ -86,7 +94,9 @@ public class ProductService {
         return this.productRepository.count();
     }
 
-    /**Método que devuelve todos los productos del repositorio que pertenezcan a una marca concreta
+    /**
+     * Método que devuelve todos los productos del repositorio que pertenezcan a una marca concreta
+     *
      * @param id Identificador único de la marca a la que pertenecen los productos que se desean
      * @return Lista de productos que pertenecen a una marca concreta
      * @see ProductRepository
@@ -97,7 +107,9 @@ public class ProductService {
         return this.productRepository.getProductByBrandId(id);
     }
 
-    /**Método que devuelve todos los productos del repositorio que pertenezcan a una categoría concreta
+    /**
+     * Método que devuelve todos los productos del repositorio que pertenezcan a una categoría concreta
+     *
      * @param id Identificador único de la categoría a la que pertenecen los productos que se desean
      * @return Lista de productos que pertenecen a una categoría concreta
      * @see ProductRepository
@@ -108,8 +120,10 @@ public class ProductService {
         return this.productRepository.getProductByCategoryId(id);
     }
 
-    /**Método que se encarga de actualizar un producto en el repositorio
-     * @param id Identificador único del producto que se desea actualizar
+    /**
+     * Método que se encarga de actualizar un producto en el repositorio
+     *
+     * @param id      Identificador único del producto que se desea actualizar
      * @param product Producto con la nueva información
      * @see ProductRepository
      * @see Product

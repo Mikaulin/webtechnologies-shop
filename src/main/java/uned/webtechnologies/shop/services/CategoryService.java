@@ -9,7 +9,9 @@ import java.util.List;
 
 @Service
 public class CategoryService {
-    /**Servicio que implementa la lógica de negócio del MVC entre el controlador y las Categorias del modelo
+    /**
+     * Servicio que implementa la lógica de negócio del MVC entre el controlador y las Categorias del modelo
+     *
      * @see Category
      * @see CategoryRepository
      */
@@ -17,7 +19,9 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    /**Método que devuelve las categorías del repositorio
+    /**
+     * Método que devuelve las categorías del repositorio
+     *
      * @return Lista de categorías del repositorio
      * @see CategoryRepository
      * @see Category

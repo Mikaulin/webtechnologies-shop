@@ -12,7 +12,6 @@ import uned.webtechnologies.shop.services.RatingService;
 /**
  * Controlador que gestiona las promociones en la vista-modelo .
  * <p>Responde a las URLs "/promociones(/..)*"</p>
- *
  */
 
 @Controller
@@ -22,9 +21,11 @@ public class PromoController {
     private PromotionService promotionService;
     private RatingService ratingService;
 
-    /**Construye un controlador con el servicio de promociones y el servicio de Ratings
+    /**
+     * Construye un controlador con el servicio de promociones y el servicio de Ratings
+     *
      * @param promotionService Servicio de promociones con el que interactuar
-     * @param ratingService  Servicio de valoraciones de productos
+     * @param ratingService    Servicio de valoraciones de productos
      * @see PromotionService
      */
     @Autowired
@@ -34,10 +35,12 @@ public class PromoController {
     }
 
 
-    /**Método que responde a la solicitud GET ("/{id}")
+    /**
+     * Método que responde a la solicitud GET ("/{id}")
      * poniendo a disposición de la vista "promo/listproductpromo"  las promociones activas del sistema
      * y la lista de productos que pertenecen a una promoción concreta donde
      * {id} es el identificador único de la promoción concreta
+     *
      * @param id Identficicador único de la promoción de la que se desean los productos
      * @return ModelAndView "promo/listproductpromo" con la lista de promociones activas del sistema "promotion",
      * y la lista de productos que pertenecen a una promoción concreta "products" donde
@@ -54,8 +57,10 @@ public class PromoController {
         return result;
     }
 
-    /**Método que responde a la solicitud GET ("promociones") poniendo a disposición de la vista "promo/promotion"
+    /**
+     * Método que responde a la solicitud GET ("promociones") poniendo a disposición de la vista "promo/promotion"
      * la lista de promociones activas del sistema
+     *
      * @return ModelAndView "promo/promotion" con la lista de promociones activas del sistema "promotion"
      * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      * @see PromotionService#getActivePromotions()

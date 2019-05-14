@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import uned.webtechnologies.shop.services.BrandService;
 import uned.webtechnologies.shop.services.ProductService;
 
-/** Controlador para gestionar las marcas de la vista-modelo
+/**
+ * Controlador para gestionar las marcas de la vista-modelo
  * <P>Responde a las URLs "/marcas(/..)*"</P>
- *
  */
 
 @Controller
@@ -21,8 +21,10 @@ public class BrandController {
     private BrandService brandService;
     private ProductService productService;
 
-    /**Construye un controlador con un BrandSerivce y un ProductService
-     * @param brandService BrandService que interactua con las marcas
+    /**
+     * Construye un controlador con un BrandSerivce y un ProductService
+     *
+     * @param brandService   BrandService que interactua con las marcas
      * @param productService ProductService que interactura con los productos.
      * @see BrandService
      * @see ProductService
@@ -33,12 +35,14 @@ public class BrandController {
         this.productService = productService;
     }
 
-    /**Método que responde a la solicitud get ("/marcas")
+    /**
+     * Método que responde a la solicitud get ("/marcas")
      * poniendo a disposición de la vista ("brand/list") la lista de marcas del sistema
+     *
      * @return ModelAndView "brand/list" con la lista de marcas "brands"
      * @see BrandService
      * @see uned.webtechnologies.shop.inmemorydb.model.Brand
-     * @see  <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
+     * @see <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/ModelAndView.html">ModelAndView</a>
      */
     @GetMapping()
     public ModelAndView list() {
@@ -47,7 +51,9 @@ public class BrandController {
         return result;
     }
 
-    /**Método que responde a la solicitud get ("/marcas/{id}") donde {id} es el identificador de la marca
+    /**
+     * Método que responde a la solicitud get ("/marcas/{id}") donde {id} es el identificador de la marca
+     *
      * @param id Identificador único de la marca a la que deben pertenecer los productos
      * @return ModelAndView "brand/detail" con una Lista de productos que pertenecen a una marca concreta "products" y la lista de marcas del sistema "brands"
      * @see ProductService#getProductsByBrandId(long)
