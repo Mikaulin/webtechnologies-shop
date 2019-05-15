@@ -34,11 +34,18 @@ Tenemos que añadir la siguiente dependencia para habilitar el soporte para JSP 
 
 ### Para desplegar
 
-Para especificar la ruta relativa del proyecto donde se suben las imágenes, modificar el valor del archivo "application.properties":
+Para especificar la ruta relativa del proyecto donde se suben las imágenes, modificar el valor del archivo "application.properties".
 
+En localhost:
 ```
 upload.images.path=/src/main/webapp/electro/
 ```
+
+Para el Tomcat de la VM:
+```
+upload.images.path=/opt/tomcat/webapps/shop-0.0.1-SNAPSHOT/electro
+```
+
 
 ### Generar un WAR con Spring Boot
 
