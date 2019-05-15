@@ -11,7 +11,7 @@
 
     <p>&nbsp;</p>
 
-    <mvc:form method="POST" modelAttribute="bajaUser" action="${contextPath}/usuarios/baja"
+    <mvc:form method="POST" modelAttribute="bajaUser"
               commandName="bajaUser" class="form-signin">
 
         <div class="row">
